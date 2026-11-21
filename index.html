@@ -10,7 +10,7 @@
 :root{
   --bg:#070b17; --bg2:#0c1226; --card:#101830; --card2:#162040; --line:#25315a; --ink:#eef2ff; --mute:#8d9bc4;
   --gold:#f5c451; --gold2:#ffdf8a; --red:#ff4d5e; --green:#35d49a; --blue:#6aa7ff;
-  --chatgpt:#10a37f; --claude:#ff8a1f; --gemini:#22d3ee; --codex:#9b5cf6;
+  --chatgpt:#10a37f; --claude:#ff8a1f; --gemini:#22d3ee; --codex:#9b5cf6; --grok:#8c8c8c;
   --S:#ffd24a; --A:#ff8a3d; --B:#5eead4; --C:#6aa7ff; --D:#8d9bc4;
 }
 *{box-sizing:border-box;margin:0}
@@ -145,7 +145,7 @@ footer{margin-top:40px;color:var(--mute);font-size:12px;text-align:center}
 <script>
 const BASE = location.pathname.includes('/site/') ? '../' : './';
 const DEMO = new URLSearchParams(location.search).has('demo');
-const TEAMCOL = {chatgpt:'#10a37f',claude:'#ff8a1f',gemini:'#22d3ee',codex:'#9b5cf6'};
+const TEAMCOL = {chatgpt:'#10a37f',claude:'#ff8a1f',gemini:'#22d3ee',codex:'#9b5cf6',grok:'#8c8c8c'};
 const TABS = [['home','Home'],['board','Leaderboard'],['tiers','Tier List'],['factions','Factions'],['fighters','Fighters'],['history','Fight History'],['bets','Betting'],['how','How It Works']];
 const REFRESH = 30;
 let D = null, tab = (location.hash||'#home').slice(1).split('/')[0], sortKey='elo', sortDir=-1, query='', lastFetch=0, countdown=REFRESH;
