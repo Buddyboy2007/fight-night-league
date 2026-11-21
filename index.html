@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fight Night Forever League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b17; --bg2:#0c1226; --card:#101830; --card2:#162040; --line:#25315a; --ink:#eef2ff; --mute:#8d9bc4;
+  --gold:#f5c451; --gold2:#ffdf8a; --red:#ff4d5e; --green:#35d49a; --blue:#6aa7ff;
+  --chatgpt:#10a37f; --claude:#ff8a1f; --gemini:#22d3ee; --codex:#9b5cf6;
+  --S:#ffd24a; --A:#ff8a3d; --B:#5eead4; --C:#6aa7ff; --D:#8d9bc4;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:15px/1.45 Inter,system-ui,sans-serif;color:var(--ink);background:
+  radial-gradient(1200px 600px at 80% -10%,#1b2b63 0,transparent 60%),
+  radial-gradient(900px 500px at -10% 10%,#3b1d63 0,transparent 55%),var(--bg);min-height:100vh}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+header{padding:28px 0 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand h1{font-size:clamp(26px,4.6vw,42px);font-weight:900;letter-spacing:-.02em;line-height:1}
+.brand h1 b{color:var(--gold)}
+.brand p{color:var(--mute);margin-top:8px;max-width:560px}
+.live{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:13px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 #35d49a99;animation:pulse 2s infinite}
+.dot.stale{background:var(--red);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 9px #35d49a00}100%{box-shadow:0 0 0 0 #35d49a00}}
+.demo{background:#ff4d5e22;border:1px solid var(--red);color:#ffb3bb;padding:8px 14px;border-radius:10px;font-weight:600;margin-bottom:10px;font-size:13px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 22px;position:sticky;top:0;z-index:10;padding:10px 0;background:linear-gradient(var(--bg) 70%,transparent)}
+nav button{font:600 13px Inter;color:var(--mute);background:var(--card);border:1px solid var(--line);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
+nav button:hover{color:var(--ink);border-color:#3a4a85}
+nav button.on{color:#1a1200;background:linear-gradient(180deg,var(--gold2),var(--gold));border-color:var(--gold)}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:18px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+.g15{grid-template-columns:1.5fr 1fr}
+@media(max-width:560px){.g2,.g3,.g4,.g15{grid-template-columns:1fr}.g4.st{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){.g15{grid-template-columns:1fr}}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:12px}
+h3{font-size:18px;font-weight:800}
+.mute{color:var(--mute)}.small{font-size:12px}
+.stat{text-align:center}.stat b{display:block;font-size:30px;font-weight:900;color:var(--gold2)}.stat span{font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.sec{margin-top:22px}
+/* portraits */
+.av{position:relative;flex:none;width:var(--s,46px);height:var(--s,46px);border-radius:50%;background:#1b2750;overflow:hidden;border:2px solid var(--tc,#3a4a85);display:grid;place-items:center;font-weight:800;color:var(--mute)}
+.av img.p{width:100%;height:100%;object-fit:cover;object-position:top}
+.av img.f{position:absolute;right:-1px;bottom:-1px;width:38%;height:auto;border-radius:3px;border:1px solid #0008}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#ffffff0f;border:1px solid #ffffff1a}
+.chip img{width:14px;height:14px;border-radius:3px}
+.tier{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;font-weight:900;color:#10131f;font-size:14px}
+.t-S{background:var(--S)}.t-A{background:var(--A)}.t-B{background:var(--B)}.t-C{background:var(--C)}.t-D{background:var(--D)}.t-\?{background:#3a4a85;color:var(--mute)}
+.W{color:var(--green)}.L{color:var(--red)}
+.form{display:inline-flex;gap:3px}.form i{width:9px;height:9px;border-radius:2px;background:#3a4a85}.form i.W{background:var(--green)}.form i.L{background:var(--red)}
+/* match card */
+.match{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center}
+@media(max-width:640px){.match{grid-template-columns:1fr}.vs{justify-self:center}}
+.side{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.side .nm{font-size:22px;font-weight:900;line-height:1.1}
+.vs{font-weight:900;color:var(--gold);font-size:30px;letter-spacing:.06em}
+.bar{height:16px;border-radius:999px;overflow:hidden;display:flex;background:#222c55;margin:16px 0 6px}
+.bar i{display:block;height:100%;transition:width .5s}
+.bar .a{background:linear-gradient(90deg,#ff4d5e,#ff8a8a)}.bar .b{background:linear-gradient(90deg,#8ab4ff,#4a7bff)}
+.odds{display:flex;justify-content:space-between;font-weight:800}
+.odds span small{display:block;color:var(--mute);font-weight:500;font-size:12px}
+/* tables */
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;user-select:none}
+th.r,td.r{text-align:right}
+td{padding:9px 10px;border-top:1px solid #ffffff10;vertical-align:middle}
+tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
+.who{display:flex;align-items:center;gap:10px;font-weight:700}
+.scroll{overflow-x:auto}
+.rk{color:var(--mute);font-weight:800;width:34px}
+.rk.top{color:var(--gold)}
+/* tiers */
+.tierrow{display:flex;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:10px;background:var(--card)}
+.tierrow .lab{flex:none;width:74px;display:grid;place-items:center;font-size:34px;font-weight:900;color:#10131f}
+.tierrow .body{display:flex;flex-wrap:wrap;gap:10px;padding:12px;flex:1;min-height:70px}
+.tcell{display:flex;flex-direction:column;align-items:center;width:84px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;gap:4px}
+.tcell small{color:var(--mute);font-weight:500}
+/* factions */
+.fac{position:relative;overflow:hidden}
+.fac::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--tc)}
+.fac .top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.fac .top img{width:54px;height:54px;border-radius:12px;background:#0006;padding:6px}
+.fac .rec{font-size:30px;font-weight:900}
+.mini{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pbar{height:8px;border-radius:99px;background:#222c55;overflow:hidden;margin-top:8px}.pbar i{display:block;height:100%;background:var(--tc)}
+/* inputs */
+input[type=search],input[type=number],select{font:600 14px Inter;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;outline:none}
+input:focus,select:focus{border-color:var(--gold)}
+.btn{font:700 13px Inter;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;color:#1a1200;background:linear-gradient(180deg,var(--gold2),var(--gold))}
+.btn.ghost{background:transparent;color:var(--mute);border:1px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+/* fight rows */
+.fr{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;padding:11px 4px;border-top:1px solid #ffffff10}
+.fr:first-child{border-top:0}
+.fr .tm{font-size:11px;color:var(--mute);line-height:1.3}
+.fr .names{font-weight:700}.fr .names s{color:var(--mute);font-weight:500}
+.how{font-size:12px;font-weight:800;text-align:right;color:var(--gold2)}
+.up{display:inline-block;font-size:10px;font-weight:900;background:var(--red);color:#fff;border-radius:5px;padding:1px 6px;margin-left:6px;letter-spacing:.06em}
+/* modal */
+#modal{position:fixed;inset:0;background:#000b;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 14px;z-index:50}
+#modal.on{display:flex}
+#modal .card{max-width:760px;width:100%;position:relative}
+#modal .x{position:absolute;right:14px;top:12px;background:none;border:0;color:var(--mute);font-size:26px;cursor:pointer}
+.profile{display:flex;gap:18px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.spark{width:100%;height:130px;margin-top:6px}
+.kv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+@media(max-width:560px){.kv{grid-template-columns:repeat(2,1fr)}}
+.kv div{background:var(--bg2);border-radius:10px;padding:10px;text-align:center}.kv b{display:block;font-size:20px}.kv span{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+/* betting */
+.slip{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px;border-top:1px solid #ffffff10}
+.pill{font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.05em}
+.pill.won{background:#35d49a26;color:var(--green)}.pill.lost{background:#ff4d5e26;color:var(--red)}.pill.open{background:#f5c45126;color:var(--gold)}
+.bank{font-size:40px;font-weight:900;color:var(--gold2)}
+.banner{background:#f5c4511a;border:1px solid #f5c45155;border-radius:12px;padding:12px 16px;color:var(--gold2);font-size:13px;margin-bottom:16px}
+.empty{color:var(--mute);padding:26px;text-align:center}
+.how-it p{margin:8px 0;color:#c5cff0}
+.how-it code{background:var(--bg2);padding:1px 6px;border-radius:5px}
+footer{margin-top:40px;color:var(--mute);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>FIGHT NIGHT <b>FOREVER</b> LEAGUE</h1>
+      <p>Every bout of the 24/7 AI tournament, tracked live: ELO, records, factions, tiers and a play-money sportsbook.</p>
+    </div>
+    <div class="live"><span class="dot" id="dot"></span><span id="liveTxt">loading…</span></div>
+  </header>
+  <div id="demoBanner"></div>
+  <nav id="nav"></nav>
+  <main id="view"></main>
+  <footer>Odds and ELO are generated by the league's own model. The sportsbook uses play money only &mdash; no real money, no payouts. Fighter photos: <a href="credits.txt" style="color:inherit">credits &amp; licences</a>.</footer>
+</div>
+<div id="modal"><div class="card"><button class="x" onclick="closeModal()">&times;</button><div id="modalBody"></div></div></div>
+
+<script>
+const BASE = location.pathname.includes('/site/') ? '../' : './';
+const DEMO = new URLSearchParams(location.search).has('demo');
+const TEAMCOL = {chatgpt:'#10a37f',claude:'#ff8a1f',gemini:'#22d3ee',codex:'#9b5cf6'};
+const TABS = [['home','Home'],['board','Leaderboard'],['tiers','Tier List'],['factions','Factions'],['fighters','Fighters'],['history','Fight History'],['bets','Betting'],['how','How It Works']];
+const REFRESH = 30;
+let D = null, tab = (location.hash||'#home').slice(1).split('/')[0], sortKey='elo', sortDir=-1, query='', lastFetch=0, countdown=REFRESH;
+const byName = {};
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = (n,d=0)=> n==null?'–':Number(n).toFixed(d);
+const sur = n => { const w=n.split(/\s+/).filter(x=>!/^(jr\.?|sr\.?|ii|iii)$/i.test(x)); return w[w.length-1]; };
+const initials = n => n.split(/\s+/).filter(w=>/[A-Za-z]/.test(w[0])).slice(0,2).map(w=>w[0]).join('');
+const ago = ts => { const s=Math.max(0,Date.now()/1000-ts); if(s<90)return 'just now'; if(s<3600)return Math.round(s/60)+'m ago'; if(s<86400)return Math.round(s/3600)+'h ago'; return Math.round(s/86400)+'d ago'; };
+
+function av(f,size=46){
+  const tc = TEAMCOL[f.team]||'#3a4a85';
+  const flag = f.country ? `<img class="f" src="${BASE}flags/${esc(f.country)}.svg" onerror="this.remove()">` : '';
+  return `<span class="av" style="--s:${size}px;--tc:${tc}"><img class="p" src="${BASE}${esc(f.image)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${esc(initials(f.name))}'}))">${flag}</span>`;
+}
+const team = id => D.teams[id];
+const teamChip = id => `<span class="chip" style="color:${TEAMCOL[id]}"><img src="${BASE}${esc(team(id).logo)}">${esc(team(id).name)}</span>`;
+const tierBadge = t => `<span class="tier t-${t}">${t}</span>`;
+const formDots = a => `<span class="form">${a.map(x=>`<i class="${x}"></i>`).join('')}</span>`;
+const streak = s => s>0?`<span class="W">W${s}</span>`:s<0?`<span class="L">L${-s}</span>`:'–';
+const link = n => `onclick="openFighter('${esc(n).replace(/'/g,"\\'")}')"`;
+
+/* ------------------------------------------------ data */
+async function load(){
+  try{
+    const r = await fetch((DEMO?'league.demo.json':'league.json')+'?t='+Date.now(),{cache:'no-store'});
+    D = await r.json(); lastFetch=Date.now(); countdown=REFRESH;
+    D.fighters.forEach(f=>byName[f.name]=f);
+    $('#dot').classList.remove('stale');
+    settleBets();
+    render();
+  }catch(e){ $('#dot').classList.add('stale'); $('#liveTxt').textContent='offline — retrying'; }
+}
+setInterval(()=>{ countdown--; if(countdown<=0) load(); if(D) $('#liveTxt').textContent=`Live · ${D.totals.fights} ${D.totals.fights===1?'fight':'fights'} · refresh in ${Math.max(countdown,0)}s`; },1000);
+
+/* ------------------------------------------------ nav */
+function renderNav(){
+  $('#nav').innerHTML = TABS.map(([k,l])=>`<button class="${k===tab?'on':''}" onclick="go('${k}')">${l}</button>`).join('');
+}
+function go(k){ tab=k; location.hash=k; render(); window.scrollTo({top:0}); }
+window.addEventListener('hashchange',()=>{ tab=(location.hash||'#home').slice(1).split('/')[0]||'home'; render(); });
+
+function render(){
+  if(!D) return;
+  $('#demoBanner').innerHTML = DEMO ? '<div class="demo">DEMO DATA — a simulated league of 4 tournaments, not real results.</div>' : '';
+  renderNav();
+  const v = {home,board,tiers,factions,fighters,history,bets,how}[tab] || home;
+  $('#view').innerHTML = v();
+  if(tab==='fighters'){ const q=$('#q'); if(q){ q.value=query; q.oninput=e=>{query=e.target.value; $('#flist').innerHTML=fighterList();}; } }
+}
+
+/* ------------------------------------------------ pieces */
+function matchCard(u, withBet){
+  const a=byName[u.left], b=byName[u.right];
+  const pa=Math.round(u.p_left*100), pb=100-pa;
+  const fav = pa>=pb ? a : b, conf = Math.abs(pa-50)*2;
+  const sideBlock = (f,odds,col)=>`<div class="side" ${link(f.name)} style="cursor:pointer">${av(f,86)}<div class="nm">${esc(f.name)}</div>${teamChip(f.team)}<div class="small mute">${f.wins}-${f.losses} · ELO ${fmt(f.elo)} · ${tierBadge(f.tier)}</div><div style="font-weight:900;font-size:20px;color:${col}">${odds.toFixed(2)}x</div></div>`;
+  return `<div class="match">${sideBlock(a,u.odds_left,'#ff8a8a')}<div class="vs">VS</div>${sideBlock(b,u.odds_right,'#8ab4ff')}</div>
+  <div class="bar"><i class="a" style="width:${pa}%"></i><i class="b" style="width:${pb}%"></i></div>
+  <div class="odds"><span>${pa}%<small>win probability</small></span><span style="text-align:center">${esc(u.label)}<small>H2H ${u.h2h_left}–${u.h2h_right}</small></span><span style="text-align:right">${pb}%<small>win probability</small></span></div>
+  <p class="small mute" style="margin-top:12px">Model pick: <b style="color:var(--ink)">${esc(fav.name)}</b> (${conf<12?'toss-up':conf<35?'lean':'confident'}) · $100 on ${esc(a.name.split(' ').pop())} pays $${Math.round(100*u.odds_left)}</p>`;
+}
+
+function fightRows(list, n=999){
+  if(!list.length) return '<div class="empty">No fights recorded yet. Results appear here the moment a bout ends.</div>';
+  return list.slice(0,n).map(f=>{
+    const how = f.method ? (f.method==='DEC'?'DECISION':f.method+(f.round?' · R'+f.round:'')) : '';
+    return `<div class="fr"><div class="tm">T${f.tournament}<br>${esc(f.bout<=24?`Fight ${f.bout} of 31`:f.round_label)}</div>
+      <div class="names"><span ${link(f.winner)} style="cursor:pointer">${esc(f.winner)}</span> <span class="mute">def.</span> <s ${link(f.loser)} style="cursor:pointer">${esc(f.loser)}</s>${f.upset?'<span class="up">UPSET</span>':''}
+        <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · <span class="W">+${fmt(f.delta,1)}</span></div></div>
+      <div><div class="how">${how}</div><div class="small mute" style="text-align:right">${ago(f.ts)}</div></div></div>`;
+  }).join('');
+}
+
+/* ------------------------------------------------ tabs */
+function home(){
+  const cur = D.upcoming.find(u=>u.current) || D.upcoming[0];
+  const lt = D.live_tournament;
+  const champs = D.tournaments.filter(t=>t.complete);
+  return `<div class="grid g4 st">
+    <div class="card stat"><b>${D.totals.fights}</b><span>Fights tracked</span></div>
+    <div class="card stat"><b>${D.totals.tournaments}</b><span>Tournaments</span></div>
+    <div class="card stat"><b>${D.totals.fights?Math.round(100*D.totals.kos/D.totals.fights):0}%</b><span>Finish rate</span></div>
+    <div class="card stat"><b>${D.totals.upsets}</b><span>Upsets</span></div>
+  </div>
+  <div class="grid g2 sec g15">
+    <div class="card"><h2>${cur?'Next on the broadcast':'Between tournaments'}</h2>${cur?matchCard(cur):'<div class="empty">Waiting for the next bracket…</div>'}
+      ${cur?`<div style="margin-top:14px"><button class="btn" onclick="go('bets')">Bet play money on this fight</button></div>`:''}</div>
+    <div class="card"><h2>Tournament ${lt?lt.number:''} progress</h2>
+      <div class="bank" style="font-size:34px">${lt?lt.played:0}<span class="mute" style="font-size:18px"> / ${lt?lt.total:31} bouts</span></div>
+      <div class="pbar" style="--tc:var(--gold)"><i style="width:${lt?100*lt.played/lt.total:0}%"></i></div>
+      <h2 style="margin-top:20px">Champions</h2>
+      ${champs.length?champs.slice().reverse().slice(0,5).map(t=>`<div class="who" style="margin:8px 0;cursor:pointer" ${link(t.champion)}>${av(byName[t.champion],38)}<div>${esc(t.champion)}<div class="small mute">Tournament ${t.number} · ${esc(team(t.champion_team).name)}</div></div></div>`).join(''):'<div class="small mute">No champion crowned yet.</div>'}
+    </div>
+  </div>
+  <div class="grid g2 sec">
+    <div class="card"><h2>Top of the table</h2>${miniBoard((D.fighters.filter(f=>f.fights).length<6?D.fighters:D.fighters.filter(f=>f.fights)).slice(0,6))||'<div class="empty">Rankings appear after the first fight.</div>'}</div>
+    <div class="card"><h2>Faction war</h2>${D.team_order.map(id=>team(id)).sort((a,b)=>b.wins-a.wins||b.avg_elo-a.avg_elo).map(t=>`<div style="display:flex;align-items:center;gap:12px;margin:10px 0;--tc:${TEAMCOL[t.id]}"><img src="${BASE}${esc(t.logo)}" style="width:30px;height:30px;border-radius:8px"><div style="flex:1"><div style="display:flex;justify-content:space-between;font-weight:800"><span>${esc(t.name)}</span><span>${t.wins}–${t.losses}</span></div><div class="pbar"><i style="width:${t.win_pct??0}%"></i></div></div></div>`).join('')}</div>
+  </div>
+  <div class="card sec"><h2>Latest results</h2>${fightRows(D.fights,8)}</div>`;
+}
+function miniBoard(list){
+  if(!list.length) return '';
+  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">${f.wins}-${f.losses} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f.tier)}</div>`).join('');
+}
+
+function sorted(list){
+  const k=sortKey;
+  return list.slice().sort((a,b)=>{
+    let x=a[k], y=b[k]; if(k==='name'||k==='team'){return sortDir*-1*String(x).localeCompare(String(y));}
+    x = x==null?-1e9:x; y = y==null?-1e9:y; return sortDir*(x-y) || b.elo-a.elo;
+  }).reverse().reverse();
+}
+function setSort(k){ if(sortKey===k) sortDir*=-1; else {sortKey=k; sortDir=(k==='name'||k==='team')?-1:-1;} render(); }
+function board(){
+  const cols=[['rank','#'],['name','Fighter'],['team','Faction'],['elo','ELO'],['wins','W'],['losses','L'],['win_pct','Win %'],['kos','KO'],['streak','Streak'],['tier','Tier']];
+  const list = D.fighters.slice().sort((a,b)=>{
+    const k=sortKey; let x=a[k],y=b[k];
+    if(typeof x==='string'||typeof y==='string') return -sortDir*String(x).localeCompare(String(y));
+    x=x==null?-1e9:x; y=y==null?-1e9:y; return (y-x)*(-sortDir*-1)*1 || 0;
+  });
+  // sortDir -1 = descending for numbers
+  list.sort((a,b)=>{ const k=sortKey; let x=a[k],y=b[k]; if(typeof x==='string') return (sortDir===-1?1:-1)*String(x).localeCompare(String(y)); x=x==null?-1e9:x; y=y==null?-1e9:y; return sortDir===-1? y-x : x-y; });
+  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f.tier)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
+}
+
+function tiers(){
+  const info={S:'Elite · top 10%',A:'Contenders · next 20%',B:'Solid · next 30%',C:'Journeymen · next 25%',D:'Prospects · bottom 15%','?':'Unranked · not fought yet'};
+  return `<div class="banner" style="--x:0">Tiers are percentile bands of the ELO table among boxers who have fought, so they shift as results come in.</div>`+
+  ['S','A','B','C','D','?'].map(t=>{
+    const fs=D.fighters.filter(f=>f.tier===t); if(!fs.length) return '';
+    return `<div class="tierrow"><div class="lab t-${t}">${t==='?'?'?':t}</div><div class="body">${fs.map(f=>`<div class="tcell" ${link(f.name)}>${av(f,56)}<span>${esc(sur(f.name))}</span><small>${fmt(f.elo)}</small></div>`).join('')}</div></div><div class="small mute" style="margin:-4px 0 14px 4px">${info[t]}</div>`;
+  }).join('');
+}
+
+function factions(){
+  const ts = D.team_order.map(id=>team(id)).sort((a,b)=>b.wins-a.wins||b.avg_elo-a.avg_elo);
+  return `<div class="grid g2">${ts.map((t,i)=>`<div class="card fac" style="--tc:${TEAMCOL[t.id]}">
+    <div class="top"><img src="${BASE}${esc(t.logo)}"><div style="flex:1"><h3>${i+1}. ${esc(t.name)}</h3><div class="small mute">${esc(t.tagline||'')}</div></div><div style="text-align:right"><div class="rec">${t.wins}–${t.losses}</div><div class="small mute">${t.win_pct==null?'no fights':fmt(t.win_pct)+'% wins'}</div></div></div>
+    <div class="grid g3" style="gap:8px"><div class="stat"><b style="font-size:22px">${fmt(t.avg_elo)}</b><span>Avg ELO</span></div><div class="stat"><b style="font-size:22px">${t.titles}</b><span>Titles</span></div><div class="stat"><b style="font-size:22px">${t.finals}</b><span>Finals</span></div></div>
+    <div class="pbar"><i style="width:${t.win_pct??0}%"></i></div>
+    <div class="mini">${t.fighters.map(n=>`<span class="who" ${link(n)} style="cursor:pointer;font-size:12px;background:#0004;padding:3px 10px 3px 3px;border-radius:99px">${av(byName[n],26)}${esc(sur(n))}</span>`).join('')}</div>
+    ${Object.keys(t.vs).length?`<div class="small mute" style="margin-top:12px">Wins over: ${Object.entries(t.vs).map(([k,v])=>`<b style="color:${TEAMCOL[k]}">${esc(team(k).name)}</b> ${v}`).join(' · ')}</div>`:''}
+  </div>`).join('')}</div>`;
+}
+
+function fighterList(){
+  const q=query.trim().toLowerCase();
+  const list=D.fighters.filter(f=>!q||f.name.toLowerCase().includes(q)||team(f.team).name.toLowerCase().includes(q));
+  return list.length?list.map(f=>`<div class="card" style="cursor:pointer;display:flex;gap:14px;align-items:center" ${link(f.name)}>${av(f,60)}<div style="flex:1;min-width:0"><div style="font-weight:800">${esc(f.name)}</div><div class="small mute">${esc(team(f.team).name)} · ${esc(f.division)}</div><div class="small" style="margin-top:3px"><b>${f.wins}-${f.losses}</b> · ELO ${fmt(f.elo)}</div></div>${tierBadge(f.tier)}</div>`).join(''):'<div class="empty">No boxer matches that search.</div>';
+}
+function fighters(){
+  return `<div class="tools"><input id="q" type="search" placeholder="Search boxers or factions…" style="flex:1;min-width:220px"></div><div class="grid g3" id="flist">${fighterList()}</div>`;
+}
+
+function history(){
+  const ts=[...new Set(D.fights.map(f=>f.tournament))];
+  const sel = window._ht||'all';
+  const list = sel==='all'?D.fights:D.fights.filter(f=>f.tournament==sel);
+  return `<div class="tools"><select onchange="window._ht=this.value;render()"><option value="all">All tournaments</option>${ts.map(t=>`<option value="${t}" ${sel==t?'selected':''}>Tournament ${t}</option>`).join('')}</select><span class="small mute">${list.length} fights</span></div><div class="card">${fightRows(list,300)}</div>`;
+}
+
+/* ------------------------------------------------ fighter profile */
+function spark(h){
+  if(h.length<2) return '<div class="small mute">Not enough fights for a rating chart yet.</div>';
+  const W=700,H=130,P=8, ys=h.map(p=>p[1]), mn=Math.min(...ys)-10, mx=Math.max(...ys)+10;
+  const pts=h.map((p,i)=>[P+i*(W-2*P)/(h.length-1), H-P-(p[1]-mn)/(mx-mn)*(H-2*P)]);
+  const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const base=H-P-(1500-mn)/(mx-mn)*(H-2*P);
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#3a4a85" stroke-dasharray="4 4"/><path d="${d} L${pts.at(-1)[0]} ${H} L${pts[0][0]} ${H}Z" fill="#f5c45122"/><path d="${d}" fill="none" stroke="#f5c451" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function openFighter(name){
+  const f=byName[name]; if(!f) return;
+  const fs=D.fights.filter(x=>x.winner===name||x.loser===name);
+  $('#modalBody').innerHTML = `<div class="profile">${av(f,96)}<div><h3 style="font-size:26px">${esc(f.name)}</h3><div style="margin:6px 0">${teamChip(f.team)} <span class="chip">${esc(f.division)}</span> ${tierBadge(f.tier)}</div><div class="small mute">Rank #${f.rank} of ${D.fighters.length}</div></div></div>
+  <div class="kv"><div><b>${fmt(f.elo)}</b><span>ELO</span></div><div><b>${f.wins}–${f.losses}</b><span>Record</span></div><div><b>${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</b><span>Win rate</span></div><div><b>${fmt(f.peak)}</b><span>Peak ELO</span></div><div><b>${f.kos}</b><span>KO wins</span></div><div><b>${f.ko_pct==null?'–':fmt(f.ko_pct)+'%'}</b><span>KO rate</span></div><div><b>${f.kod}</b><span>Stopped</span></div><div><b>${streak(f.streak)}</b><span>Streak</span></div></div>
+  <h2>ELO over time</h2>${spark(f.elo_history)}
+  <h2 style="margin-top:18px">Form</h2>${f.form.length?formDots(f.form):'<span class="small mute">No fights yet</span>'}
+  <h2 style="margin-top:18px">Fight history</h2>${fightRows(fs,12)}`;
+  $('#modal').classList.add('on');
+}
+function closeModal(){ $('#modal').classList.remove('on'); }
+$('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ------------------------------------------------ betting (play money only) */
+const BK = 'fnfl-bets-v1' + (DEMO?'-demo':'');
+function bank(){ try{ return JSON.parse(localStorage.getItem(BK))||{points:1000,bets:[]}; }catch(e){ return {points:1000,bets:[]}; } }
+function saveBank(b){ try{ localStorage.setItem(BK,JSON.stringify(b)); }catch(e){} }
+function settleBets(){
+  const b=bank(); let changed=false;
+  for(const bet of b.bets){
+    if(bet.status!=='open') continue;
+    const f=D.fights.find(x=>x.tournament===bet.tournament&&x.bout===bet.bout);
+    if(!f){
+      // the tournament moved on without a result for this bout (reshuffle/undo): refund
+      if(D.live_tournament && D.live_tournament.number>bet.tournament){ bet.status='void'; b.points+=bet.stake; changed=true; }
+      continue;
+    }
+    if(f.winner===bet.pick){ bet.status='won'; b.points+=Math.round(bet.stake*bet.odds); bet.payout=Math.round(bet.stake*bet.odds); }
+    else { bet.status='lost'; bet.payout=0; }
+    bet.result=f.winner; changed=true;
+  }
+  if(changed) saveBank(b);
+}
+function placeBet(t,bout,pick,odds){
+  const stake=parseInt($('#stake-'+bout).value,10); const b=bank();
+  if(!(stake>0)||stake>b.points) return alert('Enter a stake between 1 and your balance.');
+  if(b.bets.some(x=>x.status==='open'&&x.tournament===t&&x.bout===bout)) return alert('You already have a bet on this fight.');
+  b.points-=stake; b.bets.unshift({tournament:t,bout,pick,odds,stake,status:'open',ts:Date.now(),label:D.upcoming.find(u=>u.bout===bout)?.label});
+  saveBank(b); render();
+}
+function resetBank(){ if(confirm('Reset your play-money balance to 1,000 and clear your bets?')){ saveBank({points:1000,bets:[]}); render(); } }
+function bets(){
+  const b=bank(); const open=b.bets.filter(x=>x.status==='open'), done=b.bets.filter(x=>x.status!=='open');
+  const staked=b.bets.filter(x=>x.status==='won'||x.status==='lost').reduce((s,x)=>s+x.stake,0);
+  const ret=b.bets.filter(x=>x.status==='won').reduce((s,x)=>s+x.payout,0);
+  const roi=staked?Math.round(100*(ret-staked)/staked):0;
+  const openKey = new Set(open.map(x=>x.tournament+':'+x.bout));
+  return `<div class="banner"><b>Play money only.</b> This sportsbook uses virtual points stored in your own browser. Nothing here involves real money, deposits or payouts.</div>
+  <div class="grid g3"><div class="card stat"><span>Balance</span><div class="bank">${b.points.toLocaleString()}</div><span>points</span></div><div class="card stat"><b>${b.bets.filter(x=>x.status==='won').length}–${b.bets.filter(x=>x.status==='lost').length}</b><span>Bet record</span></div><div class="card stat"><b class="${roi>=0?'W':'L'}">${roi>0?'+':''}${roi}%</b><span>ROI</span></div></div>
+  <div class="card sec"><h2>Open fights · ${D.upcoming.length}</h2>${D.upcoming.length?D.upcoming.slice(0,12).map(u=>{const a=byName[u.left],c=byName[u.right],has=openKey.has(u.tournament+':'+u.bout);return `<div class="slip" style="grid-template-columns:1fr"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><b>${esc(u.label)}${u.current?' <span class="up" style="background:var(--green);color:#04281d">NEXT</span>':''}</b><span class="small mute">H2H ${u.h2h_left}–${u.h2h_right}</span></div>
+    <div class="grid g2" style="gap:10px">${[[a,u.odds_left,u.p_left],[c,u.odds_right,1-u.p_left]].map(([f,o,p])=>`<div style="display:flex;align-items:center;gap:10px;background:var(--bg2);border-radius:12px;padding:10px">${av(f,40)}<div style="flex:1;min-width:0"><div style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(f.name)}</div><div class="small mute">${Math.round(p*100)}% · ELO ${fmt(f.elo)}</div></div><button class="btn" ${has?'disabled':''} onclick="placeBet(${u.tournament},${u.bout},'${esc(f.name).replace(/'/g,"\\'")}',${o})">${o.toFixed(2)}x</button></div>`).join('')}</div>
+    <div class="small mute">Stake: <input id="stake-${u.bout}" type="number" min="1" max="${b.points}" value="${Math.min(100,b.points)}" style="width:100px;padding:6px 10px"> points ${has?'· <b style="color:var(--gold)">bet placed</b>':''}</div></div>`}).join(''):'<div class="empty">No fights are open for betting right now.</div>'}</div>
+  <div class="card sec"><h2>Your bets</h2>${b.bets.length?b.bets.map(x=>`<div class="slip"><div><b>${esc(x.pick)}</b> <span class="small mute">@ ${x.odds.toFixed(2)}x · ${x.stake} pts · T${x.tournament} ${esc(x.label||'')}</span>${x.result?`<div class="small mute">Winner: ${esc(x.result)}</div>`:''}</div><div style="text-align:right"><span class="pill ${x.status==='won'?'won':x.status==='lost'?'lost':'open'}">${x.status==='void'?'REFUNDED':x.status.toUpperCase()}</span>${x.status==='won'?`<div class="small W">+${x.payout-x.stake}</div>`:''}</div></div>`).join(''):'<div class="empty">No bets yet. Pick a boxer above.</div>'}
+  <div style="margin-top:12px"><button class="btn ghost" onclick="resetBank()">Reset balance</button></div></div>`;
+}
+
+function how(){
+  const s=D.settings;
+  return `<div class="card how-it"><h2>How it works</h2>
+  <h3>Where the data comes from</h3><p>A 32-boxer, single-elimination tournament runs 24/7 on a console, CPU versus CPU, four AI factions (${D.team_order.map(i=>esc(team(i).name)).join(', ')}) with eight boxers each. When a bout ends the result &mdash; winner, how, and which round &mdash; is written to a permanent ledger. This page reads that ledger every ${REFRESH} seconds. Reshuffling for a new tournament never erases it.</p>
+  <h3 style="margin-top:16px">ELO ratings</h3><p>Every boxer starts at <code>${s.start}</code>. After a fight the winner takes points from the loser: <code>K = ${s.k}</code> times the surprise of the result, so beating a stronger boxer is worth more. KO and TKO finishes count <code>${s.finish_bonus}×</code>.</p>
+  <h3 style="margin-top:16px">Tiers</h3><p>Percentile bands of the ELO table among boxers who have fought: <b>S</b> top 10%, <b>A</b> next 20%, <b>B</b> next 30%, <b>C</b> next 25%, <b>D</b> the rest.</p>
+  <h3 style="margin-top:16px">Odds</h3><p>Win probability is <code>1 / (1 + 10^((opponent − you) / 400))</code>. Decimal odds are that probability inverted with a ${Math.round(s.edge*100)}% house edge. Early on, every boxer is 1500 so everything is near even money; the model sharpens with each result.</p>
+  <h3 style="margin-top:16px">The sportsbook</h3><p>Play money only. You get 1,000 points in your own browser's storage; bets settle automatically when the real result lands in the ledger. It never touches real currency, and clearing your browser data resets it.</p>
+  <h3 style="margin-top:16px">Factions</h3><p>Each AI team picked eight boxers. A faction's record is the sum of its boxers' results; "titles" counts tournaments won by one of its boxers.</p></div>`;
+}
+
+load();
+</script>
+</body>
+</html>

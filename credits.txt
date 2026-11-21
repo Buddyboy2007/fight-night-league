@@ -1,0 +1,10 @@
+canelo-alvarez.jpg - "Saúl Álvarez" by Box Azteca, CC BY 3.0, via Wikimedia Commons
+  https://commons.wikimedia.org/wiki/File:Saúl_Álvarez.png (cropped and resized)
+tyson-fury.jpg - "Tyson Fury at Place Bell, Laval Quebec, Canada - Dec 16 2017" by Mike DiDomizio, CC BY-SA 4.0, via Wikimedia Commons
+  https://commons.wikimedia.org/wiki/File:Tyson_Fury_at_Place_Bell,_Laval_Quebec,_Canada_-_Dec_16_2017_(cropped).jpg (cropped and resized)
+wladimir-klitschko.jpg - "Volodymyr Klychko (Vladimir Klitschko) ... Munich Security Conference ... 2023" by MSC/Kuhlmann, CC BY 3.0 DE, via Wikimedia Commons
+  https://commons.wikimedia.org/wiki/File:Volodymyr_Klychko_(Vladimir_Klitschko)_of_Ukraine_at_the_59th_Munich_Security_Conference_in_Munich_on_17_February_2023_-_(cropped).jpg (cropped and resized)
+gennadiy-golovkin.jpg - "Gennady Golovkin 2017" by Box Azteca, CC BY 3.0, via Wikimedia Commons
+  https://commons.wikimedia.org/wiki/File:Gennady_Golovkin_2017.png (cropped and resized)
+Lead images of each fighter's English Wikipedia article (fetched 2026-11-20 via the pageimages API; licences are per-file on each article's image page, resized to 500px wide):
+andy-ruiz-jr, anthony-joshua, danny-jacobs, david-benavidez, deontay-wilder, dmitry-bivol, floyd-patterson, jack-dempsey, jack-johnson, jaron-ennis, joe-frazier, sergey-kovalev, terence-crawford, thomas-hearns, vitali-klitschko
