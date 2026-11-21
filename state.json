@@ -884,21 +884,21 @@
     }
   ],
   "current_match": {
-    "bout": 3,
-    "round": "Fight 3 of 31",
+    "bout": 4,
+    "round": "Fight 4 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 16
     },
     "right": {
-      "team": "grok",
-      "fighter": "Dmitry Bivol",
-      "image": "portraits/dmitry-bivol.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 3
+      "team": "chatgpt",
+      "fighter": "Muhammad Ali",
+      "image": "portraits/muhammad-ali.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 26
     }
   },
   "winner": null,
@@ -950,7 +950,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795304552.244459,
+  "updated_at": 1795304597.3405552,
   "swaps": [
     {
       "bout": 6,
