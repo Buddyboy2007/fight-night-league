@@ -120,7 +120,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Danny Jacobs",
@@ -458,8 +458,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 30
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 7,
@@ -695,7 +698,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 28
       },
-      "right": null,
+      "right": {
+        "team": "codex",
+        "fighter": "Lennox Lewis",
+        "image": "portraits/lennox-lewis.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 30
+      },
       "winner": null,
       "result": null
     },
@@ -862,24 +871,34 @@
       "method": null,
       "round": 5,
       "ts": 1795301596.9732752
+    },
+    {
+      "bout": 6,
+      "winner_team": "codex",
+      "winner_fighter": "Lennox Lewis",
+      "loser_team": "claude",
+      "loser_fighter": "Jermain Taylor",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795304552.2444088
     }
   ],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 3,
+    "round": "Fight 3 of 31",
     "left": {
       "team": "claude",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "game_index": 15
     },
     "right": {
-      "team": "codex",
-      "fighter": "Lennox Lewis",
-      "image": "portraits/lennox-lewis.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 30
+      "team": "grok",
+      "fighter": "Dmitry Bivol",
+      "image": "portraits/dmitry-bivol.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 3
     }
   },
   "winner": null,
@@ -931,7 +950,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795301643.0212579,
+  "updated_at": 1795304552.244459,
   "swaps": [
     {
       "bout": 6,
