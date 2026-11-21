@@ -131,7 +131,7 @@ footer{margin-top:40px;color:var(--mute);font-size:12px;text-align:center}
   <header>
     <div class="brand">
       <h1>FIGHT NIGHT <b>FOREVER</b> LEAGUE</h1>
-      <p>Every bout of the 24/7 AI tournament, tracked live: ELO, records, factions, tiers and a play-money sportsbook.</p>
+      <p>Every bout of the 24/7 AI tournament, tracked live: ELO, real career records, tournament records, factions, tiers and a play-money sportsbook.</p>
     </div>
     <div class="live"><span class="dot" id="dot"></span><span id="liveTxt">loading…</span></div>
   </header>
@@ -153,6 +153,7 @@ const byName = {};
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const proStr = f=> f.pro ? `${f.pro.wins}-${f.pro.losses}-${f.pro.draws}${f.pro.nc?' ('+f.pro.nc+' NC)':''}` : '–';
 const fmt = (n,d=0)=> n==null?'–':Number(n).toFixed(d);
 const sur = n => { const w=n.split(/\s+/).filter(x=>!/^(jr\.?|sr\.?|ii|iii)$/i.test(x)); return w[w.length-1]; };
 const initials = n => n.split(/\s+/).filter(w=>/[A-Za-z]/.test(w[0])).slice(0,2).map(w=>w[0]).join('');
@@ -204,7 +205,7 @@ function matchCard(u, withBet){
   const a=byName[u.left], b=byName[u.right];
   const pa=Math.round(u.p_left*100), pb=100-pa;
   const fav = pa>=pb ? a : b, conf = Math.abs(pa-50)*2;
-  const sideBlock = (f,odds,col)=>`<div class="side" ${link(f.name)} style="cursor:pointer">${av(f,86)}<div class="nm">${esc(f.name)}</div>${teamChip(f.team)}<div class="small mute">${f.wins}-${f.losses} · ELO ${fmt(f.elo)} · ${tierBadge(f.tier)}</div><div style="font-weight:900;font-size:20px;color:${col}">${odds.toFixed(2)}x</div></div>`;
+  const sideBlock = (f,odds,col)=>`<div class="side" ${link(f.name)} style="cursor:pointer">${av(f,86)}<div class="nm">${esc(f.name)}</div>${teamChip(f.team)}<div class="small mute">Pro ${proStr(f)}</div><div class="small mute">Tournament ${f.wins}-${f.losses} · ELO ${fmt(f.elo)} · ${tierBadge(f.tier)}</div><div style="font-weight:900;font-size:20px;color:${col}">${odds.toFixed(2)}x</div></div>`;
   return `<div class="match">${sideBlock(a,u.odds_left,'#ff8a8a')}<div class="vs">VS</div>${sideBlock(b,u.odds_right,'#8ab4ff')}</div>
   <div class="bar"><i class="a" style="width:${pa}%"></i><i class="b" style="width:${pb}%"></i></div>
   <div class="odds"><span>${pa}%<small>win probability</small></span><span style="text-align:center">${esc(u.label)}<small>H2H ${u.h2h_left}–${u.h2h_right}</small></span><span style="text-align:right">${pb}%<small>win probability</small></span></div>
@@ -251,7 +252,7 @@ function home(){
 }
 function miniBoard(list){
   if(!list.length) return '';
-  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">${f.wins}-${f.losses} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f.tier)}</div>`).join('');
+  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">Tournament ${f.wins}-${f.losses} · Pro ${proStr(f)} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f.tier)}</div>`).join('');
 }
 
 function sorted(list){
@@ -263,7 +264,7 @@ function sorted(list){
 }
 function setSort(k){ if(sortKey===k) sortDir*=-1; else {sortKey=k; sortDir=(k==='name'||k==='team')?-1:-1;} render(); }
 function board(){
-  const cols=[['rank','#'],['name','Fighter'],['team','Faction'],['elo','ELO'],['wins','W'],['losses','L'],['win_pct','Win %'],['kos','KO'],['streak','Streak'],['tier','Tier']];
+  const cols=[['rank','#'],['name','Fighter'],['team','Faction'],['elo','ELO'],['pro_wins','Pro record'],['wins','Tourn. W'],['losses','Tourn. L'],['win_pct','Win %'],['kos','Tourn. KO'],['streak','Streak'],['tier','Tier']];
   const list = D.fighters.slice().sort((a,b)=>{
     const k=sortKey; let x=a[k],y=b[k];
     if(typeof x==='string'||typeof y==='string') return -sortDir*String(x).localeCompare(String(y));
@@ -271,7 +272,7 @@ function board(){
   });
   // sortDir -1 = descending for numbers
   list.sort((a,b)=>{ const k=sortKey; let x=a[k],y=b[k]; if(typeof x==='string') return (sortDir===-1?1:-1)*String(x).localeCompare(String(y)); x=x==null?-1e9:x; y=y==null?-1e9:y; return sortDir===-1? y-x : x-y; });
-  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f.tier)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
+  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','pro_wins','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r">${proStr(f)}</td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f.tier)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
 }
 
 function tiers(){
@@ -297,7 +298,7 @@ function factions(){
 function fighterList(){
   const q=query.trim().toLowerCase();
   const list=D.fighters.filter(f=>!q||f.name.toLowerCase().includes(q)||team(f.team).name.toLowerCase().includes(q));
-  return list.length?list.map(f=>`<div class="card" style="cursor:pointer;display:flex;gap:14px;align-items:center" ${link(f.name)}>${av(f,60)}<div style="flex:1;min-width:0"><div style="font-weight:800">${esc(f.name)}</div><div class="small mute">${esc(team(f.team).name)} · ${esc(f.division)}</div><div class="small" style="margin-top:3px"><b>${f.wins}-${f.losses}</b> · ELO ${fmt(f.elo)}</div></div>${tierBadge(f.tier)}</div>`).join(''):'<div class="empty">No boxer matches that search.</div>';
+  return list.length?list.map(f=>`<div class="card" style="cursor:pointer;display:flex;gap:14px;align-items:center" ${link(f.name)}>${av(f,60)}<div style="flex:1;min-width:0"><div style="font-weight:800">${esc(f.name)}</div><div class="small mute">${esc(team(f.team).name)} · ${esc(f.division)}</div><div class="small" style="margin-top:3px">Pro <b>${proStr(f)}</b> · Tournament <b>${f.wins}-${f.losses}</b> · ELO ${fmt(f.elo)}</div></div>${tierBadge(f.tier)}</div>`).join(''):'<div class="empty">No boxer matches that search.</div>';
 }
 function fighters(){
   return `<div class="tools"><input id="q" type="search" placeholder="Search boxers or factions…" style="flex:1;min-width:220px"></div><div class="grid g3" id="flist">${fighterList()}</div>`;
@@ -323,7 +324,9 @@ function openFighter(name){
   const f=byName[name]; if(!f) return;
   const fs=D.fights.filter(x=>x.winner===name||x.loser===name);
   $('#modalBody').innerHTML = `<div class="profile">${av(f,96)}<div><h3 style="font-size:26px">${esc(f.name)}</h3><div style="margin:6px 0">${teamChip(f.team)} <span class="chip">${esc(f.division)}</span> ${tierBadge(f.tier)}</div><div class="small mute">Rank #${f.rank} of ${D.fighters.length}</div></div></div>
-  <div class="kv"><div><b>${fmt(f.elo)}</b><span>ELO</span></div><div><b>${f.wins}–${f.losses}</b><span>Record</span></div><div><b>${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</b><span>Win rate</span></div><div><b>${fmt(f.peak)}</b><span>Peak ELO</span></div><div><b>${f.kos}</b><span>KO wins</span></div><div><b>${f.ko_pct==null?'–':fmt(f.ko_pct)+'%'}</b><span>KO rate</span></div><div><b>${f.kod}</b><span>Stopped</span></div><div><b>${streak(f.streak)}</b><span>Streak</span></div></div>
+  <h2 style="margin-top:14px">Career record (professional)</h2><div class="small mute">Real-life pro record (W-L-D) per Wikipedia/BoxRec, as of Nov 2026.</div>${f.pro?`<div class="kv"><div><b>${proStr(f)}</b><span>W-L-D</span></div><div><b>${f.pro.total}</b><span>Pro fights</span></div><div><b>${f.pro.kos}</b><span>Career KOs</span></div><div><b>${fmt(100*f.pro.kos/Math.max(1,f.pro.wins))}%</b><span>KO rate</span></div></div>`:'<div class="small mute">Not available</div>'}
+  <h2 style="margin-top:14px">Tournament Record</h2><div class="small mute">Results from this AI tournament only.</div>
+  <div class="kv"><div><b>${fmt(f.elo)}</b><span>ELO</span></div><div><b>${f.wins}–${f.losses}</b><span>Tournament Record</span></div><div><b>${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</b><span>Win rate</span></div><div><b>${fmt(f.peak)}</b><span>Peak ELO</span></div><div><b>${f.kos}</b><span>KO wins</span></div><div><b>${f.ko_pct==null?'–':fmt(f.ko_pct)+'%'}</b><span>KO rate</span></div><div><b>${f.kod}</b><span>Stopped</span></div><div><b>${streak(f.streak)}</b><span>Streak</span></div></div>
   <h2>ELO over time</h2>${spark(f.elo_history)}
   <h2 style="margin-top:18px">Form</h2>${f.form.length?formDots(f.form):'<span class="small mute">No fights yet</span>'}
   <h2 style="margin-top:18px">Fight history</h2>${fightRows(fs,12)}`;
