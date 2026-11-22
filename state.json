@@ -316,7 +316,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 3,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -430,8 +430,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 3
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 6,
@@ -694,7 +697,13 @@
     },
     {
       "id": 19,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 10
+      },
       "right": {
         "team": "claude",
         "fighter": "Floyd Mayweather Jr.",
@@ -910,24 +919,34 @@
       "method": null,
       "round": 3,
       "ts": 1795350614.9588785
+    },
+    {
+      "bout": 5,
+      "winner_team": "gemini",
+      "winner_fighter": "Canelo \u00c1lvarez",
+      "loser_team": "grok",
+      "loser_fighter": "Jake Paul",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795353664.8610373
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Canelo \u00c1lvarez",
-      "image": "portraits/canelo-alvarez.jpg",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 10
+      "game_index": 16
     },
     "right": {
-      "team": "grok",
-      "fighter": "Jake Paul",
-      "image": "portraits/jake-paul.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 3
+      "game_index": 15
     }
   },
   "winner": null,
@@ -980,7 +999,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795350624.2541037,
+  "updated_at": 1795353664.861064,
   "swaps": [
     {
       "bout": 14,
