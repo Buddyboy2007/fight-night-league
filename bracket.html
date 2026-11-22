@@ -323,6 +323,27 @@
   .dtx .df { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--mute); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .dtx .ds { font-weight: 800; color: #fff; text-transform: uppercase; white-space: nowrap; }
   .dtx .dst { margin-top: 3px; font-size: 10.5px; font-weight: 800; letter-spacing: 1.2px; color: var(--tc); white-space: nowrap; }
+  .dcol.out { opacity: .22; filter: grayscale(1); }
+  #dCols.p4 .dthumb { width: 104px; height: 136px; }
+  #dCols.p4 .dtx .df { font-size: 14px; }
+  #dCols.p4 .dtx .dst { font-size: 13px; }
+  /* a corner's finished roster, shown after its last pick */
+  #dIntro .drhead { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+  #dIntro .drhead .lg { width: 64px; height: 64px; border-radius: 50%; background: var(--tc); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 22px var(--tc); }
+  #dIntro .drhead .lg img { width: 40px; height: 40px; object-fit: contain; }
+  #dIntro .drhead .nm { font-size: 44px; line-height: 44px; font-weight: 800; font-style: italic; color: #fff; text-transform: uppercase; letter-spacing: 2px; text-align: left; }
+  #dIntro .drhead .nm small { display: block; font-size: 13px; line-height: 18px; font-style: normal; letter-spacing: 4px; color: var(--tc); }
+  #dIntro .drgrid { display: grid; grid-template-columns: repeat(4, 156px); gap: 12px; }
+  #dIntro .drc { border-radius: 9px; overflow: hidden; border: 2px solid var(--tc); background: linear-gradient(180deg, var(--tcs), #0c1019);
+    animation: slotIn .6s cubic-bezier(.16,.84,.24,1) both; }
+  #dIntro .drc .im { height: 168px; background: linear-gradient(145deg, var(--tc), #000); }
+  #dIntro .drgrid.p4 .drc .im { height: 300px; }
+  #dIntro .drc .im img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  #dIntro .drc .im .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 64px; font-weight: 800; color: rgba(255,255,255,.85); }
+  #dIntro .drc .tx { padding: 5px 6px 7px; line-height: 1.1; }
+  #dIntro .drc .f { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--mute); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #dIntro .drc .s { font-weight: 800; color: #fff; text-transform: uppercase; white-space: nowrap; }
+  #dIntro .drc .c { margin-top: 2px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--tc); }
 </style>
 </head>
 <body>
@@ -849,35 +870,40 @@ function dStatus(big, chip, tc, logo) {
   document.getElementById('dStatus').innerHTML = `<div class="big">${big}</div>` +
     (chip ? `<div class="chip" style="--tc:${tc || '#f5c542'}">${logo ? `<img src="${bust(logo)}">` : ''}${esc(chip)}</div>` : '');
 }
-function dCols(shown, clock, roundDone) {
+function dCols(shown, clock, roundDone, ids, out) {
   let h = '';
-  Object.entries(DRAFT.teams).forEach(([tid, t]) => {
-    const cls = 'dcol' + (tid === clock ? ' clock' : roundDone.has(tid) ? ' done' : '');
+  const per = DRAFT.per || 7;
+  ids.forEach(tid => {
+    const t = DRAFT.teams[tid];
+    const cls = 'dcol' + (tid === out ? ' out' : tid === clock ? ' clock' : roundDone.has(tid) ? ' done' : '');
     h += `<div class="${cls}" style="--tc:${t.color};--tch:${rgba(t.color, .3)};--tcs:${rgba(t.color, .22)}">` +
       `<div class="dhead"><div class="dlogo"><img src="${bust(t.logo)}"></div><div class="dtn">${esc(t.name)}</div><div class="did">${esc(t.identity)}</div></div>`;
     const list = shown[tid] || [];
-    for (let k = 0; k < 7; k++) {
+    for (let k = 0; k < per; k++) {
       const f = list[k];
       if (!f) { h += `<div class="dslot empty${tid === clock && k === list.length ? ' next' : ''}"><span>${k + 1}</span></div>`; continue; }
-      const [first, sur] = splitName(f.name), fs = textW(sur, 19) > 94 ? (textW(sur, 15) > 94 ? 12.5 : 15) : 19;
+      const [first, sur] = splitName(f.name), room = per <= 4 ? 80 : (ids.length > 4 ? 94 : 130), big = per <= 4 ? 21 : 19;
+      const fs = textW(sur, big) > room ? (textW(sur, 15) > room ? 12.5 : 15) : big;
       const stat = t.stat ? `${DSTAT[t.stat]} ${f[t.stat]}` : 'WILDCARD';
       h += `<div class="dslot${f.fresh ? ' fresh' : ''}"><div class="dthumb">${dimg(f.image, f.name)}</div>` +
         `<div class="dtx"><div class="df">${esc(first)}</div><div class="ds" style="font-size:${fs}px">${esc(sur)}</div><div class="dst">${esc(f.div)} · ${stat}</div></div></div>`;
     }
     h += '</div>';
   });
-  document.getElementById('dCols').innerHTML = h;
+  const el = document.getElementById('dCols');
+  el.innerHTML = h; el.classList.toggle('p4', per <= 4);
 }
 
 function draftRender(i, st, sub) {
   const D = DRAFT, steps = D.steps, field = D.order.length;
-  const ci = steps.findIndex(s => s.kind === 'class');
+  const li = steps.findIndex(s => s.lock), all = Object.keys(D.teams), playing = D.playing || all;
+  const locked = i > li || (i === li && sub !== 'T' && sub !== 'TL' && sub !== 'W');
   document.getElementById('dNum').textContent = D.tournament;
-  document.getElementById('dBand').textContent = (i > ci || (i === ci && sub === 'L'))
-    ? `${D.band_labels.join(' · ')} · ${field} boxers · single elimination`
-    : `5 AI corners · ${field} boxers · the wheel draws the lowest weight class`;
+  document.getElementById('dBand').textContent = locked
+    ? `${D.band_labels.slice().reverse().join(' · ')} · ${field} boxers · single elimination`
+    : `4 AI corners draft · one sits out · the first weight-class spin locks the band`;
   const shown = {}, byName = {};
-  Object.keys(D.teams).forEach(t => shown[t] = []);
+  all.forEach(t => shown[t] = []);
   steps.forEach((s, j) => {
     if (s.kind !== 'pick') return;
     byName[s.fighter.name] = Object.assign({ team: s.team }, s.fighter);
@@ -885,11 +911,12 @@ function draftRender(i, st, sub) {
   });
   const roundDone = new Set();
   let clock = null;
-  if (st.kind === 'pick') {
+  if (st.kind === 'pick' || st.kind === 'roster') {
     if (sub !== 'T') clock = st.team;
-    steps.forEach((s, j) => { if (s.kind === 'pick' && s.round === st.round && j < i) roundDone.add(s.team); });
+    steps.forEach((s, j) => { if (s.kind === 'roster' && j < i) roundDone.add(s.team); });
   }
-  dCols(shown, clock, roundDone);
+  const sitDone = st.kind !== 'intro' && !(st.kind === 'sitout' && sub !== 'L');
+  dCols(shown, clock, roundDone, sitDone && !(st.kind === 'sitout') ? playing : all, st.kind === 'sitout' && sub === 'L' ? D.sitout : null);
   const box = document.getElementById('dWheelBox'), intro = document.getElementById('dIntro');
   dSpin = null;
 
@@ -898,11 +925,11 @@ function draftRender(i, st, sub) {
     if (st.kind === 'intro') {
       intro.innerHTML = `<div class="dbig">The<br><b>Draft</b></div><div class="dlogos">` +
         Object.values(D.teams).map(t => `<div style="--tc:${t.color}"><img src="${bust(t.logo)}"></div>`).join('') +
-        `</div><div class="dsub">The wheel draws the lowest weight class.<br>Every pick: corner, weight class, boxer.</div>`;
+        `</div><div class="dsub">One corner sits this tournament out.<br>The other four draft their whole rosters in turn.<br>The first weight-class spin locks the band.</div>`;
       dStatus('The draft', 'Tournament ' + D.tournament);
       dCard('');
     } else {
-      intro.innerHTML = `<div class="dbig">Draft<br><b>Complete</b></div><div class="dsub">${esc(D.band_labels.join(' · '))}<br>${field} drafted · the bracket is drawn</div>`;
+      intro.innerHTML = `<div class="dbig">Draft<br><b>Complete</b></div><div class="dsub">${esc(D.band_labels.slice().reverse().join(' · '))}<br>${field} drafted · the bracket is drawn</div>`;
       dStatus('Draft <b style="color:var(--gold)">complete</b>', `${field} / ${field} picked`);
       const a = byName[D.order[0]], b = byName[D.order[1]];
       if (a && b) {
@@ -914,7 +941,36 @@ function draftRender(i, st, sub) {
     intro.classList.add('show');
     return;
   }
+  if (st.kind === 'roster') {
+    const t = D.teams[st.team], list = shown[st.team], per = D.per || list.length;
+    box.classList.add('off'); dCaption(`${t.name}'s roster is set`, `${list.length} boxers · ${t.identity}`);
+    intro.innerHTML = `<div class="drhead" style="--tc:${t.color}"><div class="lg"><img src="${bust(t.logo)}"></div>` +
+      `<div class="nm">${esc(t.name)}<small>Corner ${st.turn} of 4 · drafted</small></div></div>` +
+      `<div class="drgrid${per <= 4 ? ' p4' : ''}" style="--tc:${t.color};--tcs:${rgba(t.color, .3)}">` +
+      list.map((f, k) => {
+        const [first, sur] = splitName(f.name), fs = textW(sur, 19) > 140 ? (textW(sur, 15) > 140 ? 12.5 : 15) : 19;
+        return `<div class="drc" style="animation-delay:${(k * 0.12).toFixed(2)}s"><div class="im">${dimg(f.image, f.name)}</div>` +
+          `<div class="tx"><div class="f">${esc(first)}</div><div class="s" style="font-size:${fs}px">${esc(sur)}</div><div class="c">${esc(f.cls || f.div)}</div></div></div>`;
+      }).join('') + '</div>';
+    dStatus(`${esc(t.name)}<span> · roster</span>`, `Corner ${st.turn} of 4 done`, t.color, t.logo);
+    dCard('');
+    intro.classList.add('show');
+    return;
+  }
   intro.classList.remove('show'); box.classList.remove('off');
+
+  if (st.kind === 'sitout') {
+    const ids = st.team_items, landed = sub === 'L', t = D.teams[st.team];
+    const slices = ids.map(id => ({ w: 1, fill: rgba(D.teams[id].color, .62), label: D.teams[id].name, img: D.teams[id].logo,
+                                   ink: id === 'grok' ? '#0a0d14' : '#fff' }));
+    dWheel(slices, 'team', st.team_pick, 4, 0.3, st.dur - 2.9, D.seq % 1000 + 19, landed);
+    dHub('SITS<br>OUT');
+    dStatus('Who sits out?', landed ? t.name + ' sits out' : 'Spinning', landed ? t.color : null, landed ? t.logo : null);
+    if (landed) dCaption(`${t.name} sits this one out`, 'The other four corners draft');
+    else dCaption('Spinning for the corner that sits out', ids.length < all.length ? 'Last time\'s sit-out is not on the wheel' : 'One corner rests this tournament');
+    dCard('');
+    return;
+  }
 
   if (st.kind === 'class') {
     const n = st.items.length, reps = Math.max(1, Math.ceil(6 / n)), slices = [];
@@ -933,25 +989,40 @@ function draftRender(i, st, sub) {
   }
 
   // pick: corner wheel, then the weight-class wheel, then that corner's fighter wheel, then the pick card
-  const t = D.teams[st.team], cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur;
-  dStatus(`Round ${st.round} · Pick ${st.n}<span> / ${field}</span>`, sub === 'T' ? 'Spinning for the corner' : 'On the clock · ' + t.name,
+  const t = D.teams[st.team], cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur, hold = st.class_hold || 0.5;
+  dStatus(sub === 'T' ? `Corner ${st.turn}<span> of 4</span>` : `${esc(t.name)} · Pick ${st.k}<span> / ${st.per}</span>`,
+    sub === 'T' ? 'Spinning for the corner' : `On the clock · pick ${st.n} of ${field}`,
     sub === 'T' ? null : t.color, sub === 'T' ? null : t.logo);
   if (sub === 'T' || sub === 'TL') {
     const ids = st.team_items || [st.team], pick = st.team_items ? st.team_pick : 0;
     const slices = ids.map(id => ({ w: 1, fill: rgba(D.teams[id].color, .62), label: D.teams[id].name, img: D.teams[id].logo,
                                    ink: id === 'grok' ? '#0a0d14' : '#fff' }));
     dWheel(slices, 'team', pick, 3, 0.15, st.team_dur - 0.55, st.n * 31 + 7, sub === 'TL');
-    dHub('PICK<br>' + st.n);
-    if (!st.team_items) dCaption(`Last corner in round ${st.round}`, t.name + ' picks');
-    else dCaption(sub === 'TL' ? t.name + ' is on the clock' : 'Spinning for the corner', sub === 'TL' ? t.identity : `Round ${st.round} · ${ids.length} corners left`);
+    dHub('CORNER<br>' + st.turn);
+    if (!st.team_items) dCaption('Last corner to draft', `${t.name} drafts ${st.per} in a row`);
+    else dCaption(sub === 'TL' ? t.name + ' is on the clock' : 'Spinning for the next corner',
+                  sub === 'TL' ? `${st.per} picks in a row · ${t.identity}` : `${ids.length} corners left to draft`);
     dCard('');
+    return;
+  }
+  if ((sub === 'W' || sub === 'WL') && st.lock) {          // the band lock: every class in the game, equal slices
+    const its = st.class_items, landed = sub === 'WL', it = its[st.class_pick];
+    const slices = its.map((x, k) => ({ w: 1, fill: WCOL[k % WCOL.length], label: x.label }));
+    dWheel(slices, 'tangent', st.class_pick, 6, st.team_dur + 0.1, cEnd - hold - 0.05, D.seq % 1000 + 1, landed);
+    dHub('WEIGHT<br>BAND');
+    if (landed) {
+      const b = it.band.slice().reverse(), cap = b[b.length - 1];
+      dCaption(b.length > 1 ? `${it.label} floor · ${cap} cap` : `${it.label} only`, `Locked for the whole tournament · ${field} boxers`);
+      dCard(`<div class="dclass"><div class="k">${b.length > 1 ? `${esc(it.label)} to ${esc(cap)}` : esc(it.label)}</div><div class="b">${esc(b.join(' · '))}</div>` +
+        `<div class="r">${t.name}'s first spin locks the band · the cap sits two classes above</div></div>`, '#f5c542');
+    } else { dCaption('The first spin locks the weight band', its.map(x => x.label).join(' · ')); dCard(''); }
     return;
   }
   if (sub === 'W' || sub === 'WL') {
     const its = st.class_items, n = its.length, reps = n === 1 ? 1 : Math.ceil(6 / n), slices = [];
     for (let r = 0; r < reps; r++) its.forEach((it, k) => slices.push({ w: it.w, fill: rgba(t.color, (r * n + k) % 2 ? .5 : .26), label: it.label }));
     const pick = st.class_pick + n * Math.floor(hrand(st.n * 13 + 5) * reps), landed = sub === 'WL', it = its[st.class_pick];
-    dWheel(slices, 'tangent', pick, 3, st.team_dur + 0.1, cEnd - 0.55, st.n * 23 + 11, landed);
+    dWheel(slices, 'tangent', pick, 3, st.team_dur + 0.1, cEnd - hold - 0.05, st.n * 23 + 11, landed);
     dHub('WEIGHT<br>CLASS');
     if (landed) dCaption(`${t.name} drafts a ${it.label.toLowerCase()}`, `${it.left} ${it.label.toLowerCase()}${it.left === 1 ? '' : 's'} left in the pool`);
     else dCaption(`Spinning ${t.name}'s weight class`, its.map(x => x.label).join(' · ') + (its.some(x => x.w !== its[0].w) ? ' · heavier classes get bigger slices' : ''));
@@ -986,10 +1057,11 @@ function draftFrame() {
   const st = steps[i], u = Math.max(0, el - st.t);
   let sub = '';
   if (st.kind === 'class') sub = u >= 8.6 ? 'L' : 'S';
+  else if (st.kind === 'sitout') sub = u >= st.dur - 2.6 ? 'L' : 'S';
   else if (st.kind === 'pick') {
     const cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur;
     sub = u < st.team_dur ? (!st.team_items || u >= st.team_dur - 0.5 ? 'TL' : 'T')
-        : u < cEnd ? ((st.class_items || []).length < 2 || u >= cEnd - 0.5 ? 'WL' : 'W')
+        : u < cEnd ? ((st.class_items || []).length < 2 || u >= cEnd - (st.class_hold || 0.5) ? 'WL' : 'W')
         : u < fEnd - 0.5 ? 'F' : u < fEnd ? 'FL' : 'C';
   }
   const key = i + ':' + sub;
