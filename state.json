@@ -970,21 +970,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 19,
+    "round": "Fight 19 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 10
     },
     "right": {
       "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "fighter": "Floyd Mayweather Jr.",
+      "image": "portraits/floyd-mayweather-jr.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1037,7 +1037,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795356899.7000828,
+  "updated_at": 1795356909.1358263,
   "swaps": [
     {
       "bout": 14,
