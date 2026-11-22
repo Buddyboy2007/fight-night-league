@@ -13,7 +13,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Pernell Whitaker",
@@ -339,11 +339,11 @@
         "game_index": 16
       },
       "right": {
-        "team": "grok",
-        "fighter": "Conor McGregor",
-        "image": "portraits/conor-mcgregor.jpg",
+        "team": "claude",
+        "fighter": "Bernard Hopkins",
+        "image": "portraits/bernard-hopkins.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 6
+        "game_index": 15
       },
       "winner": null,
       "result": null
@@ -364,8 +364,11 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "VOID",
+        "round": null
+      }
     },
     {
       "id": 3,
@@ -481,11 +484,11 @@
         "game_index": 0
       },
       "right": {
-        "team": "claude",
-        "fighter": "Bernard Hopkins",
-        "image": "portraits/bernard-hopkins.jpg",
+        "team": "grok",
+        "fighter": "Conor McGregor",
+        "image": "portraits/conor-mcgregor.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 15
+        "game_index": 6
       },
       "winner": null,
       "result": null
@@ -654,7 +657,13 @@
     {
       "id": 17,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Dudley Williams Jr.",
+        "image": "portraits/dudley-williams-jr.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 25
+      },
       "winner": null,
       "result": null
     },
@@ -853,24 +862,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795342995.732142
+    },
+    {
+      "bout": 2,
+      "winner_team": "grok",
+      "winner_fighter": "Dudley Williams Jr.",
+      "loser_team": "claude",
+      "loser_fighter": "Shakur Stevenson",
+      "method": "VOID",
+      "round": null,
+      "ts": 1795343023.0909145
     }
   ],
   "current_match": {
-    "bout": 2,
-    "round": "Fight 2 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Dudley Williams Jr.",
-      "image": "portraits/dudley-williams-jr.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 25
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
       "team": "claude",
-      "fighter": "Shakur Stevenson",
-      "image": "portraits/shakur-stevenson.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 0
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -923,7 +942,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795343005.025789,
+  "updated_at": 1795343023.0909798,
   "swaps": [
     {
       "bout": 14,
@@ -948,6 +967,14 @@
       "for": "Marvin Hagler",
       "why": "same-team fighters would have met",
       "ts": 1795342995.7321818
+    },
+    {
+      "bout": 1,
+      "moved": "Conor McGregor",
+      "to_bout": 8,
+      "for": "Bernard Hopkins",
+      "why": "same-team fighters would have met",
+      "ts": 1795343023.0909412
     }
   ]
 }
