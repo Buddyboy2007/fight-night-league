@@ -236,7 +236,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 21,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -474,8 +474,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 24
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 8,
@@ -731,7 +734,13 @@
     },
     {
       "id": 20,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Ryu",
+        "image": "portraits/ryu.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 24
+      },
       "right": {
         "team": "gemini",
         "fighter": "Sugar Ray Robinson",
@@ -1062,24 +1071,34 @@
       "method": null,
       "round": 4,
       "ts": 1795367837.9353034
+    },
+    {
+      "bout": 7,
+      "winner_team": "grok",
+      "winner_fighter": "Ryu",
+      "loser_team": "codex",
+      "loser_fighter": "Jaron Ennis",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795370684.984073
     }
   ],
   "current_match": {
-    "bout": 7,
-    "round": "Fight 7 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "game_index": 16
     },
     "right": {
-      "team": "grok",
-      "fighter": "Ryu",
-      "image": "portraits/ryu.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 24
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1132,7 +1151,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795367847.2355144,
+  "updated_at": 1795370684.9841015,
   "swaps": [
     {
       "bout": 14,
