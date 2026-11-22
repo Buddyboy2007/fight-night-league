@@ -247,7 +247,7 @@
       "logo": "logos/grok.png",
       "fighters": [
         {
-          "name": "Balrog Shaw",
+          "name": "Balrog",
           "image": "portraits/balrog-shaw.jpg",
           "division": "HW",
           "country": "us",
@@ -265,7 +265,7 @@
           "eliminated": false
         },
         {
-          "name": "Dudley Williams Jr.",
+          "name": "Dudley",
           "image": "portraits/dudley-williams-jr.jpg",
           "division": "HW",
           "country": "gb",
@@ -352,7 +352,7 @@
       "id": 2,
       "left": {
         "team": "grok",
-        "fighter": "Dudley Williams Jr.",
+        "fighter": "Dudley",
         "image": "portraits/dudley-williams-jr.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 25
@@ -554,7 +554,7 @@
       },
       "right": {
         "team": "grok",
-        "fighter": "Balrog Shaw",
+        "fighter": "Balrog",
         "image": "portraits/balrog-shaw.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 26
@@ -680,7 +680,7 @@
       "left": null,
       "right": {
         "team": "grok",
-        "fighter": "Dudley Williams Jr.",
+        "fighter": "Dudley",
         "image": "portraits/dudley-williams-jr.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 25
@@ -768,7 +768,7 @@
       "id": 22,
       "left": {
         "team": "grok",
-        "fighter": "Balrog Shaw",
+        "fighter": "Balrog",
         "image": "portraits/balrog-shaw.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 26
@@ -858,7 +858,7 @@
       "left": null,
       "right": {
         "team": "grok",
-        "fighter": "Balrog Shaw",
+        "fighter": "Balrog",
         "image": "portraits/balrog-shaw.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 26
@@ -965,7 +965,7 @@
     {
       "bout": 2,
       "winner_team": "grok",
-      "winner_fighter": "Dudley Williams Jr.",
+      "winner_fighter": "Dudley",
       "loser_team": "claude",
       "loser_fighter": "Shakur Stevenson",
       "method": "VOID",
@@ -1005,7 +1005,7 @@
     {
       "bout": 11,
       "winner_team": "grok",
-      "winner_fighter": "Balrog Shaw",
+      "winner_fighter": "Balrog",
       "loser_team": "claude",
       "loser_fighter": "Vasiliy Lomachenko",
       "method": "VOID",
@@ -1045,7 +1045,7 @@
     {
       "bout": 22,
       "winner_team": "grok",
-      "winner_fighter": "Balrog Shaw",
+      "winner_fighter": "Balrog",
       "loser_team": "codex",
       "loser_fighter": "Roy Jones Jr.",
       "method": null,
@@ -1106,7 +1106,7 @@
   "draw": [
     "Thomas Hearns",
     "Conor McGregor",
-    "Dudley Williams Jr.",
+    "Dudley",
     "Shakur Stevenson",
     "Ken",
     "Ryan Garcia",
@@ -1122,7 +1122,7 @@
     "Bernard Hopkins",
     "Miguel Cotto",
     "Pernell Whitaker",
-    "Balrog Shaw",
+    "Balrog",
     "Gennadiy Golovkin",
     "Marvin Hagler",
     "Shane Mosley",
@@ -1165,7 +1165,7 @@
       "bout": 11,
       "moved": "Shane Mosley",
       "to_bout": 10,
-      "for": "Balrog Shaw",
+      "for": "Balrog",
       "why": "same-team fighters would have met",
       "ts": 1795340109.0948157
     },
