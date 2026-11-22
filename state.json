@@ -761,21 +761,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 4,
+    "round": "Fight 4 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "team": "claude",
+      "fighter": "Erislandy Lara",
+      "image": "portraits/erislandy-lara.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 12
     },
     "right": {
-      "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
+      "team": "codex",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "game_index": 1
     }
   },
   "winner": null,
@@ -828,5 +828,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795330768.635017
+  "updated_at": 1795330816.0171082
 }
