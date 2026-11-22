@@ -856,21 +856,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 2,
+    "round": "Fight 2 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "team": "grok",
+      "fighter": "Dudley Williams Jr.",
+      "image": "portraits/dudley-williams-jr.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 25
     },
     "right": {
-      "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "team": "claude",
+      "fighter": "Shakur Stevenson",
+      "image": "portraits/shakur-stevenson.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -923,7 +923,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795342995.732214,
+  "updated_at": 1795343005.025789,
   "swaps": [
     {
       "bout": 14,
