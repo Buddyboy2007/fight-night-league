@@ -120,7 +120,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 13,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Manny Pacquiao",
@@ -446,8 +446,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 4
+      }
     },
     {
       "id": 7,
@@ -668,7 +671,13 @@
     {
       "id": 19,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Floyd Mayweather Jr.",
+        "image": "portraits/floyd-mayweather-jr.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 8
+      },
       "winner": null,
       "result": null
     },
@@ -777,24 +786,34 @@
       "method": null,
       "round": 3,
       "ts": 1795331608.0447423
+    },
+    {
+      "bout": 6,
+      "winner_team": "claude",
+      "winner_fighter": "Floyd Mayweather Jr.",
+      "loser_team": "gemini",
+      "loser_fighter": "Vergil Ortiz Jr.",
+      "method": null,
+      "round": 4,
+      "ts": 1795334167.102483
     }
   ],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Vergil Ortiz Jr.",
-      "image": "portraits/vergil-ortiz-jr.jpg",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 13
+      "game_index": 16
     },
     "right": {
-      "team": "claude",
-      "fighter": "Floyd Mayweather Jr.",
-      "image": "portraits/floyd-mayweather-jr.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 8
+      "team": "grok",
+      "fighter": "Conor McGregor",
+      "image": "portraits/conor-mcgregor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -847,5 +866,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795331617.3414404
+  "updated_at": 1795334167.102512
 }
