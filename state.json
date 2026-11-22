@@ -1160,21 +1160,21 @@
     }
   ],
   "current_match": {
-    "bout": 17,
-    "round": "Fight 17 of 31",
+    "bout": 21,
+    "round": "Fight 21 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "team": "grok",
+      "fighter": "Ryu",
+      "image": "portraits/ryu.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 24
     },
     "right": {
-      "team": "grok",
-      "fighter": "Dudley",
-      "image": "portraits/dudley-williams-jr.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 25
+      "team": "gemini",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1227,7 +1227,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795383080.6712017,
+  "updated_at": 1795383089.9666114,
   "swaps": [
     {
       "bout": 14,
