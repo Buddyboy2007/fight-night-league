@@ -1198,21 +1198,21 @@
     }
   ],
   "current_match": {
-    "bout": 20,
-    "round": "Fight 20 of 31",
+    "bout": 27,
+    "round": "Quarterfinals",
     "left": {
-      "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sugar Ray Robinson",
-      "image": "portraits/sugar-ray-robinson.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 0
+      "team": "claude",
+      "fighter": "Floyd Mayweather Jr.",
+      "image": "portraits/floyd-mayweather-jr.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1265,7 +1265,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795384919.867069,
+  "updated_at": 1795384929.1821954,
   "swaps": [
     {
       "bout": 14,
