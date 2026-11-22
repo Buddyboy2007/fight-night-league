@@ -818,21 +818,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "team": "codex",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 14
     },
     "right": {
       "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "fighter": "Ed Braddock",
+      "image": "portraits/ed-braddock.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -885,7 +885,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795339493.9196367,
+  "updated_at": 1795339503.2076802,
   "swaps": [
     {
       "bout": 14,
