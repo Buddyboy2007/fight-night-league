@@ -780,21 +780,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "fighter": "Vergil Ortiz Jr.",
+      "image": "portraits/vergil-ortiz-jr.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 13
     },
     "right": {
-      "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "team": "claude",
+      "fighter": "Floyd Mayweather Jr.",
+      "image": "portraits/floyd-mayweather-jr.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -847,5 +847,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795331608.044765
+  "updated_at": 1795331617.3414404
 }
