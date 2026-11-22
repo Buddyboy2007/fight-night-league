@@ -298,7 +298,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Conor McGregor",
@@ -953,13 +953,22 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 5
+      }
     },
     {
       "id": 31,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "winner": null,
       "result": null
     }
@@ -1214,24 +1223,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795387818.138531
+    },
+    {
+      "bout": 30,
+      "winner_team": "gemini",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "grok",
+      "loser_fighter": "Janibek Alimkhanuly",
+      "method": null,
+      "round": 5,
+      "ts": 1795388999.5873947
     }
   ],
   "current_match": {
-    "bout": 30,
-    "round": "Semifinals",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "claude",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
+      "team": "gemini",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1284,7 +1303,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795387827.4209247,
+  "updated_at": 1795388999.58743,
   "swaps": [
     {
       "bout": 14,
