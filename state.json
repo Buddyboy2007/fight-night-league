@@ -1122,21 +1122,21 @@
     }
   ],
   "current_match": {
-    "bout": 10,
-    "round": "Fight 10 of 31",
+    "bout": 28,
+    "round": "Quarterfinals",
     "left": {
-      "team": "codex",
-      "fighter": "Shane Mosley",
-      "image": "portraits/shane-mosley.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 3
+      "team": "grok",
+      "fighter": "Janibek Alimkhanuly",
+      "image": "portraits/janibek-alimkhanuly.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 7
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "claude",
+      "fighter": "Lamont Roach Jr.",
+      "image": "portraits/lamont-roach-jr.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -1189,7 +1189,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795376438.872494,
+  "updated_at": 1795376448.1630778,
   "swaps": [
     {
       "bout": 14,
