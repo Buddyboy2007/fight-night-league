@@ -271,7 +271,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 25,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ken",
@@ -870,8 +870,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5
+      }
     },
     {
       "id": 26,
@@ -932,7 +935,13 @@
     },
     {
       "id": 29,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1233,24 +1242,34 @@
       "method": null,
       "round": 5,
       "ts": 1795388999.5873947
+    },
+    {
+      "bout": 25,
+      "winner_team": "codex",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "grok",
+      "loser_fighter": "Dudley",
+      "method": null,
+      "round": 5,
+      "ts": 1795390204.266507
     }
   ],
   "current_match": {
-    "bout": 25,
-    "round": "Quarterfinals",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Dudley",
-      "image": "portraits/dudley-williams-jr.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 25
+      "team": "claude",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "codex",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
+      "team": "gemini",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1303,7 +1322,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795389008.889555,
+  "updated_at": 1795390204.2665458,
   "swaps": [
     {
       "bout": 14,
