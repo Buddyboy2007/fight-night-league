@@ -22,7 +22,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vasiliy Lomachenko",
@@ -79,7 +79,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "gemini": {
       "name": "Gemini",
@@ -763,8 +763,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 21,
@@ -885,7 +888,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 26
       },
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Sugar Ray Robinson",
+        "image": "portraits/sugar-ray-robinson.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 0
+      },
       "winner": null,
       "result": null
     },
@@ -1252,17 +1261,27 @@
       "method": null,
       "round": 5,
       "ts": 1795390204.266507
+    },
+    {
+      "bout": 20,
+      "winner_team": "gemini",
+      "winner_fighter": "Sugar Ray Robinson",
+      "loser_team": "claude",
+      "loser_fighter": "Pernell Whitaker",
+      "method": null,
+      "round": 3,
+      "ts": 1795391699.5129838
     }
   ],
   "current_match": {
-    "bout": 20,
-    "round": "Fight 20 of 31",
+    "bout": 26,
+    "round": "Quarterfinals",
     "left": {
-      "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "team": "grok",
+      "fighter": "Balrog",
+      "image": "portraits/balrog-shaw.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 26
     },
     "right": {
       "team": "gemini",
@@ -1322,7 +1341,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795390204.2665458,
+  "updated_at": 1795391699.5130208,
   "swaps": [
     {
       "bout": 14,
