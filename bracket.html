@@ -884,7 +884,7 @@ function dCols(shown, clock, roundDone, ids, out) {
       if (!f) { h += `<div class="dslot empty${tid === clock && k === list.length ? ' next' : ''}"><span>${k + 1}</span></div>`; continue; }
       const [first, sur] = splitName(f.name), room = per <= 4 ? 80 : (ids.length > 4 ? 94 : 130), big = per <= 4 ? 21 : 19;
       const fs = textW(sur, big) > room ? (textW(sur, 15) > room ? 12.5 : 15) : big;
-      const stat = t.stat ? `${DSTAT[t.stat]} ${f[t.stat]}` : 'WILDCARD';
+      const stat = f.tag ? f.tag.toUpperCase() : t.stat ? `${DSTAT[t.stat]} ${f[t.stat]}` : 'WILDCARD';
       h += `<div class="dslot${f.fresh ? ' fresh' : ''}"><div class="dthumb">${dimg(f.image, f.name)}</div>` +
         `<div class="dtx"><div class="df">${esc(first)}</div><div class="ds" style="font-size:${fs}px">${esc(sur)}</div><div class="dst">${esc(f.div)} · ${stat}</div></div></div>`;
     }
@@ -1023,6 +1023,13 @@ function draftRender(i, st, sub) {
     for (let r = 0; r < reps; r++) its.forEach((it, k) => slices.push({ w: it.w, fill: rgba(t.color, (r * n + k) % 2 ? .5 : .26), label: it.label }));
     const pick = st.class_pick + n * Math.floor(hrand(st.n * 13 + 5) * reps), landed = sub === 'WL', it = its[st.class_pick];
     dWheel(slices, 'tangent', pick, 3, st.team_dur + 0.1, cEnd - hold - 0.05, st.n * 23 + 11, landed);
+    if (it.franchise) {                                // Grok: Street Fighter / UFC / Wild Card, not a weight class
+      dHub('GROK<br>POOL');
+      if (landed) dCaption(`${t.name} drafts ${it.say}`, `${it.left} ${it.noun} left`);
+      else dCaption(`Spinning ${t.name}'s pool`, its.map(x => x.label).join(' · '));
+      dCard('');
+      return;
+    }
     dHub('WEIGHT<br>CLASS');
     if (landed) dCaption(`${t.name} drafts a ${it.label.toLowerCase()}`, `${it.left} ${it.label.toLowerCase()}${it.left === 1 ? '' : 's'} left in the pool`);
     else dCaption(`Spinning ${t.name}'s weight class`, its.map(x => x.label).join(' · ') + (its.some(x => x.w !== its[0].w) ? ' · heavier classes get bigger slices' : ''));
@@ -1033,7 +1040,7 @@ function draftRender(i, st, sub) {
   const slices = st.items.map((x, k) => ({ w: Math.max(x.w / tot, 0.045), fill: rgba(t.color, k % 2 ? .5 : .26), label: x.name, sub: x.stat }));
   dWheel(slices, 'radial', st.pick, 4, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
   dHub(`<img src="${bust(t.logo)}">`, t.color);
-  dCaption(`${t.name}'s ${(st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ' · slices sized by ' + DSTAT[t.stat] : ' · every slice equal'));
+  dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ' · slices sized by ' + DSTAT[t.stat] : ' · every slice equal'));
   if (sub === 'C') {
     const f = st.fighter, odds = Math.round(100 * st.items[st.pick].w / tot);
     const bar = (l, k, v, max) => `<div class="dbar${t.stat === k ? ' key' : ''}"><b>${l}</b><i><s style="width:${100 * v / max}%"></s></i><em>${v}</em></div>`;
