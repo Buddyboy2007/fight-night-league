@@ -894,21 +894,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 0
     },
     "right": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "grok",
+      "fighter": "Conor McGregor",
+      "image": "portraits/conor-mcgregor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 6
     }
   },
   "winner": null,
@@ -961,7 +961,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795349870.0279996,
+  "updated_at": 1795349879.3208044,
   "swaps": [
     {
       "bout": 14,
