@@ -903,21 +903,21 @@
     }
   ],
   "current_match": {
-    "bout": 10,
-    "round": "Fight 10 of 31",
+    "bout": 14,
+    "round": "Fight 14 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Canelo \u00c1lvarez",
-      "image": "portraits/canelo-alvarez.jpg",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 10
+      "game_index": 0
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "team": "claude",
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -969,7 +969,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795324369.2771783,
+  "updated_at": 1795324615.2464747,
   "swaps": [
     {
       "bout": 6,
