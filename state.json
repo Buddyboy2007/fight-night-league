@@ -289,7 +289,7 @@
           "country": "fr",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Janibek Alimkhanuly",
@@ -512,11 +512,11 @@
     {
       "id": 10,
       "left": {
-        "team": "grok",
-        "fighter": "Balrog Shaw",
-        "image": "portraits/balrog-shaw.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 26
+        "team": "codex",
+        "fighter": "Shane Mosley",
+        "image": "portraits/shane-mosley.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 3
       },
       "right": {
         "team": "gemini",
@@ -538,11 +538,11 @@
         "game_index": 2
       },
       "right": {
-        "team": "codex",
-        "fighter": "Shane Mosley",
-        "image": "portraits/shane-mosley.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 3
+        "team": "grok",
+        "fighter": "Balrog Shaw",
+        "image": "portraits/balrog-shaw.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 26
       },
       "winner": null,
       "result": null
@@ -563,8 +563,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null
+      }
     },
     {
       "id": 13,
@@ -701,7 +704,13 @@
     {
       "id": 22,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "codex",
+        "fighter": "Roy Jones Jr.",
+        "image": "portraits/roy-jones-jr.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 14
+      },
       "winner": null,
       "result": null
     },
@@ -815,24 +824,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795339493.9195738
+    },
+    {
+      "bout": 12,
+      "winner_team": "codex",
+      "winner_fighter": "Roy Jones Jr.",
+      "loser_team": "grok",
+      "loser_fighter": "Ed Braddock",
+      "method": "WO",
+      "round": null,
+      "ts": 1795340109.0947764
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 14
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     },
     "right": {
-      "team": "grok",
-      "fighter": "Ed Braddock",
-      "image": "portraits/ed-braddock.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 9
+      "team": "claude",
+      "fighter": "Lamont Roach Jr.",
+      "image": "portraits/lamont-roach-jr.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -885,7 +904,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795339503.2076802,
+  "updated_at": 1795340110.3957386,
   "swaps": [
     {
       "bout": 14,
@@ -894,6 +913,14 @@
       "for": "Gervonta Davis",
       "why": "same-team fighters would have met",
       "ts": 1795339493.9196162
+    },
+    {
+      "bout": 11,
+      "moved": "Shane Mosley",
+      "to_bout": 10,
+      "for": "Balrog Shaw",
+      "why": "same-team fighters would have met",
+      "ts": 1795340109.0948157
     }
   ]
 }
