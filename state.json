@@ -40,7 +40,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Erislandy Lara",
@@ -622,8 +622,11 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 15,
@@ -777,7 +780,13 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 6
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
+      },
       "winner": null,
       "result": null
     },
@@ -986,24 +995,34 @@
       "method": null,
       "round": 6,
       "ts": 1795360535.6792169
+    },
+    {
+      "bout": 14,
+      "winner_team": "grok",
+      "winner_fighter": "Janibek Alimkhanuly",
+      "loser_team": "claude",
+      "loser_fighter": "Gervonta Davis",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795363419.3538744
     }
   ],
   "current_match": {
-    "bout": 14,
-    "round": "Fight 14 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "game_index": 16
     },
     "right": {
       "team": "claude",
-      "fighter": "Gervonta Davis",
-      "image": "portraits/gervonta-davis.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 2
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1056,7 +1075,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795360544.9765754,
+  "updated_at": 1795363419.353906,
   "swaps": [
     {
       "bout": 14,
