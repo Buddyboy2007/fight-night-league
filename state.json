@@ -903,21 +903,21 @@
     }
   ],
   "current_match": {
-    "bout": 3,
-    "round": "Fight 3 of 31",
+    "bout": 10,
+    "round": "Fight 10 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "codex",
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 10
     },
     "right": {
-      "team": "grok",
-      "fighter": "Dmitry Bivol",
-      "image": "portraits/dmitry-bivol.jpg",
+      "team": "chatgpt",
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 3
+      "game_index": 4
     }
   },
   "winner": null,
@@ -969,7 +969,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795305618.711918,
+  "updated_at": 1795324369.2771783,
   "swaps": [
     {
       "bout": 6,
