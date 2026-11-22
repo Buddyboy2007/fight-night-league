@@ -129,7 +129,7 @@
           "country": "ph",
           "game_class": "WELTERWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Canelo \u00c1lvarez",
@@ -550,11 +550,11 @@
     {
       "id": 12,
       "left": {
-        "team": "claude",
-        "fighter": "Gervonta Davis",
-        "image": "portraits/gervonta-davis.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 2
+        "team": "codex",
+        "fighter": "Roy Jones Jr.",
+        "image": "portraits/roy-jones-jr.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 14
       },
       "right": {
         "team": "grok",
@@ -582,8 +582,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 14,
@@ -595,11 +598,11 @@
         "game_index": 7
       },
       "right": {
-        "team": "codex",
-        "fighter": "Roy Jones Jr.",
-        "image": "portraits/roy-jones-jr.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 14
+        "team": "claude",
+        "fighter": "Gervonta Davis",
+        "image": "portraits/gervonta-davis.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 2
       },
       "winner": null,
       "result": null
@@ -704,7 +707,13 @@
     },
     {
       "id": 23,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+        "image": "portraits/julio-cesar-chavez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 6
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -796,24 +805,34 @@
       "method": null,
       "round": 4,
       "ts": 1795334167.102483
+    },
+    {
+      "bout": 13,
+      "winner_team": "codex",
+      "winner_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "loser_team": "gemini",
+      "loser_fighter": "Manny Pacquiao",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795339493.9195738
     }
   ],
   "current_match": {
-    "bout": 13,
-    "round": "Fight 13 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Manny Pacquiao",
-      "image": "portraits/manny-pacquiao.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 5
+      "team": "grok",
+      "fighter": "Conor McGregor",
+      "image": "portraits/conor-mcgregor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -866,5 +885,15 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795334176.4061327
+  "updated_at": 1795339493.9196367,
+  "swaps": [
+    {
+      "bout": 14,
+      "moved": "Roy Jones Jr.",
+      "to_bout": 12,
+      "for": "Gervonta Davis",
+      "why": "same-team fighters would have met",
+      "ts": 1795339493.9196162
+    }
+  ]
 }
