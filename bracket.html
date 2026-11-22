@@ -460,6 +460,7 @@ function resultLine(result) {
   const r = result.round;
   if ((m === 'KO' || m === 'TKO') && r) return m + ' IN ROUND ' + r;
   if (['DEC', 'DECISION', 'UD', 'SD', 'MD'].includes(m)) return 'BY DECISION';
+  if (m === 'VOID') return 'VOID · WEIGHT MISMATCH';
   if (r) return 'LOST IN ROUND ' + r;
   return '';
 }

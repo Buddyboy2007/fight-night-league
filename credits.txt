@@ -61,3 +61,11 @@ zhilei-zhang.jpg - "Zhilei Zhang 2021" by China News Service, CC BY 3.0, via Wik
   https://commons.wikimedia.org/wiki/File:Zhilei_Zhang_2021.jpg (cropped and resized, metadata removed)
 In-game renders (2026-11-21): no freely licensed photo exists for these, so each is the boxer's head model from Fight Night Forever's select screen (EA Sports), captured from the game and cropped:
   conor-benn, jai-opetaia, jermain-taylor, jesse-rodriguez, junto-nakatani, lamont-roach-jr, moses-itauma, pernell-whitaker, ricardo-alvarez, ronald-wright, sebastian-fundora
+
+# Street Fighter characters (2026-11-22): official Capcom art, via the Street Fighter Wiki (streetfighter.fandom.com).
+# Each from the character's first game, per the user: SF2 for Ryu/Ken/Balrog, SF3 for Dudley, SFV for Ed.
+ryu.jpg                 Ryu-sf2-portrait.gif (Street Fighter II VS-screen portrait), nearest-neighbour upscale
+ken.jpg                 Ken-sf2-portrait.gif (Street Fighter II VS-screen portrait), nearest-neighbour upscale
+balrog-shaw.jpg         BalrogPortraitSFIIDT.jpg (Street Fighter II Dash/Turbo artwork)
+dudley-williams-jr.jpg  Dudley3sportrait.gif (Street Fighter III: 3rd Strike select portrait)
+ed-braddock.jpg         EdHUD.png (Street Fighter V portrait)
