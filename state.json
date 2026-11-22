@@ -989,21 +989,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 14,
+    "round": "Fight 14 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
+      "team": "grok",
+      "fighter": "Janibek Alimkhanuly",
+      "image": "portraits/janibek-alimkhanuly.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "game_index": 7
     },
     "right": {
       "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "fighter": "Gervonta Davis",
+      "image": "portraits/gervonta-davis.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1056,7 +1056,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795360535.6792629,
+  "updated_at": 1795360544.9765754,
   "swaps": [
     {
       "bout": 14,
