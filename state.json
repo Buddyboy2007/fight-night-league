@@ -218,7 +218,7 @@
           "country": "mx",
           "game_class": "WELTERWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Roy Jones Jr.",
@@ -802,8 +802,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 24,
@@ -868,7 +871,13 @@
     },
     {
       "id": 28,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
+      },
       "right": {
         "team": "claude",
         "fighter": "Lamont Roach Jr.",
@@ -1081,24 +1090,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795370684.984073
+    },
+    {
+      "bout": 23,
+      "winner_team": "grok",
+      "winner_fighter": "Janibek Alimkhanuly",
+      "loser_team": "codex",
+      "loser_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795373556.3690658
     }
   ],
   "current_match": {
-    "bout": 23,
-    "round": "Fight 23 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1151,7 +1170,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795370694.2670956,
+  "updated_at": 1795373556.3691163,
   "swaps": [
     {
       "bout": 14,
