@@ -67,7 +67,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 8,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lamont Roach Jr.",
@@ -902,8 +902,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 28,
@@ -936,7 +939,13 @@
     },
     {
       "id": 30,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "right": {
         "team": "grok",
         "fighter": "Janibek Alimkhanuly",
@@ -1195,24 +1204,34 @@
       "method": null,
       "round": 1,
       "ts": 1795384919.8670275
+    },
+    {
+      "bout": 27,
+      "winner_team": "gemini",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "claude",
+      "loser_fighter": "Floyd Mayweather Jr.",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795387818.138531
     }
   ],
   "current_match": {
-    "bout": 27,
-    "round": "Quarterfinals",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "claude",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "claude",
-      "fighter": "Floyd Mayweather Jr.",
-      "image": "portraits/floyd-mayweather-jr.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 8
+      "team": "gemini",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1265,7 +1284,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795384929.1821954,
+  "updated_at": 1795387818.1385574,
   "swaps": [
     {
       "bout": 14,
