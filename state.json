@@ -280,7 +280,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 25,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ed Braddock",
@@ -701,8 +701,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 4
+      }
     },
     {
       "id": 19,
@@ -818,7 +821,13 @@
     {
       "id": 25,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "codex",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "winner": null,
       "result": null
     },
@@ -1043,24 +1052,34 @@
       "method": null,
       "round": 4,
       "ts": 1795366724.7603104
+    },
+    {
+      "bout": 18,
+      "winner_team": "codex",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "grok",
+      "loser_fighter": "Ken",
+      "method": null,
+      "round": 4,
+      "ts": 1795367837.9353034
     }
   ],
   "current_match": {
-    "bout": 18,
-    "round": "Fight 18 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Ken",
-      "image": "portraits/ken.jpg",
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 25
+      "game_index": 16
     },
     "right": {
-      "team": "codex",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1113,7 +1132,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795366734.0684235,
+  "updated_at": 1795367837.9353323,
   "swaps": [
     {
       "bout": 14,
