@@ -307,7 +307,7 @@
           "country": "ie",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jake Paul",
@@ -417,11 +417,11 @@
     {
       "id": 5,
       "left": {
-        "team": "codex",
-        "fighter": "Jaron Ennis",
-        "image": "portraits/jaron-ennis.jpg",
+        "team": "gemini",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 21
+        "game_index": 10
       },
       "right": {
         "team": "grok",
@@ -458,11 +458,11 @@
     {
       "id": 7,
       "left": {
-        "team": "gemini",
-        "fighter": "Canelo \u00c1lvarez",
-        "image": "portraits/canelo-alvarez.jpg",
+        "team": "codex",
+        "fighter": "Jaron Ennis",
+        "image": "portraits/jaron-ennis.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 10
+        "game_index": 21
       },
       "right": {
         "team": "grok",
@@ -490,8 +490,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 6
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 9,
@@ -705,7 +708,13 @@
     {
       "id": 20,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Sugar Ray Robinson",
+        "image": "portraits/sugar-ray-robinson.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 0
+      },
       "winner": null,
       "result": null
     },
@@ -891,24 +900,34 @@
       "method": null,
       "round": 4,
       "ts": 1795349870.0279646
+    },
+    {
+      "bout": 8,
+      "winner_team": "gemini",
+      "winner_fighter": "Sugar Ray Robinson",
+      "loser_team": "grok",
+      "loser_fighter": "Conor McGregor",
+      "method": null,
+      "round": 3,
+      "ts": 1795350614.9588785
     }
   ],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Sugar Ray Robinson",
-      "image": "portraits/sugar-ray-robinson.jpg",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 0
+      "game_index": 16
     },
     "right": {
-      "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "game_index": 15
     }
   },
   "winner": null,
@@ -961,7 +980,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795349879.3208044,
+  "updated_at": 1795350614.9589283,
   "swaps": [
     {
       "bout": 14,
@@ -994,6 +1013,14 @@
       "for": "Bernard Hopkins",
       "why": "same-team fighters would have met",
       "ts": 1795343023.0909412
+    },
+    {
+      "bout": 7,
+      "moved": "Canelo \u00c1lvarez",
+      "to_bout": 5,
+      "for": "Jaron Ennis",
+      "why": "same-team fighters would have met",
+      "ts": 1795350614.9589045
     }
   ]
 }
