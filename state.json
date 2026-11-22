@@ -49,7 +49,7 @@
           "country": "cu",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 12,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Bernard Hopkins",
@@ -405,8 +405,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 5,
@@ -652,7 +655,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 25
       },
-      "right": null,
+      "right": {
+        "team": "codex",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "winner": null,
       "result": null
     },
@@ -758,24 +767,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795330768.6349835
+    },
+    {
+      "bout": 4,
+      "winner_team": "codex",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "claude",
+      "loser_fighter": "Erislandy Lara",
+      "method": null,
+      "round": 3,
+      "ts": 1795331608.0447423
     }
   ],
   "current_match": {
-    "bout": 4,
-    "round": "Fight 4 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Erislandy Lara",
-      "image": "portraits/erislandy-lara.jpg",
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 12
+      "game_index": 16
     },
     "right": {
-      "team": "codex",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
+      "team": "grok",
+      "fighter": "Conor McGregor",
+      "image": "portraits/conor-mcgregor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "game_index": 6
     }
   },
   "winner": null,
@@ -828,5 +847,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795330816.0171082
+  "updated_at": 1795331608.044765
 }
