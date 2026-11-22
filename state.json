@@ -1027,21 +1027,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 24,
+    "round": "Fight 24 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
-      "game_class": "MIDDLEWEIGHT",
+      "team": "codex",
+      "fighter": "Roberto Dur\u00e1n",
+      "image": "portraits/roberto-duran.png",
+      "game_class": "WELTERWEIGHT",
       "game_index": 16
     },
     "right": {
       "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "fighter": "Lamont Roach Jr.",
+      "image": "portraits/lamont-roach-jr.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -1094,7 +1094,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795365609.1183357,
+  "updated_at": 1795365618.401318,
   "swaps": [
     {
       "bout": 14,
