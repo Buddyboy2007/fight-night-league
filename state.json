@@ -227,7 +227,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 14,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jaron Ennis",
@@ -768,8 +768,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 14
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 9
+      }
     },
     {
       "id": 23,
@@ -832,7 +835,13 @@
     {
       "id": 27,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Balrog Shaw",
+        "image": "portraits/balrog-shaw.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 26
+      },
       "winner": null,
       "result": null
     },
@@ -1005,24 +1014,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795363419.3538744
+    },
+    {
+      "bout": 22,
+      "winner_team": "grok",
+      "winner_fighter": "Balrog Shaw",
+      "loser_team": "codex",
+      "loser_fighter": "Roy Jones Jr.",
+      "method": null,
+      "round": 9,
+      "ts": 1795365609.1183002
     }
   ],
   "current_match": {
-    "bout": 22,
-    "round": "Fight 22 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Balrog Shaw",
-      "image": "portraits/balrog-shaw.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 26
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
-      "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 14
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1075,7 +1094,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795363428.6385372,
+  "updated_at": 1795365609.1183357,
   "swaps": [
     {
       "bout": 14,
