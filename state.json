@@ -76,7 +76,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -744,11 +744,11 @@
     {
       "id": 20,
       "left": {
-        "team": "grok",
-        "fighter": "Ryu",
-        "image": "portraits/ryu.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 24
+        "team": "claude",
+        "fighter": "Pernell Whitaker",
+        "image": "portraits/pernell-whitaker.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 15
       },
       "right": {
         "team": "gemini",
@@ -763,11 +763,11 @@
     {
       "id": 21,
       "left": {
-        "team": "claude",
-        "fighter": "Pernell Whitaker",
-        "image": "portraits/pernell-whitaker.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 15
+        "team": "grok",
+        "fighter": "Ryu",
+        "image": "portraits/ryu.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 24
       },
       "right": null,
       "winner": null,
@@ -855,11 +855,11 @@
     {
       "id": 26,
       "left": {
-        "team": "claude",
-        "fighter": "Floyd Mayweather Jr.",
-        "image": "portraits/floyd-mayweather-jr.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 8
+        "team": "grok",
+        "fighter": "Balrog",
+        "image": "portraits/balrog-shaw.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 26
       },
       "right": null,
       "winner": null,
@@ -869,11 +869,11 @@
       "id": 27,
       "left": null,
       "right": {
-        "team": "grok",
-        "fighter": "Balrog",
-        "image": "portraits/balrog-shaw.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 26
+        "team": "claude",
+        "fighter": "Floyd Mayweather Jr.",
+        "image": "portraits/floyd-mayweather-jr.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 8
       },
       "winner": null,
       "result": null
@@ -894,8 +894,11 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 29,
@@ -907,7 +910,13 @@
     {
       "id": 30,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
+      },
       "winner": null,
       "result": null
     },
@@ -1119,24 +1128,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795376438.8724525
+    },
+    {
+      "bout": 28,
+      "winner_team": "grok",
+      "winner_fighter": "Janibek Alimkhanuly",
+      "loser_team": "claude",
+      "loser_fighter": "Lamont Roach Jr.",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795382164.6691706
     }
   ],
   "current_match": {
-    "bout": 28,
-    "round": "Quarterfinals",
+    "bout": 10,
+    "round": "Fight 10 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "team": "codex",
+      "fighter": "Shane Mosley",
+      "image": "portraits/shane-mosley.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 3
     },
     "right": {
-      "team": "claude",
-      "fighter": "Lamont Roach Jr.",
-      "image": "portraits/lamont-roach-jr.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 5
+      "team": "gemini",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1189,7 +1208,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795376448.1630778,
+  "updated_at": 1795382164.6692593,
   "swaps": [
     {
       "bout": 14,
@@ -1230,6 +1249,22 @@
       "for": "Jaron Ennis",
       "why": "same-team fighters would have met",
       "ts": 1795350614.9589045
+    },
+    {
+      "bout": 27,
+      "moved": "Balrog",
+      "to_bout": 26,
+      "for": "Floyd Mayweather Jr.",
+      "why": "same-team fighters would have met",
+      "ts": 1795382164.669212
+    },
+    {
+      "bout": 20,
+      "moved": "Ryu",
+      "to_bout": 21,
+      "for": "Pernell Whitaker",
+      "why": "same-team fighters would have met",
+      "ts": 1795382164.6692312
     }
   ]
 }
