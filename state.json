@@ -875,21 +875,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 15,
+    "round": "Fight 15 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
-      "game_class": "MIDDLEWEIGHT",
+      "team": "codex",
+      "fighter": "Roberto Dur\u00e1n",
+      "image": "portraits/roberto-duran.png",
+      "game_class": "WELTERWEIGHT",
       "game_index": 16
     },
     "right": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "gemini",
+      "fighter": "Marvin Hagler",
+      "image": "portraits/marvelous-marvin-hagler.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 2
     }
   },
   "winner": null,
@@ -942,7 +942,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795343023.0909798,
+  "updated_at": 1795343044.4041433,
   "swaps": [
     {
       "bout": 14,
