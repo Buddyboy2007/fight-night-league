@@ -951,20 +951,20 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 9,
+    "round": "Fight 9 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "team": "codex",
+      "fighter": "Miguel Cotto",
+      "image": "portraits/miguel-cotto.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 2
     },
     "right": {
       "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
       "game_index": 15
     }
   },
@@ -1018,7 +1018,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795353692.2277913,
+  "updated_at": 1795353713.5286114,
   "swaps": [
     {
       "bout": 14,
