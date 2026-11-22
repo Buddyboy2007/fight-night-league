@@ -209,7 +209,7 @@
           "country": "pr",
           "game_class": "WELTERWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Julio C\u00e9sar Ch\u00e1vez",
@@ -515,8 +515,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5
+      }
     },
     {
       "id": 10,
@@ -732,7 +735,13 @@
     },
     {
       "id": 21,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Pernell Whitaker",
+        "image": "portraits/pernell-whitaker.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 15
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -948,23 +957,33 @@
       "method": "VOID",
       "round": null,
       "ts": 1795353692.2277598
+    },
+    {
+      "bout": 9,
+      "winner_team": "claude",
+      "winner_fighter": "Pernell Whitaker",
+      "loser_team": "codex",
+      "loser_fighter": "Miguel Cotto",
+      "method": null,
+      "round": 5,
+      "ts": 1795356899.7000515
     }
   ],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Miguel Cotto",
-      "image": "portraits/miguel-cotto.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 2
+      "team": "gemini",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
       "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
       "game_index": 15
     }
   },
@@ -1018,7 +1037,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795353713.5286114,
+  "updated_at": 1795356899.7000828,
   "swaps": [
     {
       "bout": 14,
