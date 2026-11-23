@@ -837,21 +837,21 @@
     }
   ],
   "current_match": {
-    "bout": 10,
-    "round": "Fight 10 of 31",
+    "bout": 11,
+    "round": "Fight 11 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "team": "codex",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "grok",
-      "fighter": "Ryu",
-      "image": "portraits/ryu.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 24
+      "team": "gemini",
+      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "image": "portraits/julio-cesar-chavez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -904,7 +904,7 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795468882.7705963,
+  "updated_at": 1795474922.417689,
   "swaps": [
     {
       "bout": 15,
