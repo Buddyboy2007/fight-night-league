@@ -218,7 +218,7 @@
           "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Mike Tyson",
@@ -594,11 +594,11 @@
     {
       "id": 14,
       "left": {
-        "team": "claude",
-        "fighter": "Dmitry Bivol",
-        "image": "portraits/dmitry-bivol.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 3
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
       },
       "right": {
         "team": "grok",
@@ -613,11 +613,11 @@
     {
       "id": 15,
       "left": {
-        "team": "chatgpt",
-        "fighter": "Gennadiy Golovkin",
-        "image": "portraits/gennadiy-golovkin.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 8
+        "team": "claude",
+        "fighter": "Dmitry Bivol",
+        "image": "portraits/dmitry-bivol.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 3
       },
       "right": {
         "team": "grok",
@@ -645,8 +645,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 4
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null
+      }
     },
     {
       "id": 17,
@@ -730,7 +733,13 @@
     {
       "id": 24,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Vitali Klitschko",
+        "image": "portraits/vitali-klitschko.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 0
+      },
       "winner": null,
       "result": null
     },
@@ -834,24 +843,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795403554.3121889
+    },
+    {
+      "bout": 16,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Vitali Klitschko",
+      "loser_team": "codex",
+      "loser_fighter": "Sergey Kovalev",
+      "method": "WO",
+      "round": null,
+      "ts": 1795403998.2513466
     }
   ],
   "current_match": {
-    "bout": 16,
-    "round": "Fight 16 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
+      "team": "grok",
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 15
     },
     "right": {
-      "team": "codex",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "team": "chatgpt",
+      "fighter": "Lennox Lewis",
+      "image": "portraits/lennox-lewis.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 32
     }
   },
   "winner": null,
@@ -904,5 +923,15 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795403563.6075995
+  "updated_at": 1795403999.5493865,
+  "swaps": [
+    {
+      "bout": 15,
+      "moved": "Gennadiy Golovkin",
+      "to_bout": 14,
+      "for": "Dmitry Bivol",
+      "why": "same-team fighters would have met",
+      "ts": 1795403998.2513874
+    }
+  ]
 }
