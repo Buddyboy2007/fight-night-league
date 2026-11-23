@@ -1141,21 +1141,21 @@
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 19,
+    "round": "Fight 19 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Balrog",
-      "image": "portraits/balrog-shaw.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 26
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "team": "grok",
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1208,7 +1208,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795434524.2853217,
+  "updated_at": 1795434533.5854218,
   "swaps": [
     {
       "bout": 14,
