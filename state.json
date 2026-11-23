@@ -761,21 +761,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Sugar Ray Leonard",
-      "image": "portraits/sugar-ray-leonard.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 11
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sebastian Fundora",
-      "image": "portraits/sebastian-fundora.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 22
+      "team": "grok",
+      "fighter": "Errol Spence Jr.",
+      "image": "portraits/errol-spence-jr.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 7
     }
   },
   "winner": null,
@@ -828,5 +828,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795457575.7195034
+  "updated_at": 1795457585.0320632
 }
