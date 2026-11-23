@@ -200,7 +200,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Miguel Cotto",
@@ -239,7 +239,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "grok": {
       "name": "Grok",
@@ -1005,8 +1005,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     }
   ],
   "history": [
@@ -1309,27 +1312,24 @@
       "method": null,
       "round": 4,
       "ts": 1795393500.8523412
+    },
+    {
+      "bout": 31,
+      "winner_team": "gemini",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "codex",
+      "loser_fighter": "Terence Crawford",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795396353.6171343
     }
   ],
-  "current_match": {
-    "bout": 31,
-    "round": "Final",
-    "left": {
-      "team": "codex",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
-    },
-    "right": {
-      "team": "gemini",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
-    }
+  "current_match": null,
+  "winner": {
+    "team": "gemini",
+    "fighter": "Gennadiy Golovkin",
+    "image": "portraits/gennadiy-golovkin.jpg"
   },
-  "winner": null,
   "tournament": 4,
   "draw": [
     "Thomas Hearns",
@@ -1379,7 +1379,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795393500.8523693,
+  "updated_at": 1795396353.6171377,
   "swaps": [
     {
       "bout": 14,
