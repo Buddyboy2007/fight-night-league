@@ -271,7 +271,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 25,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Conor McGregor",
@@ -722,8 +722,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 8
+      }
     },
     {
       "id": 25,
@@ -749,7 +752,13 @@
     {
       "id": 28,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Marvin Hagler",
+        "image": "portraits/marvelous-marvin-hagler.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -815,24 +824,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795462552.0860078
+    },
+    {
+      "bout": 24,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Marvin Hagler",
+      "loser_team": "grok",
+      "loser_fighter": "Ken",
+      "method": null,
+      "round": 8,
+      "ts": 1795468873.4574058
     }
   ],
   "current_match": {
-    "bout": 24,
-    "round": "Fight 24 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Ken",
-      "image": "portraits/ken.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 25
+      "team": "codex",
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Marvin Hagler",
-      "image": "portraits/marvelous-marvin-hagler.jpg",
+      "team": "gemini",
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 2
+      "game_index": 22
     }
   },
   "winner": null,
@@ -885,7 +904,7 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795462561.4008925,
+  "updated_at": 1795468873.457433,
   "swaps": [
     {
       "bout": 15,
