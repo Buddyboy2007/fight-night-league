@@ -209,7 +209,7 @@
           "country": "us",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Bernard Hopkins",
@@ -585,11 +585,11 @@
     {
       "id": 14,
       "left": {
-        "team": "gemini",
-        "fighter": "Shane Mosley",
-        "image": "portraits/shane-mosley.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 3
+        "team": "chatgpt",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
       },
       "right": {
         "team": "grok",
@@ -604,11 +604,11 @@
     {
       "id": 15,
       "left": {
-        "team": "chatgpt",
-        "fighter": "Janibek Alimkhanuly",
-        "image": "portraits/janibek-alimkhanuly.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 7
+        "team": "gemini",
+        "fighter": "Shane Mosley",
+        "image": "portraits/shane-mosley.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 3
       },
       "right": {
         "team": "grok",
@@ -636,8 +636,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 2
+      }
     },
     {
       "id": 17,
@@ -703,7 +706,13 @@
     {
       "id": 24,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Marvin Hagler",
+        "image": "portraits/marvelous-marvin-hagler.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -777,24 +786,34 @@
       "method": null,
       "round": null,
       "ts": 1795459002.5034773
+    },
+    {
+      "bout": 16,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Marvin Hagler",
+      "loser_team": "codex",
+      "loser_fighter": "Roy Jones Jr.",
+      "method": null,
+      "round": 2,
+      "ts": 1795459672.553726
     }
   ],
   "current_match": {
-    "bout": 16,
-    "round": "Fight 16 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Marvin Hagler",
-      "image": "portraits/marvelous-marvin-hagler.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 2
+      "team": "codex",
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     },
     "right": {
-      "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "team": "gemini",
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 22
     }
   },
   "winner": null,
@@ -847,5 +866,15 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795459011.8098457
+  "updated_at": 1795459672.5538068,
+  "swaps": [
+    {
+      "bout": 15,
+      "moved": "Janibek Alimkhanuly",
+      "to_bout": 14,
+      "for": "Shane Mosley",
+      "why": "same-team fighters would have met",
+      "ts": 1795459672.5537734
+    }
+  ]
 }
