@@ -58,7 +58,7 @@
           "country": "ua",
           "game_class": "HEAVYWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Tyson Fury",
@@ -565,11 +565,11 @@
     {
       "id": 12,
       "left": {
-        "team": "grok",
-        "fighter": "Balrog",
-        "image": "portraits/balrog-shaw.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 26
+        "team": "codex",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
       },
       "right": {
         "team": "chatgpt",
@@ -613,11 +613,11 @@
         "game_index": 8
       },
       "right": {
-        "team": "codex",
-        "fighter": "Janibek Alimkhanuly",
-        "image": "portraits/janibek-alimkhanuly.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 7
+        "team": "grok",
+        "fighter": "Balrog",
+        "image": "portraits/balrog-shaw.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 26
       },
       "winner": null,
       "result": null
@@ -749,11 +749,11 @@
     {
       "id": 22,
       "left": {
-        "team": "codex",
-        "fighter": "David Benavidez",
-        "image": "portraits/david-benavidez.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 1
+        "team": "claude",
+        "fighter": "Oleksandr Usyk",
+        "image": "portraits/oleksandr-usyk.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 33
       },
       "right": null,
       "winner": null,
@@ -762,11 +762,11 @@
     {
       "id": 23,
       "left": {
-        "team": "claude",
-        "fighter": "Oleksandr Usyk",
-        "image": "portraits/oleksandr-usyk.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 33
+        "team": "codex",
+        "fighter": "David Benavidez",
+        "image": "portraits/david-benavidez.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 1
       },
       "right": null,
       "winner": null,
@@ -788,8 +788,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4
+      }
     },
     {
       "id": 25,
@@ -821,7 +824,13 @@
     {
       "id": 28,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Dmitry Bivol",
+        "image": "portraits/dmitry-bivol.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 3
+      },
       "winner": null,
       "result": null
     },
@@ -967,24 +976,34 @@
       "method": null,
       "round": 2,
       "ts": 1795418923.5110974
+    },
+    {
+      "bout": 24,
+      "winner_team": "claude",
+      "winner_fighter": "Dmitry Bivol",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Vitali Klitschko",
+      "method": null,
+      "round": 4,
+      "ts": 1795420024.0195255
     }
   ],
   "current_match": {
-    "bout": 24,
-    "round": "Fight 24 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Dmitry Bivol",
-      "image": "portraits/dmitry-bivol.jpg",
+      "team": "codex",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 3
+      "game_index": 0
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 14
     }
   },
   "winner": null,
@@ -1037,7 +1056,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795418932.8056328,
+  "updated_at": 1795420024.0196347,
   "swaps": [
     {
       "bout": 15,
@@ -1070,6 +1089,54 @@
       "for": "Balrog",
       "why": "same-team fighters would have met",
       "ts": 1795418923.5111413
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.0195637
+    },
+    {
+      "bout": 14,
+      "moved": "Janibek Alimkhanuly",
+      "to_bout": 12,
+      "for": "Balrog",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.0195851
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.019593
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.0195992
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.0196152
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795420024.0196214
     }
   ]
 }
