@@ -253,7 +253,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 26,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ryu",
@@ -319,7 +319,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     }
   },
   "team_order": [
@@ -895,8 +895,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 27,
@@ -951,7 +954,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Sugar Ray Robinson",
+        "image": "portraits/sugar-ray-robinson.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 0
+      },
       "winner": null,
       "result": null
     },
@@ -1271,17 +1280,27 @@
       "method": null,
       "round": 3,
       "ts": 1795391699.5129838
+    },
+    {
+      "bout": 26,
+      "winner_team": "gemini",
+      "winner_fighter": "Sugar Ray Robinson",
+      "loser_team": "grok",
+      "loser_fighter": "Balrog",
+      "method": null,
+      "round": 3,
+      "ts": 1795392431.302383
     }
   ],
   "current_match": {
-    "bout": 26,
-    "round": "Quarterfinals",
+    "bout": 29,
+    "round": "Semifinals",
     "left": {
-      "team": "grok",
-      "fighter": "Balrog",
-      "image": "portraits/balrog-shaw.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 26
+      "team": "codex",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     },
     "right": {
       "team": "gemini",
@@ -1341,7 +1360,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795391699.5130208,
+  "updated_at": 1795392431.302413,
   "swaps": [
     {
       "bout": 14,
