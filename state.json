@@ -970,21 +970,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 24,
+    "round": "Fight 24 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
+      "team": "claude",
+      "fighter": "Dmitry Bivol",
+      "image": "portraits/dmitry-bivol.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 3
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "James Toney",
-      "image": "portraits/james-toney.jpg",
+      "fighter": "Vitali Klitschko",
+      "image": "portraits/vitali-klitschko.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 14
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1037,7 +1037,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795418923.5111642,
+  "updated_at": 1795418932.8056328,
   "swaps": [
     {
       "bout": 15,
