@@ -989,21 +989,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "fighter": "Mike Tyson",
+      "image": "portraits/mike-tyson.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 27
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "James Toney",
-      "image": "portraits/james-toney.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 14
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1056,7 +1056,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795420024.0196347,
+  "updated_at": 1795420033.3220148,
   "swaps": [
     {
       "bout": 15,
