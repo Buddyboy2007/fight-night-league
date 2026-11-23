@@ -31,7 +31,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lennox Lewis",
@@ -681,18 +681,18 @@
     {
       "id": 17,
       "left": {
-        "team": "chatgpt",
-        "fighter": "James Toney",
-        "image": "portraits/james-toney.jpg",
+        "team": "claude",
+        "fighter": "Oleksandr Usyk",
+        "image": "portraits/oleksandr-usyk.jpg",
         "game_class": "HEAVYWEIGHT",
-        "game_index": 14
+        "game_index": 33
       },
       "right": {
-        "team": "claude",
-        "fighter": "Sugar Ray Robinson",
-        "image": "portraits/sugar-ray-robinson.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 0
+        "team": "codex",
+        "fighter": "David Benavidez",
+        "image": "portraits/david-benavidez.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 1
       },
       "winner": null,
       "result": null
@@ -713,8 +713,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4
+      }
     },
     {
       "id": 19,
@@ -782,11 +785,11 @@
     {
       "id": 22,
       "left": {
-        "team": "claude",
-        "fighter": "Oleksandr Usyk",
-        "image": "portraits/oleksandr-usyk.jpg",
+        "team": "chatgpt",
+        "fighter": "James Toney",
+        "image": "portraits/james-toney.jpg",
         "game_class": "HEAVYWEIGHT",
-        "game_index": 33
+        "game_index": 14
       },
       "right": null,
       "winner": null,
@@ -795,11 +798,11 @@
     {
       "id": 23,
       "left": {
-        "team": "codex",
-        "fighter": "David Benavidez",
-        "image": "portraits/david-benavidez.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 1
+        "team": "claude",
+        "fighter": "Sugar Ray Robinson",
+        "image": "portraits/sugar-ray-robinson.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 0
       },
       "right": {
         "team": "chatgpt",
@@ -836,7 +839,13 @@
     {
       "id": 25,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Jack Johnson",
+        "image": "portraits/jack-johnson.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 5
+      },
       "winner": null,
       "result": null
     },
@@ -1081,23 +1090,33 @@
       "method": "WO",
       "round": null,
       "ts": 1795429345.0183132
+    },
+    {
+      "bout": 18,
+      "winner_team": "claude",
+      "winner_fighter": "Jack Johnson",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Evander Holyfield",
+      "method": null,
+      "round": 4,
+      "ts": 1795430911.1380787
     }
   ],
   "current_match": {
-    "bout": 18,
-    "round": "Fight 18 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
+      "team": "grok",
+      "fighter": "Balrog",
+      "image": "portraits/balrog-shaw.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "game_index": 26
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Evander Holyfield",
-      "image": "portraits/evander-holyfield.jpg",
-      "game_class": "HEAVYWEIGHT",
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
       "game_index": 2
     }
   },
@@ -1151,7 +1170,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795429346.3184016,
+  "updated_at": 1795430911.1381948,
   "swaps": [
     {
       "bout": 15,
@@ -1528,6 +1547,54 @@
       "for": "David Benavidez",
       "why": "same-team fighters would have met",
       "ts": 1795429345.018377
+    },
+    {
+      "bout": 17,
+      "moved": "Sugar Ray Robinson",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381059
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381185
+    },
+    {
+      "bout": 17,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381397
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381485
+    },
+    {
+      "bout": 17,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381671
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795430911.1381745
     }
   ]
 }
