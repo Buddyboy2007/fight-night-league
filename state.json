@@ -289,7 +289,7 @@
           "country": "mx",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 17,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Oscar De La Hoya",
@@ -421,8 +421,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 6,
@@ -649,7 +652,13 @@
     },
     {
       "id": 19,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Manny Pacquiao",
+        "image": "portraits/manny-pacquiao.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 5
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -739,23 +748,34 @@
       "result": null
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "bout": 5,
+      "winner_team": "gemini",
+      "winner_fighter": "Manny Pacquiao",
+      "loser_team": "grok",
+      "loser_fighter": "Ricardo \u00c1lvarez",
+      "method": null,
+      "round": 3,
+      "ts": 1795457575.7194698
+    }
+  ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Ricardo \u00c1lvarez",
-      "image": "portraits/ricardo-alvarez.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 17
+      "team": "codex",
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     },
     "right": {
       "team": "gemini",
-      "fighter": "Manny Pacquiao",
-      "image": "portraits/manny-pacquiao.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 5
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 22
     }
   },
   "winner": null,
@@ -808,5 +828,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795456622.5299654
+  "updated_at": 1795457575.7195034
 }
