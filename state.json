@@ -218,7 +218,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Terence Crawford",
@@ -557,8 +557,11 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null
+      }
     },
     {
       "id": 13,
@@ -680,7 +683,13 @@
     {
       "id": 22,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Errol Spence Jr.",
+        "image": "portraits/errol-spence-jr.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 7
+      },
       "winner": null,
       "result": null
     },
@@ -758,24 +767,34 @@
       "method": null,
       "round": 3,
       "ts": 1795457575.7194698
+    },
+    {
+      "bout": 12,
+      "winner_team": "grok",
+      "winner_fighter": "Errol Spence Jr.",
+      "loser_team": "codex",
+      "loser_fighter": "Bernard Hopkins",
+      "method": null,
+      "round": null,
+      "ts": 1795459002.5034773
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     },
     "right": {
-      "team": "grok",
-      "fighter": "Errol Spence Jr.",
-      "image": "portraits/errol-spence-jr.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 7
+      "team": "gemini",
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 22
     }
   },
   "winner": null,
@@ -828,5 +847,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795457585.0320632
+  "updated_at": 1795459002.503509
 }
