@@ -289,7 +289,7 @@
           "country": "fr",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jaron Ennis",
@@ -538,8 +538,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null
+      }
     },
     {
       "id": 12,
@@ -682,7 +685,13 @@
     },
     {
       "id": 22,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Oleksandr Usyk",
+        "image": "portraits/oleksandr-usyk.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 33
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -777,23 +786,33 @@
       "method": "WO",
       "round": null,
       "ts": 1795399300.1161654
+    },
+    {
+      "bout": 11,
+      "winner_team": "claude",
+      "winner_fighter": "Oleksandr Usyk",
+      "loser_team": "grok",
+      "loser_fighter": "Ed Braddock",
+      "method": "WO",
+      "round": null,
+      "ts": 1795399841.8586664
     }
   ],
   "current_match": {
-    "bout": 11,
-    "round": "Fight 11 of 31",
+    "bout": 9,
+    "round": "Fight 9 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Oleksandr Usyk",
-      "image": "portraits/oleksandr-usyk.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 33
+      "team": "codex",
+      "fighter": "Danny Jacobs",
+      "image": "portraits/danny-jacobs.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 11
     },
     "right": {
-      "team": "grok",
-      "fighter": "Ed Braddock",
-      "image": "portraits/ed-braddock.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
+      "team": "claude",
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
       "game_index": 9
     }
   },
@@ -847,5 +866,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795399301.4054966
+  "updated_at": 1795399843.157274
 }
