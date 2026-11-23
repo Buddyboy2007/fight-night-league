@@ -138,7 +138,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jack Johnson",
@@ -751,8 +751,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null
+      }
     },
     {
       "id": 21,
@@ -840,7 +843,13 @@
     {
       "id": 26,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "winner": null,
       "result": null
     },
@@ -1062,24 +1071,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795427258.350615
+    },
+    {
+      "bout": 20,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Tyson Fury",
+      "loser_team": "claude",
+      "loser_fighter": "Terence Crawford",
+      "method": "WO",
+      "round": null,
+      "ts": 1795429345.0183132
     }
   ],
   "current_match": {
-    "bout": 20,
-    "round": "Fight 20 of 31",
+    "bout": 18,
+    "round": "Fight 18 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Tyson Fury",
-      "image": "portraits/tyson-fury.jpg",
+      "team": "claude",
+      "fighter": "Jack Johnson",
+      "image": "portraits/jack-johnson.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 19
+      "game_index": 5
     },
     "right": {
-      "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "team": "chatgpt",
+      "fighter": "Evander Holyfield",
+      "image": "portraits/evander-holyfield.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1132,7 +1151,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795427267.6549952,
+  "updated_at": 1795429346.3184016,
   "swaps": [
     {
       "bout": 15,
@@ -1461,6 +1480,54 @@
       "for": "David Benavidez",
       "why": "same-team fighters would have met",
       "ts": 1795427258.35068
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.0183394
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.018347
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.0183585
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.018363
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.0183728
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795429345.018377
     }
   ]
 }
