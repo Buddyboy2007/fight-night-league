@@ -307,7 +307,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jai Opetaia",
@@ -576,8 +576,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 6
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null
+      }
     },
     {
       "id": 14,
@@ -686,7 +689,13 @@
     },
     {
       "id": 23,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "David Benavidez",
+        "image": "portraits/david-benavidez.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 1
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -758,24 +767,34 @@
       "method": null,
       "round": 6,
       "ts": 1795398336.853894
+    },
+    {
+      "bout": 13,
+      "winner_team": "codex",
+      "winner_fighter": "David Benavidez",
+      "loser_team": "grok",
+      "loser_fighter": "Rocky Marciano",
+      "method": "WO",
+      "round": null,
+      "ts": 1795399300.1161654
     }
   ],
   "current_match": {
-    "bout": 13,
-    "round": "Fight 13 of 31",
+    "bout": 11,
+    "round": "Fight 11 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "David Benavidez",
-      "image": "portraits/david-benavidez.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 1
+      "team": "claude",
+      "fighter": "Oleksandr Usyk",
+      "image": "portraits/oleksandr-usyk.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 33
     },
     "right": {
       "team": "grok",
-      "fighter": "Rocky Marciano",
-      "image": "portraits/rocky-marciano.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 6
+      "fighter": "Ed Braddock",
+      "image": "portraits/ed-braddock.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -828,5 +847,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795398346.1623924
+  "updated_at": 1795399301.4054966
 }
