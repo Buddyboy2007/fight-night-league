@@ -147,7 +147,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ryan Garcia",
@@ -961,8 +961,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4
+      }
     },
     {
       "id": 30,
@@ -988,7 +991,13 @@
     },
     {
       "id": 31,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "right": {
         "team": "gemini",
         "fighter": "Gennadiy Golovkin",
@@ -1290,11 +1299,21 @@
       "method": null,
       "round": 3,
       "ts": 1795392431.302383
+    },
+    {
+      "bout": 29,
+      "winner_team": "codex",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "gemini",
+      "loser_fighter": "Sugar Ray Robinson",
+      "method": null,
+      "round": 4,
+      "ts": 1795393500.8523412
     }
   ],
   "current_match": {
-    "bout": 29,
-    "round": "Semifinals",
+    "bout": 31,
+    "round": "Final",
     "left": {
       "team": "codex",
       "fighter": "Terence Crawford",
@@ -1304,10 +1323,10 @@
     },
     "right": {
       "team": "gemini",
-      "fighter": "Sugar Ray Robinson",
-      "image": "portraits/sugar-ray-robinson.jpg",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 0
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1360,7 +1379,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795392431.302413,
+  "updated_at": 1795393500.8523693,
   "swaps": [
     {
       "bout": 14,
