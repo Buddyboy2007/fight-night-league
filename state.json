@@ -1122,21 +1122,21 @@
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 28,
+    "round": "Quarterfinals",
     "left": {
-      "team": "grok",
-      "fighter": "Balrog",
-      "image": "portraits/balrog-shaw.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 26
+      "team": "chatgpt",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
+      "team": "claude",
+      "fighter": "Dmitry Bivol",
+      "image": "portraits/dmitry-bivol.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "game_index": 3
     }
   },
   "winner": null,
@@ -1189,7 +1189,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795433249.1331413,
+  "updated_at": 1795433258.4339242,
   "swaps": [
     {
       "bout": 15,
