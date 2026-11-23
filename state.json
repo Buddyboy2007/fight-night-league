@@ -147,7 +147,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Bernard Hopkins",
@@ -892,8 +892,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "KO",
+        "round": 12
+      }
     },
     {
       "id": 27,
@@ -939,7 +942,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 33
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "winner": null,
       "result": null
     },
@@ -1214,17 +1223,27 @@
       "method": "DEC",
       "round": null,
       "ts": 1795445932.832133
+    },
+    {
+      "bout": 26,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Tyson Fury",
+      "loser_team": "claude",
+      "loser_fighter": "Jack Johnson",
+      "method": "KO",
+      "round": 12,
+      "ts": 1795448802.7748046
     }
   ],
   "current_match": {
-    "bout": 26,
-    "round": "Quarterfinals",
+    "bout": 29,
+    "round": "Semifinals",
     "left": {
       "team": "claude",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
+      "fighter": "Oleksandr Usyk",
+      "image": "portraits/oleksandr-usyk.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "game_index": 33
     },
     "right": {
       "team": "chatgpt",
@@ -1284,7 +1303,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795445932.8321822,
+  "updated_at": 1795448802.7748377,
   "swaps": [
     {
       "bout": 23,
