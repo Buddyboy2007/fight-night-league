@@ -111,7 +111,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 28,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Oleksandr Usyk",
@@ -625,8 +625,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 28
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 5
+      }
     },
     {
       "id": 15,
@@ -786,7 +789,13 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 1
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "winner": null,
       "result": null
     },
@@ -1024,24 +1033,34 @@
       "method": "WO",
       "round": null,
       "ts": 1795421255.3301575
+    },
+    {
+      "bout": 14,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "claude",
+      "loser_fighter": "Muhammad Ali",
+      "method": null,
+      "round": 5,
+      "ts": 1795424380.7028475
     }
   ],
   "current_match": {
-    "bout": 14,
-    "round": "Fight 14 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
+      "team": "codex",
+      "fighter": "Janibek Alimkhanuly",
+      "image": "portraits/janibek-alimkhanuly.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "game_index": 7
     },
     "right": {
-      "team": "claude",
-      "fighter": "Muhammad Ali",
-      "image": "portraits/muhammad-ali.jpg",
+      "team": "chatgpt",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 28
+      "game_index": 14
     }
   },
   "winner": null,
@@ -1094,7 +1113,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795421256.6197748,
+  "updated_at": 1795424380.702949,
   "swaps": [
     {
       "bout": 15,
@@ -1327,6 +1346,54 @@
       "for": "David Benavidez",
       "why": "same-team fighters would have met",
       "ts": 1795421255.3302584
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.7028792
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.7028897
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.7029073
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.7029138
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 23,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.70293
+    },
+    {
+      "bout": 23,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "David Benavidez",
+      "why": "same-team fighters would have met",
+      "ts": 1795424380.7029362
     }
   ]
 }
