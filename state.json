@@ -22,7 +22,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 8,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Evander Holyfield",
@@ -79,7 +79,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "claude": {
       "name": "Claude",
@@ -1007,8 +1007,11 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     }
   ],
   "history": [
@@ -1291,27 +1294,24 @@
       "method": null,
       "round": 3,
       "ts": 1795453245.5735548
+    },
+    {
+      "bout": 31,
+      "winner_team": "claude",
+      "winner_fighter": "Oleksandr Usyk",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Gennadiy Golovkin",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795456121.4063396
     }
   ],
-  "current_match": {
-    "bout": 31,
-    "round": "Final",
-    "left": {
-      "team": "claude",
-      "fighter": "Oleksandr Usyk",
-      "image": "portraits/oleksandr-usyk.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 33
-    },
-    "right": {
-      "team": "chatgpt",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
-    }
+  "current_match": null,
+  "winner": {
+    "team": "claude",
+    "fighter": "Oleksandr Usyk",
+    "image": "portraits/oleksandr-usyk.jpg"
   },
-  "winner": null,
   "tournament": 5,
   "draw": [
     "Roy Jones Jr.",
@@ -1361,7 +1361,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795453245.5736365,
+  "updated_at": 1795456121.4063435,
   "swaps": [
     {
       "bout": 23,
