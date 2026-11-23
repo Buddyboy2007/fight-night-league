@@ -350,7 +350,7 @@
 <div id="stage">
 <div id="panel"></div>
 <div id="rule"></div>
-<div id="title"><div class="eye">Lancero FNF League</div><h1>Tournament <b>Bracket</b></h1><small id="subTitle">32 legends &middot; 5 AI corners &middot; single elimination</small></div>
+<div id="title"><div class="eye">Lancero FNF League</div><h1>Tournament <b>Bracket</b></h1><small id="subTitle">32 boxers &middot; 5 AI corners &middot; single elimination</small></div>
 <div id="now"></div>
 <div id="legend"></div>
 <svg id="lines" width="1920" height="1080"></svg>
@@ -516,7 +516,7 @@ function render(state) {
   board.innerHTML = '';
   svg.innerHTML = '';
   if (state.band && state.band.labels)               // a drafted tournament carries its weight band
-    document.getElementById('subTitle').textContent = `${state.bouts.length + 1} legends · ${state.band.labels.join(' · ')} · single elimination`;
+    document.getElementById('subTitle').textContent = `${state.bouts.length + 1} boxers · ${state.band.labels.join(' · ')} · single elimination`;
 
   // legend: the four AI corners and how many fighters each has left, as pips
   const legend = document.getElementById('legend');
