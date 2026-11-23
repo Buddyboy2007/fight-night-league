@@ -156,7 +156,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -735,8 +735,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 20,
@@ -854,7 +857,13 @@
     },
     {
       "id": 26,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jai Opetaia",
+        "image": "portraits/jai-opetaia.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 15
+      },
       "right": {
         "team": "chatgpt",
         "fighter": "Tyson Fury",
@@ -1138,24 +1147,34 @@
       "method": null,
       "round": 5,
       "ts": 1795434524.2852302
+    },
+    {
+      "bout": 19,
+      "winner_team": "grok",
+      "winner_fighter": "Jai Opetaia",
+      "loser_team": "claude",
+      "loser_fighter": "Bernard Hopkins",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795439477.288255
     }
   ],
   "current_match": {
-    "bout": 19,
-    "round": "Fight 19 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "team": "grok",
+      "fighter": "Balrog",
+      "image": "portraits/balrog-shaw.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 26
     },
     "right": {
-      "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "team": "chatgpt",
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1208,56 +1227,8 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795434533.5854218,
+  "updated_at": 1795439477.2883692,
   "swaps": [
-    {
-      "bout": 14,
-      "moved": "Janibek Alimkhanuly",
-      "to_bout": 12,
-      "for": "Balrog",
-      "why": "same-team fighters would have met",
-      "ts": 1795420024.0195851
-    },
-    {
-      "bout": 22,
-      "moved": "Oleksandr Usyk",
-      "to_bout": 23,
-      "for": "David Benavidez",
-      "why": "same-team fighters would have met",
-      "ts": 1795420024.019593
-    },
-    {
-      "bout": 23,
-      "moved": "Oleksandr Usyk",
-      "to_bout": 22,
-      "for": "David Benavidez",
-      "why": "same-team fighters would have met",
-      "ts": 1795420024.0195992
-    },
-    {
-      "bout": 22,
-      "moved": "Oleksandr Usyk",
-      "to_bout": 23,
-      "for": "David Benavidez",
-      "why": "same-team fighters would have met",
-      "ts": 1795420024.0196152
-    },
-    {
-      "bout": 23,
-      "moved": "Oleksandr Usyk",
-      "to_bout": 22,
-      "for": "David Benavidez",
-      "why": "same-team fighters would have met",
-      "ts": 1795420024.0196214
-    },
-    {
-      "bout": 7,
-      "moved": "Muhammad Ali",
-      "to_bout": 1,
-      "for": "Roy Jones Jr.",
-      "why": "same-team fighters would have met",
-      "ts": 1795420795.5083892
-    },
     {
       "bout": 22,
       "moved": "Oleksandr Usyk",
@@ -1689,6 +1660,54 @@
       "for": "James Toney",
       "why": "same-team fighters would have met",
       "ts": 1795434524.2853067
+    },
+    {
+      "bout": 17,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.2882888
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.2882998
+    },
+    {
+      "bout": 17,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.2883182
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.2883253
+    },
+    {
+      "bout": 17,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 22,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.288342
+    },
+    {
+      "bout": 22,
+      "moved": "Oleksandr Usyk",
+      "to_bout": 17,
+      "for": "James Toney",
+      "why": "same-team fighters would have met",
+      "ts": 1795439477.2883487
     }
   ]
 }
