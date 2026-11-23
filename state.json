@@ -67,7 +67,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 19,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "James Toney",
@@ -76,7 +76,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 14,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -807,8 +807,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "TEAMMATES",
+        "round": null,
+        "walkover": true
+      }
     },
     {
       "id": 23,
@@ -907,7 +911,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 9
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Artur Beterbiev",
+        "image": "portraits/artur-beterbiev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -949,8 +959,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 6
+      }
     },
     {
       "id": 30,
@@ -967,7 +980,13 @@
     },
     {
       "id": 31,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Oleksandr Usyk",
+        "image": "portraits/oleksandr-usyk.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 33
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1233,24 +1252,34 @@
       "method": "KO",
       "round": 12,
       "ts": 1795448802.7748046
+    },
+    {
+      "bout": 29,
+      "winner_team": "claude",
+      "winner_fighter": "Oleksandr Usyk",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Tyson Fury",
+      "method": null,
+      "round": 6,
+      "ts": 1795452330.7566621
     }
   ],
   "current_match": {
-    "bout": 29,
-    "round": "Semifinals",
+    "bout": 27,
+    "round": "Quarterfinals",
     "left": {
       "team": "claude",
-      "fighter": "Oleksandr Usyk",
-      "image": "portraits/oleksandr-usyk.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 33
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 9
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Tyson Fury",
-      "image": "portraits/tyson-fury.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 19
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1303,7 +1332,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795448802.7748377,
+  "updated_at": 1795452330.7567286,
   "swaps": [
     {
       "bout": 23,
@@ -1784,6 +1813,14 @@
       "for": "Jai Opetaia",
       "why": "same-team fighters would have met",
       "ts": 1795442363.4228075
+    }
+  ],
+  "walkovers": [
+    {
+      "bout": 22,
+      "winner": "Artur Beterbiev",
+      "loser": "James Toney",
+      "ts": 1795452330.7567062
     }
   ]
 }
