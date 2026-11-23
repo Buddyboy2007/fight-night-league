@@ -856,21 +856,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 13,
+    "round": "Fight 13 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Sugar Ray Leonard",
-      "image": "portraits/sugar-ray-leonard.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 11
+      "team": "chatgpt",
+      "fighter": "Vergil Ortiz Jr.",
+      "image": "portraits/vergil-ortiz-jr.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 13
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sebastian Fundora",
-      "image": "portraits/sebastian-fundora.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 22
+      "team": "codex",
+      "fighter": "Roberto Dur\u00e1n",
+      "image": "portraits/roberto-duran.png",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 16
     }
   },
   "winner": null,
@@ -923,7 +923,7 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795476530.265235,
+  "updated_at": 1795476539.5810072,
   "swaps": [
     {
       "bout": 15,
