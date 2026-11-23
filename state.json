@@ -837,21 +837,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 10,
+    "round": "Fight 10 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Sugar Ray Leonard",
-      "image": "portraits/sugar-ray-leonard.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 11
+      "team": "gemini",
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 4
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sebastian Fundora",
-      "image": "portraits/sebastian-fundora.jpg",
+      "team": "grok",
+      "fighter": "Ryu",
+      "image": "portraits/ryu.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 22
+      "game_index": 24
     }
   },
   "winner": null,
@@ -904,7 +904,7 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795468873.457433,
+  "updated_at": 1795468882.7705963,
   "swaps": [
     {
       "bout": 15,
