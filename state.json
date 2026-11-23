@@ -13,7 +13,7 @@
           "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Gennadiy Golovkin",
@@ -93,7 +93,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Dmitry Bivol",
@@ -918,8 +918,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3
+      }
     },
     {
       "id": 28,
@@ -967,7 +970,13 @@
     },
     {
       "id": 30,
-      "left": null,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Artur Beterbiev",
+        "image": "portraits/artur-beterbiev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 2
+      },
       "right": {
         "team": "chatgpt",
         "fighter": "Gennadiy Golovkin",
@@ -975,8 +984,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "TEAMMATES",
+        "round": null,
+        "walkover": true
+      }
     },
     {
       "id": 31,
@@ -987,7 +1000,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 33
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "winner": null,
       "result": null
     }
@@ -1262,24 +1281,34 @@
       "method": null,
       "round": 6,
       "ts": 1795452330.7566621
+    },
+    {
+      "bout": 27,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Artur Beterbiev",
+      "loser_team": "claude",
+      "loser_fighter": "Ronald Wright",
+      "method": null,
+      "round": 3,
+      "ts": 1795453245.5735548
     }
   ],
   "current_match": {
-    "bout": 27,
-    "round": "Quarterfinals",
+    "bout": 31,
+    "round": "Final",
     "left": {
       "team": "claude",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 9
+      "fighter": "Oleksandr Usyk",
+      "image": "portraits/oleksandr-usyk.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 33
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1332,7 +1361,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795452330.7567286,
+  "updated_at": 1795453245.5736365,
   "swaps": [
     {
       "bout": 23,
@@ -1821,6 +1850,12 @@
       "winner": "Artur Beterbiev",
       "loser": "James Toney",
       "ts": 1795452330.7567062
+    },
+    {
+      "bout": 30,
+      "winner": "Gennadiy Golovkin",
+      "loser": "Artur Beterbiev",
+      "ts": 1795453245.5736146
     }
   ]
 }
