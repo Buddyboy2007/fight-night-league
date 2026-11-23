@@ -40,7 +40,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 32,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "George Foreman",
@@ -373,11 +373,11 @@
     {
       "id": 3,
       "left": {
-        "team": "codex",
-        "fighter": "Joe Louis",
-        "image": "portraits/joe-louis.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 7
+        "team": "grok",
+        "fighter": "Ken",
+        "image": "portraits/ken.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 25
       },
       "right": {
         "team": "claude",
@@ -411,11 +411,11 @@
     {
       "id": 5,
       "left": {
-        "team": "grok",
-        "fighter": "Ken",
-        "image": "portraits/ken.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 25
+        "team": "codex",
+        "fighter": "Joe Louis",
+        "image": "portraits/joe-louis.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 7
       },
       "right": {
         "team": "claude",
@@ -443,8 +443,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 32
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null
+      }
     },
     {
       "id": 7,
@@ -674,7 +677,13 @@
     {
       "id": 19,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Jai Opetaia",
+        "image": "portraits/jai-opetaia.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 15
+      },
       "winner": null,
       "result": null
     },
@@ -853,24 +862,34 @@
       "method": "WO",
       "round": null,
       "ts": 1795403998.2513466
+    },
+    {
+      "bout": 6,
+      "winner_team": "grok",
+      "winner_fighter": "Jai Opetaia",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Lennox Lewis",
+      "method": "DEC",
+      "round": null,
+      "ts": 1795406936.122196
     }
   ],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "team": "codex",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Lennox Lewis",
-      "image": "portraits/lennox-lewis.jpg",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "game_index": 14
     }
   },
   "winner": null,
@@ -923,7 +942,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795403999.5493865,
+  "updated_at": 1795406936.1222546,
   "swaps": [
     {
       "bout": 15,
@@ -932,6 +951,14 @@
       "for": "Dmitry Bivol",
       "why": "same-team fighters would have met",
       "ts": 1795403998.2513874
+    },
+    {
+      "bout": 5,
+      "moved": "Ken",
+      "to_bout": 3,
+      "for": "Joe Louis",
+      "why": "same-team fighters would have met",
+      "ts": 1795406936.1222248
     }
   ]
 }
