@@ -253,7 +253,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 26,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ryu",
@@ -587,8 +587,11 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 2
+      }
     },
     {
       "id": 13,
@@ -797,7 +800,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 14
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Artur Beterbiev",
+        "image": "portraits/artur-beterbiev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -1176,24 +1185,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795442363.4227798
+    },
+    {
+      "bout": 12,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Artur Beterbiev",
+      "loser_team": "grok",
+      "loser_fighter": "Balrog",
+      "method": null,
+      "round": 2,
+      "ts": 1795443010.8104897
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 25,
+    "round": "Quarterfinals",
     "left": {
-      "team": "grok",
-      "fighter": "Balrog",
-      "image": "portraits/balrog-shaw.jpg",
+      "team": "claude",
+      "fighter": "Oleksandr Usyk",
+      "image": "portraits/oleksandr-usyk.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 26
+      "game_index": 33
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "team": "grok",
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1246,7 +1265,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795442372.7293403,
+  "updated_at": 1795443010.810548,
   "swaps": [
     {
       "bout": 23,
