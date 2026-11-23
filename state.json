@@ -761,21 +761,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 13,
+    "round": "Fight 13 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
+      "fighter": "David Benavidez",
+      "image": "portraits/david-benavidez.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 1
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "James Toney",
-      "image": "portraits/james-toney.jpg",
+      "team": "grok",
+      "fighter": "Rocky Marciano",
+      "image": "portraits/rocky-marciano.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 14
+      "game_index": 6
     }
   },
   "winner": null,
@@ -828,5 +828,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795398336.8539276
+  "updated_at": 1795398346.1623924
 }
