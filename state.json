@@ -280,7 +280,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 25,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ed Braddock",
@@ -386,8 +386,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5
+      }
     },
     {
       "id": 4,
@@ -678,7 +681,13 @@
     },
     {
       "id": 18,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Jack Johnson",
+        "image": "portraits/jack-johnson.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 5
+      },
       "right": {
         "team": "chatgpt",
         "fighter": "Evander Holyfield",
@@ -929,24 +938,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795412796.1209254
+    },
+    {
+      "bout": 3,
+      "winner_team": "claude",
+      "winner_fighter": "Jack Johnson",
+      "loser_team": "grok",
+      "loser_fighter": "Ken",
+      "method": null,
+      "round": 5,
+      "ts": 1795414009.55658
     }
   ],
   "current_match": {
-    "bout": 3,
-    "round": "Fight 3 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Ken",
-      "image": "portraits/ken.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 25
+      "team": "codex",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "claude",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
+      "team": "chatgpt",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "game_index": 14
     }
   },
   "winner": null,
@@ -999,7 +1018,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795412805.4191055,
+  "updated_at": 1795414009.5566075,
   "swaps": [
     {
       "bout": 15,
