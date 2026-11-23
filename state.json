@@ -271,7 +271,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 25,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ken",
@@ -405,8 +405,11 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 25
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 7
+      }
     },
     {
       "id": 5,
@@ -670,7 +673,13 @@
     {
       "id": 18,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Evander Holyfield",
+        "image": "portraits/evander-holyfield.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -872,24 +881,34 @@
       "method": "DEC",
       "round": null,
       "ts": 1795406936.122196
+    },
+    {
+      "bout": 4,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Evander Holyfield",
+      "loser_team": "grok",
+      "loser_fighter": "Dudley",
+      "method": null,
+      "round": 7,
+      "ts": 1795408908.9417613
     }
   ],
   "current_match": {
-    "bout": 4,
-    "round": "Fight 4 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Evander Holyfield",
-      "image": "portraits/evander-holyfield.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 2
+      "team": "codex",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "grok",
-      "fighter": "Dudley",
-      "image": "portraits/dudley-williams-jr.jpg",
+      "team": "chatgpt",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 25
+      "game_index": 14
     }
   },
   "winner": null,
@@ -942,7 +961,7 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795406945.4229226,
+  "updated_at": 1795408908.9417996,
   "swaps": [
     {
       "bout": 15,
