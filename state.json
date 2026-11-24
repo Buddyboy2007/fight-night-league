@@ -805,21 +805,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 7,
+    "round": "Fight 7 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Cooper Martin",
-      "image": "portraits/cooper-martin.jpg",
+      "team": "claude",
+      "fighter": "Brandon Romero",
+      "image": "portraits/brandon-romero.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 7
+      "game_index": 6
     },
     "right": {
-      "team": "claude",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
+      "team": "gemini",
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 4
     }
   },
   "winner": null,
@@ -876,5 +876,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795491387.6562517
+  "updated_at": 1795491396.992795
 }
