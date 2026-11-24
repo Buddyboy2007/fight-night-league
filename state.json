@@ -826,21 +826,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 3,
+    "round": "Fight 3 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Cooper Martin",
-      "image": "portraits/cooper-martin.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 7
+      "team": "grok",
+      "fighter": "Teofimo Lopez",
+      "image": "portraits/teofimo-lopez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 4
     },
     "right": {
-      "team": "claude",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "team": "gemini",
+      "fighter": "Sugar Ray Leonard",
+      "image": "portraits/sugar-ray-leonard.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 11
     }
   },
   "winner": null,
@@ -897,5 +897,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795492381.8087027
+  "updated_at": 1795492391.267065
 }
