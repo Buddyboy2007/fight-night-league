@@ -98,6 +98,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .lv-side.lvR .lv-meter .tr i{margin-left:auto}
 .lv-side .nm{color:var(--ink)}
 .sideline{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:6px;background:#1a2140;color:var(--mute);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;vertical-align:1px}
+.sideline[hidden]{display:none}
 .lv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
 .lv-stats div{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
 .lv-stats b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
@@ -524,7 +525,8 @@ function homeLive(){
     const pk = row.querySelector('.pk'), cf = row.querySelector('.cf');
     const sl = row.querySelector('.sideline'); if(sl) sl.hidden = !(s.lv && s.lv.playing && !s.lv.playing.includes(id));
     if(a && a.pick){
-      pk.textContent = 'leans '+sur(a.pick==='L'?s.b.left:s.b.right)+' · '+((a.on_L||0)+(a.on_R||0)).toLocaleString()+' staked';
+      const on = [[a.on_L,s.b.left],[a.on_R,s.b.right]].filter(x=>x[0]>0).map(x=>x[0].toLocaleString()+' on '+sur(x[1])).join(' · ');
+      pk.textContent = 'leans '+sur(a.pick==='L'?s.b.left:s.b.right)+' · '+(on || 'no stake yet');
       cf.textContent = Math.round(a.conf)+'%'; cf.style.color = a.pick==='L'?'#ff7a85':'#8ab4ff';
     } else { pk.textContent = a ? 'bank '+(a.bank||0).toLocaleString() : 'waiting for the bell'; cf.textContent='–'; cf.style.color=col; }
     arTug(row.querySelector('.tug'), a?a.on_L:null, a?a.on_R:null);
