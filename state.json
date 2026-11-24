@@ -173,7 +173,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 18,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "David Benavidez",
@@ -406,8 +406,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 5,
@@ -669,7 +673,13 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 4
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Marvin Hagler",
+        "image": "portraits/marvelous-marvin-hagler.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -844,24 +854,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795494884.11063
+    },
+    {
+      "bout": 4,
+      "winner_team": "claude",
+      "winner_fighter": "Marvin Hagler",
+      "loser_team": "codex",
+      "loser_fighter": "Keyshawn Hayes",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795495982.7093887
     }
   ],
   "current_match": {
-    "bout": 4,
-    "round": "Fight 4 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "team": "gemini",
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 7
     },
     "right": {
       "team": "claude",
-      "fighter": "Marvin Hagler",
-      "image": "portraits/marvelous-marvin-hagler.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 2
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -918,5 +939,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795495073.6470587
+  "updated_at": 1795495982.7094238
 }
