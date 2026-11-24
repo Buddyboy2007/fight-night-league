@@ -1099,21 +1099,21 @@
     }
   ],
   "current_match": {
-    "bout": 18,
-    "round": "Fight 18 of 31",
+    "bout": 27,
+    "round": "Quarterfinals",
     "left": {
       "team": "grok",
-      "fighter": "Teofimo Lopez",
-      "image": "portraits/teofimo-lopez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 4
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "claude",
-      "fighter": "Marvin Hagler",
-      "image": "portraits/marvelous-marvin-hagler.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 2
+      "team": "gemini",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     }
   },
   "winner": null,
@@ -1170,7 +1170,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795514481.9509578,
+  "updated_at": 1795515008.0905223,
   "swaps": [
     {
       "bout": 22,
