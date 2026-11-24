@@ -1141,20 +1141,20 @@
     }
   ],
   "current_match": {
-    "bout": 19,
-    "round": "Fight 19 of 31",
+    "bout": 23,
+    "round": "Fight 23 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 4
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
-      "game_class": "MIDDLEWEIGHT",
+      "team": "claude",
+      "fighter": "Devin Haney",
+      "image": "portraits/devin-haney.jpg",
+      "game_class": "WELTERWEIGHT",
       "game_index": 9
     }
   },
@@ -1212,7 +1212,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795527189.8588867,
+  "updated_at": 1795558285.9639509,
   "swaps": [
     {
       "bout": 22,
