@@ -1078,21 +1078,21 @@
     }
   ],
   "current_match": {
-    "bout": 16,
-    "round": "Fight 16 of 31",
+    "bout": 18,
+    "round": "Fight 18 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "fighter": "Teofimo Lopez",
+      "image": "portraits/teofimo-lopez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 4
     },
     "right": {
-      "team": "codex",
-      "fighter": "Muhammad Ali",
-      "image": "portraits/muhammad-ali.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 28
+      "team": "claude",
+      "fighter": "Marvin Hagler",
+      "image": "portraits/marvelous-marvin-hagler.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1149,7 +1149,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795511716.5709457,
+  "updated_at": 1795513818.0792954,
   "swaps": [
     {
       "bout": 22,
