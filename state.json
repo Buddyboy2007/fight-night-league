@@ -316,7 +316,7 @@
           "country": "ph",
           "game_class": "WELTERWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -632,8 +632,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "KO",
+        "round": 10,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 15,
@@ -782,7 +786,13 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 0
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Devin Haney",
+        "image": "portraits/devin-haney.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 9
+      },
       "winner": null,
       "result": null
     },
@@ -970,24 +980,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795506702.929359
+    },
+    {
+      "bout": 14,
+      "winner_team": "claude",
+      "winner_fighter": "Devin Haney",
+      "loser_team": "grok",
+      "loser_fighter": "Manny Pacquiao",
+      "method": "KO",
+      "round": 10,
+      "bare_knuckle": false,
+      "ts": 1795509172.2894504
     }
   ],
   "current_match": {
-    "bout": 14,
-    "round": "Fight 14 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Manny Pacquiao",
-      "image": "portraits/manny-pacquiao.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 5
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "claude",
-      "fighter": "Devin Haney",
-      "image": "portraits/devin-haney.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 9
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1044,5 +1065,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795506712.2572205
+  "updated_at": 1795509172.2894773
 }
