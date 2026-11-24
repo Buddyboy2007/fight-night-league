@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 14,
+    "round": "Fight 14 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Sugar Ray Robinson",
-      "image": "portraits/sugar-ray-robinson.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 0
+      "fighter": "Junto Nakatani",
+      "image": "portraits/junto-nakatani.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 1
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Vergil Ortiz Jr.",
-      "image": "portraits/vergil-ortiz-jr.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 13
+      "team": "grok",
+      "fighter": "Ed Braddock",
+      "image": "portraits/ed-braddock.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795481237.9610515
+  "updated_at": 1795481519.3268063
 }
