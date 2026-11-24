@@ -67,7 +67,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Roy Jones Jr.",
@@ -829,8 +829,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 24,
@@ -896,7 +900,13 @@
     },
     {
       "id": 28,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Sergey Kovalev",
+        "image": "portraits/sergey-kovalev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 4
+      },
       "right": {
         "team": "grok",
         "fighter": "Arturo Godoy",
@@ -1138,24 +1148,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795515488.2137544
+    },
+    {
+      "bout": 23,
+      "winner_team": "gemini",
+      "winner_fighter": "Sergey Kovalev",
+      "loser_team": "claude",
+      "loser_fighter": "Devin Haney",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": true,
+      "ts": 1795560326.6580951
     }
   ],
   "current_match": {
-    "bout": 23,
-    "round": "Fight 23 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
+      "team": "codex",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
+      "game_class": "MIDDLEWEIGHT",
       "game_index": 4
     },
     "right": {
-      "team": "claude",
-      "fighter": "Devin Haney",
-      "image": "portraits/devin-haney.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 9
+      "team": "grok",
+      "fighter": "Marcial Carri\u00f3n",
+      "image": "portraits/marcial-carrion.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 26
     }
   },
   "winner": null,
@@ -1212,7 +1233,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795558285.9639509,
+  "updated_at": 1795560326.6581392,
   "swaps": [
     {
       "bout": 22,

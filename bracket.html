@@ -241,7 +241,8 @@
   #dWheelBox { position: absolute; left: 190px; top: 132px; width: 600px; height: 600px; transition: opacity .6s ease, transform .8s cubic-bezier(.16,.84,.24,1); }
   #dWheelBox.off { opacity: 0; transform: scale(.85); }
   #dWheel { width: 600px; height: 600px; filter: drop-shadow(0 0 34px rgba(245,197,66,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.7)); }
-  #dWheel text { font-family: var(--font); font-weight: 800; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+  #dWheel text { font-family: var(--font); font-weight: 800; fill: #fff; text-anchor: middle; dominant-baseline: central;
+    paint-order: stroke fill; stroke: rgba(0,0,0,.66); stroke-width: 3.5px; stroke-linejoin: round; }
   #dWheel .bulb { fill: #ffd76a; animation: bulb 1s steps(1) infinite; }
   #dWheel .bulb.o { animation-delay: .5s; }
   #dWheel.won .bulb { animation-duration: .3s; animation-delay: 0s !important; }
@@ -733,6 +734,8 @@ const CLASS_DIV = { 'HEAVYWEIGHT': 'HW', 'LIGHT HEAVYWEIGHT': 'LHW', 'CRUISERWEI
 
 const _hex = h => { const n = parseInt(String(h).slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
 const _mix = (a, b, t) => {                       // blend two hex colours, t in 0..1
+  // only #rrggbb mixes; an rgba() fallback is handed back untouched rather than turning into NaN
+  if (!/^#[0-9a-f]{6}$/i.test(String(a)) || !/^#[0-9a-f]{6}$/i.test(String(b))) return a;
   const x = _hex(a), y = _hex(b);
   return '#' + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, '0')).join('');
 };
@@ -764,6 +767,40 @@ function fighterColor(name, fallback) {
   if (!f || !DIV_BASE[f.div]) return fallback || '#2a3348';
   const s = f.shade || 0;
   return _mix(DIV_BASE[f.div], s < 0 ? '#000000' : '#ffffff', Math.abs(s) * 0.34);
+}
+// Grok's class wheel is a franchise wheel instead of a weight wheel (pool.FRANCHISES), so those
+// labels get their own colours: a Street Fighter slice should not look like a weight class.
+const FRANCHISE_COL = { 'STREET FIGHTER': '#d4342b', 'UFC': '#1d4ed8',
+                        'CHILE & DENNETTS': '#0f7b3a', 'WILD CARD': '#8d50c9', 'WILD CARDS': '#8d50c9' };
+// The class/franchise wheels used the same four near-black blues the matchup wheel did, so the
+// category that was being spun for was the one thing the wheel did not show. Each class now spins
+// in the hue its boxers are painted with, which is also what the matchup legend is keyed to.
+function classColor(label, fallback) {
+  const k = String(label || '').toUpperCase();
+  if (FRANCHISE_COL[k]) return FRANCHISE_COL[k];
+  const d = CLASS_DIV[k];
+  if (d && DIV_BASE[d]) return DIV_BASE[d];
+  return fallback || '#2a3348';
+}
+// A stable shade in [-1, 1] from the name alone, for boxers the roster cannot place.
+function _nameShade(name) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) & 0x7fffffff;
+  return (h % 1000) / 999 * 2 - 1;
+}
+// The draft board's boxers are not on a team yet -- that is the whole point of a draft -- so
+// fmeta() cannot place them. Its wheel items do carry their own division, so colour from that
+// and shade by name. Everything on the board shares one weight class (the class wheel ran just
+// before it), so the shade is what separates the boxers; the hue still ties the board to its
+// division, matching how the same boxer will be painted on the matchup wheel later.
+function slotColor(name, div, fallback) {
+  const f = fighterMeta(name);
+  if (f && DIV_BASE[f.div]) return fighterColor(name);
+  if (DIV_BASE[div]) {
+    const s = _nameShade(name || '');
+    return _mix(DIV_BASE[div], s < 0 ? '#000000' : '#ffffff', Math.abs(s) * 0.4);
+  }
+  return fallback || '#2a3348';
 }
 // divisions actually present on this wheel, in weight order, for the legend
 const DIV_ORDER = ['HW', 'LHW', 'CW', 'MW', 'WW', 'LW', 'FW', 'BW'];
@@ -1128,7 +1165,7 @@ function draftRender(i, st, sub) {
 
   if (st.kind === 'class') {
     const n = st.items.length, reps = Math.max(1, Math.ceil(6 / n)), slices = [];
-    for (let r = 0; r < reps; r++) st.items.forEach((it, k) => slices.push({ w: 1, fill: WCOL[(r * n + k) % WCOL.length], label: it.label }));
+    for (let r = 0; r < reps; r++) st.items.forEach((it, k) => slices.push({ w: 1, fill: classColor(it.label, WCOL[(r * n + k) % WCOL.length]), label: it.label }));
     const pick = st.pick + n * Math.floor(hrand(D.seq % 1000 + 3) * reps), landed = sub === 'L';
     dWheel(slices, 'tangent', pick, 6, 0.8, 8.4, D.seq % 1000 + 1, landed);
     dHub('LOWEST<br>CLASS');
@@ -1161,7 +1198,7 @@ function draftRender(i, st, sub) {
   }
   if ((sub === 'W' || sub === 'WL') && st.lock) {          // the band lock: every class in the game, equal slices
     const its = st.class_items, landed = sub === 'WL', it = its[st.class_pick];
-    const slices = its.map((x, k) => ({ w: 1, fill: WCOL[k % WCOL.length], label: x.label }));
+    const slices = its.map((x, k) => ({ w: 1, fill: classColor(x.label, WCOL[k % WCOL.length]), label: x.label }));
     dWheel(slices, 'tangent', st.class_pick, 6, st.team_dur + 0.1, cEnd - hold - 0.05, D.seq % 1000 + 1, landed);
     dHub('WEIGHT<br>BAND');
     if (landed) {
@@ -1174,7 +1211,11 @@ function draftRender(i, st, sub) {
   }
   if (sub === 'W' || sub === 'WL') {
     const its = st.class_items, n = its.length, reps = n === 1 ? 1 : Math.ceil(6 / n), slices = [];
-    for (let r = 0; r < reps; r++) its.forEach((it, k) => slices.push({ w: it.w, fill: rgba(t.color, (r * n + k) % 2 ? .5 : .26), label: it.label }));
+    // alternate strength rather than hue, so neighbouring slices of the same class stay separable
+    for (let r = 0; r < reps; r++) its.forEach((it, k) => slices.push({
+      w: it.w,
+      fill: _mix(classColor(it.label, t.color), '#0a0d15', (r * n + k) % 2 ? 0 : 0.3),
+      label: it.label }));
     const pick = st.class_pick + n * Math.floor(hrand(st.n * 13 + 5) * reps), landed = sub === 'WL', it = its[st.class_pick];
     dWheel(slices, 'tangent', pick, 3, st.team_dur + 0.1, cEnd - hold - 0.05, st.n * 23 + 11, landed);
     if (it.franchise) {                                // Grok: Street Fighter / UFC / Wild Card, not a weight class
@@ -1193,9 +1234,18 @@ function draftRender(i, st, sub) {
   const tot = st.items.reduce((a, x) => a + x.w, 0);
   // user 2026-11-23: the boxers who fit the corner's focus are singled out on its board (bright, starred)
   const anyFit = st.items.some(x => x.fit);
-  const slices = st.items.map((x, k) => ({ w: Math.max(x.w / tot, 0.045),
-    fill: anyFit ? (x.fit ? rgba(t.color, .88) : rgba(t.color, k % 2 ? .22 : .14)) : rgba(t.color, k % 2 ? .5 : .26),
-    label: x.name, sub: x.fit ? '★ ' + x.stat : x.stat }));
+  // Every boxer on the board is painted their own colour rather than a shade of the corner's, so the
+  // same boxer reads the same on the draft board and on the matchup wheel. The corner's focus is still
+  // singled out, but by brightness: a boxer who does not fit is pushed down towards the board's
+  // background, which is what the two alternating alphas used to do for all of them at once.
+  const slices = st.items.map((x, k) => {
+    const c = slotColor(x.name, x.div, t.color);
+    const dim = anyFit && !x.fit;
+    return { w: Math.max(x.w / tot, 0.045),
+      fill: dim ? _mix(c, '#0a0d15', 0.66) : c,
+      label: x.name, sub: x.fit ? '★ ' + x.stat : x.stat,
+      ink: dim ? 'rgba(255,255,255,.72)' : '#fff' };
+  });
   dWheel(slices, 'radial', st.pick, 4, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
   dHub(`<img src="${bust(t.logo)}">`, t.color);
   dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ` · ★ ${DSTAT[t.stat]} picks singled out` : ' · every slice equal'));
