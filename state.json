@@ -13,7 +13,7 @@
           "country": "cu",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 12,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Brandon Romero",
@@ -440,8 +440,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 7,
@@ -658,7 +662,13 @@
     {
       "id": 19,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Ronald Wright",
+        "image": "portraits/ronald-wright.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 9
+      },
       "winner": null,
       "result": null
     },
@@ -781,24 +791,35 @@
       "round": 1,
       "bare_knuckle": false,
       "ts": 1795488189.7068243
+    },
+    {
+      "bout": 6,
+      "winner_team": "gemini",
+      "winner_fighter": "Ronald Wright",
+      "loser_team": "claude",
+      "loser_fighter": "Erislandy Lara",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795491387.6562252
     }
   ],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Erislandy Lara",
-      "image": "portraits/erislandy-lara.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 12
+      "team": "gemini",
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 7
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 9
+      "team": "claude",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -855,5 +876,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795488199.0466907
+  "updated_at": 1795491387.6562517
 }
