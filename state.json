@@ -1015,21 +1015,21 @@
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 21,
+    "round": "Fight 21 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "codex",
-      "fighter": "Lucius Palmer",
-      "image": "portraits/lucius-palmer.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 19
+      "team": "claude",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1086,5 +1086,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795511139.3962095
+  "updated_at": 1795511148.7344055
 }
