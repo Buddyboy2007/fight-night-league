@@ -168,7 +168,18 @@
     transform: scale(.82); transition: transform .9s cubic-bezier(.16,.84,.24,1); }
   #wheelLayer.show #wheelWrap { transform: none; }
   #wheel { width: 700px; height: 700px; filter: drop-shadow(0 0 38px rgba(245,197,66,.4)) drop-shadow(0 14px 22px rgba(0,0,0,.7)); }
-  #wheel text { font-family: var(--font); font-weight: 800; fill: #fff; text-anchor: middle; }
+  /* the slices are saturated now, so names get a dark outline rather than relying on a dark fill */
+  #wheel text { font-family: var(--font); font-weight: 800; fill: #fff; text-anchor: middle;
+    paint-order: stroke fill; stroke: rgba(0,0,0,.72); stroke-width: 4px; stroke-linejoin: round; }
+  #wheelLegend { position: absolute; left: 50%; top: 830px; transform: translateX(-50%); display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 10px 22px; max-width: 1180px; padding: 12px 26px; box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(14,18,30,.94), rgba(7,9,15,.94)); border: 1px solid rgba(245,197,66,.45);
+    border-radius: 10px; box-shadow: 0 0 26px rgba(0,0,0,.6); }
+  #wheelLegend .lg { display: inline-flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 700;
+    letter-spacing: 1.5px; color: #dfe6f5; text-transform: uppercase; }
+  #wheelLegend .lg i { width: 20px; height: 20px; border-radius: 4px; display: inline-block;
+    border: 1px solid rgba(255,255,255,.3); box-shadow: 0 0 8px rgba(0,0,0,.5); }
+  #wheelLayer.picked #wheelLegend { opacity: 0; transition: opacity .5s ease; }
   #wheel .bulb { fill: #ffd76a; animation: bulb 1s steps(1) infinite; }
   #wheel .bulb.o { animation-delay: .5s; }
   #wheel.won .bulb { animation-duration: .3s; animation-delay: 0s !important; }
@@ -190,6 +201,9 @@
     box-shadow: 0 0 46px rgba(245,197,66,.45), 0 14px 30px rgba(0,0,0,.7); }
   #pickCard.show { opacity: 1; transform: none; }
   #pickCard::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--lc), var(--gold) 50%, var(--rc)); }
+  #pickCard .cat { display: inline-block; margin: 5px 0 2px; padding: 3px 11px; border-radius: 999px;
+    font-size: 16px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #fff;
+    background: var(--cc, #2a3348); border: 1px solid rgba(255,255,255,.28); white-space: nowrap; }
   #pickCard .side { display: flex; align-items: center; gap: 20px; width: 420px; position: relative; }
   #pickCard .side.r { flex-direction: row-reverse; text-align: right; }
   #pickCard .pimg { width: 138px; height: 156px; border-radius: 10px; overflow: hidden; flex-shrink: 0; border: 3px solid var(--tc, #888);
@@ -361,6 +375,7 @@
   <div id="wheelWrap"><svg id="wheel" viewBox="-350 -350 700 700" style="position:static"></svg>
     <svg id="pointer" viewBox="0 0 64 76"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#d9a21b"/></linearGradient></defs><path d="M6 4 H58 L58 26 L32 72 L6 26 Z" fill="url(#pg)" stroke="#7a5a0a" stroke-width="3" stroke-linejoin="round"/></svg>
     <div id="hub">NEXT<br>FIGHT</div></div>
+  <div id="wheelLegend"></div>
   <div id="pickCard"></div>
 </div>
 
@@ -752,6 +767,19 @@ function fighterColor(name, fallback) {
 }
 // divisions actually present on this wheel, in weight order, for the legend
 const DIV_ORDER = ['HW', 'LHW', 'CW', 'MW', 'WW', 'LW', 'FW', 'BW'];
+const COUNTRY_NAME = { us: 'USA', cl: 'Chile', mx: 'Mexico', cu: 'Cuba', ua: 'Ukraine', ru: 'Russia',
+  gb: 'UK', ph: 'Philippines', pr: 'Puerto Rico', ar: 'Argentina', ca: 'Canada', ie: 'Ireland',
+  it: 'Italy', jp: 'Japan', kz: 'Kazakhstan', pa: 'Panama', za: 'South Africa', gh: 'Ghana', ng: 'Nigeria' };
+// "MIDDLEWEIGHT · CHILE" for the reveal card, in the boxer's own wheel colour
+function catChip(name) {
+  const f = fighterMeta(name);
+  if (!f) return '';
+  const bits = [];
+  if (f.div) bits.push(DIV_LABEL[f.div] || f.div);
+  if (f.country) bits.push(COUNTRY_NAME[f.country] || f.country.toUpperCase());
+  if (!bits.length) return '';
+  return `<div class="cat" style="--cc:${fighterColor(name)}">${esc(bits.join(' · '))}</div>`;
+}
 function wheelLegend(names) {
   const seen = new Set();
   Object.keys(names || {}).forEach(k => (names[k] || []).forEach(n => {
@@ -793,7 +821,8 @@ function wheelSurname(full) {
 function spinWheel(w) {
   const svg = document.getElementById('wheel'), layer = document.getElementById('wheelLayer'), card = document.getElementById('pickCard');
   const n = w.ready.length, seg = 2 * Math.PI / n, R = 312;
-  card.classList.remove('show'); svg.classList.remove('won');
+  card.classList.remove('show'); svg.classList.remove('won'); layer.classList.remove('picked');
+  wheelLegend(w.names);                            // which divisions the colours on this wheel stand for
   // static rim: dark band, gold edge and chasing bulbs
   let g = '<circle r="346" fill="#0a0d15" stroke="#f5c542" stroke-width="3"/><circle r="318" fill="none" stroke="#1b2235" stroke-width="2"/>';
   for (let k = 0; k < 30; k++) {
@@ -820,7 +849,7 @@ function spinWheel(w) {
       g += `<path d="${wedge(a0, am)}" fill="${cNear}" data-id="${id}" data-half="1"/>`;
       g += `<path d="${wedge(am, a1)}" fill="${cFar}" data-id="${id}" data-half="1"/>`;
       // the slice outline is drawn on top of both halves so the gold edge stays unbroken
-      g += `<path d="${wedge(a0, a1)}" fill="none" stroke="#f5c542" stroke-opacity=".55" stroke-width="2"/>`;
+      g += `<path d="${wedge(a0, a1)}" fill="none" stroke="#f5c542" stroke-opacity=".55" stroke-width="2" data-id="${id}" data-edge="1"/>`;
       g += `<line x1="${(66 * Math.cos(am)).toFixed(2)}" y1="${(66 * Math.sin(am)).toFixed(2)}"` +
            ` x2="${(R * Math.cos(am)).toFixed(2)}" y2="${(R * Math.sin(am)).toFixed(2)}"` +
            ` stroke="#000" stroke-opacity=".34" stroke-width="1.5"/>`;
@@ -831,8 +860,7 @@ function spinWheel(w) {
       // The matchup reads along the slice, hub to rim - that is the long way, so a surname fits.
       const r0 = 92, r1 = R - 22, rm = (r0 + r1) / 2;
       const cx = rm * Math.cos(am), cy = rm * Math.sin(am);
-      const flip = Math.cos(am) < 0;            // left half: turn the label so it still reads forwards
-      const deg = am * 180 / Math.PI + (flip ? 180 : 0);
+      const deg = am * 180 / Math.PI + (flip ? 180 : 0);   // left half: turn the label so it still reads forwards
       const nm = pair.map(wheelSurname);
       const longest = Math.max(nm[0].length, nm[1].length);
       const fit = (r1 - r0) / (0.64 * longest);
@@ -867,14 +895,21 @@ function spinWheel(w) {
     if (lastSlice !== null && k !== lastSlice) tick();
     lastSlice = k;
   })();
-  setTimeout(() => {                               // landed: gold wedge + matchup card
-    svg.classList.add('won');
-    svg.querySelectorAll('path[data-id]').forEach(p => { if (+p.dataset.id !== w.pick) p.style.opacity = .3; else { p.style.fill = '#f5c542'; p.style.strokeOpacity = 1; } });
-    svg.querySelectorAll('text[data-id]').forEach(t => { if (+t.dataset.id !== w.pick) t.style.opacity = .35; else t.style.fill = '#1a1204'; });
+  setTimeout(() => {                               // landed: gold ring + matchup card
+    svg.classList.add('won'); layer.classList.add('picked');   // the card takes the legend's place
+    // The winner keeps its boxers' own colours -- flat gold used to erase exactly the information
+    // the slices are now carrying -- and is called out with a bright gold ring instead.
+    svg.querySelectorAll('path[data-id]').forEach(p => {
+      if (+p.dataset.id !== w.pick) { p.style.opacity = .26; return; }
+      p.style.opacity = 1;
+      if (p.dataset.edge) { p.style.stroke = '#ffe08a'; p.style.strokeOpacity = 1; p.style.strokeWidth = 6; }
+    });
+    svg.querySelectorAll('line').forEach(l => { l.style.opacity = .26; });
+    svg.querySelectorAll('text[data-id]').forEach(t => { t.style.opacity = +t.dataset.id === w.pick ? 1 : .3; });
     const st = window.STATE, b = st && st.bouts[w.pick - 1];
     if (b && b.left && b.right) {
       const lc = TEAM_COLOR[b.left.team] || '#888', rc = TEAM_COLOR[b.right.team] || '#888';
-      const side = (r, cls, c) => `<div class="side ${cls}" style="--tc:${c}"><div class="pimg"><img src="${bust(r.image)}" onerror="this.outerHTML='<div class=ph>${esc(r.fighter[0])}</div>'"></div><div><div class="nm">${esc(r.fighter)}</div><div class="tm"><img src="${bust(st.teams[r.team].logo)}">${esc(st.teams[r.team].name)}</div></div></div>`;
+      const side = (r, cls, c) => `<div class="side ${cls}" style="--tc:${c}"><div class="pimg"><img src="${bust(r.image)}" onerror="this.outerHTML='<div class=ph>${esc(r.fighter[0])}</div>'"></div><div><div class="nm">${esc(r.fighter)}</div>${catChip(r.fighter)}<div class="tm"><img src="${bust(st.teams[r.team].logo)}">${esc(st.teams[r.team].name)}</div></div></div>`;
       const label = (st.current_match && st.current_match.bout === w.pick) ? st.current_match.round : ('Fight ' + w.pick);
       card.style.setProperty('--lc', lc); card.style.setProperty('--rc', rc);
       card.style.setProperty('--pc-bg', `linear-gradient(90deg, ${rgba(lc, .38)}, #0c1019 38%, #0c1019 62%, ${rgba(rc, .38)})`);
