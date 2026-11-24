@@ -104,6 +104,8 @@ input:focus,select:focus{border-color:var(--gold)}
 .fr .names{font-weight:700}.fr .names s{color:var(--mute);font-weight:500}
 .how{font-size:12px;font-weight:800;text-align:right;color:var(--gold2)}
 .up{display:inline-block;font-size:10px;font-weight:900;background:var(--red);color:#fff;border-radius:5px;padding:1px 6px;margin-left:6px;letter-spacing:.06em}
+.bk{display:inline-block;font-size:10px;font-weight:900;background:#8a5a2b;color:#fff;border-radius:5px;padding:1px 6px;margin-left:6px;letter-spacing:.06em}
+.kv.bkbox div{background:#3a2a1a;border:1px solid #8a5a2b}
 /* modal */
 #modal{position:fixed;inset:0;background:#000b;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 14px;z-index:50}
 #modal.on{display:flex}
@@ -225,7 +227,7 @@ function fightRows(list, n=999, who=null){
   return list.slice(0,n).map(f=>{
     const how = f.method ? (f.method==='DEC'?'DECISION':f.method+(f.round?' · R'+f.round:'')) : '';
     return `<div class="fr"><div class="tm">T${f.tournament}<br>${esc(f.bout<=24?`Fight ${f.bout} of 31`:f.round_label)}</div>
-      <div class="names"><span ${link(f.winner)} style="cursor:pointer">${esc(f.winner)}</span> <span class="mute">def.</span> <s ${link(f.loser)} style="cursor:pointer">${esc(f.loser)}</s>${f.upset?'<span class="up">UPSET</span>':''}
+      <div class="names"><span ${link(f.winner)} style="cursor:pointer">${esc(f.winner)}</span> <span class="mute">def.</span> <s ${link(f.loser)} style="cursor:pointer">${esc(f.loser)}</s>${f.upset?'<span class="up">UPSET</span>':''}${f.bare_knuckle?'<span class="bk" title="Fought bare knuckle (no gloves)">BARE KNUCKLE</span>':''}
         <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · ${who===f.loser?`<span class="L">−${fmt(f.delta,1)}</span>`:`<span class="W">+${fmt(f.delta,1)}</span>`}</div></div>
       <div><div class="how">${how}</div><div class="small mute" style="text-align:right">${ago(f.ts)}</div></div></div>`;
   }).join('');
@@ -240,7 +242,7 @@ function home(){
     <div class="card stat"><b>${D.totals.fights}</b><span>Fights tracked</span></div>
     <div class="card stat"><b>${D.totals.tournaments}</b><span>Tournaments</span></div>
     <div class="card stat"><b>${D.totals.fights?Math.round(100*D.totals.kos/D.totals.fights):0}%</b><span>Finish rate</span></div>
-    <div class="card stat"><b>${D.totals.upsets}</b><span>Upsets</span></div>
+    <div class="card stat"><b>${D.totals.upsets}</b><span>Upsets${D.totals.bare_knuckle?` · ${D.totals.bare_knuckle} bare knuckle`:''}</span></div>
   </div>
   <div class="grid g2 sec g15">
     <div class="card"><h2>${cur?'Next on the broadcast':'Between tournaments'}</h2>${cur?matchCard(cur):'<div class="empty">Waiting for the next bracket…</div>'}
@@ -335,6 +337,8 @@ function openFighter(name){
   <h2 style="margin-top:14px">Career record (professional)</h2><div class="small mute">${f.pro&&f.pro.fictional?'Street Fighter world record (W-L-D).':'Real-life pro record (W-L-D) per Wikipedia/BoxRec, as of Nov 2026.'}</div>${f.pro?`<div class="kv"><div><b>${proStr(f)}</b><span>W-L-D</span></div><div><b>${f.pro.total}</b><span>Pro fights</span></div><div><b>${f.pro.kos}</b><span>Career KOs</span></div><div><b>${fmt(100*f.pro.kos/Math.max(1,f.pro.wins))}%</b><span>KO rate</span></div></div>`:'<div class="small mute">Not available</div>'}
   <h2 style="margin-top:14px">Tournament Record</h2><div class="small mute">Results from this AI tournament only.</div>
   <div class="kv"><div><b>${fmt(f.elo)}</b><span>ELO</span></div><div><b>${f.wins}–${f.losses}</b><span>Tournament Record</span></div><div><b>${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</b><span>Win rate</span></div><div><b>${fmt(f.peak)}</b><span>Peak ELO</span></div><div><b>${f.kos}</b><span>KO wins</span></div><div><b>${f.ko_pct==null?'–':fmt(f.ko_pct)+'%'}</b><span>KO rate</span></div><div><b>${f.kod}</b><span>Stopped</span></div><div><b>${streak(f.streak)}</b><span>Streak</span></div></div>
+  <h2 style="margin-top:14px">Bare Knuckle Record</h2><div class="small mute">Tournament bouts fought without gloves. These also count in the Tournament Record above.</div>
+  ${(f.bk_wins||f.bk_losses)?`<div class="kv bkbox"><div><b>${f.bk_wins}–${f.bk_losses}</b><span>Bare Knuckle W-L</span></div><div><b>${f.bk_kos}</b><span>Bare Knuckle KOs</span></div><div><b>${f.gloved_wins}–${f.gloved_losses}</b><span>Gloved W-L</span></div><div><b>${Math.round(100*f.bk_wins/Math.max(1,f.bk_wins+f.bk_losses))}%</b><span>Bare Knuckle win rate</span></div></div>`:'<div class="small mute" style="margin:8px 0 14px">No bare knuckle bouts yet.</div>'}
   <h2>ELO over time</h2>${spark(f.elo_history)}
   <h2 style="margin-top:18px">Form</h2>${f.form.length?formDots(f.form):'<span class="small mute">No fights yet</span>'}
   <h2 style="margin-top:18px">Fight history</h2>${fightRows(fs,12,name)}`;
