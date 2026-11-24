@@ -952,21 +952,21 @@
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 15,
+    "round": "Fight 15 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "team": "claude",
+      "fighter": "Gervonta Davis",
+      "image": "portraits/gervonta-davis.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 2
     },
     "right": {
-      "team": "codex",
-      "fighter": "Lucius Palmer",
-      "image": "portraits/lucius-palmer.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 19
+      "team": "gemini",
+      "fighter": "Lamont Roach Jr.",
+      "image": "portraits/lamont-roach-jr.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -1023,5 +1023,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795503798.040386
+  "updated_at": 1795503807.379888
 }
