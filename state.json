@@ -22,7 +22,7 @@
           "country": "us",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Parker Phillips",
@@ -463,8 +463,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 4
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 8,
@@ -674,7 +678,13 @@
     },
     {
       "id": 20,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Sergey Kovalev",
+        "image": "portraits/sergey-kovalev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 4
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -802,24 +812,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795491387.6562252
+    },
+    {
+      "bout": 7,
+      "winner_team": "gemini",
+      "winner_fighter": "Sergey Kovalev",
+      "loser_team": "claude",
+      "loser_fighter": "Brandon Romero",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795492381.8086576
     }
   ],
   "current_match": {
-    "bout": 7,
-    "round": "Fight 7 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Brandon Romero",
-      "image": "portraits/brandon-romero.jpg",
+      "team": "gemini",
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 6
+      "game_index": 7
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
+      "team": "claude",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "game_index": 0
     }
   },
   "winner": null,
@@ -876,5 +897,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795491396.992795
+  "updated_at": 1795492381.8087027
 }

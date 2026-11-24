@@ -402,8 +402,8 @@ function lvSide(f, st, side, odds){
   return `<div class="lv-side lv${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
     ${m('hp','Health',s.health)}${m('st','Stamina',s.stamina)}
     <div class="lv-stats"><div><b>${n(s.thrown)}</b><span>Thrown</span></div><div><b>${n(s.landed)}</b><span>Landed</span></div><div><b>${acc}</b><span>Accuracy</span></div>
-    <div><b>${s.round_thrown!=null?s.round_landed+'/'+s.round_thrown:'–'}</b><span>This round</span></div>
-    <div><b>${n(s.power_landed)}</b><span>Power landed</span></div><div><b>${n(s.jabs_landed)}</b><span>Jabs landed</span></div><div><b>${n(s.head_landed)}</b><span>Head shots</span></div><div><b>${n(s.body_landed)}</b><span>Body shots</span></div></div>
+    <div><b>${n(s.head_landed)}</b><span>Head shots</span></div><div><b>${n(s.body_landed)}</b><span>Body shots</span></div>
+    <div><b>${n(s.dodges)}</b><span>Dodges</span></div><div><b>${n(s.blocks)}</b><span>Blocks</span></div><div><b>${n(s.knockdowns)}</b><span>Knockdowns</span></div></div>
     ${s.split_untracked>0?`<div class="lv-split">Head/body split started mid-fight; ${s.split_untracked} earlier landed punches aren't split.</div>`:''}</div>`;
 }
 function live(){
@@ -451,7 +451,7 @@ function arState(){
     oL: lv ? lv.odds_L : cur.odds_left, oR: lv ? lv.odds_R : cur.odds_right,
     ais: lv ? lv.ais||[] : [], feed: lv ? lv.feed||[] : [], pot: lv && lv.pot || {L:0,R:0}};
 }
-const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['accuracy','Accuracy'],['power_landed','Power punches landed'],['jabs_landed','Jabs landed'],['round_landed','Landed this round'],['head_landed','Head shots landed'],['body_landed','Body shots landed'],['health','Health'],['stamina','Stamina']];
+const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['accuracy','Accuracy'],['head_landed','Head shots landed'],['body_landed','Body shots landed'],['dodges','Dodges'],['blocks','Blocks'],['knockdowns','Knockdowns'],['health','Health'],['stamina','Stamina']];
 const AR_PCT = {health:1, stamina:1, accuracy:1};
 const arFc = (f,side)=>`<div class="ar-fc ${side}" ${link(f.name)}><div class="hd">${av(f,84)}<div style="min-width:0">
     <div class="nm">${esc(f.name)}</div><div class="chips">${tierBadge(f)}${f.team?teamChip(f.team):''}<span class="ar-od" id="ar-o${side}">–</span></div></div></div>
