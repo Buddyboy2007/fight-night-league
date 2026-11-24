@@ -486,9 +486,9 @@
       "left": {
         "team": "grok",
         "fighter": "Lancero Dennett",
-        "image": "portraits/jack-dempsey.jpg",
+        "image": "portraits/lance-dennett.jpg",
         "game_class": "HEAVYWEIGHT",
-        "game_index": 8
+        "game_index": 20
       },
       "right": {
         "team": "codex",
