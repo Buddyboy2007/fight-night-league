@@ -1057,21 +1057,21 @@
     }
   ],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 22,
+    "round": "Fight 22 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "gemini",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     },
     "right": {
-      "team": "grok",
-      "fighter": "Marcial Carri\u00f3n",
-      "image": "portraits/marcial-carrion.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 26
+      "team": "codex",
+      "fighter": "Shakur Stevenson",
+      "image": "portraits/shakur-stevenson.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1128,7 +1128,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795511667.7911549,
+  "updated_at": 1795511677.1236207,
   "swaps": [
     {
       "bout": 22,
