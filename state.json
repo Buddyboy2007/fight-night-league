@@ -182,7 +182,7 @@
           "country": "us",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Muhammad Ali",
@@ -497,8 +497,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 10,
@@ -663,7 +667,13 @@
     },
     {
       "id": 21,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -739,23 +749,35 @@
       "result": null
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "bout": 9,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "codex",
+      "loser_fighter": "David Benavidez",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795486576.3995712
+    }
+  ],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "team": "gemini",
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 7
     },
     "right": {
-      "team": "codex",
-      "fighter": "David Benavidez",
-      "image": "portraits/david-benavidez.jpg",
+      "team": "claude",
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 1
+      "game_index": 0
     }
   },
   "winner": null,
@@ -812,5 +834,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795483817.5305798
+  "updated_at": 1795486576.3996046
 }
