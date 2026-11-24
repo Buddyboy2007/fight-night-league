@@ -120,7 +120,7 @@
           "country": "mx",
           "game_class": "WELTERWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vasiliy Lomachenko",
@@ -544,8 +544,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 11,
@@ -754,7 +758,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Pernell Whitaker",
+        "image": "portraits/pernell-whitaker.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 15
+      },
       "winner": null,
       "result": null
     },
@@ -991,24 +1001,35 @@
       "round": 10,
       "bare_knuckle": false,
       "ts": 1795509172.2894504
+    },
+    {
+      "bout": 10,
+      "winner_team": "claude",
+      "winner_fighter": "Pernell Whitaker",
+      "loser_team": "gemini",
+      "loser_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795511139.3961744
     }
   ],
   "current_match": {
-    "bout": 10,
-    "round": "Fight 10 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "team": "grok",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1065,5 +1086,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795509181.6455781
+  "updated_at": 1795511139.3962095
 }
