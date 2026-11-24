@@ -283,7 +283,7 @@
           "eliminated": false
         },
         {
-          "name": "Lance Dennett",
+          "name": "Lancero Dennett",
           "image": "portraits/lance-dennett.jpg",
           "division": "HW",
           "country": "cl",
@@ -485,7 +485,7 @@
       "id": 9,
       "left": {
         "team": "grok",
-        "fighter": "Lance Dennett",
+        "fighter": "Lancero Dennett",
         "image": "portraits/jack-dempsey.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 8
@@ -777,7 +777,7 @@
     "Sergey Kovalev",
     "Jermain Taylor",
     "Marcial Carri\u00f3n",
-    "Lance Dennett",
+    "Lancero Dennett",
     "David Benavidez",
     "Julio C\u00e9sar Ch\u00e1vez",
     "Pernell Whitaker",
