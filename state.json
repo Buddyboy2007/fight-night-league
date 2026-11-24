@@ -784,21 +784,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Cooper Martin",
-      "image": "portraits/cooper-martin.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 7
+      "team": "claude",
+      "fighter": "Erislandy Lara",
+      "image": "portraits/erislandy-lara.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 12
     },
     "right": {
-      "team": "claude",
-      "fighter": "Roy Jones Jr.",
-      "image": "portraits/roy-jones-jr.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 0
+      "team": "gemini",
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -855,5 +855,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795488189.7068653
+  "updated_at": 1795488199.0466907
 }
