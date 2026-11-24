@@ -58,7 +58,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Devin Haney",
@@ -765,8 +765,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 22,
@@ -778,11 +782,11 @@
         "game_index": 29
       },
       "right": {
-        "team": "grok",
-        "fighter": "Jordan Dennett",
-        "image": "portraits/jordan-dennett.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 8
+        "team": "codex",
+        "fighter": "Shakur Stevenson",
+        "image": "portraits/shakur-stevenson.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 0
       },
       "winner": null,
       "result": null
@@ -790,11 +794,11 @@
     {
       "id": 23,
       "left": {
-        "team": "codex",
-        "fighter": "Shakur Stevenson",
-        "image": "portraits/shakur-stevenson.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 0
+        "team": "grok",
+        "fighter": "Jordan Dennett",
+        "image": "portraits/jordan-dennett.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 8
       },
       "right": {
         "team": "claude",
@@ -835,7 +839,13 @@
     },
     {
       "id": 27,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1012,24 +1022,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795511139.3961744
+    },
+    {
+      "bout": 21,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Pernell Whitaker",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795511166.8428257
     }
   ],
   "current_match": {
-    "bout": 21,
-    "round": "Fight 21 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1086,5 +1107,15 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795511148.7344055
+  "updated_at": 1795511166.842888,
+  "swaps": [
+    {
+      "bout": 22,
+      "moved": "Jordan Dennett",
+      "to_bout": 23,
+      "for": "Shakur Stevenson",
+      "why": "same-team fighters would have met",
+      "ts": 1795511166.8428648
+    }
+  ]
 }
