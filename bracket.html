@@ -1038,10 +1038,14 @@ function draftRender(i, st, sub) {
     return;
   }
   const tot = st.items.reduce((a, x) => a + x.w, 0);
-  const slices = st.items.map((x, k) => ({ w: Math.max(x.w / tot, 0.045), fill: rgba(t.color, k % 2 ? .5 : .26), label: x.name, sub: x.stat }));
+  // user 2026-11-23: the boxers who fit the corner's focus are singled out on its board (bright, starred)
+  const anyFit = st.items.some(x => x.fit);
+  const slices = st.items.map((x, k) => ({ w: Math.max(x.w / tot, 0.045),
+    fill: anyFit ? (x.fit ? rgba(t.color, .88) : rgba(t.color, k % 2 ? .22 : .14)) : rgba(t.color, k % 2 ? .5 : .26),
+    label: x.name, sub: x.fit ? '★ ' + x.stat : x.stat }));
   dWheel(slices, 'radial', st.pick, 4, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
   dHub(`<img src="${bust(t.logo)}">`, t.color);
-  dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ' · slices sized by ' + DSTAT[t.stat] : ' · every slice equal'));
+  dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ` · ★ ${DSTAT[t.stat]} picks singled out` : ' · every slice equal'));
   if (sub === 'C') {
     const f = st.fighter, odds = Math.round(100 * st.items[st.pick].w / tot);
     const bar = (l, k, v, max) => `<div class="dbar${t.stat === k ? ' key' : ''}"><b>${l}</b><i><s style="width:${100 * v / max}%"></s></i><em>${v}</em></div>`;
