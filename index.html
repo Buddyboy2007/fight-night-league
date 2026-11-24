@@ -51,7 +51,7 @@ h3{font-size:18px;font-weight:800}
 .av img.f{position:absolute;right:-1px;bottom:-1px;width:38%;height:auto;border-radius:3px;border:1px solid #0008}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#ffffff0f;border:1px solid #ffffff1a}
 .chip img{width:14px;height:14px;border-radius:3px}
-.tier{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;font-weight:900;color:#10131f;font-size:14px}
+.tier{display:inline-grid;place-items:center;min-width:26px;padding:0 5px;box-sizing:border-box;height:26px;white-space:nowrap;border-radius:7px;font-weight:900;color:#10131f;font-size:14px}
 .t-S{background:var(--S)}.t-A{background:var(--A)}.t-B{background:var(--B)}.t-C{background:var(--C)}.t-D{background:var(--D)}.t-\?{background:#3a4a85;color:var(--mute)}
 .W{color:var(--green)}.L{color:var(--red)}
 .form{display:inline-flex;gap:3px}.form i{width:9px;height:9px;border-radius:2px;background:#3a4a85}.form i.W{background:var(--green)}.form i.L{background:var(--red)}
@@ -76,9 +76,59 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .scroll{overflow-x:auto}
 .rk{color:var(--mute);font-weight:800;width:34px}
 .rk.top{color:var(--gold)}
+
+/* live tracker */
+.lv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.lv-head h2{margin:0}
+.lv-tag{font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;background:var(--card2);color:var(--mute);border:1px solid var(--line)}
+.lv-tag.on{color:#fff;background:#b3122b;border-color:#ff4d5e}
+.lv-tag.on::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;animation:pulse 1.4s infinite}
+.lv-fight{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start}
+.lv-side{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+.lv-side .who{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.lv-side.R .who{flex-direction:row-reverse;text-align:right}
+.lv-side .nm{font-weight:900;font-size:18px;line-height:1.15}
+.lv-meter{margin:8px 0}
+.lv-meter .lb{display:flex;justify-content:space-between;font-size:12px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.04em}
+.lv-meter .lb b{color:var(--ink);font-size:14px}
+.lv-meter .tr{height:12px;border-radius:7px;background:#0a0f22;overflow:hidden;margin-top:4px;border:1px solid var(--line)}
+.lv-meter .tr i{display:block;height:100%;transition:width .8s ease}
+.lv-meter.hp i{background:linear-gradient(90deg,#ff4d5e,#ffb347 45%,#35d49a)}
+.lv-meter.st i{background:linear-gradient(90deg,#3b6cff,#6aa7ff)}
+.lv-side.R .lv-meter .tr i{margin-left:auto}
+.lv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.lv-stats div{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
+.lv-stats b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+.lv-stats span{font-size:11px;color:var(--mute);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.lv-mid{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:30px;min-width:110px}
+.lv-mid .vs{font-size:26px;font-weight:900;color:var(--gold)}
+.lv-mid .rd{font-size:13px;color:var(--mute);font-weight:800;text-align:center}
+.lv-prob{margin-top:16px}
+.lv-prob .bar{height:16px}
+.lv-spark{width:100%;height:70px;display:block;margin-top:8px}
+.lv-ais{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.lv-ai{background:var(--card2);border:1px solid var(--line);border-top:3px solid var(--tc);border-radius:12px;padding:10px;min-width:0}
+.lv-ai .top{display:flex;align-items:center;gap:8px;font-weight:900}
+.lv-ai .top img{width:26px;height:26px;border-radius:7px}
+.lv-ai .pk{font-size:12px;color:var(--mute);margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lv-ai .pk b{color:var(--ink)}
+.lv-ai .cf{font-size:26px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--tc)}
+.lv-ai .pbar{margin:4px 0 8px}
+.lv-ai .ln{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin:2px 0}
+.lv-ai .ln b{color:var(--ink);font-variant-numeric:tabular-nums}
+.lv-feed{max-height:300px;overflow:auto}
+.lv-feed div{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+.lv-feed img{width:20px;height:20px;border-radius:5px}
+.lv-feed small{margin-left:auto;color:var(--mute);white-space:nowrap}
+@media (max-width:900px){.lv-ais{grid-template-columns:repeat(2,minmax(0,1fr))}.lv-fight{grid-template-columns:1fr}.lv-mid{padding-top:0;flex-direction:row;justify-content:center}}
 /* tiers */
 .tierrow{display:flex;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:10px;background:var(--card)}
-.tierrow .lab{flex:none;width:74px;display:grid;place-items:center;font-size:34px;font-weight:900;color:#10131f}
+.tierrow .lab{flex:none;width:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;font-weight:900;color:#10131f;line-height:1}
+.tierrow .lab small{font-size:12px;font-weight:800;letter-spacing:.04em;margin-top:4px;text-transform:uppercase}
+.tierrow .subs{flex:1;display:flex;flex-direction:column}
+.tierrow .sub{display:flex;align-items:stretch;border-top:1px solid var(--line)}
+.tierrow .sub:first-child{border-top:0}
+.tierrow .sub .sl{flex:none;width:44px;display:grid;place-items:center;font-weight:900;font-size:16px;color:var(--mute);border-right:1px solid var(--line)}
 .tierrow .body{display:flex;flex-wrap:wrap;gap:10px;padding:12px;flex:1;min-height:70px}
 .tcell{display:flex;flex-direction:column;align-items:center;width:84px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;gap:4px}
 .tcell small{color:var(--mute);font-weight:500}
@@ -153,7 +203,7 @@ footer{margin-top:40px;color:var(--mute);font-size:12px;text-align:center}
 const BASE = location.pathname.includes('/site/') ? '../' : './';
 const DEMO = new URLSearchParams(location.search).has('demo');
 const TEAMCOL = {chatgpt:'#10a37f',claude:'#ff8a1f',gemini:'#22d3ee',codex:'#9b5cf6',grok:'#8c8c8c'};
-const TABS = [['home','Home'],['bracket','Bracket'],['board','Leaderboard'],['tiers','Tier List'],['factions','Factions'],['fighters','Fighters'],['history','Fight History'],['bets','Betting'],['how','How It Works']];
+const TABS = [['home','Home'],['live','● Live'],['bracket','Bracket'],['board','Leaderboard'],['tiers','Tier List'],['factions','Factions'],['fighters','Fighters'],['history','Fight History'],['bets','Betting'],['how','How It Works']];
 const REFRESH = 30;
 let D = null, tab = (location.hash||'#home').slice(1).split('/')[0], sortKey='elo', sortDir=-1, query='', lastFetch=0, countdown=REFRESH;
 const byName = {};
@@ -173,7 +223,8 @@ function av(f,size=46){
 }
 const team = id => D.teams[id];
 const teamChip = id => `<span class="chip" style="color:${TEAMCOL[id]}"><img src="${BASE}${esc(team(id).logo)}">${esc(team(id).name)}</span>`;
-const tierBadge = t => `<span class="tier t-${t}">${t}</span>`;
+const TIER_NAMES = {S:'GOAT',A:'Elite',B:'World',C:'Olympic',D:'Regionalman','?':'Unranked'};
+const tierBadge = f => { const t=(f&&f.tier)||'?', s=(f&&f.subtier)||t; return `<span class="tier t-${t}" title="${TIER_NAMES[t]||''} tier">${s.replace('-','−')}</span>`; };
 const formDots = a => `<span class="form">${a.map(x=>`<i class="${x}"></i>`).join('')}</span>`;
 const streak = s => s>0?`<span class="W">W${s}</span>`:s<0?`<span class="L">L${-s}</span>`:'–';
 const link = n => `onclick="openFighter('${esc(n).replace(/'/g,"\\'")}')"`;
@@ -195,7 +246,7 @@ setInterval(()=>{ countdown--; if(countdown<=0) load(); if(D) $('#liveTxt').text
 function renderNav(){
   $('#nav').innerHTML = TABS.map(([k,l])=>`<button class="${k===tab?'on':''}" onclick="go('${k}')">${l}</button>`).join('');
 }
-function go(k){ tab=k; location.hash=k; render(); window.scrollTo({top:0}); }
+function go(k){ tab=k; location.hash=k; render(); window.scrollTo({top:0}); if(k==='live') pollLive(); }
 window.addEventListener('hashchange',()=>{ tab=(location.hash||'#home').slice(1).split('/')[0]||'home'; render(); });
 
 function render(){
@@ -205,7 +256,7 @@ function render(){
   const isB = tab==='bracket';
   $('#view').style.display = isB?'none':''; $('#bracketPane').style.display = isB?'block':'none';
   if(isB){ showBracket(); return; } else hideBracket();
-  const v = {home,board,tiers,factions,fighters,history,bets,how}[tab] || home;
+  const v = {home,live,board,tiers,factions,fighters,history,bets,how}[tab] || home;
   $('#view').innerHTML = v();
   if(tab==='fighters'){ const q=$('#q'); if(q){ q.value=query; q.oninput=e=>{query=e.target.value; $('#flist').innerHTML=fighterList();}; } }
 }
@@ -215,7 +266,7 @@ function matchCard(u, withBet){
   const a=byName[u.left], b=byName[u.right];
   const pa=Math.round(u.p_left*100), pb=100-pa;
   const fav = pa>=pb ? a : b, conf = Math.abs(pa-50)*2;
-  const sideBlock = (f,odds,col)=>`<div class="side" ${link(f.name)} style="cursor:pointer">${av(f,86)}<div class="nm">${esc(f.name)}</div>${teamChip(f.team)}<div class="small mute">Pro ${proStr(f)}</div><div class="small mute">Tournament ${f.wins}-${f.losses} · ELO ${fmt(f.elo)} · ${tierBadge(f.tier)}</div><div style="font-weight:900;font-size:20px;color:${col}">${odds.toFixed(2)}x</div></div>`;
+  const sideBlock = (f,odds,col)=>`<div class="side" ${link(f.name)} style="cursor:pointer">${av(f,86)}<div class="nm">${esc(f.name)}</div>${teamChip(f.team)}<div class="small mute">Pro ${proStr(f)}</div><div class="small mute">Tournament ${f.wins}-${f.losses} · ELO ${fmt(f.elo)} · ${tierBadge(f)}</div><div style="font-weight:900;font-size:20px;color:${col}">${odds.toFixed(2)}x</div></div>`;
   return `<div class="match">${sideBlock(a,u.odds_left,'#ff8a8a')}<div class="vs">VS</div>${sideBlock(b,u.odds_right,'#8ab4ff')}</div>
   <div class="bar"><i class="a" style="width:${pa}%"></i><i class="b" style="width:${pb}%"></i></div>
   <div class="odds"><span>${pa}%<small>win probability</small></span><span style="text-align:center">${esc(u.label)}<small>H2H ${u.h2h_left}–${u.h2h_right}</small></span><span style="text-align:right">${pb}%<small>win probability</small></span></div>
@@ -231,6 +282,60 @@ function fightRows(list, n=999, who=null){
         <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · ${who===f.loser?`<span class="L">−${fmt(f.delta,1)}</span>`:`<span class="W">+${fmt(f.delta,1)}</span>`}</div></div>
       <div><div class="how">${how}</div><div class="small mute" style="text-align:right">${ago(f.ts)}</div></div></div>`;
   }).join('');
+}
+
+
+/* ------------------------------------------------ live tracker (live_stats.json, written every second by livestats.py) */
+let LV = null, lvErr = 0;
+async function pollLive(){
+  if(tab!=='live' || !D) return;
+  try{ const r=await fetch(BASE+'live_stats.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0; LV=await r.json(); lvErr=0; }
+  catch(e){ lvErr++; }
+  if(tab==='live') $('#view').innerHTML = live();
+}
+setInterval(pollLive, 1000);
+const LVAI = {claude:'Claude',codex:'Codex',chatgpt:'ChatGPT',gemini:'Gemini',grok:'Grok'};
+function lvSpark(series){
+  if(!series || series.length<2) return '';
+  const t0=series[0][0], t1=series[series.length-1][0]||t0+1, W=600, H=70;
+  const pts=series.map(([t,p])=>`${((t-t0)/Math.max(1,t1-t0)*W).toFixed(1)},${(H-p*H).toFixed(1)}`).join(' ');
+  return `<svg class="lv-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="0" y1="${H/2}" x2="${W}" y2="${H/2}" stroke="#25315a" stroke-dasharray="4 4"/><polyline points="${pts}" fill="none" stroke="#f5c451" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function lvSide(f, st, side, odds){
+  const s = st && st[side] || {};
+  const m = (cls,lab,v)=>`<div class="lv-meter ${cls}"><div class="lb"><span>${lab}</span><b>${v==null?'–':Math.round(v)+'%'}</b></div><div class="tr"><i style="width:${v==null?0:Math.max(0,Math.min(100,v))}%"></i></div></div>`;
+  const n = v => v==null?'–':v;
+  const acc = (s.landed!=null && s.thrown) ? Math.round(100*s.landed/s.thrown)+'%' : '–';
+  return `<div class="lv-side ${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
+    ${m('hp','Health',s.health)}${m('st','Stamina',s.stamina)}
+    <div class="lv-stats"><div><b>${n(s.thrown)}</b><span>Thrown</span></div><div><b>${n(s.landed)}</b><span>Landed</span></div><div><b>${acc}</b><span>Accuracy</span></div>
+    <div><b>${n(s.blocked)}</b><span>Blocked</span></div><div><b>${n(s.dodged)}</b><span>Dodged</span></div><div><b>${n(s.knockdowns)}</b><span>Knockdowns</span></div></div></div>`;
+}
+function live(){
+  if(!LV) return `<div class="card"><div class="empty">${lvErr?'The live feed only runs on the stream machine\'s copy of this site. This public copy shows results within a few minutes of each bout.':'Connecting to the live feed…'}</div></div>`;
+  const stale = Date.now()/1000 - LV.at > 10;
+  const b = LV.bout, st = LV.stats, inFight = LV.phase==='fight' && !stale;
+  const fl = b && (byName[b.left] || {name:b.left, team:b.left_team, image:b.left_image});
+  const fr = b && (byName[b.right] || {name:b.right, team:b.right_team, image:b.right_image});
+  const pL = Math.round(100*(LV.p_left ?? (b?b.p_left:0.5)));
+  const rnd = st && st.round ? st.round : (st && st.round_breaks!=null ? st.round_breaks+1 : null);
+  const src = !st ? 'waiting for the first stats' : st.source==='memory' ? 'read from the game every second' : 'last round-break reading';
+  const head = `<div class="lv-head"><h2>${b?esc(b.label)+' · Tournament '+b.tournament:'Between bouts'}</h2><span class="lv-tag ${inFight?'on':''}">${stale?'FEED PAUSED':inFight?(LV.rest?'CORNER BREAK':'LIVE'):String(LV.phase||'idle').toUpperCase()}</span></div>`;
+  const fight = b ? `<div class="lv-fight">${lvSide(fl,st,'L',LV.odds_L)}<div class="lv-mid"><div class="vs">VS</div><div class="rd">${rnd?'Round '+rnd:''}${st&&st.clock?'<br>'+esc(st.clock):''}</div><div class="small mute" style="text-align:center">${esc(src)}</div></div>${lvSide(fr,st,'R',LV.odds_R)}</div>
+    <div class="lv-prob"><div class="odds"><span>${pL}%<small>${esc(sur(b.left))} win chance</small></span><span></span><span style="text-align:right">${100-pL}%<small>${esc(sur(b.right))} win chance</small></span></div><div class="bar"><i class="a" style="width:${pL}%"></i><i class="b" style="width:${100-pL}%"></i></div>${lvSpark(LV.series)}</div>` : '<div class="empty">The next bout appears here when it starts.</div>';
+  const ais = (LV.ais||[]).map(a=>{
+    const pick = b ? (a.pick==='L'?b.left:b.right) : null;
+    const staked=(a.on_L||0)+(a.on_R||0), pl=a.live_pl||0;
+    return `<div class="lv-ai" style="--tc:${a.color==='#d9d9d9'?'#8c8c8c':a.color}"><div class="top"><img src="${BASE}logos/${a.id}.png" alt="">${esc(a.name)}</div>
+      ${pick?`<div class="pk">backs <b>${esc(sur(pick))}</b></div><div class="cf">${fmt(a.conf,0)}%</div><div class="pbar" style="--tc:${a.color==='#d9d9d9'?'#8c8c8c':a.color}"><i style="width:${a.conf}%"></i></div>`:''}
+      ${b?`<div class="ln"><span>Staked</span><b>${staked.toLocaleString()}</b></div><div class="ln"><span>Live P/L</span><b class="${pl>=0?'W':'L'}">${pl>=0?'+':''}${pl.toLocaleString()}</b></div>`:''}
+      <div class="ln"><span>Bankroll</span><b>${(a.bank||0).toLocaleString()}</b></div><div class="ln"><span>Bouts W-L</span><b>${a.won||0}-${a.lost||0}</b></div></div>`;
+  }).join('');
+  const pot = LV.pot ? `<div class="small mute" style="margin-top:10px">AI money on this bout: <b style="color:#ff8a8a">${LV.pot.L.toLocaleString()}</b> on ${esc(b?sur(b.left):'')} · <b style="color:#8ab4ff">${LV.pot.R.toLocaleString()}</b> on ${esc(b?sur(b.right):'')}</div>` : '';
+  const feed = (LV.feed||[]).slice(0,25).map(x=>`<div><img src="${BASE}logos/${x.ai}.png" alt=""><b>${esc(LVAI[x.ai]||x.ai)}</b> ${esc(x.text)}<small>${Math.max(0,Math.round(Date.now()/1000-x.t))}s ago</small></div>`).join('') || '<div class="small mute">No bets yet this bout.</div>';
+  return `<div class="card">${head}${fight}</div>
+    <div class="card sec"><h2>The five AIs betting live</h2><div class="lv-ais">${ais}</div>${pot}<p class="small mute" style="margin-top:8px">Each AI starts with 10,000 play points, re-reads the fight every second and stakes more when it thinks the live odds are wrong. Positions pay out when the bout ends.</p></div>
+    <div class="card sec"><h2>Bet ticker</h2><div class="lv-feed">${feed}</div></div>`;
 }
 
 /* ------------------------------------------------ tabs */
@@ -262,7 +367,7 @@ function home(){
 }
 function miniBoard(list){
   if(!list.length) return '';
-  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">Tournament ${f.wins}-${f.losses} · Pro ${proStr(f)} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f.tier)}</div>`).join('');
+  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">Tournament ${f.wins}-${f.losses} · Pro ${proStr(f)} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f)}</div>`).join('');
 }
 
 function sorted(list){
@@ -274,7 +379,7 @@ function sorted(list){
 }
 function setSort(k){ if(sortKey===k) sortDir*=-1; else {sortKey=k; sortDir=(k==='name'||k==='team')?-1:-1;} render(); }
 function board(){
-  const cols=[['rank','#'],['name','Fighter'],['team','Faction'],['elo','ELO'],['pro_wins','Pro record'],['wins','Tourn. W'],['losses','Tourn. L'],['win_pct','Win %'],['kos','Tourn. KO'],['streak','Streak'],['tier','Tier']];
+  const cols=[['rank','#'],['name','Fighter'],['team','Faction'],['elo','ELO'],['pro_wins','Pro record'],['wins','Tourn. W'],['losses','Tourn. L'],['win_pct','Win %'],['kos','Tourn. KO'],['streak','Streak'],['tier_score','Tier']];
   const list = D.fighters.slice().sort((a,b)=>{
     const k=sortKey; let x=a[k],y=b[k];
     if(typeof x==='string'||typeof y==='string') return -sortDir*String(x).localeCompare(String(y));
@@ -282,15 +387,19 @@ function board(){
   });
   // sortDir -1 = descending for numbers
   list.sort((a,b)=>{ const k=sortKey; let x=a[k],y=b[k]; if(typeof x==='string') return (sortDir===-1?1:-1)*String(x).localeCompare(String(y)); x=x==null?-1e9:x; y=y==null?-1e9:y; return sortDir===-1? y-x : x-y; });
-  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','pro_wins','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r">${proStr(f)}</td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f.tier)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
+  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','pro_wins','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r">${proStr(f)}</td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
 }
 
 function tiers(){
-  const info={S:'Elite · top 10%',A:'Contenders · next 20%',B:'Solid · next 30%',C:'Journeymen · next 25%',D:'Prospects · bottom 15%','?':'Unranked · not fought yet'};
-  return `<div class="banner" style="--x:0">Tiers are percentile bands of the ELO table among boxers who have fought, so they shift as results come in.</div>`+
+  const info={S:'GOAT · top 10%',A:'Elite · next 20%',B:'World · next 30%',C:'Olympic · next 25%',D:'Regionalman · bottom 15%','?':'Unranked · not fought yet'};
+  const cell=f=>`<div class="tcell" ${link(f.name)}>${av(f,56)}<span>${esc(sur(f.name))}</span><small>${fmt(f.elo)}</small></div>`;
+  return `<div class="banner" style="--x:0">Tiers are percentile bands of the ELO table among boxers who have fought, so they shift as results come in. Each tier splits into thirds: <b>+</b> is the top third of the band, <b>−</b> the bottom third.</div>`+
   ['S','A','B','C','D','?'].map(t=>{
-    const fs=D.fighters.filter(f=>f.tier===t); if(!fs.length) return '';
-    return `<div class="tierrow"><div class="lab t-${t}">${t==='?'?'?':t}</div><div class="body">${fs.map(f=>`<div class="tcell" ${link(f.name)}>${av(f,56)}<span>${esc(sur(f.name))}</span><small>${fmt(f.elo)}</small></div>`).join('')}</div></div><div class="small mute" style="margin:-4px 0 14px 4px">${info[t]}</div>`;
+    const fs=D.fighters.filter(f=>f.tier===t).sort((a,b)=>b.elo-a.elo); if(!fs.length) return '';
+    const lab=`<div class="lab t-${t}">${t}<small>${TIER_NAMES[t]}</small></div>`;
+    if(t==='?') return `<div class="tierrow">${lab}<div class="body">${fs.map(cell).join('')}</div></div><div class="small mute" style="margin:-4px 0 14px 4px">${info[t]}</div>`;
+    const subs=[t+'+',t,t+'-'].map(st=>{ const g=fs.filter(f=>(f.subtier||t)===st); return g.length?`<div class="sub"><div class="sl">${st.replace('-','−')}</div><div class="body">${g.map(cell).join('')}</div></div>`:''; }).join('');
+    return `<div class="tierrow">${lab}<div class="subs">${subs}</div></div><div class="small mute" style="margin:-4px 0 14px 4px">${info[t]}</div>`;
   }).join('');
 }
 
@@ -308,7 +417,7 @@ function factions(){
 function fighterList(){
   const q=query.trim().toLowerCase();
   const list=D.fighters.filter(f=>!q||f.name.toLowerCase().includes(q)||team(f.team).name.toLowerCase().includes(q));
-  return list.length?list.map(f=>`<div class="card" style="cursor:pointer;display:flex;gap:14px;align-items:center" ${link(f.name)}>${av(f,60)}<div style="flex:1;min-width:0"><div style="font-weight:800">${esc(f.name)}</div><div class="small mute">${esc(team(f.team).name)} · ${esc(f.division)}</div><div class="small" style="margin-top:3px">Pro <b>${proStr(f)}</b> · Tournament <b>${f.wins}-${f.losses}</b> · ELO ${fmt(f.elo)}</div></div>${tierBadge(f.tier)}</div>`).join(''):'<div class="empty">No boxer matches that search.</div>';
+  return list.length?list.map(f=>`<div class="card" style="cursor:pointer;display:flex;gap:14px;align-items:center" ${link(f.name)}>${av(f,60)}<div style="flex:1;min-width:0"><div style="font-weight:800">${esc(f.name)}</div><div class="small mute">${esc(team(f.team).name)} · ${esc(f.division)}</div><div class="small" style="margin-top:3px">Pro <b>${proStr(f)}</b> · Tournament <b>${f.wins}-${f.losses}</b> · ELO ${fmt(f.elo)}</div></div>${tierBadge(f)}</div>`).join(''):'<div class="empty">No boxer matches that search.</div>';
 }
 function fighters(){
   return `<div class="tools"><input id="q" type="search" placeholder="Search boxers or factions…" style="flex:1;min-width:220px"></div><div class="grid g3" id="flist">${fighterList()}</div>`;
@@ -333,7 +442,7 @@ function spark(h){
 function openFighter(name){
   const f=byName[name]; if(!f) return;
   const fs=D.fights.filter(x=>x.winner===name||x.loser===name);
-  $('#modalBody').innerHTML = `<div class="profile">${av(f,96)}<div><h3 style="font-size:26px">${esc(f.name)}</h3><div style="margin:6px 0">${teamChip(f.team)} <span class="chip">${esc(f.division)}</span> ${tierBadge(f.tier)}</div><div class="small mute">Rank #${f.rank} of ${D.fighters.length}</div></div></div>
+  $('#modalBody').innerHTML = `<div class="profile">${av(f,96)}<div><h3 style="font-size:26px">${esc(f.name)}</h3><div style="margin:6px 0">${teamChip(f.team)} <span class="chip">${esc(f.division)}</span> ${tierBadge(f)}</div><div class="small mute">Rank #${f.rank} of ${D.fighters.length}</div></div></div>
   <h2 style="margin-top:14px">Career record (professional)</h2><div class="small mute">${f.pro&&f.pro.fictional?'Street Fighter world record (W-L-D).':'Real-life pro record (W-L-D) per Wikipedia/BoxRec, as of Nov 2026.'}</div>${f.pro?`<div class="kv"><div><b>${proStr(f)}</b><span>W-L-D</span></div><div><b>${f.pro.total}</b><span>Pro fights</span></div><div><b>${f.pro.kos}</b><span>Career KOs</span></div><div><b>${fmt(100*f.pro.kos/Math.max(1,f.pro.wins))}%</b><span>KO rate</span></div></div>`:'<div class="small mute">Not available</div>'}
   <h2 style="margin-top:14px">Tournament Record</h2><div class="small mute">Results from this AI tournament only.</div>
   <div class="kv"><div><b>${fmt(f.elo)}</b><span>ELO</span></div><div><b>${f.wins}–${f.losses}</b><span>Tournament Record</span></div><div><b>${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</b><span>Win rate</span></div><div><b>${fmt(f.peak)}</b><span>Peak ELO</span></div><div><b>${f.kos}</b><span>KO wins</span></div><div><b>${f.ko_pct==null?'–':fmt(f.ko_pct)+'%'}</b><span>KO rate</span></div><div><b>${f.kod}</b><span>Stopped</span></div><div><b>${streak(f.streak)}</b><span>Streak</span></div></div>
