@@ -1078,21 +1078,21 @@
     }
   ],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 21
     },
     "right": {
-      "team": "grok",
-      "fighter": "Marcial Carri\u00f3n",
-      "image": "portraits/marcial-carrion.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 26
+      "team": "codex",
+      "fighter": "Muhammad Ali",
+      "image": "portraits/muhammad-ali.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 28
     }
   },
   "winner": null,
@@ -1149,7 +1149,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795511695.2418685,
+  "updated_at": 1795511716.5709457,
   "swaps": [
     {
       "bout": 22,
