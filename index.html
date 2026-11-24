@@ -99,7 +99,9 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .lv-side .nm{color:var(--ink)}
 .sideline{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:6px;background:#1a2140;color:var(--mute);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;vertical-align:1px}
 .sideline[hidden]{display:none}
-.lv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.lv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+@media(max-width:560px){.lv-stats{grid-template-columns:repeat(2,1fr)}}
+.lv-split{font-size:11px;color:var(--mute);margin-top:6px}
 .lv-stats div{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
 .lv-stats b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
 .lv-stats span{font-size:11px;color:var(--mute);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
@@ -400,7 +402,9 @@ function lvSide(f, st, side, odds){
   return `<div class="lv-side lv${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
     ${m('hp','Health',s.health)}${m('st','Stamina',s.stamina)}
     <div class="lv-stats"><div><b>${n(s.thrown)}</b><span>Thrown</span></div><div><b>${n(s.landed)}</b><span>Landed</span></div><div><b>${acc}</b><span>Accuracy</span></div>
-    <div><b>${n(s.power_landed)}</b><span>Power landed</span></div><div><b>${n(s.jabs_landed)}</b><span>Jabs landed</span></div><div><b>${s.round_thrown!=null?s.round_landed+'/'+s.round_thrown:'–'}</b><span>This round</span></div></div></div>`;
+    <div><b>${s.round_thrown!=null?s.round_landed+'/'+s.round_thrown:'–'}</b><span>This round</span></div>
+    <div><b>${n(s.power_landed)}</b><span>Power landed</span></div><div><b>${n(s.jabs_landed)}</b><span>Jabs landed</span></div><div><b>${n(s.head_landed)}</b><span>Head shots</span></div><div><b>${n(s.body_landed)}</b><span>Body shots</span></div></div>
+    ${s.split_untracked>0?`<div class="lv-split">Head/body split started mid-fight; ${s.split_untracked} earlier landed punches aren't split.</div>`:''}</div>`;
 }
 function live(){
   if(!LV) return `<div class="card"><div class="empty">${lvErr?'The live feed only runs on the stream machine\'s copy of this site. This public copy shows results within a few minutes of each bout.':'Connecting to the live feed…'}</div></div>`;
@@ -447,7 +451,7 @@ function arState(){
     oL: lv ? lv.odds_L : cur.odds_left, oR: lv ? lv.odds_R : cur.odds_right,
     ais: lv ? lv.ais||[] : [], feed: lv ? lv.feed||[] : [], pot: lv && lv.pot || {L:0,R:0}};
 }
-const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['accuracy','Accuracy'],['power_landed','Power punches landed'],['jabs_landed','Jabs landed'],['round_landed','Landed this round'],['health','Health'],['stamina','Stamina']];
+const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['accuracy','Accuracy'],['power_landed','Power punches landed'],['jabs_landed','Jabs landed'],['round_landed','Landed this round'],['head_landed','Head shots landed'],['body_landed','Body shots landed'],['health','Health'],['stamina','Stamina']];
 const AR_PCT = {health:1, stamina:1, accuracy:1};
 const arFc = (f,side)=>`<div class="ar-fc ${side}" ${link(f.name)}><div class="hd">${av(f,84)}<div style="min-width:0">
     <div class="nm">${esc(f.name)}</div><div class="chips">${tierBadge(f)}${f.team?teamChip(f.team):''}<span class="ar-od" id="ar-o${side}">–</span></div></div></div>
