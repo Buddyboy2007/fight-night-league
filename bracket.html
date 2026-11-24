@@ -703,6 +703,9 @@ async function wheelTick() {
     const ids = (Q.get('testwheel') || '').split(',').map(Number).filter(Boolean);
     w = ids.length ? { seq: 'test', ready: ids, pick: +(Q.get('pick') || ids[0]) }
                    : { seq: 'test', ready: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], pick: 11 };
+    const bs = (window.STATE || {}).bouts || [];                 // slice labels, as the runner would send them
+    w.names = {};
+    w.ready.forEach(id => { const b = bs[id - 1]; if (b && b.left && b.right) w.names[String(id)] = [b.left.fighter, b.right.fighter]; });
   }
   else { try { const r = await fetch('/wheel.json?_=' + Date.now(), { cache: 'no-store' }); if (r.ok) w = await r.json(); } catch (e) {} }
   const layer = document.getElementById('wheelLayer');
@@ -710,6 +713,15 @@ async function wheelTick() {
   if (!w || wheelBusy || w.seq === wheelSeq) return;
   wheelSeq = w.seq; wheelBusy = true;
   spinWheel(w);
+}
+// Surname for a wheel slice: "Sugar Ray Leonard" -> LEONARD, "Roy Jones Jr." -> JONES JR.
+function wheelSurname(full) {
+  const p = String(full || '').trim().split(/\s+/).filter(Boolean);
+  if (!p.length) return '?';
+  let k = 1;
+  if (p.length > 2 && /^(jr\.?|sr\.?|i{1,3}|iv)$/i.test(p[p.length - 1])) k = 2;
+  while (k < p.length - 1 && /^(de|la|del|van|von|da|di|dos|el)$/i.test(p[p.length - k - 1])) k++;
+  return p.slice(p.length - k).join(' ').toUpperCase();
 }
 function spinWheel(w) {
   const svg = document.getElementById('wheel'), layer = document.getElementById('wheelLayer'), card = document.getElementById('pickCard');
@@ -722,12 +734,31 @@ function spinWheel(w) {
     g += `<circle class="bulb ${k % 2 ? 'o' : ''}" cx="${332 * Math.cos(a)}" cy="${332 * Math.sin(a)}" r="6"/>`;
   }
   g += '<g id="rot" style="transform-origin:0 0">';
+  const NM = w.names || {};
   w.ready.forEach((id, i) => {
     const a0 = i * seg - Math.PI / 2, a1 = (i + 1) * seg - Math.PI / 2, am = (a0 + a1) / 2;
     const d = `M0 0 L${R * Math.cos(a0)} ${R * Math.sin(a0)} A${R} ${R} 0 0 1 ${R * Math.cos(a1)} ${R * Math.sin(a1)} Z`;
-    const tx = 244 * Math.cos(am), ty = 244 * Math.sin(am), rot = am * 180 / Math.PI + 90;
-    g += `<path d="${d}" fill="${WCOL[i % WCOL.length]}" stroke="#f5c542" stroke-opacity=".55" stroke-width="2" data-id="${id}"/>` +
-         `<text x="${tx}" y="${ty}" font-size="${n > 10 ? 44 : 58}" transform="rotate(${rot} ${tx} ${ty})" dominant-baseline="central" data-id="${id}">${id}</text>`;
+    g += `<path d="${d}" fill="${WCOL[i % WCOL.length]}" stroke="#f5c542" stroke-opacity=".55" stroke-width="2" data-id="${id}"/>`;
+    const pair = NM[String(id)];
+    if (pair && pair.length === 2) {
+      // The matchup reads along the slice, hub to rim - that is the long way, so a surname fits.
+      const r0 = 92, r1 = R - 22, rm = (r0 + r1) / 2;
+      const cx = rm * Math.cos(am), cy = rm * Math.sin(am);
+      const flip = Math.cos(am) < 0;            // left half: turn the label so it still reads forwards
+      const deg = am * 180 / Math.PI + (flip ? 180 : 0);
+      const nm = pair.map(wheelSurname);
+      const longest = Math.max(nm[0].length, nm[1].length);
+      const fit = (r1 - r0) / (0.64 * longest);
+      const fs = Math.max(17, Math.min(n > 12 ? 30 : n > 8 ? 34 : 40, fit, (2 * Math.PI * rm / n) / 2.1));
+      g += `<text x="${cx}" y="${cy}" font-size="${fs.toFixed(1)}" text-anchor="middle" dominant-baseline="central"` +
+           ` transform="rotate(${deg.toFixed(2)} ${cx.toFixed(1)} ${cy.toFixed(1)})" data-id="${id}">` +
+           `<tspan x="${cx.toFixed(1)}" dy="${(-fs * 0.82).toFixed(1)}">${esc(nm[0])}</tspan>` +
+           `<tspan x="${cx.toFixed(1)}" dy="${(fs * 0.82).toFixed(1)}" font-size="${(fs * 0.5).toFixed(1)}" opacity=".58">VS</tspan>` +
+           `<tspan x="${cx.toFixed(1)}" dy="${(fs * 0.82).toFixed(1)}">${esc(nm[1])}</tspan></text>`;
+    } else {
+      const tx = 244 * Math.cos(am), ty = 244 * Math.sin(am), rot = am * 180 / Math.PI + 90;
+      g += `<text x="${tx}" y="${ty}" font-size="${n > 10 ? 44 : 58}" transform="rotate(${rot} ${tx} ${ty})" dominant-baseline="central" data-id="${id}">${id}</text>`;
+    }
   });
   g += '</g>';
   svg.innerHTML = g;
