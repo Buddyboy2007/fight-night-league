@@ -695,7 +695,74 @@ function sliceAt(deg, bounds) {
 }
 
 // ---------------------------------------------------------------- next-fight wheel
-const WCOL = ['#16213a', '#2a1c3a', '#122f36', '#2e2416'];
+// Slices used to cycle four near-black blues, so the wheel carried no information: every
+// matchup looked the same and the only thing moving was the pointer. Now every boxer on the
+// wheel is painted from what the league actually knows about them -- weight division sets the
+// hue, and each fighter inside that division gets their own shade of it, so no two boxers on
+// the wheel are the same colour and the divisions still read as families from across a room.
+const WCOL = ['#16213a', '#2a1c3a', '#122f36', '#2e2416'];   // fallback, used when STATE is not loaded yet
+const DIV_BASE = {                      // one hue per weight division
+  HW:  '#c62828',   // heavyweight      red
+  LHW: '#e2761b',   // light heavy      orange
+  CW:  '#c9a227',   // cruiserweight    gold
+  MW:  '#1f8a52',   // middleweight     green
+  WW:  '#2566b8',   // welterweight     blue
+  LW:  '#7a46b5',   // lightweight      violet
+  FW:  '#12908d',   // featherweight    teal
+  BW:  '#b52a86',   // bantamweight     magenta
+};
+const DIV_LABEL = { HW: 'Heavyweight', LHW: 'Light Heavyweight', CW: 'Cruiserweight', MW: 'Middleweight',
+                    WW: 'Welterweight', LW: 'Lightweight', FW: 'Featherweight', BW: 'Bantamweight' };
+const CLASS_DIV = { 'HEAVYWEIGHT': 'HW', 'LIGHT HEAVYWEIGHT': 'LHW', 'CRUISERWEIGHT': 'CW', 'MIDDLEWEIGHT': 'MW',
+                    'WELTERWEIGHT': 'WW', 'LIGHTWEIGHT': 'LW', 'FEATHERWEIGHT': 'FW', 'BANTAMWEIGHT': 'BW' };
+
+const _hex = h => { const n = parseInt(String(h).slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
+const _mix = (a, b, t) => {                       // blend two hex colours, t in 0..1
+  const x = _hex(a), y = _hex(b);
+  return '#' + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, '0')).join('');
+};
+
+// name -> {div, country, team, shade}. Built once from state.json's team rosters, which are the
+// only place carrying division/country per fighter. Shade spreads every fighter in a division
+// evenly from darker to lighter, so the whole division stays recognisable but each boxer differs.
+let _fmeta = null, _fmetaFor = null;
+function fmeta() {
+  const st = window.STATE;
+  if (!st || !st.teams) return {};
+  if (_fmeta && _fmetaFor === st) return _fmeta;
+  const m = {}, byDiv = {};
+  Object.keys(st.teams).forEach(tk => (st.teams[tk].fighters || []).forEach(f => {
+    const div = f.division || CLASS_DIV[f.game_class] || '';
+    m[f.name] = { div: div, country: (f.country || '').toLowerCase(), team: tk, shade: 0 };
+    (byDiv[div] = byDiv[div] || []).push(f.name);
+  }));
+  Object.keys(byDiv).forEach(d => {
+    const names = byDiv[d].slice().sort();        // sorted so a reload paints the same boxer the same colour
+    names.forEach((nm, i) => { m[nm].shade = names.length > 1 ? (i / (names.length - 1)) * 2 - 1 : 0; });
+  });
+  _fmeta = m; _fmetaFor = st;
+  return m;
+}
+function fighterMeta(name) { return fmeta()[name] || null; }
+function fighterColor(name, fallback) {
+  const f = fighterMeta(name);
+  if (!f || !DIV_BASE[f.div]) return fallback || '#2a3348';
+  const s = f.shade || 0;
+  return _mix(DIV_BASE[f.div], s < 0 ? '#000000' : '#ffffff', Math.abs(s) * 0.34);
+}
+// divisions actually present on this wheel, in weight order, for the legend
+const DIV_ORDER = ['HW', 'LHW', 'CW', 'MW', 'WW', 'LW', 'FW', 'BW'];
+function wheelLegend(names) {
+  const seen = new Set();
+  Object.keys(names || {}).forEach(k => (names[k] || []).forEach(n => {
+    const f = fighterMeta(n); if (f && f.div) seen.add(f.div);
+  }));
+  const divs = DIV_ORDER.filter(d => seen.has(d));
+  const el = document.getElementById('wheelLegend');
+  if (!el) return;
+  el.innerHTML = divs.map(d =>
+    `<span class="lg"><i style="background:${DIV_BASE[d]}"></i>${esc(DIV_LABEL[d] || d)}</span>`).join('');
+}
 let wheelSeq = null, wheelBusy = false;
 async function wheelTick() {
   let w = null;
@@ -737,9 +804,29 @@ function spinWheel(w) {
   const NM = w.names || {};
   w.ready.forEach((id, i) => {
     const a0 = i * seg - Math.PI / 2, a1 = (i + 1) * seg - Math.PI / 2, am = (a0 + a1) / 2;
-    const d = `M0 0 L${R * Math.cos(a0)} ${R * Math.sin(a0)} A${R} ${R} 0 0 1 ${R * Math.cos(a1)} ${R * Math.sin(a1)} Z`;
-    g += `<path d="${d}" fill="${WCOL[i % WCOL.length]}" stroke="#f5c542" stroke-opacity=".55" stroke-width="2" data-id="${id}"/>`;
+    const wedge = (b0, b1) =>
+      `M0 0 L${(R * Math.cos(b0)).toFixed(2)} ${(R * Math.sin(b0)).toFixed(2)} ` +
+      `A${R} ${R} 0 0 1 ${(R * Math.cos(b1)).toFixed(2)} ${(R * Math.sin(b1)).toFixed(2)} Z`;
     const pair = NM[String(id)];
+    // The two surnames are stacked across the slice (the label is rotated to read hub-to-rim, so
+    // its tspan dy runs tangentially). Splitting the wedge on the same axis puts each boxer's
+    // colour directly behind their own name. On the left half the label is turned 180 degrees to
+    // keep it readable, which swaps which side of the slice the first name lands on.
+    const flip = Math.cos(am) < 0;
+    if (pair && pair.length === 2) {
+      const nearName = pair[flip ? 1 : 0], farName = pair[flip ? 0 : 1];
+      const cNear = fighterColor(nearName, WCOL[i % WCOL.length]);
+      const cFar = fighterColor(farName, WCOL[(i + 1) % WCOL.length]);
+      g += `<path d="${wedge(a0, am)}" fill="${cNear}" data-id="${id}" data-half="1"/>`;
+      g += `<path d="${wedge(am, a1)}" fill="${cFar}" data-id="${id}" data-half="1"/>`;
+      // the slice outline is drawn on top of both halves so the gold edge stays unbroken
+      g += `<path d="${wedge(a0, a1)}" fill="none" stroke="#f5c542" stroke-opacity=".55" stroke-width="2"/>`;
+      g += `<line x1="${(66 * Math.cos(am)).toFixed(2)}" y1="${(66 * Math.sin(am)).toFixed(2)}"` +
+           ` x2="${(R * Math.cos(am)).toFixed(2)}" y2="${(R * Math.sin(am)).toFixed(2)}"` +
+           ` stroke="#000" stroke-opacity=".34" stroke-width="1.5"/>`;
+    } else {
+      g += `<path d="${wedge(a0, a1)}" fill="${WCOL[i % WCOL.length]}" stroke="#f5c542" stroke-opacity=".55" stroke-width="2" data-id="${id}"/>`;
+    }
     if (pair && pair.length === 2) {
       // The matchup reads along the slice, hub to rim - that is the long way, so a surname fits.
       const r0 = 92, r1 = R - 22, rm = (r0 + r1) / 2;
