@@ -200,6 +200,29 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .tierrow .sub:first-child{border-top:0}
 .tierrow .sub .sl{flex:none;width:44px;display:grid;place-items:center;font-weight:900;font-size:16px;color:var(--mute);border-right:1px solid var(--line)}
 .tierrow .body{display:flex;flex-wrap:wrap;gap:10px;padding:12px;flex:1;min-height:70px}
+/* Leaderboard movement: the place number and its arrow trade places, so a column of numbers
+   still reads as a column of numbers and the movers catch your eye on the turn. */
+.mv{position:relative;display:inline-grid;width:34px;height:20px;place-items:center}
+.mv>span,.mv>i{grid-area:1/1;animation:mvswap 6s infinite}
+.mv>i{font-style:normal;font-weight:900;font-size:13px;animation-delay:-3s}
+.mv.mvup>i{color:var(--green)}
+.mv.mvdn>i{color:var(--red)}
+@keyframes mvswap{0%,44%{opacity:1}50%,94%{opacity:0}100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mv>span,.mv>i{animation:none}.mv>i{opacity:0}}
+/* Factions, stacked the way a tier list is: one row per corner, best to worst left to right. */
+.facrow{display:flex;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:10px;background:var(--card);position:relative}
+.facrow::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--tc)}
+.facrow .fl{flex:none;width:168px;padding:14px 12px 14px 16px;border-right:1px solid var(--line);background:#0003}
+.facrow .fl img{width:40px;height:40px;border-radius:10px;background:#0006;padding:4px}
+.facrow .fl h3{margin:8px 0 2px;font-size:16px}
+.facrow .fbody{display:flex;flex-wrap:wrap;gap:10px;padding:12px;flex:1;min-height:76px;align-content:flex-start}
+.fcell{display:flex;flex-direction:column;align-items:center;width:78px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;gap:3px;position:relative}
+.fcell small{color:var(--mute);font-weight:500}
+.fcell .pl{position:absolute;top:-2px;right:4px;background:#070a14cc;border:1px solid var(--line);border-radius:7px;padding:0 4px;font-size:10px;font-weight:800;color:var(--gold)}
+/* Best win / worst loss */
+.nbox{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:#0002;border-left:3px solid var(--tc)}
+.nbox .nb{flex:1;min-width:0}
+.nbox .nt{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .tcell{display:flex;flex-direction:column;align-items:center;width:84px;text-align:center;font-size:11px;font-weight:700;cursor:pointer;gap:4px}
 .tcell small{color:var(--mute);font-weight:500}
 /* factions */
@@ -577,9 +600,16 @@ function upNext(){
     return `<div style="margin:10px 0"><div style="display:flex;justify-content:space-between;gap:8px;font-weight:800;font-size:14px"><span style="color:#ff7a85;cursor:pointer" ${link(u.left)}>${esc(u.left)}</span><span class="small mute">${esc(u.label)}</span><span style="color:#8ab4ff;text-align:right;cursor:pointer" ${link(u.right)}>${esc(u.right)}</span></div>
       <div class="tug sm" style="margin:5px 0 2px"><i style="width:${pa}%"></i><b style="left:${pa}%"></b></div><div class="small mute" style="display:flex;justify-content:space-between"><span>${pa}% · ${u.odds_left.toFixed(2)}x</span><span>${u.odds_right.toFixed(2)}x · ${100-pa}%</span></div></div>`; }).join('');
 }
+function rankCell(f){
+  // The place a boxer holds, and - if the last few results moved him - the arrow he moved by.
+  const d = f.rank_delta||0, cls = (f.rank<=3?' top':'');
+  if(!d) return `<span class="rk${cls}">${f.rank}</span>`;
+  const t = `${d>0?'Up':'Down'} ${Math.abs(d)} place${Math.abs(d)===1?'':'s'} from #${f.rank_prev}`;
+  return `<span class="rk${cls}"><span class="mv ${d>0?'mvup':'mvdn'}" title="${t}"><span>${f.rank}</span><i>${d>0?'\u25b2':'\u25bc'}${Math.abs(d)}</i></span></span>`;
+}
 function miniBoard(list){
   if(!list.length) return '';
-  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}><span class="rk ${f.rank<=3?'top':''}">${f.rank}</span>${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">Tournament ${f.wins}-${f.losses} · Pro ${proStr(f)} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f)}</div>`).join('');
+  return list.map(f=>`<div class="who" style="margin:9px 0;cursor:pointer" ${link(f.name)}>${rankCell(f)}${av(f,38)}<div style="flex:1">${esc(f.name)}<div class="small mute">Tournament ${f.wins}-${f.losses} · Pro ${proStr(f)} · ${esc(team(f.team).name)}</div></div><b>${fmt(f.elo)}</b>${tierBadge(f)}</div>`).join('');
 }
 
 function sorted(list){
@@ -599,7 +629,7 @@ function board(){
   });
   // sortDir -1 = descending for numbers
   list.sort((a,b)=>{ const k=sortKey; let x=a[k],y=b[k]; if(typeof x==='string') return (sortDir===-1?1:-1)*String(x).localeCompare(String(y)); x=x==null?-1e9:x; y=y==null?-1e9:y; return sortDir===-1? y-x : x-y; });
-  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','pro_wins','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r">${proStr(f)}</td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. Click a column to sort, a row to open a profile.</p></div>`;
+  return `<div class="card"><h2>ELO leaderboard · all ${D.fighters.length} boxers</h2><div class="scroll"><table><thead><tr>${cols.map(([k,l])=>`<th class="${['elo','pro_wins','wins','losses','win_pct','kos','streak'].includes(k)?'r':''}" onclick="setSort('${k}')">${l}${sortKey===k?(sortDir===-1?' ▾':' ▴'):''}</th>`).join('')}</tr></thead><tbody>${list.map(f=>`<tr ${link(f.name)}><td class="rk ${f.rank<=3?'top':''}">${f.rank_delta?`<span class="mv ${f.rank_delta>0?'mvup':'mvdn'}" title="${f.rank_delta>0?'Up':'Down'} ${Math.abs(f.rank_delta)} from #${f.rank_prev}"><span>${f.rank}</span><i>${f.rank_delta>0?'\u25b2':'\u25bc'}${Math.abs(f.rank_delta)}</i></span>`:f.rank}</td><td><div class="who">${av(f,36)}${esc(f.name)}${f.provisional&&f.fights?'<span class="small mute" title="fewer than 3 fights">*</span>':''}</div></td><td>${teamChip(f.team)}</td><td class="r"><b>${fmt(f.elo)}</b></td><td class="r">${proStr(f)}</td><td class="r W">${f.wins}</td><td class="r L">${f.losses}</td><td class="r">${f.win_pct==null?'–':fmt(f.win_pct)+'%'}</td><td class="r">${f.kos}</td><td class="r">${streak(f.streak)}</td><td>${tierBadge(f)}</td></tr>`).join('')}</tbody></table></div><p class="small mute" style="margin-top:10px">* provisional: fewer than 3 fights. A place number that turns into a green <b style="color:var(--green)">▲</b> or red <b style="color:var(--red)">▼</b> moved that many places over the last ${(D.settings||{}).rank_window||6} fights on the card. Click a column to sort, a row to open a profile.</p></div>`;
 }
 
 function tiers(){
@@ -617,13 +647,22 @@ function tiers(){
 
 function factions(){
   const ts = D.team_order.map(id=>team(id)).sort((a,b)=>b.wins-a.wins||b.avg_elo-a.avg_elo);
-  return `<div class="grid g2">${ts.map((t,i)=>`<div class="card fac" style="--tc:${TEAMCOL[t.id]}">
-    <div class="top"><img src="${BASE}${esc(t.logo)}"><div style="flex:1"><h3>${i+1}. ${esc(t.name)}</h3><div class="small mute">${esc(t.tagline||'')}</div></div><div style="text-align:right"><div class="rec">${t.wins}–${t.losses}</div><div class="small mute">${t.win_pct==null?'no fights':fmt(t.win_pct)+'% wins'}</div></div></div>
-    <div class="grid g3" style="gap:8px"><div class="stat"><b style="font-size:22px">${fmt(t.avg_elo)}</b><span>Avg ELO</span></div><div class="stat"><b style="font-size:22px">${t.titles}</b><span>Titles</span></div><div class="stat"><b style="font-size:22px">${t.finals}</b><span>Finals</span></div></div>
-    <div class="pbar"><i style="width:${t.win_pct??0}%"></i></div>
-    <div class="mini">${t.fighters.map(n=>`<span class="who" ${link(n)} style="cursor:pointer;font-size:12px;background:#0004;padding:3px 10px 3px 3px;border-radius:99px">${av(byName[n],26)}${esc(sur(n))}</span>`).join('')}</div>
-    ${Object.keys(t.vs).length?`<div class="small mute" style="margin-top:12px">Wins over: ${Object.entries(t.vs).map(([k,v])=>`<b style="color:${TEAMCOL[k]}">${esc(team(k).name)}</b> ${v}`).join(' · ')}</div>`:''}
-  </div>`).join('')}</div>`;
+  const cell = n => {
+    const f = byName[n]; if(!f) return '';
+    const pl = f.fights ? `<span class="pl" title="Leaderboard place">#${f.rank}</span>` : '';
+    return `<div class="fcell" ${link(n)}>${pl}${av(f,52)}<span>${esc(sur(n))}</span><small>${fmt(f.elo)}${f.fights?' · '+f.wins+'-'+f.losses:''}</small></div>`;
+  };
+  return `<div class="banner" style="--x:0">Every corner's squad, strongest to weakest by rating. The badge on a boxer is his place on the overall leaderboard, so you can see at a glance where each faction's depth really sits.</div>`+
+  ts.map((t,i)=>{
+    const squad = t.fighters.slice().sort((a,b)=>((byName[b]||{}).elo||0)-((byName[a]||{}).elo||0));
+    return `<div class="facrow" style="--tc:${TEAMCOL[t.id]}">
+      <div class="fl"><img src="${BASE}${esc(t.logo)}" alt=""><h3>${i+1}. ${esc(t.name)}</h3>
+        <div class="small mute">${t.wins}–${t.losses}${t.win_pct==null?'':' · '+fmt(t.win_pct)+'%'}</div>
+        <div class="small mute">Avg ${fmt(t.avg_elo)} · ${t.titles} title${t.titles===1?'':'s'}</div>
+        <div class="pbar" style="margin-top:8px"><i style="width:${t.win_pct??0}%"></i></div></div>
+      <div class="fbody">${squad.map(cell).join('')||'<div class="small mute">No boxers drafted.</div>'}</div>
+    </div>`;
+  }).join('');
 }
 
 function fighterList(){
@@ -651,6 +690,29 @@ function spark(h){
   const base=H-P-(1500-mn)/(mx-mn)*(H-2*P);
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#3a4a85" stroke-dasharray="4 4"/><path d="${d} L${pts.at(-1)[0]} ${H} L${pts[0][0]} ${H}Z" fill="#f5c45122"/><path d="${d}" fill="none" stroke="#f5c451" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;
 }
+function notable(f){
+  // The night he had no business winning, and the one he had no business losing.
+  const box = (kind, n, col) => {
+    const o = byName[n.opponent];
+    const bits = [];
+    if(n.class_gap) bits.push(`${n.class_gap} weight class${n.class_gap===1?'':'es'} ${kind==='win'?'up':'down'}`);
+    if(Math.abs(n.elo_gap)>=25) bits.push(`${Math.abs(Math.round(n.elo_gap))} rating points ${n.elo_gap>0?'the wrong way':'in hand'}`);
+    if(n.opponent_rank) bits.push(`ranked #${n.opponent_rank}`);
+    if(n.opponent_tier && n.opponent_tier!=='?') bits.push(`tier ${n.opponent_tier.replace('-','\u2212')}`);
+    const how = n.method ? (n.method + (n.round?' R'+n.round:'')) : 'decision';
+    return `<div class="nbox" style="--tc:${col}">${o?av(o,54):''}<div class="nb">
+      <div class="nt">${kind==='win'?'Best win':'Worst loss'}</div>
+      <div style="font-weight:800;font-size:17px;cursor:pointer" ${link(n.opponent)}>${kind==='win'?'beat':'lost to'} ${esc(n.opponent)}</div>
+      <div class="small mute">${esc(n.label||('Bout '+n.bout))} · Tournament ${n.tournament} · ${esc(how)}${n.bare_knuckle?' · bare knuckle':''}</div>
+      ${bits.length?`<div class="small" style="margin-top:4px">${bits.map(esc).join(' · ')}</div>`:''}
+    </div><div style="text-align:right"><b style="font-size:24px;color:${col}">${n.score.toFixed(1)}</b><div class="small mute">upset score</div></div></div>`;
+  };
+  const w = f.best_win, l = f.worst_loss;
+  if(!w && !l) return '';
+  return `<h2 style="margin-top:18px">Signature results</h2>
+  <div class="small mute">The upset score weighs the rating gap, weight classes climbed, the game's own pound-for-pound ratings and career records. The bigger the number, the less the result was supposed to happen.</div>
+  <div class="grid g2" style="margin-top:10px">${w?box('win',w,'var(--green)'):''}${l?box('loss',l,'var(--red)'):''}</div>`;
+}
 function openFighter(name){
   const f=byName[name]; if(!f) return;
   const fs=D.fights.filter(x=>x.winner===name||x.loser===name);
@@ -662,6 +724,7 @@ function openFighter(name){
   ${(f.bk_wins||f.bk_losses)?`<div class="kv bkbox"><div><b>${f.bk_wins}–${f.bk_losses}</b><span>Bare Knuckle W-L</span></div><div><b>${f.bk_kos}</b><span>Bare Knuckle KOs</span></div><div><b>${f.gloved_wins}–${f.gloved_losses}</b><span>Gloved W-L</span></div><div><b>${Math.round(100*f.bk_wins/Math.max(1,f.bk_wins+f.bk_losses))}%</b><span>Bare Knuckle win rate</span></div></div>`:'<div class="small mute" style="margin:8px 0 14px">No bare knuckle bouts yet.</div>'}
   <h2>ELO over time</h2>${spark(f.elo_history)}
   <h2 style="margin-top:18px">Form</h2>${f.form.length?formDots(f.form):'<span class="small mute">No fights yet</span>'}
+  ${notable(f)}
   <h2 style="margin-top:18px">Fight history</h2>${fightRows(fs,12,name)}`;
   $('#modal').classList.add('on');
 }
