@@ -97,6 +97,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .lv-meter.st i{background:linear-gradient(90deg,#3b6cff,#6aa7ff)}
 .lv-side.lvR .lv-meter .tr i{margin-left:auto}
 .lv-side .nm{color:var(--ink)}
+.sideline{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:6px;background:#1a2140;color:var(--mute);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;vertical-align:1px}
 .lv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
 .lv-stats div{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
 .lv-stats b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
@@ -398,7 +399,7 @@ function lvSide(f, st, side, odds){
   return `<div class="lv-side lv${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
     ${m('hp','Health',s.health)}${m('st','Stamina',s.stamina)}
     <div class="lv-stats"><div><b>${n(s.thrown)}</b><span>Thrown</span></div><div><b>${n(s.landed)}</b><span>Landed</span></div><div><b>${acc}</b><span>Accuracy</span></div>
-    <div><b>${n(s.blocked)}</b><span>Blocked</span></div><div><b>${n(s.dodged)}</b><span>Dodged</span></div><div><b>${n(s.knockdowns)}</b><span>Knockdowns</span></div></div></div>`;
+    <div><b>${n(s.power_landed)}</b><span>Power landed</span></div><div><b>${n(s.jabs_landed)}</b><span>Jabs landed</span></div><div><b>${s.round_thrown!=null?s.round_landed+'/'+s.round_thrown:'–'}</b><span>This round</span></div></div></div>`;
 }
 function live(){
   if(!LV) return `<div class="card"><div class="empty">${lvErr?'The live feed only runs on the stream machine\'s copy of this site. This public copy shows results within a few minutes of each bout.':'Connecting to the live feed…'}</div></div>`;
@@ -408,7 +409,7 @@ function live(){
   const fr = b && (byName[b.right] || {name:b.right, team:b.right_team, image:b.right_image});
   const pL = Math.round(100*(LV.p_left ?? (b?b.p_left:0.5)));
   const rnd = st && st.round ? st.round : (st && st.round_breaks!=null ? st.round_breaks+1 : null);
-  const src = !st ? 'waiting for the first stats' : st.source==='memory' ? 'read from the game every second' : 'last round-break reading';
+  const src = !st ? 'waiting for the first stats' : st.source==='memory' ? 'punches live from the game every second' : 'last round-break reading';
   const head = `<div class="lv-head"><h2>${b?esc(b.label)+' · Tournament '+b.tournament:'Between bouts'}</h2><span class="lv-tag ${inFight?'on':''}">${stale?'FEED PAUSED':inFight?(LV.rest?'CORNER BREAK':'LIVE'):String(LV.phase||'idle').toUpperCase()}</span></div>`;
   const fight = b ? `<div class="lv-fight">${lvSide(fl,st,'L',LV.odds_L)}<div class="lv-mid"><div class="vs">VS</div><div class="rd">${rnd?'Round '+rnd:''}${st&&st.clock?'<br>'+esc(st.clock):''}</div><div class="small mute" style="text-align:center">${esc(src)}</div></div>${lvSide(fr,st,'R',LV.odds_R)}</div>
     <div class="lv-prob"><div class="odds"><span>${pL}%<small>${esc(sur(b.left))} win chance</small></span><span></span><span style="text-align:right">${100-pL}%<small>${esc(sur(b.right))} win chance</small></span></div><div class="bar"><i class="a" style="width:${pL}%"></i><i class="b" style="width:${100-pL}%"></i></div>${lvSpark(LV.series)}</div>` : '<div class="empty">The next bout appears here when it starts.</div>';
@@ -445,7 +446,8 @@ function arState(){
     oL: lv ? lv.odds_L : cur.odds_left, oR: lv ? lv.odds_R : cur.odds_right,
     ais: lv ? lv.ais||[] : [], feed: lv ? lv.feed||[] : [], pot: lv && lv.pot || {L:0,R:0}};
 }
-const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['blocked','Blocked'],['dodged','Dodged'],['knockdowns','Knockdowns'],['health','Health'],['stamina','Stamina']];
+const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['accuracy','Accuracy'],['power_landed','Power punches landed'],['jabs_landed','Jabs landed'],['round_landed','Landed this round'],['health','Health'],['stamina','Stamina']];
+const AR_PCT = {health:1, stamina:1, accuracy:1};
 const arFc = (f,side)=>`<div class="ar-fc ${side}" ${link(f.name)}><div class="hd">${av(f,84)}<div style="min-width:0">
     <div class="nm">${esc(f.name)}</div><div class="chips">${tierBadge(f)}${f.team?teamChip(f.team):''}<span class="ar-od" id="ar-o${side}">–</span></div></div></div>
   <div class="rec">Pro ${proStr(f)} · League ${f.wins||0}-${f.losses||0} · ELO ${fmt(f.elo)}</div>
@@ -458,7 +460,7 @@ function arena(){
   const fl = byName[b.left] || {name:b.left, team:b.left_team, image:b.left_image};
   const fr = byName[b.right] || {name:b.right, team:b.right_team, image:b.right_image};
   const duel = ([k,lab])=>`<div class="duel"><b id="ar-${k}L">–</b><div><div class="nm">${lab}</div><div class="tug sm" id="ar-${k}"><i></i><b></b></div></div><b id="ar-${k}R">–</b></div>`;
-  const ai = id=>`<div class="ar-ai" id="ar-ai-${id}"><img src="${BASE}logos/${id}.png" alt=""><div style="min-width:0"><div class="t">${esc(LVAI[id])}<span class="pk">–</span></div><div class="tug sm"><i></i><b></b></div></div><div class="cf">–</div></div>`;
+  const ai = id=>`<div class="ar-ai" id="ar-ai-${id}"><img src="${BASE}logos/${id}.png" alt=""><div style="min-width:0"><div class="t">${esc(LVAI[id])}<span class="sideline" hidden>no corner · betting only</span><span class="pk">–</span></div><div class="tug sm"><i></i><b></b></div></div><div class="cf">–</div></div>`;
   return `<div class="ar" data-key="${esc(b.left+'|'+b.right)}">
     <div class="ar-top"><span class="lv-tag" id="ar-tag">–</span><span class="tt">${esc(b.label)}${b.tournament?' · Tournament '+b.tournament:''}</span><span class="rd" id="ar-rd"></span></div>
     <div class="ar-cards">${arFc(fl,'L')}
@@ -509,10 +511,10 @@ function homeLive(){
   T('ar-lean', lean);
   for(const [k] of AR_DUELS){
     const l = st && st.L ? st.L[k] : null, r = st && st.R ? st.R[k] : null;
-    T('ar-'+k+'L', l==null?'–':Math.round(l)+(k==='health'||k==='stamina'?'%':'')); T('ar-'+k+'R', r==null?'–':Math.round(r)+(k==='health'||k==='stamina'?'%':''));
+    T('ar-'+k+'L', l==null?'–':Math.round(l)+(AR_PCT[k]?'%':'')); T('ar-'+k+'R', r==null?'–':Math.round(r)+(AR_PCT[k]?'%':''));
     arTug(document.getElementById('ar-'+k), l, r);
   }
-  T('ar-src', !st ? 'Stats appear once the first round is under way.' : st.source==='memory' ? 'Read straight from the game every second.' : 'Health and stamina from the last corner break; punch counts arrive with the memory feed.');
+  T('ar-src', !st ? 'Stats appear once the first round is under way.' : st.source==='memory' ? 'Punches read straight from the game every second; health and stamina from the last corner break.' : 'Health and stamina from the last corner break; punch counts arrive with the memory feed.');
   const tot = (s.pot.L||0)+(s.pot.R||0);
   T('ar-tot', tot.toLocaleString()); T('ar-potL', (s.pot.L||0).toLocaleString()); T('ar-potR', (s.pot.R||0).toLocaleString());
   arTug(document.getElementById('ar-pot'), s.pot.L, s.pot.R);
@@ -520,6 +522,7 @@ function homeLive(){
     const row = document.getElementById('ar-ai-'+id); if(!row) continue;
     const a = s.ais.find(x=>x.id===id), col = a ? (a.color==='#d9d9d9'?'#bbbbbb':a.color) : 'var(--mute)';
     const pk = row.querySelector('.pk'), cf = row.querySelector('.cf');
+    const sl = row.querySelector('.sideline'); if(sl) sl.hidden = !(s.lv && s.lv.playing && !s.lv.playing.includes(id));
     if(a && a.pick){
       pk.textContent = 'leans '+sur(a.pick==='L'?s.b.left:s.b.right)+' · '+((a.on_L||0)+(a.on_R||0)).toLocaleString()+' staked';
       cf.textContent = Math.round(a.conf)+'%'; cf.style.color = a.pick==='L'?'#ff7a85':'#8ab4ff';
