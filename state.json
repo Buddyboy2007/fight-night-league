@@ -191,7 +191,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 28,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jake Paul",
@@ -686,8 +686,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 28
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 17,
@@ -833,7 +837,13 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 2
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "winner": null,
       "result": null
     },
@@ -1075,6 +1085,17 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795511695.241845
+    },
+    {
+      "bout": 16,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "codex",
+      "loser_fighter": "Muhammad Ali",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795514481.9509313
     }
   ],
   "current_match": {
@@ -1149,7 +1170,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795513818.0792954,
+  "updated_at": 1795514481.9509578,
   "swaps": [
     {
       "bout": 22,
