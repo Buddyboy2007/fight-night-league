@@ -1141,21 +1141,21 @@
     }
   ],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 27,
+    "round": "Quarterfinals",
     "left": {
-      "team": "codex",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "grok",
-      "fighter": "Marcial Carri\u00f3n",
-      "image": "portraits/marcial-carrion.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 26
+      "team": "gemini",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     }
   },
   "winner": null,
@@ -1212,7 +1212,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795515488.2138135,
+  "updated_at": 1795515495.8751264,
   "swaps": [
     {
       "bout": 22,
