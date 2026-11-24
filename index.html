@@ -86,7 +86,7 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .lv-fight{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start}
 .lv-side{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
 .lv-side .who{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-.lv-side.R .who{flex-direction:row-reverse;text-align:right}
+.lv-side.lvR .who{flex-direction:row-reverse;text-align:right}
 .lv-side .nm{font-weight:900;font-size:18px;line-height:1.15}
 .lv-meter{margin:8px 0}
 .lv-meter .lb{display:flex;justify-content:space-between;font-size:12px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.04em}
@@ -95,7 +95,8 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .lv-meter .tr i{display:block;height:100%;transition:width .8s ease}
 .lv-meter.hp i{background:linear-gradient(90deg,#ff4d5e,#ffb347 45%,#35d49a)}
 .lv-meter.st i{background:linear-gradient(90deg,#3b6cff,#6aa7ff)}
-.lv-side.R .lv-meter .tr i{margin-left:auto}
+.lv-side.lvR .lv-meter .tr i{margin-left:auto}
+.lv-side .nm{color:var(--ink)}
 .lv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
 .lv-stats div{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
 .lv-stats b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
@@ -279,7 +280,7 @@ function fightRows(list, n=999, who=null){
     const how = f.method ? (f.method==='DEC'?'DECISION':f.method+(f.round?' · R'+f.round:'')) : '';
     return `<div class="fr"><div class="tm">T${f.tournament}<br>${esc(f.bout<=24?`Fight ${f.bout} of 31`:f.round_label)}</div>
       <div class="names"><span ${link(f.winner)} style="cursor:pointer">${esc(f.winner)}</span> <span class="mute">def.</span> <s ${link(f.loser)} style="cursor:pointer">${esc(f.loser)}</s>${f.upset?'<span class="up">UPSET</span>':''}${f.bare_knuckle?'<span class="bk" title="Fought bare knuckle (no gloves)">BARE KNUCKLE</span>':''}
-        <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · ${who===f.loser?`<span class="L">−${fmt(f.delta,1)}</span>`:`<span class="W">+${fmt(f.delta,1)}</span>`}</div></div>
+        <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · ${who===f.loser?`<span class="L">−${fmt(f.delta,1)}</span>`:`<span class="W">+${fmt(f.delta,1)}</span>`}${f.class_gap?` · <b class="W">▲ ${f.class_gap} class${f.class_gap>1?'es':''} up</b>`:''}</div></div>
       <div><div class="how">${how}</div><div class="small mute" style="text-align:right">${ago(f.ts)}</div></div></div>`;
   }).join('');
 }
@@ -306,7 +307,7 @@ function lvSide(f, st, side, odds){
   const m = (cls,lab,v)=>`<div class="lv-meter ${cls}"><div class="lb"><span>${lab}</span><b>${v==null?'–':Math.round(v)+'%'}</b></div><div class="tr"><i style="width:${v==null?0:Math.max(0,Math.min(100,v))}%"></i></div></div>`;
   const n = v => v==null?'–':v;
   const acc = (s.landed!=null && s.thrown) ? Math.round(100*s.landed/s.thrown)+'%' : '–';
-  return `<div class="lv-side ${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
+  return `<div class="lv-side lv${side}"><div class="who" ${f?link(f.name):''} style="cursor:pointer">${f?av(f,64):''}<div><div class="nm">${esc(f?f.name:'')}</div>${f&&f.team?teamChip(f.team):''}<div class="small mute" style="margin-top:4px">Live odds <b style="color:var(--ink)">${odds?odds.toFixed(2)+'x':'–'}</b></div></div></div>
     ${m('hp','Health',s.health)}${m('st','Stamina',s.stamina)}
     <div class="lv-stats"><div><b>${n(s.thrown)}</b><span>Thrown</span></div><div><b>${n(s.landed)}</b><span>Landed</span></div><div><b>${acc}</b><span>Accuracy</span></div>
     <div><b>${n(s.blocked)}</b><span>Blocked</span></div><div><b>${n(s.dodged)}</b><span>Dodged</span></div><div><b>${n(s.knockdowns)}</b><span>Knockdowns</span></div></div></div>`;
@@ -518,7 +519,7 @@ function how(){
   const s=D.settings;
   return `<div class="card how-it"><h2>How it works</h2>
   <h3>Where the data comes from</h3><p>A 32-boxer, single-elimination tournament runs 24/7 on a console, CPU versus CPU, four AI factions (${D.team_order.map(i=>esc(team(i).name)).join(', ')}) with eight boxers each. When a bout ends the result &mdash; winner, how, and which round &mdash; is written to a permanent ledger. This page reads that ledger every ${REFRESH} seconds. Reshuffling for a new tournament never erases it.</p>
-  <h3 style="margin-top:16px">ELO ratings</h3><p>Every boxer starts at <code>${s.start}</code>. After a fight the winner takes points from the loser: <code>K = ${s.k}</code> times the surprise of the result, so beating a stronger boxer is worth more. KO and TKO finishes count <code>${s.finish_bonus}×</code>.</p>
+  <h3 style="margin-top:16px">ELO ratings</h3><p>Every boxer starts at <code>${s.start}</code>. After a fight the winner takes points from the loser: <code>K = ${s.k}</code> times the surprise of the result, so beating a stronger boxer is worth more. KO and TKO finishes count <code>${s.finish_bonus}×</code>. Beating a boxer from a <b>heavier weight class</b> pays big whatever the ratings say: the win is scored as at least a coin-flip upset, times one extra for every class climbed (one class up ≈ 2×, two classes ≈ 3×).</p>
   <h3 style="margin-top:16px">Tiers</h3><p>Percentile bands of the ELO table among boxers who have fought: <b>S</b> top 10%, <b>A</b> next 20%, <b>B</b> next 30%, <b>C</b> next 25%, <b>D</b> the rest.</p>
   <h3 style="margin-top:16px">Odds</h3><p>Win probability is <code>1 / (1 + 10^((opponent − you) / 400))</code>. Decimal odds are that probability inverted with a ${Math.round(s.edge*100)}% house edge. Early on, every boxer is 1500 so everything is near even money; the model sharpens with each result.</p>
   <h3 style="margin-top:16px">The sportsbook</h3><p>Play money only. You get 1,000 points in your own browser's storage; bets settle automatically when the real result lands in the ledger. It never touches real currency, and clearing your browser data resets it.</p>
