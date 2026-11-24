@@ -277,18 +277,18 @@
           "name": "Jordan Dennett",
           "image": "portraits/jordan-dennett.jpg",
           "division": "LHW",
-          "country": "us",
+          "country": "cl",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 8,
           "eliminated": false
         },
         {
-          "name": "Jack Dempsey",
-          "image": "portraits/jack-dempsey.jpg",
+          "name": "Lance Dennett",
+          "image": "portraits/lance-dennett.jpg",
           "division": "HW",
-          "country": "us",
+          "country": "cl",
           "game_class": "HEAVYWEIGHT",
-          "game_index": 8,
+          "game_index": 20,
           "eliminated": false
         },
         {
@@ -304,7 +304,7 @@
           "name": "Rupert Dennett",
           "image": "portraits/rupert-dennett.jpg",
           "division": "MW",
-          "country": "us",
+          "country": "cl",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 23,
           "eliminated": false
@@ -485,7 +485,7 @@
       "id": 9,
       "left": {
         "team": "grok",
-        "fighter": "Jack Dempsey",
+        "fighter": "Lance Dennett",
         "image": "portraits/jack-dempsey.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 8
@@ -777,7 +777,7 @@
     "Sergey Kovalev",
     "Jermain Taylor",
     "Marcial Carri\u00f3n",
-    "Jack Dempsey",
+    "Lance Dennett",
     "David Benavidez",
     "Julio C\u00e9sar Ch\u00e1vez",
     "Pernell Whitaker",
