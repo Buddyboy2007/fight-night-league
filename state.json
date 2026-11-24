@@ -298,7 +298,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Rupert Dennett",
@@ -728,8 +728,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 19,
@@ -850,7 +854,13 @@
     {
       "id": 25,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Marvin Hagler",
+        "image": "portraits/marvelous-marvin-hagler.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -1096,6 +1106,17 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795514481.9509313
+    },
+    {
+      "bout": 18,
+      "winner_team": "claude",
+      "winner_fighter": "Marvin Hagler",
+      "loser_team": "grok",
+      "loser_fighter": "Teofimo Lopez",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795515046.3592985
     }
   ],
   "current_match": {
@@ -1170,7 +1191,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795515008.0905223,
+  "updated_at": 1795515046.3593311,
   "swaps": [
     {
       "bout": 22,
