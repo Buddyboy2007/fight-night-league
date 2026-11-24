@@ -31,7 +31,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 22,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Gervonta Davis",
@@ -539,8 +539,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 22
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 1,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 12,
@@ -680,7 +684,13 @@
     },
     {
       "id": 22,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Daniel Dubois",
+        "image": "portraits/daniel-dubois.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 29
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -760,24 +770,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795486576.3995712
+    },
+    {
+      "bout": 11,
+      "winner_team": "gemini",
+      "winner_fighter": "Daniel Dubois",
+      "loser_team": "claude",
+      "loser_fighter": "Parker Phillips",
+      "method": null,
+      "round": 1,
+      "bare_knuckle": false,
+      "ts": 1795488189.7068243
     }
   ],
   "current_match": {
-    "bout": 11,
-    "round": "Fight 11 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Daniel Dubois",
-      "image": "portraits/daniel-dubois.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 7
     },
     "right": {
       "team": "claude",
-      "fighter": "Parker Phillips",
-      "image": "portraits/parker-phillips.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 22
+      "fighter": "Roy Jones Jr.",
+      "image": "portraits/roy-jones-jr.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -834,5 +855,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795486585.7329624
+  "updated_at": 1795488189.7068653
 }
