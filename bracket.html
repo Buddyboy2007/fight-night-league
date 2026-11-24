@@ -1238,8 +1238,18 @@ function draftRender(i, st, sub) {
   // same boxer reads the same on the draft board and on the matchup wheel. The corner's focus is still
   // singled out, but by brightness: a boxer who does not fit is pushed down towards the board's
   // background, which is what the two alternating alphas used to do for all of them at once.
+  // A board is drawn after the class wheel has already landed, so most of its boxers share one
+  // division and would share one hue. Shades are therefore spread evenly across the boxers of each
+  // division *on this board* rather than hashed from the name: on a two-Dennett board that is the
+  // difference between two reds you cannot tell apart and a light one next to a dark one.
+  const _dIdx = {};
+  st.items.forEach(x => { (_dIdx[x.div] = _dIdx[x.div] || []).push(x.name); });
   const slices = st.items.map((x, k) => {
-    const c = slotColor(x.name, x.div, t.color);
+    const peers = _dIdx[x.div] || [], at = peers.indexOf(x.name);
+    const s = peers.length > 1 ? (at / (peers.length - 1)) * 2 - 1 : 0;
+    const base = DIV_BASE[x.div];
+    const c = base ? _mix(base, s < 0 ? '#000000' : '#ffffff', Math.abs(s) * 0.5)
+                   : slotColor(x.name, x.div, t.color);
     const dim = anyFit && !x.fit;
     return { w: Math.max(x.w / tot, 0.045),
       fill: dim ? _mix(c, '#0a0d15', 0.66) : c,
