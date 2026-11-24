@@ -200,7 +200,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 3,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lucius Palmer",
@@ -368,8 +368,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 23
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 3,
@@ -678,7 +682,13 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 7
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Rupert Dennett",
+        "image": "portraits/rupert-dennett.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 23
+      },
       "winner": null,
       "result": null
     },
@@ -928,24 +938,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795500775.2230039
+    },
+    {
+      "bout": 2,
+      "winner_team": "grok",
+      "winner_fighter": "Rupert Dennett",
+      "loser_team": "codex",
+      "loser_fighter": "Jake Paul",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795503798.0403593
     }
   ],
   "current_match": {
-    "bout": 2,
-    "round": "Fight 2 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jake Paul",
-      "image": "portraits/jake-paul.jpg",
+      "team": "grok",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 3
+      "game_index": 15
     },
     "right": {
-      "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1002,5 +1023,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795500784.5670896
+  "updated_at": 1795503798.040386
 }
