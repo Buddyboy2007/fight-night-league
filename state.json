@@ -40,7 +40,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Marvin Hagler",
@@ -757,11 +757,11 @@
     {
       "id": 20,
       "left": {
-        "team": "gemini",
-        "fighter": "Sergey Kovalev",
-        "image": "portraits/sergey-kovalev.jpg",
+        "team": "grok",
+        "fighter": "Jordan Dennett",
+        "image": "portraits/jordan-dennett.jpg",
         "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 4
+        "game_index": 8
       },
       "right": null,
       "winner": null,
@@ -816,11 +816,11 @@
     {
       "id": 23,
       "left": {
-        "team": "grok",
-        "fighter": "Jordan Dennett",
-        "image": "portraits/jordan-dennett.jpg",
+        "team": "gemini",
+        "fighter": "Sergey Kovalev",
+        "image": "portraits/sergey-kovalev.jpg",
         "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 8
+        "game_index": 4
       },
       "right": {
         "team": "claude",
@@ -848,8 +848,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 25,
@@ -893,7 +897,13 @@
     {
       "id": 28,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "winner": null,
       "result": null
     },
@@ -1117,24 +1127,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795515046.3592985
+    },
+    {
+      "bout": 24,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "claude",
+      "loser_fighter": "Gervonta Davis",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795515488.2137544
     }
   ],
   "current_match": {
-    "bout": 24,
-    "round": "Fight 24 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Gervonta Davis",
-      "image": "portraits/gervonta-davis.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 2
+      "team": "codex",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 4
     },
     "right": {
       "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "fighter": "Marcial Carri\u00f3n",
+      "image": "portraits/marcial-carrion.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 26
     }
   },
   "winner": null,
@@ -1191,7 +1212,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795515470.050724,
+  "updated_at": 1795515488.2138135,
   "swaps": [
     {
       "bout": 22,
@@ -1200,6 +1221,14 @@
       "for": "Shakur Stevenson",
       "why": "same-team fighters would have met",
       "ts": 1795511166.8428648
+    },
+    {
+      "bout": 23,
+      "moved": "Jordan Dennett",
+      "to_bout": 20,
+      "for": "Sergey Kovalev",
+      "why": "same-team fighters would have met",
+      "ts": 1795515488.2137885
     }
   ]
 }
