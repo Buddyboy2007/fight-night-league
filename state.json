@@ -156,7 +156,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -651,8 +651,12 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 16,
@@ -784,7 +788,13 @@
     },
     {
       "id": 24,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Gervonta Davis",
+        "image": "portraits/gervonta-davis.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 2
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -949,24 +959,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795503798.0403593
+    },
+    {
+      "bout": 15,
+      "winner_team": "claude",
+      "winner_fighter": "Gervonta Davis",
+      "loser_team": "gemini",
+      "loser_fighter": "Lamont Roach Jr.",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795506702.929359
     }
   ],
   "current_match": {
-    "bout": 15,
-    "round": "Fight 15 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Gervonta Davis",
-      "image": "portraits/gervonta-davis.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 2
+      "team": "grok",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Lamont Roach Jr.",
-      "image": "portraits/lamont-roach-jr.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 5
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1023,5 +1044,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795503807.379888
+  "updated_at": 1795506702.9293911
 }
