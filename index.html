@@ -354,12 +354,22 @@ function fightRows(list, n=999, who=null){
 
 
 /* ------------------------------------------------ live tracker (live_stats.json, written every second by livestats.py) */
-let LV = null, lvErr = 0;
+let LV = null, lvErr = 0, LVSRC = null, lvBusy = false;
+// Local (/site/): the tournament server has live_stats.json. Public (Pages): live-url.json names the
+// tunnel to livefeed.py (its URL changes when the tunnel restarts, so re-read it after failures).
+async function lvSource(){
+  if(BASE==='../') return '../live_stats.json';
+  if(LVSRC && lvErr<3) return LVSRC;
+  const r=await fetch('./live-url.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0;
+  LVSRC=(await r.json()).url.replace(/\/$/,'')+'/live_stats.json'; return LVSRC;
+}
 async function pollLive(){
-  if((tab!=='live' && tab!=='home') || !D) return;
-  if(lvErr>3 && lvErr++%15) return;            // public copy has no feed: retry every 15s, not every second
-  try{ const r=await fetch(BASE+'live_stats.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0; LV=await r.json(); lvErr=0; }
+  if((tab!=='live' && tab!=='home') || !D || lvBusy) return;
+  if(lvErr>5 && lvErr++%15) return;            // feed down: retry every 15s, not every second
+  lvBusy = true;
+  try{ const r=await fetch((await lvSource())+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0; LV=await r.json(); lvErr=0; }
   catch(e){ lvErr++; }
+  finally{ lvBusy = false; }
   if(tab==='live') $('#view').innerHTML = live();
   else if(tab==='home') homeLive();
 }
@@ -704,7 +714,7 @@ function how(){
   <h3>Where the data comes from</h3><p>A 32-boxer, single-elimination tournament runs 24/7 on a console, CPU versus CPU, four AI factions (${D.team_order.map(i=>esc(team(i).name)).join(', ')}) with eight boxers each. When a bout ends the result &mdash; winner, how, and which round &mdash; is written to a permanent ledger. This page reads that ledger every ${REFRESH} seconds. Reshuffling for a new tournament never erases it.</p>
   <h3 style="margin-top:16px">ELO ratings</h3><p>Every boxer starts at <code>${s.start}</code>. After a fight the winner takes points from the loser: <code>K = ${s.k}</code> times the surprise of the result, so beating a stronger boxer is worth more. KO and TKO finishes count <code>${s.finish_bonus}×</code>. Beating a boxer from a <b>heavier weight class</b> pays big whatever the ratings say: the win is scored as at least a coin-flip upset, times one extra for every class climbed (one class up ≈ 2×, two classes ≈ 3×).</p>
   <h3 style="margin-top:16px">Tiers</h3><p>Percentile bands of the ELO table among boxers who have fought: <b>S</b> top 10%, <b>A</b> next 20%, <b>B</b> next 30%, <b>C</b> next 25%, <b>D</b> the rest.</p>
-  <h3 style="margin-top:16px">Odds</h3><p>Win probability is <code>1 / (1 + 10^((opponent − you) / 400))</code>. Decimal odds are that probability inverted with a ${Math.round(s.edge*100)}% house edge. Early on, every boxer is 1500 so everything is near even money; the model sharpens with each result.</p>
+  <h3 style="margin-top:16px">Odds</h3><p>Win probability is <code>1 / (1 + 10^((opponent − you) / 400))</code>. Decimal odds are that probability inverted with a ${Math.round(s.edge*100)}% house edge. Ratings are held between 100 and 10,000. Early on, every boxer is 1500 so everything is near even money; the model sharpens with each result.</p>
   <h3 style="margin-top:16px">The sportsbook</h3><p>Play money only. You get 1,000 points in your own browser's storage; bets settle automatically when the real result lands in the ledger. It never touches real currency, and clearing your browser data resets it.</p>
   <h3 style="margin-top:16px">Factions</h3><p>Each AI team picked eight boxers. A faction's record is the sum of its boxers' results; "titles" counts tournaments won by one of its boxers.</p></div>`;
 }
