@@ -1013,9 +1013,9 @@ function draftRender(i, st, sub) {
     dHub('WEIGHT<br>BAND');
     if (landed) {
       const b = it.band.slice().reverse(), cap = b[b.length - 1];
-      dCaption(b.length > 1 ? `${it.label} floor · ${cap} cap` : `${it.label} only`, `Locked for the whole tournament · ${field} boxers`);
-      dCard(`<div class="dclass"><div class="k">${b.length > 1 ? `${esc(it.label)} to ${esc(cap)}` : esc(it.label)}</div><div class="b">${esc(b.join(' · '))}</div>` +
-        `<div class="r">${t.name}'s first spin locks the band · the cap sits two classes above</div></div>`, '#f5c542');
+      dCaption(b.length > 1 ? `${b[0]} to ${cap}` : `${it.label} only`, `Locked for the whole tournament · ${field} boxers`);
+      dCard(`<div class="dclass"><div class="k">${b.length > 1 ? `${esc(b[0])} to ${esc(cap)}` : esc(it.label)}</div><div class="b">${esc(b.join(' · '))}</div>` +
+        `<div class="r">${t.name}'s first spin lands on ${esc(it.label)} · the band reaches two classes either side</div></div>`, '#f5c542');
     } else { dCaption('The first spin locks the weight band', its.map(x => x.label).join(' · ')); dCard(''); }
     return;
   }
