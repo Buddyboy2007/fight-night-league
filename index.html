@@ -178,7 +178,8 @@ tbody tr{cursor:pointer}tbody tr:hover{background:#ffffff08}
 .ar-ai .t span{color:var(--mute);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ar-ai .cf{font-weight:900;font-size:15px;font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
 .ar-ai .tug{margin-top:4px}
-.ar-tick{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-size:12px;height:92px;overflow:hidden}
+.ar-tick{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-size:12px;min-height:118px;overflow:hidden}
+@media(max-width:520px){.ar-win .row .c{display:none}}
 .ar-tick div{display:flex;gap:6px;align-items:center;padding:3px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:tickin .5s ease}
 .ar-tick img{width:16px;height:16px;border-radius:4px}
 .ar-tick small{margin-left:auto;color:var(--mute)}
@@ -282,6 +283,7 @@ const initials = n => n.split(/\s+/).filter(w=>/[A-Za-z]/.test(w[0])).slice(0,2)
 const ago = ts => { const s=Math.max(0,Date.now()/1000-ts); if(s<90)return 'just now'; if(s<3600)return Math.round(s/60)+'m ago'; if(s<86400)return Math.round(s/3600)+'h ago'; return Math.round(s/86400)+'d ago'; };
 
 function av(f,size=46){
+  if(!f || typeof f!=='object') f = {name:String(f||'?')};   // e.g. a past champion no longer on the roster
   const tc = TEAMCOL[f.team]||'#3a4a85';
   const flag = f.country ? `<img class="f" src="${BASE}flags/${esc(f.country)}.svg" onerror="this.remove()">` : '';
   return `<span class="av" style="--s:${size}px;--tc:${tc}"><img class="p" src="${BASE}${esc(f.image)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${esc(initials(f.name))}'}))">${flag}</span>`;
@@ -311,7 +313,7 @@ setInterval(()=>{ countdown--; if(countdown<=0) load(); if(D) $('#liveTxt').text
 function renderNav(){
   $('#nav').innerHTML = TABS.map(([k,l])=>`<button class="${k===tab?'on':''}" onclick="go('${k}')">${l}</button>`).join('');
 }
-function go(k){ tab=k; location.hash=k; render(); window.scrollTo({top:0}); if(k==='live') pollLive(); }
+function go(k){ tab=k; location.hash=k; render(); window.scrollTo({top:0}); if(k==='live'||k==='home') pollLive(); }
 window.addEventListener('hashchange',()=>{ tab=(location.hash||'#home').slice(1).split('/')[0]||'home'; render(); });
 
 function render(){
@@ -323,6 +325,7 @@ function render(){
   if(isB){ showBracket(); return; } else hideBracket();
   const v = {home,live,board,tiers,factions,fighters,history,bets,how}[tab] || home;
   $('#view').innerHTML = v();
+  if(tab==='home') homeLive();
   if(tab==='fighters'){ const q=$('#q'); if(q){ q.value=query; q.oninput=e=>{query=e.target.value; $('#flist').innerHTML=fighterList();}; } }
 }
 
@@ -353,10 +356,12 @@ function fightRows(list, n=999, who=null){
 /* ------------------------------------------------ live tracker (live_stats.json, written every second by livestats.py) */
 let LV = null, lvErr = 0;
 async function pollLive(){
-  if(tab!=='live' || !D) return;
+  if((tab!=='live' && tab!=='home') || !D) return;
+  if(lvErr>3 && lvErr++%15) return;            // public copy has no feed: retry every 15s, not every second
   try{ const r=await fetch(BASE+'live_stats.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0; LV=await r.json(); lvErr=0; }
   catch(e){ lvErr++; }
   if(tab==='live') $('#view').innerHTML = live();
+  else if(tab==='home') homeLive();
 }
 setInterval(pollLive, 1000);
 const LVAI = {claude:'Claude',codex:'Codex',chatgpt:'ChatGPT',gemini:'Gemini',grok:'Grok'};
@@ -403,25 +408,132 @@ function live(){
     <div class="card sec"><h2>Bet ticker</h2><div class="lv-feed">${feed}</div></div>`;
 }
 
+/* ------------------------------------------------ home arena */
+// Which bout to show and where its numbers come from: the live feed when it is fresh or about
+// the same bout as league.json, otherwise the pre-fight model odds from league.json alone.
+function arState(){
+  const cur = D.upcoming.find(u=>u.current) || null;
+  const fresh = LV && LV.bout && Date.now()/1000 - LV.at < 10;
+  const same = LV && LV.bout && cur && LV.bout.left===cur.left && LV.bout.right===cur.right;
+  const lv = (fresh || same) ? LV : null;
+  const b = lv ? lv.bout : cur ? {tournament:(D.live_tournament||{}).number, label:cur.label, left:cur.left, right:cur.right, p_left:cur.p_left} : null;
+  if(!b) return null;
+  const pL = lv ? (lv.p_left ?? b.p_left) : cur.p_left;
+  const st = lv && lv.stats || null;
+  const inFight = fresh && LV.phase==='fight';
+  const tag = inFight ? (LV.rest?'CORNER BREAK':'LIVE') : fresh ? String(LV.phase||'idle').toUpperCase() : lv ? 'SNAPSHOT '+ago(LV.at).toUpperCase() : 'PRE-FIGHT ODDS';
+  return {b, pL, st, lv, inFight, tag,
+    oL: lv ? lv.odds_L : cur.odds_left, oR: lv ? lv.odds_R : cur.odds_right,
+    ais: lv ? lv.ais||[] : [], feed: lv ? lv.feed||[] : [], pot: lv && lv.pot || {L:0,R:0}};
+}
+const AR_DUELS = [['thrown','Punches thrown'],['landed','Punches landed'],['blocked','Blocked'],['dodged','Dodged'],['knockdowns','Knockdowns'],['health','Health'],['stamina','Stamina']];
+const arFc = (f,side)=>`<div class="ar-fc ${side}" ${link(f.name)}><div class="hd">${av(f,84)}<div style="min-width:0">
+    <div class="nm">${esc(f.name)}</div><div class="chips">${tierBadge(f)}${f.team?teamChip(f.team):''}<span class="ar-od" id="ar-o${side}">–</span></div></div></div>
+  <div class="rec">Pro ${proStr(f)} · League ${f.wins||0}-${f.losses||0} · ELO ${fmt(f.elo)}</div>
+  <div class="ar-mtr hp"><div class="lb"><span>Health</span><b id="ar-hpv${side}">–</b></div><div class="tr"><i id="ar-hp${side}"></i></div></div>
+  <div class="ar-mtr st"><div class="lb"><span>Stamina</span><b id="ar-stv${side}">–</b></div><div class="tr"><i id="ar-st${side}"></i></div></div></div>`;
+function arena(){
+  const s = arState();
+  if(!s) return `<div class="ar"><div class="empty">The next bout appears here the moment the bracket is drawn.</div></div>`;
+  const {b} = s;
+  const fl = byName[b.left] || {name:b.left, team:b.left_team, image:b.left_image};
+  const fr = byName[b.right] || {name:b.right, team:b.right_team, image:b.right_image};
+  const duel = ([k,lab])=>`<div class="duel"><b id="ar-${k}L">–</b><div><div class="nm">${lab}</div><div class="tug sm" id="ar-${k}"><i></i><b></b></div></div><b id="ar-${k}R">–</b></div>`;
+  const ai = id=>`<div class="ar-ai" id="ar-ai-${id}"><img src="${BASE}logos/${id}.png" alt=""><div style="min-width:0"><div class="t">${esc(LVAI[id])}<span class="pk">–</span></div><div class="tug sm"><i></i><b></b></div></div><div class="cf">–</div></div>`;
+  return `<div class="ar" data-key="${esc(b.left+'|'+b.right)}">
+    <div class="ar-top"><span class="lv-tag" id="ar-tag">–</span><span class="tt">${esc(b.label)}${b.tournament?' · Tournament '+b.tournament:''}</span><span class="rd" id="ar-rd"></span></div>
+    <div class="ar-cards">${arFc(fl,'L')}
+      <div class="ar-mid"><div><div class="lab">Live favor</div><div class="ar-fav" id="ar-fav">0</div></div><div><div class="lab">Leaning</div><div class="who" id="ar-lean">–</div></div></div>
+      ${arFc(fr,'R')}</div>
+    <div class="ar-win"><div class="row"><span id="ar-pL" style="color:#ff5a68">–<small>${esc(sur(b.left))} wins</small></span><span class="c">Who wins? · live win chance</span><span id="ar-pR" style="color:#6f9bff;text-align:right">–<small>${esc(sur(b.right))} wins</small></span></div>
+      <div class="tug" id="ar-win"><i></i><b></b></div></div>
+    <div class="ar-sub">
+      <div class="ar-box"><h2>Fight stats</h2>${AR_DUELS.map(duel).join('')}<div class="ar-note" id="ar-src"></div></div>
+      <div class="ar-box"><h2>AI sportsbook</h2>
+        <div class="ar-tot"><b id="ar-tot">0</b><span>Total AI points bet</span></div>
+        <div class="ar-pot"><span style="color:#ff7a85" id="ar-potL">0</span><span class="small mute">money on each corner</span><span style="color:#8ab4ff" id="ar-potR">0</span></div>
+        <div class="tug" id="ar-pot"><i></i><b></b></div>
+        <div style="margin-top:14px">${Object.keys(LVAI).map(ai).join('')}</div>
+        <div class="ar-tick" id="ar-tick"></div></div>
+    </div>
+    <div class="ar-note" id="ar-note"></div></div>`;
+}
+function arTug(el, l, r){            // l, r: raw amounts; empty when both are null/0
+  if(!el) return;
+  const has = l!=null && r!=null && (l+r)>0, p = has ? 100*l/(l+r) : 50;
+  el.classList.toggle('off', !has);
+  el.firstElementChild.style.width = p+'%'; el.lastElementChild.style.left = p+'%';
+}
+function homeLive(){
+  const root = document.querySelector('.ar'); if(!root) return;
+  const s = arState(); if(!s) return;
+  if(root.dataset.key !== s.b.left+'|'+s.b.right){ root.outerHTML = arena(); return homeLive(); }
+  const T = (id,v)=>{ const e=document.getElementById(id); if(e && e.firstChild?.nodeType===3) e.firstChild.nodeValue=v; else if(e) e.textContent=v; };
+  const tag = document.getElementById('ar-tag'); tag.textContent = s.tag; tag.classList.toggle('on', s.inFight);
+  const st = s.st, rnd = st && (st.round || (st.round_breaks!=null ? st.round_breaks+1 : null));
+  T('ar-rd', rnd ? 'Round '+rnd : '');
+  T('ar-oL', s.oL ? s.oL.toFixed(2)+'x' : '–'); T('ar-oR', s.oR ? s.oR.toFixed(2)+'x' : '–');
+  for(const side of ['L','R']){
+    const v = st && st[side] || {};
+    for(const k of ['hp','st']){
+      const x = v[k==='hp'?'health':'stamina'];
+      document.getElementById('ar-'+k+side).style.width = (x==null?0:Math.max(0,Math.min(100,x)))+'%';
+      T('ar-'+k+'v'+side, x==null?'–':Math.round(x)+'%');
+    }
+  }
+  const pL = Math.round(100*s.pL);
+  T('ar-pL', pL+'%'); T('ar-pR', (100-pL)+'%');
+  arTug(document.getElementById('ar-win'), s.pL, 1-s.pL);
+  const fav = Math.max(-1000, Math.min(1000, Math.round((s.pL-0.5)*2000)));
+  const fe = document.getElementById('ar-fav'); fe.textContent = (fav>0?'+':fav<0?'−':'')+Math.abs(fav); fe.style.color = fav>0?'#ff5a68':fav<0?'#6f9bff':'var(--ink)';
+  const lean = Math.abs(pL-50)<3 ? 'Dead even' : (pL>50?sur(s.b.left):sur(s.b.right))+(Math.abs(pL-50)<12?' slightly':Math.abs(pL-50)<25?' clearly':' heavily');
+  T('ar-lean', lean);
+  for(const [k] of AR_DUELS){
+    const l = st && st.L ? st.L[k] : null, r = st && st.R ? st.R[k] : null;
+    T('ar-'+k+'L', l==null?'–':Math.round(l)+(k==='health'||k==='stamina'?'%':'')); T('ar-'+k+'R', r==null?'–':Math.round(r)+(k==='health'||k==='stamina'?'%':''));
+    arTug(document.getElementById('ar-'+k), l, r);
+  }
+  T('ar-src', !st ? 'Stats appear once the first round is under way.' : st.source==='memory' ? 'Read straight from the game every second.' : 'Health and stamina from the last corner break; punch counts arrive with the memory feed.');
+  const tot = (s.pot.L||0)+(s.pot.R||0);
+  T('ar-tot', tot.toLocaleString()); T('ar-potL', (s.pot.L||0).toLocaleString()); T('ar-potR', (s.pot.R||0).toLocaleString());
+  arTug(document.getElementById('ar-pot'), s.pot.L, s.pot.R);
+  for(const id of Object.keys(LVAI)){
+    const row = document.getElementById('ar-ai-'+id); if(!row) continue;
+    const a = s.ais.find(x=>x.id===id), col = a ? (a.color==='#d9d9d9'?'#bbbbbb':a.color) : 'var(--mute)';
+    const pk = row.querySelector('.pk'), cf = row.querySelector('.cf');
+    if(a && a.pick){
+      pk.textContent = 'leans '+sur(a.pick==='L'?s.b.left:s.b.right)+' · '+((a.on_L||0)+(a.on_R||0)).toLocaleString()+' staked';
+      cf.textContent = Math.round(a.conf)+'%'; cf.style.color = a.pick==='L'?'#ff7a85':'#8ab4ff';
+    } else { pk.textContent = a ? 'bank '+(a.bank||0).toLocaleString() : 'waiting for the bell'; cf.textContent='–'; cf.style.color=col; }
+    arTug(row.querySelector('.tug'), a?a.on_L:null, a?a.on_R:null);
+  }
+  const tk = document.getElementById('ar-tick'), top = s.feed[0];
+  if(tk && (tk.dataset.t||'') !== String(top?top.t:'')){
+    tk.dataset.t = top?top.t:'';
+    tk.innerHTML = s.feed.slice(0,5).map(x=>`<div><img src="${BASE}logos/${x.ai}.png" alt=""><b>${esc(LVAI[x.ai]||x.ai)}</b> ${esc(x.text)}<small>${Math.max(0,Math.round(Date.now()/1000-x.t))}s</small></div>`).join('') || '<div class="mute">No bets on this bout yet.</div>';
+  }
+  T('ar-note', s.lv ? (s.inFight ? 'Updating every second.' : 'The bars move again at the next bell.') : 'Showing the pre-fight model odds. The every-second feed runs on the stream machine\'s copy of this site.');
+}
+
 /* ------------------------------------------------ tabs */
 function home(){
   const cur = D.upcoming.find(u=>u.current) || D.upcoming[0];
   const lt = D.live_tournament;
   const champs = D.tournaments.filter(t=>t.complete);
-  return `<div class="grid g4 st">
+  return `${arena()}<div class="grid g4 st sec">
     <div class="card stat"><b>${D.totals.fights}</b><span>Fights tracked</span></div>
     <div class="card stat"><b>${D.totals.tournaments}</b><span>Tournaments</span></div>
     <div class="card stat"><b>${D.totals.fights?Math.round(100*D.totals.kos/D.totals.fights):0}%</b><span>Finish rate</span></div>
     <div class="card stat"><b>${D.totals.upsets}</b><span>Upsets${D.totals.bare_knuckle?` · ${D.totals.bare_knuckle} bare knuckle`:''}</span></div>
   </div>
   <div class="grid g2 sec g15">
-    <div class="card"><h2>${cur?'Next on the broadcast':'Between tournaments'}</h2>${cur?matchCard(cur):'<div class="empty">Waiting for the next bracket…</div>'}
-      ${cur?`<div style="margin-top:14px"><button class="btn" onclick="go('bets')">Bet play money on this fight</button></div>`:''}</div>
+    <div class="card"><h2>Still to fight · the wheel picks the order</h2>${upNext()}
+      ${cur?`<div style="margin-top:14px"><button class="btn" onclick="go('bets')">Bet play money on the current fight</button></div>`:''}</div>
     <div class="card"><h2>Tournament ${lt?lt.number:''} progress</h2>
       <div class="bank" style="font-size:34px">${lt?lt.played:0}<span class="mute" style="font-size:18px"> / ${lt?lt.total:31} bouts</span></div>
       <div class="pbar" style="--tc:var(--gold)"><i style="width:${lt?100*lt.played/lt.total:0}%"></i></div>
       <h2 style="margin-top:20px">Champions</h2>
-      ${champs.length?champs.slice().reverse().slice(0,5).map(t=>`<div class="who" style="margin:8px 0;cursor:pointer" ${link(t.champion)}>${av(byName[t.champion],38)}<div>${esc(t.champion)}<div class="small mute">Tournament ${t.number} · ${esc(team(t.champion_team).name)}</div></div></div>`).join(''):'<div class="small mute">No champion crowned yet.</div>'}
+      ${champs.length?champs.slice().reverse().slice(0,5).map(t=>t.by_team?`<div class="who" style="margin:8px 0"><img src="${BASE}${esc(team(t.champion_team).logo)}" style="width:38px;height:38px;border-radius:50%;border:2px solid ${TEAMCOL[t.champion_team]}"><div>${esc(t.champion)}<div class="small mute">Tournament ${t.number} · crowned as a team</div></div></div>`:`<div class="who" style="margin:8px 0;cursor:pointer" ${link(t.champion)}>${av(byName[t.champion]||t.champion,38)}<div>${esc(t.champion)}<div class="small mute">Tournament ${t.number} · ${esc(team(t.champion_team).name)}</div></div></div>`).join(''):'<div class="small mute">No champion crowned yet.</div>'}
     </div>
   </div>
   <div class="grid g2 sec">
@@ -429,6 +541,13 @@ function home(){
     <div class="card"><h2>Faction war</h2>${D.team_order.map(id=>team(id)).sort((a,b)=>b.wins-a.wins||b.avg_elo-a.avg_elo).map(t=>`<div style="display:flex;align-items:center;gap:12px;margin:10px 0;--tc:${TEAMCOL[t.id]}"><img src="${BASE}${esc(t.logo)}" style="width:30px;height:30px;border-radius:8px"><div style="flex:1"><div style="display:flex;justify-content:space-between;font-weight:800"><span>${esc(t.name)}</span><span>${t.wins}–${t.losses}</span></div><div class="pbar"><i style="width:${t.win_pct??0}%"></i></div></div></div>`).join('')}</div>
   </div>
   <div class="card sec"><h2>Latest results</h2>${fightRows(D.fights,8)}</div>`;
+}
+function upNext(){
+  const list = D.upcoming.filter(u=>!u.current && u.left && u.right).slice(0,5);
+  if(!list.length) return '<div class="empty">The rest of the bracket is drawn as winners advance.</div>';
+  return list.map(u=>{ const pa=Math.round(100*u.p_left);
+    return `<div style="margin:10px 0"><div style="display:flex;justify-content:space-between;gap:8px;font-weight:800;font-size:14px"><span style="color:#ff7a85;cursor:pointer" ${link(u.left)}>${esc(u.left)}</span><span class="small mute">${esc(u.label)}</span><span style="color:#8ab4ff;text-align:right;cursor:pointer" ${link(u.right)}>${esc(u.right)}</span></div>
+      <div class="tug sm" style="margin:5px 0 2px"><i style="width:${pa}%"></i><b style="left:${pa}%"></b></div><div class="small mute" style="display:flex;justify-content:space-between"><span>${pa}% · ${u.odds_left.toFixed(2)}x</span><span>${u.odds_right.toFixed(2)}x · ${100-pa}%</span></div></div>`; }).join('');
 }
 function miniBoard(list){
   if(!list.length) return '';
