@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 9,
+    "round": "Fight 9 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "grok",
-      "fighter": "Marcial Carri\u00f3n",
-      "image": "portraits/marcial-carrion.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 26
+      "team": "codex",
+      "fighter": "David Benavidez",
+      "image": "portraits/david-benavidez.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795482991.8494651
+  "updated_at": 1795483441.1966498
 }
