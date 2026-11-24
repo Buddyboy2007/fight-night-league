@@ -910,21 +910,21 @@
     }
   ],
   "current_match": {
-    "bout": 2,
-    "round": "Fight 2 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jake Paul",
-      "image": "portraits/jake-paul.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 3
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
+      "team": "codex",
+      "fighter": "Ricardo \u00c1lvarez",
+      "image": "portraits/ricardo-alvarez.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "game_index": 17
     }
   },
   "winner": null,
@@ -981,5 +981,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795499609.310673
+  "updated_at": 1795499618.647411
 }
