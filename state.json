@@ -847,21 +847,21 @@
     }
   ],
   "current_match": {
-    "bout": 15,
-    "round": "Fight 15 of 31",
+    "bout": 4,
+    "round": "Fight 4 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Gervonta Davis",
-      "image": "portraits/gervonta-davis.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 2
+      "team": "codex",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Lamont Roach Jr.",
-      "image": "portraits/lamont-roach-jr.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 5
+      "team": "claude",
+      "fighter": "Marvin Hagler",
+      "image": "portraits/marvelous-marvin-hagler.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -918,5 +918,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795494884.7166636
+  "updated_at": 1795495073.6470587
 }
