@@ -1141,21 +1141,21 @@
     }
   ],
   "current_match": {
-    "bout": 27,
-    "round": "Quarterfinals",
+    "bout": 19,
+    "round": "Fight 19 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
       "team": "gemini",
-      "fighter": "Daniel Dubois",
-      "image": "portraits/daniel-dubois.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -1212,7 +1212,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795515495.8751264,
+  "updated_at": 1795527189.8588867,
   "swaps": [
     {
       "bout": 22,
