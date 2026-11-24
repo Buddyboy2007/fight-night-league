@@ -1183,21 +1183,21 @@
     }
   ],
   "current_match": {
-    "bout": 17,
-    "round": "Fight 17 of 31",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Cooper Martin",
-      "image": "portraits/cooper-martin.jpg",
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 7
+      "game_index": 8
     },
     "right": {
-      "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
+      "team": "codex",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "game_index": 4
     }
   },
   "winner": null,
@@ -1254,7 +1254,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795564135.439647,
+  "updated_at": 1795564143.6811788,
   "swaps": [
     {
       "bout": 22,
