@@ -618,10 +618,10 @@
       "id": 16,
       "left": {
         "team": "grok",
-        "fighter": "Jai Opetaia",
-        "image": "portraits/jai-opetaia.jpg",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
         "game_class": "HEAVYWEIGHT",
-        "game_index": 15
+        "game_index": 20
       },
       "right": {
         "team": "chatgpt",
@@ -745,17 +745,17 @@
     "round": "Fight 9 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "game_index": 15
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Zhilei Zhang",
-      "image": "portraits/zhilei-zhang.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 1
+      "team": "gemini",
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638714.0437536
+  "updated_at": 1795638732.0647507
 }
