@@ -22,7 +22,7 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Anthony Joshua",
@@ -191,7 +191,7 @@
           "country": "ua",
           "game_class": "LIGHTWEIGHT",
           "game_index": 3,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Julio C\u00e9sar Ch\u00e1vez",
@@ -520,8 +520,12 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 11,
@@ -623,8 +627,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 10
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 16,
@@ -686,7 +694,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 15
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Pernell Whitaker",
+        "image": "portraits/pernell-whitaker.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 15
+      },
       "winner": null,
       "result": null
     },
@@ -718,7 +732,13 @@
     },
     {
       "id": 24,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 10
+      },
       "right": {
         "team": "grok",
         "fighter": "Lancero Dennett",
@@ -823,24 +843,46 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795647117.2097409
+    },
+    {
+      "bout": 10,
+      "winner_team": "claude",
+      "winner_fighter": "Pernell Whitaker",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Gervonta Davis",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795650049.786769
+    },
+    {
+      "bout": 15,
+      "winner_team": "claude",
+      "winner_fighter": "Canelo \u00c1lvarez",
+      "loser_team": "gemini",
+      "loser_fighter": "Vasiliy Lomachenko",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795650050.1650624
     }
   ],
   "current_match": {
-    "bout": 10,
-    "round": "Fight 10 of 31",
+    "bout": 24,
+    "round": "Fight 24 of 31",
     "left": {
       "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 10
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Gervonta Davis",
-      "image": "portraits/gervonta-davis.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 2
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     }
   },
   "winner": null,
@@ -897,7 +939,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795647125.4041667,
+  "updated_at": 1795650050.3294325,
   "swaps": [
     {
       "bout": 15,
