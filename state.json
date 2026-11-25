@@ -31,7 +31,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 12,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Evander Holyfield",
@@ -586,11 +586,11 @@
         "game_index": 11
       },
       "right": {
-        "team": "gemini",
-        "fighter": "Vasiliy Lomachenko",
-        "image": "portraits/vasiliy-lomachenko.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 3
+        "team": "grok",
+        "fighter": "Errol Spence Jr.",
+        "image": "portraits/errol-spence-jr.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 7
       },
       "winner": null,
       "result": null
@@ -598,11 +598,11 @@
     {
       "id": 15,
       "left": {
-        "team": "grok",
-        "fighter": "Errol Spence Jr.",
-        "image": "portraits/errol-spence-jr.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 7
+        "team": "gemini",
+        "fighter": "Vasiliy Lomachenko",
+        "image": "portraits/vasiliy-lomachenko.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 3
       },
       "right": {
         "team": "claude",
@@ -630,8 +630,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 12
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 17,
@@ -685,7 +689,13 @@
     {
       "id": 24,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "winner": null,
       "result": null
     },
@@ -739,23 +749,35 @@
       "result": null
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "bout": 16,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Anthony Joshua",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795642666.8303766
+    }
+  ],
   "current_match": {
-    "bout": 16,
-    "round": "Fight 16 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Anthony Joshua",
-      "image": "portraits/anthony-joshua.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 12
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 4
     }
   },
   "winner": null,
@@ -812,5 +834,15 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795639502.548901
+  "updated_at": 1795642666.8304424,
+  "swaps": [
+    {
+      "bout": 15,
+      "moved": "Errol Spence Jr.",
+      "to_bout": 14,
+      "for": "Vasiliy Lomachenko",
+      "why": "same-team fighters would have met",
+      "ts": 1795642666.8304205
+    }
+  ]
 }
