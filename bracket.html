@@ -1023,11 +1023,11 @@ function spinWheel(w) {
     });
     svg.querySelectorAll('line').forEach(l => { l.style.opacity = .26; });
     svg.querySelectorAll('text[data-id]').forEach(t => { t.style.opacity = +t.dataset.id === w.pick ? 1 : .3; });
-    const st = window.STATE, b = st && st.bouts[w.pick - 1];
+    const st = window.STATE, b = w.card || (st && st.bouts[w.pick - 1]);   // w.card: a pairing aired without a bout (opening re-pair)
     if (b && b.left && b.right) {
       const lc = TEAM_COLOR[b.left.team] || '#888', rc = TEAM_COLOR[b.right.team] || '#888';
       const side = (r, cls, c) => `<div class="side ${cls}" style="--tc:${c}"><div class="pimg"><img src="${bust(r.image)}" onerror="this.outerHTML='<div class=ph>${esc(r.fighter[0])}</div>'"></div><div><div class="nm">${esc(r.fighter)}</div>${catChip(r.fighter)}<div class="tm"><img src="${bust(st.teams[r.team].logo)}">${esc(st.teams[r.team].name)}</div></div></div>`;
-      const label = (st.current_match && st.current_match.bout === w.pick) ? st.current_match.round : ('Fight ' + w.pick);
+      const label = w.label || ((st.current_match && st.current_match.bout === w.pick) ? st.current_match.round : ('Fight ' + w.pick));
       card.style.setProperty('--lc', lc); card.style.setProperty('--rc', rc);
       card.style.setProperty('--pc-bg', `linear-gradient(90deg, ${rgba(lc, .38)}, #0c1019 38%, #0c1019 62%, ${rgba(rc, .38)})`);
       card.innerHTML = side(b.left, 'l', lc) + `<div class="mid"><b>VS</b><span>${esc(label.toUpperCase())}</span></div>` + side(b.right, 'r', rc);
