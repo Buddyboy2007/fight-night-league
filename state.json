@@ -182,7 +182,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 22,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vasiliy Lomachenko",
@@ -539,8 +539,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 22
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 12,
@@ -684,7 +688,13 @@
     },
     {
       "id": 22,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -781,24 +791,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795645588.55751
+    },
+    {
+      "bout": 11,
+      "winner_team": "claude",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "gemini",
+      "loser_fighter": "Sebastian Fundora",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795646741.1675944
     }
   ],
   "current_match": {
-    "bout": 11,
-    "round": "Fight 11 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "game_index": 18
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Sebastian Fundora",
-      "image": "portraits/sebastian-fundora.jpg",
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 22
+      "game_index": 4
     }
   },
   "winner": null,
@@ -855,7 +876,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795645596.7345796,
+  "updated_at": 1795646741.1676207,
   "swaps": [
     {
       "bout": 15,
