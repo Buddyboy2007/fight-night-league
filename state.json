@@ -784,21 +784,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 11,
+    "round": "Fight 11 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "game_index": 1
     },
     "right": {
-      "team": "claude",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
+      "team": "gemini",
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "game_index": 22
     }
   },
   "winner": null,
@@ -855,7 +855,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795645588.5576637,
+  "updated_at": 1795645596.7345796,
   "swaps": [
     {
       "bout": 15,
