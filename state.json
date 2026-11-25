@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 15,
+    "round": "Fight 15 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Adonis Creed",
-      "image": "portraits/adonis-creed.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 5
+      "team": "gemini",
+      "fighter": "Gervonta Davis",
+      "image": "portraits/gervonta-davis.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 2
     },
     "right": {
-      "team": "grok",
-      "fighter": "Eric Dennett",
-      "image": "portraits/eric-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 24
+      "team": "chatgpt",
+      "fighter": "Yuriorkis Gamboa",
+      "image": "portraits/yuriorkis-gamboa.jpg",
+      "game_class": "FEATHERWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Featherweight"
     ]
   },
-  "updated_at": 1795633515.1205359
+  "updated_at": 1795633547.4902055
 }
