@@ -173,7 +173,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Sebastian Fundora",
@@ -497,8 +497,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 10,
@@ -667,7 +671,13 @@
     },
     {
       "id": 21,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jai Opetaia",
+        "image": "portraits/jai-opetaia.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 15
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -760,24 +770,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795642666.8303766
+    },
+    {
+      "bout": 9,
+      "winner_team": "grok",
+      "winner_fighter": "Jai Opetaia",
+      "loser_team": "gemini",
+      "loser_fighter": "Ronald Wright",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795645588.55751
     }
   ],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 9
+      "game_index": 4
     }
   },
   "winner": null,
@@ -834,7 +855,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795642675.001358,
+  "updated_at": 1795645588.5576637,
   "swaps": [
     {
       "bout": 15,
