@@ -1204,21 +1204,21 @@
     }
   ],
   "current_match": {
-    "bout": 20,
-    "round": "Fight 20 of 31",
+    "bout": 28,
+    "round": "Quarterfinals",
     "left": {
-      "team": "grok",
-      "fighter": "Jordan Dennett",
-      "image": "portraits/jordan-dennett.jpg",
+      "team": "gemini",
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
       "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 8
+      "game_index": 4
     },
     "right": {
-      "team": "codex",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 21
     }
   },
   "winner": null,
@@ -1275,7 +1275,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795630916.5723462,
+  "updated_at": 1795631271.280881,
   "swaps": [
     {
       "bout": 22,
