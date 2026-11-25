@@ -320,6 +320,10 @@
      is all zeroes and empty rows, and this line is the only thing on screen that says who he is. */
   #dCard .fhead .fn small { font-size: 11.5px; line-height: 12px; letter-spacing: 1.6px; font-weight: 700; color: var(--mute); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #dCard .fhead .fn small em { font-style: normal; color: #e7c66a; }
+  #dCard .fform { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+  #dCard .fform i { width: 26px; height: 26px; border-radius: 4px; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 800; color: #fff; background: #3a4a85; }
+  #dCard .fform i.W { background: #2fbf71; }
+  #dCard .fform i.L { background: #d9444f; }
   #dCard .fhead .fr { font-size: 15px; font-weight: 800; letter-spacing: 2px; color: #fff; white-space: nowrap; }
   #dCard .fhead .fr i { font-style: normal; color: var(--mute); font-size: 12px; }
   #dCard .frow { display: flex; align-items: center; gap: 9px; margin-top: 7px; padding: 3px 8px; border-radius: 5px;
@@ -1038,9 +1042,8 @@ const SPIN_EASE = 2.2;
 // evenly instead of being spent in the first third.
 // user 2026-11-25: "wheel should be updated with the fighters rank, there best and worst loss. and a
 // new thing. a prediction from all 5 AI's saying if they will be champion or not. percentage."
-// The pick card turns over rather than cramming: CARD_FACE seconds of the boxer's attributes (as
-// before, now with his leaderboard rank on the meta line), then the rest of the step on his
-// leaderboard file - rank, tier, record, best win, worst loss, and all five corners' call.
+// The pick card shows only its leaderboard face for the whole card time (user 2026-11-25: the extra
+// stats should be the only stats shown, not swapping back to the attributes after a few seconds). - rank, tier, record, best win, worst loss, and all five corners' call.
 const CARD_FACE = 2.6;
 const hrand = n => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
 const dimg = (src, name) => `<img src="${bust(src)}" onerror="this.outerHTML='<div class=ph>${esc((name || '?')[0])}</div>'">`;
@@ -1177,6 +1180,7 @@ function dFile(f) {
     `<div class="fhead"><span class="th">${f.image ? `<img src="${bust(f.image)}">` : ''}</span>` +
     dRankChip(f) +
     `<span class="fn"><b>${esc(f.name)}</b>${dPro(f.pro)}</span>` +
+    (f.form && f.form.length ? `<span class="fform" title="last ${f.form.length} fights, latest on the right">${f.form.slice(-5).map(x => `<i class="${x === 'W' ? 'W' : 'L'}">${x === 'W' ? 'W' : 'L'}</i>`).join('')}</span>` : '') +
     `<span class="fr">${(f.wins || 0)}-${(f.losses || 0)}` +
     `${f.elo ? ` <i>${f.elo} ELO</i>` : ''}${f.streak ? ` <i>${f.streak > 0 ? 'W' : 'L'}${Math.abs(f.streak)}</i>` : ''}</span></div>` +
     dSide('w', 'BEST WIN', f.best_win, 'NO WINS YET') +
@@ -1426,7 +1430,7 @@ function draftFrame() {
     const cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur;
     sub = u < st.team_dur ? (!st.team_items || u >= st.team_dur - 0.5 ? 'TL' : 'T')
         : u < cEnd ? ((st.class_items || []).length < 2 || u >= cEnd - (st.class_hold || 0.5) ? 'WL' : 'W')
-        : u < fEnd - 0.5 ? 'F' : u < fEnd ? 'FL' : u < fEnd + CARD_FACE ? 'C' : 'C2';
+        : u < fEnd - 0.5 ? 'F' : u < fEnd ? 'FL' : 'C2';
   }
   const key = i + ':' + sub;
   if (key !== draftKey) { draftKey = key; draftRender(i, st, sub); }
