@@ -1183,21 +1183,21 @@
     }
   ],
   "current_match": {
-    "bout": 19,
-    "round": "Fight 19 of 31",
+    "bout": 17,
+    "round": "Fight 17 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Cooper Martin",
+      "image": "portraits/cooper-martin.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 7
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
+      "team": "grok",
+      "fighter": "Rupert Dennett",
+      "image": "portraits/rupert-dennett.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 9
+      "game_index": 23
     }
   },
   "winner": null,
@@ -1254,7 +1254,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795613335.6045325,
+  "updated_at": 1795629555.3838925,
   "swaps": [
     {
       "bout": 22,
