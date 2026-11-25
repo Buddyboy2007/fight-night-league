@@ -381,7 +381,7 @@ function fightRows(list, n=999, who=null){
   if(!list.length) return '<div class="empty">No fights recorded yet.</div>';
   return list.slice(0,n).map(f=>{
     const how = f.method ? (f.method==='DEC'?'DECISION':f.method+(f.round?' · R'+f.round:'')) : '';
-    return `<div class="fr"><div class="tm">T${f.tournament}<br>${esc(f.bout<=24?`Fight ${f.bout} of 31`:f.round_label)}</div>
+    return `<div class="fr"><div class="tm">${f.exhibition?'EXH<br>Exhibition':`T${f.tournament}<br>${esc(f.bout<=24?`Fight ${f.bout} of 31`:f.round_label)}`}</div>
       <div class="names"><span ${link(f.winner)} style="cursor:pointer">${esc(f.winner)}</span> <span class="mute">def.</span> <s ${link(f.loser)} style="cursor:pointer">${esc(f.loser)}</s>${f.upset?'<span class="up">UPSET</span>':''}${f.bare_knuckle?'<span class="bk" title="Fought bare knuckle (no gloves)">BARE KNUCKLE</span>':''}
         <div class="small mute">${esc(team(f.wteam).name)} vs ${esc(team(f.lteam).name)} · ELO ${fmt(f.w_before)} vs ${fmt(f.l_before)} · ${who===f.loser?`<span class="L">−${fmt(f.delta,1)}</span>`:`<span class="W">+${fmt(f.delta,1)}</span>`}${f.class_gap?` · <b class="W">▲ ${f.class_gap} class${f.class_gap>1?'es':''} up</b>`:''}</div></div>
       <div><div class="how">${how}</div><div class="small mute" style="text-align:right">${ago(f.ts)}</div></div></div>`;
@@ -678,7 +678,7 @@ function history(){
   const ts=[...new Set(D.fights.map(f=>f.tournament))];
   const sel = window._ht||'all';
   const list = sel==='all'?D.fights:D.fights.filter(f=>f.tournament==sel);
-  return `<div class="tools"><select onchange="window._ht=this.value;render()"><option value="all">All tournaments</option>${ts.map(t=>`<option value="${t}" ${sel==t?'selected':''}>Tournament ${t}</option>`).join('')}</select><span class="small mute">${list.length} fights</span></div><div class="card">${fightRows(list,300)}</div>`;
+  return `<div class="tools"><select onchange="window._ht=this.value;render()"><option value="all">All tournaments</option>${ts.map(t=>`<option value="${t}" ${sel==t?'selected':''}>${t==0?'Exhibitions':'Tournament '+t}</option>`).join('')}</select><span class="small mute">${list.length} fights</span></div><div class="card">${fightRows(list,300)}</div>`;
 }
 
 /* ------------------------------------------------ fighter profile */
