@@ -598,18 +598,18 @@
     {
       "id": 15,
       "left": {
-        "team": "gemini",
-        "fighter": "Ronald Wright",
-        "image": "portraits/ronald-wright.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 9
+        "team": "grok",
+        "fighter": "Errol Spence Jr.",
+        "image": "portraits/errol-spence-jr.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 7
       },
       "right": {
         "team": "claude",
-        "fighter": "Terence Crawford",
-        "image": "portraits/terence-crawford.jpg",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 1
+        "game_index": 10
       },
       "winner": null,
       "result": null
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638696.0421047
+  "updated_at": 1795638714.0437536
 }
