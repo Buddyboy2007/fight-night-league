@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Zab Judah",
-      "image": "portraits/zab-judah.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 13
+      "team": "chatgpt",
+      "fighter": "Yuriorkis Gamboa",
+      "image": "portraits/yuriorkis-gamboa.jpg",
+      "game_class": "FEATHERWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Conor Benn",
-      "image": "portraits/conor-benn.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 12
+      "team": "gemini",
+      "fighter": "Lamont Roach Jr.",
+      "image": "portraits/lamont-roach-jr.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Featherweight"
     ]
   },
-  "updated_at": 1795632268.9060357
+  "updated_at": 1795632720.201615
 }
