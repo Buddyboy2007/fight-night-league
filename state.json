@@ -541,11 +541,11 @@
     {
       "id": 12,
       "left": {
-        "team": "claude",
-        "fighter": "Danny Jacobs",
-        "image": "portraits/danny-jacobs.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 11
+        "team": "chatgpt",
+        "fighter": "Dmitry Bivol",
+        "image": "portraits/dmitry-bivol.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 3
       },
       "right": {
         "team": "grok",
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638642.0352244
+  "updated_at": 1795638660.0369778
 }
