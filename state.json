@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "game_index": 20
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Ronald Wright",
-      "image": "portraits/ronald-wright.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 9
+      "team": "chatgpt",
+      "fighter": "Anthony Joshua",
+      "image": "portraits/anthony-joshua.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 12
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638732.0647507
+  "updated_at": 1795639000.415232
 }

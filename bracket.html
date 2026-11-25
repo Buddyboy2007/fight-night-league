@@ -948,12 +948,18 @@ function spinWheel(w) {
   }
   g += '<g id="rot" style="transform-origin:0 0">';
   const NM = w.names || {};
+  const SURNAME_COUNT = {};
+  new Set(Object.values(NM).flat()).forEach(f => { const k = wheelSurname(f); SURNAME_COUNT[k] = (SURNAME_COUNT[k] || 0) + 1; });
   w.ready.forEach((id, i) => {
     const a0 = i * seg - Math.PI / 2, a1 = (i + 1) * seg - Math.PI / 2, am = (a0 + a1) / 2;
     const wedge = (b0, b1) =>
       `M0 0 L${(R * Math.cos(b0)).toFixed(2)} ${(R * Math.sin(b0)).toFixed(2)} ` +
       `A${R} ${R} 0 0 1 ${(R * Math.cos(b1)).toFixed(2)} ${(R * Math.sin(b1)).toFixed(2)} Z`;
     const pair = NM[String(id)];
+    const nameOf = full => {                       // two boxers sharing a surname (Lancero / Rupert DENNETT) get an initial
+      const sn = wheelSurname(full);
+      return SURNAME_COUNT[sn] > 1 ? String(full).trim()[0].toUpperCase() + '. ' + sn : sn;
+    };
     // The two surnames are stacked across the slice (the label is rotated to read hub-to-rim, so
     // its tspan dy runs tangentially). Splitting the wedge on the same axis puts each boxer's
     // colour directly behind their own name. On the left half the label is turned 180 degrees to
@@ -978,7 +984,7 @@ function spinWheel(w) {
       const r0 = 92, r1 = R - 22, rm = (r0 + r1) / 2;
       const cx = rm * Math.cos(am), cy = rm * Math.sin(am);
       const deg = am * 180 / Math.PI + (flip ? 180 : 0);   // left half: turn the label so it still reads forwards
-      const nm = pair.map(wheelSurname);
+      const nm = pair.map(nameOf);
       const longest = Math.max(nm[0].length, nm[1].length);
       const fit = (r1 - r0) / (0.64 * longest);
       const fs = Math.max(17, Math.min(n > 12 ? 30 : n > 8 ? 34 : 40, fit, (2 * Math.PI * rm / n) / 2.1));
