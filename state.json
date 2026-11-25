@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 9,
+    "round": "Fight 9 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "claude",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "chatgpt",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638067.0419862
+  "updated_at": 1795638128.074068
 }
