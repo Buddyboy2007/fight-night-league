@@ -297,6 +297,44 @@
   #dCard .dbar em { width: 24px; text-align: right; font-style: normal; color: #fff; }
   #dCard .dbar.key { color: var(--tc); }
   #dCard .dbar.key s { background: var(--tc); box-shadow: 0 0 8px var(--tc); }
+  /* The leaderboard face of a pick card (user 2026-11-25: rank, best win, worst loss, and all five
+     corners' champion call). 680x226 cannot hold that AND the portrait, name and attribute bars at a
+     size anyone can read off a stream, so the card turns over instead: attributes first, then this. */
+  #dCard .dfile { width: 100%; min-width: 0; }
+  #dCard .fhead { display: flex; align-items: center; gap: 10px; }
+  #dCard .fhead .th { width: 44px; height: 44px; border-radius: 6px; overflow: hidden; flex-shrink: 0; border: 2px solid var(--tc); background: #0a0d15; }
+  #dCard .fhead .th img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  #dCard .rk { font-size: 30px; line-height: 30px; font-weight: 800; font-style: italic; color: var(--gold); letter-spacing: -1px; }
+  #dCard .rk.nr { font-size: 15px; font-style: normal; letter-spacing: 2px; color: var(--mute); }
+  #dCard .rk sup { font-size: 13px; color: var(--mute); font-style: normal; vertical-align: super; }
+  #dCard .tier { padding: 1px 7px; border-radius: 3px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: #0a0d14; background: var(--gold); }
+  #dCard .fhead .fn { flex: 1; min-width: 0; font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; overflow: hidden; }
+  #dCard .fhead .fr { font-size: 15px; font-weight: 800; letter-spacing: 2px; color: #fff; white-space: nowrap; }
+  #dCard .fhead .fr i { font-style: normal; color: var(--mute); font-size: 12px; }
+  #dCard .frow { display: flex; align-items: center; gap: 9px; margin-top: 7px; padding: 3px 8px; border-radius: 5px;
+    background: rgba(255,255,255,.045); border-left: 3px solid #4b5563; }
+  #dCard .frow.w { border-left-color: #3ddc84; }
+  #dCard .frow.l { border-left-color: #ff5f6d; }
+  #dCard .frow > b { width: 86px; flex-shrink: 0; font-size: 11px; letter-spacing: 2px; font-weight: 800; color: var(--mute); }
+  #dCard .frow.w > b { color: #3ddc84; }
+  #dCard .frow.l > b { color: #ff5f6d; }
+  #dCard .frow .oth { width: 26px; height: 26px; border-radius: 4px; overflow: hidden; flex-shrink: 0; background: #0a0d15; }
+  #dCard .frow .oth img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  #dCard .frow .on { flex: 1; min-width: 0; font-size: 15px; font-weight: 800; color: #fff; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #dCard .frow .on i { font-style: normal; color: var(--gold); font-size: 12px; letter-spacing: 1px; margin-left: 6px; }
+  #dCard .frow .om { font-size: 11px; letter-spacing: 1.5px; font-weight: 800; color: var(--mute); white-space: nowrap; text-transform: uppercase; }
+  #dCard .frow .none { flex: 1; font-size: 14px; letter-spacing: 3px; font-weight: 800; color: var(--mute); text-transform: uppercase; }
+  #dCard .fpred { margin-top: 8px; display: flex; align-items: flex-end; gap: 6px; }
+  #dCard .fpred > b { width: 86px; flex-shrink: 0; font-size: 11px; letter-spacing: 2px; font-weight: 800; color: var(--gold); line-height: 12px; }
+  #dCard .fpred > b small { display: block; color: var(--mute); letter-spacing: 1px; font-size: 9px; }
+  #dCard .pc { flex: 1; min-width: 0; text-align: center; border-radius: 6px; padding: 3px 0 4px; box-sizing: border-box;
+    border: 1px solid rgba(138,147,166,.3); background: rgba(10,13,21,.6); }
+  #dCard .pc.y { border-color: var(--pc); background: rgba(255,255,255,.07); box-shadow: 0 0 12px -2px var(--pc); }
+  #dCard .pc img { width: 15px; height: 15px; object-fit: contain; vertical-align: -2px; }
+  #dCard .pc .v { margin-top: 1px; font-size: 19px; line-height: 19px; font-weight: 800; font-style: italic; color: #64708a; }
+  #dCard .pc.y .v { color: #fff; }
+  #dCard .pc .c { font-size: 9px; letter-spacing: 1.5px; font-weight: 800; color: #64708a; }
+  #dCard .pc.y .c { color: var(--pc); }
   #dCard .dclass { width: 100%; text-align: center; }
   #dCard .dclass .k { font-size: 54px; line-height: 56px; font-weight: 800; font-style: italic; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;
     text-shadow: 0 0 22px rgba(245,197,66,.5); }
@@ -974,7 +1012,18 @@ let DRAFT = null, draftKey = '', dSpin = null, draftFetching = false;
 // 80% of the window - it read as stopping dead and then nudging, with no slow-down to watch. Lower
 // is closer to a real wheel losing speed to friction (2.0 is exactly constant deceleration), so it
 // keeps ticking slice by slice and visibly winds down into its landing. Raise it to stop harder.
-const SPIN_EASE = 2.6;
+const SPIN_EASE = 2.2;
+// user 2026-11-25: "slow down the wheel in general". Two levers, both pulled: the `turns` argument at
+// every dWheel call site came down (a wheel that travels fewer revolutions across the same window is
+// turning more slowly the whole way through, and the show does not get any longer for it), and the
+// ease moved to 2.2 - nearly the 2.0 of constant deceleration - so what speed is left bleeds off
+// evenly instead of being spent in the first third.
+// user 2026-11-25: "wheel should be updated with the fighters rank, there best and worst loss. and a
+// new thing. a prediction from all 5 AI's saying if they will be champion or not. percentage."
+// The pick card turns over rather than cramming: CARD_FACE seconds of the boxer's attributes (as
+// before, now with his leaderboard rank on the meta line), then the rest of the step on his
+// leaderboard file - rank, tier, record, best win, worst loss, and all five corners' call.
+const CARD_FACE = 2.6;
 const hrand = n => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
 const dimg = (src, name) => `<img src="${bust(src)}" onerror="this.outerHTML='<div class=ph>${esc((name || '?')[0])}</div>'">`;
 const dflag = cc => cc ? `<img class="flag" src="flags/${esc(cc)}.svg" onerror="this.remove()">` : '';
@@ -1056,6 +1105,60 @@ function dHub(html, tc) {
 }
 function dCaption(main, sub) {
   document.getElementById('dCaption').innerHTML = main ? esc(main) + (sub ? `<small>${esc(sub)}</small>` : '') : '';
+}
+// user 2026-11-25: "wheel should be updated with the fighters rank, there best and worst loss. and a
+// new thing. a prediction from all 5 AI's saying if they will be champion or not. percentage."
+//
+// Everything here comes off site/league.json - the same document the leaderboard page draws - so a rank
+// on the wheel and a rank on the site are the same number by construction. A boxer with no fights has a
+// rank only because the table has to put him somewhere, so he reads UNRANKED rather than a false number.
+function dRankText(f) {
+  if (!f.rank || !((f.wins || 0) + (f.losses || 0))) return 'UNRANKED';
+  return `#${f.rank}${f.tier && f.tier !== '?' ? ' ' + f.tier : ''} · ${f.wins}-${f.losses}`;
+}
+function dRankChip(f) {
+  const fought = (f.wins || 0) + (f.losses || 0);
+  if (!f.rank || !fought) return '<span class="rk nr">UNRANKED</span>';
+  return `<span class="rk">#${f.rank}${f.prov ? '<sup>p</sup>' : ''}</span>` +
+    (f.tier && f.tier !== '?' ? `<span class="tier">${esc(f.tier)}</span>` : '');
+}
+// "T10 · ROUND OF 32 · R5" - where the result happened, so a best win reads as a result and not a name
+function dWhen(x) {
+  const bits = [];
+  if (x.tournament) bits.push('T' + x.tournament);
+  if (x.label) bits.push(x.label);
+  if (x.round) bits.push('R' + x.round);
+  if (x.method) bits.push(x.method);
+  if (x.bk) bits.push('BARE KNUCKLE');
+  return bits.join(' · ');
+}
+function dSide(cls, label, x, empty) {
+  if (!x || !x.name) return `<div class="frow ${cls}"><b>${label}</b><span class="none">${empty}</span></div>`;
+  const rk = x.rank ? `<i>#${x.rank}${x.tier && x.tier !== '?' ? ' ' + x.tier : ''}</i>` : '';
+  return `<div class="frow ${cls}"><b>${label}</b>` +
+    `<span class="oth">${x.image ? `<img src="${bust(x.image)}">` : ''}</span>` +
+    `<span class="on">${esc(x.name)}${rk}</span>` +
+    `<span class="om">${esc(dWhen(x))}</span></div>`;
+}
+function dFile(f) {
+  const ch = f.champ || {}, calls = ch.calls || [];
+  const pcs = calls.map(c => {
+    const t = (DRAFT.teams || {})[c.team] || {};
+    return `<span class="pc${c.yes ? ' y' : ''}" style="--pc:${t.color || '#f5c542'}">` +
+      `${t.logo ? `<img src="${bust(t.logo)}">` : ''}` +
+      `<span class="v">${c.pct}%</span>` +
+      `<span class="c">${c.yes ? 'CHAMPION' : 'NO'}</span></span>`;
+  }).join('');
+  return `<div class="dfile">` +
+    `<div class="fhead"><span class="th">${f.image ? `<img src="${bust(f.image)}">` : ''}</span>` +
+    dRankChip(f) +
+    `<span class="fn">${esc(f.name)}</span>` +
+    `<span class="fr">${(f.wins || 0)}-${(f.losses || 0)}` +
+    `${f.elo ? ` <i>${f.elo} ELO</i>` : ''}${f.streak ? ` <i>${f.streak > 0 ? 'W' : 'L'}${Math.abs(f.streak)}</i>` : ''}</span></div>` +
+    dSide('w', 'BEST WIN', f.best_win, 'NO WINS YET') +
+    dSide('l', 'WORST LOSS', f.worst_loss, (f.wins || 0) ? 'UNBEATEN' : 'NO FIGHTS YET') +
+    `<div class="fpred"><b>CHAMPION?<small>ALL 5 CORNERS${ch.bar ? ' · CALL AT ' + ch.bar + '%' : ''}</small></b>${pcs}</div>` +
+    `</div>`;
 }
 function dCard(html, tc) {
   const c = document.getElementById('dCard');
@@ -1161,7 +1264,7 @@ function draftRender(i, st, sub) {
     const ids = st.team_items, landed = sub === 'L', t = D.teams[st.team];
     const slices = ids.map(id => ({ w: 1, fill: rgba(D.teams[id].color, .62), label: D.teams[id].name, img: D.teams[id].logo,
                                    ink: id === 'grok' ? '#0a0d14' : '#fff' }));
-    dWheel(slices, 'team', st.team_pick, 4, 0.3, st.dur - 2.9, D.seq % 1000 + 19, landed);
+    dWheel(slices, 'team', st.team_pick, 3, 0.3, st.dur - 2.9, D.seq % 1000 + 19, landed);
     dHub('SITS<br>OUT');
     dStatus('Who sits out?', landed ? t.name + ' sits out' : 'Spinning', landed ? t.color : null, landed ? t.logo : null);
     if (landed) dCaption(`${t.name} sits this one out`, 'The other four corners draft');
@@ -1174,7 +1277,7 @@ function draftRender(i, st, sub) {
     const n = st.items.length, reps = Math.max(1, Math.ceil(6 / n)), slices = [];
     for (let r = 0; r < reps; r++) st.items.forEach((it, k) => slices.push({ w: 1, fill: classColor(it.label, WCOL[(r * n + k) % WCOL.length]), label: it.label }));
     const pick = st.pick + n * Math.floor(hrand(D.seq % 1000 + 3) * reps), landed = sub === 'L';
-    dWheel(slices, 'tangent', pick, 6, 0.8, 8.4, D.seq % 1000 + 1, landed);
+    dWheel(slices, 'tangent', pick, 4, 0.8, 8.4, D.seq % 1000 + 1, landed);
     dHub('LOWEST<br>CLASS');
     dStatus('Weight band', 'Spinning');
     if (landed) {
@@ -1195,7 +1298,7 @@ function draftRender(i, st, sub) {
     const ids = st.team_items || [st.team], pick = st.team_items ? st.team_pick : 0;
     const slices = ids.map(id => ({ w: 1, fill: rgba(D.teams[id].color, .62), label: D.teams[id].name, img: D.teams[id].logo,
                                    ink: id === 'grok' ? '#0a0d14' : '#fff' }));
-    dWheel(slices, 'team', pick, 3, 0.15, st.team_dur - 0.55, st.n * 31 + 7, sub === 'TL');
+    dWheel(slices, 'team', pick, 2, 0.15, st.team_dur - 0.55, st.n * 31 + 7, sub === 'TL');
     dHub('CORNER<br>' + st.turn);
     if (!st.team_items) dCaption('Last corner to draft', `${t.name} drafts ${st.per} in a row`);
     else dCaption(sub === 'TL' ? t.name + ' is on the clock' : 'Spinning for the next corner',
@@ -1206,7 +1309,7 @@ function draftRender(i, st, sub) {
   if ((sub === 'W' || sub === 'WL') && st.lock) {          // the band lock: every class in the game, equal slices
     const its = st.class_items, landed = sub === 'WL', it = its[st.class_pick];
     const slices = its.map((x, k) => ({ w: 1, fill: classColor(x.label, WCOL[k % WCOL.length]), label: x.label }));
-    dWheel(slices, 'tangent', st.class_pick, 6, st.team_dur + 0.1, cEnd - hold - 0.05, D.seq % 1000 + 1, landed);
+    dWheel(slices, 'tangent', st.class_pick, 4, st.team_dur + 0.1, cEnd - hold - 0.05, D.seq % 1000 + 1, landed);
     dHub('WEIGHT<br>BAND');
     if (landed) {
       const b = it.band.slice().reverse(), cap = b[b.length - 1];
@@ -1224,7 +1327,7 @@ function draftRender(i, st, sub) {
       fill: _mix(classColor(it.label, t.color), '#0a0d15', (r * n + k) % 2 ? 0 : 0.3),
       label: it.label }));
     const pick = st.class_pick + n * Math.floor(hrand(st.n * 13 + 5) * reps), landed = sub === 'WL', it = its[st.class_pick];
-    dWheel(slices, 'tangent', pick, 3, st.team_dur + 0.1, cEnd - hold - 0.05, st.n * 23 + 11, landed);
+    dWheel(slices, 'tangent', pick, 2, st.team_dur + 0.1, cEnd - hold - 0.05, st.n * 23 + 11, landed);
     if (it.franchise) {                                // Grok: Street Fighter / UFC / Wild Card, not a weight class
       dHub('GROK<br>POOL');
       if (landed) dCaption(`${t.name} drafts ${it.say}`, `${it.left} ${it.noun} left`);
@@ -1260,20 +1363,25 @@ function draftRender(i, st, sub) {
     const dim = anyFit && !x.fit;
     return { w: Math.max(x.w / tot, 0.045),
       fill: dim ? _mix(c, '#0a0d15', 0.66) : c,
-      label: x.name, sub: x.fit ? '★ ' + x.stat : x.stat,
+      // the slice carries the boxer's leaderboard rank as well as the corner's stat (user 2026-11-25:
+      // "wheel should be updated with the fighters rank"), so it is on screen while the wheel is still
+      // turning rather than only on the card after it lands
+      label: x.name, sub: (x.rank ? '#' + x.rank + ' ' : '') + (x.fit ? '★ ' : '') + x.stat,
       ink: dim ? 'rgba(255,255,255,.72)' : '#fff' };
   });
-  dWheel(slices, 'radial', st.pick, 4, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
+  dWheel(slices, 'radial', st.pick, 3, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
   dHub(`<img src="${bust(t.logo)}">`, t.color);
   dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ` · ★ ${DSTAT[t.stat]} picks singled out` : ' · every slice equal'));
-  if (sub === 'C') {
+  if (sub === 'C' || sub === 'C2') {
     const f = st.fighter, odds = Math.round(100 * st.items[st.pick].w / tot);
-    const bar = (l, k, v, max) => `<div class="dbar${t.stat === k ? ' key' : ''}"><b>${l}</b><i><s style="width:${100 * v / max}%"></s></i><em>${v}</em></div>`;
-    dCard(`<div class="dpimg">${dimg(f.image, f.name)}</div><div class="dinfo">` +
-      `<div class="dsel"><img src="${bust(t.logo)}">${esc(t.name)} selects · pick ${st.n}</div>` +
-      `<div class="dnm">${esc(shortName(f.name, 440, 40))}</div>` +
-      `<div class="dmeta">${dflag(f.country)}${esc(f.cls)} · ${odds}% of the wheel</div>` +
-      `<div class="dbars">${bar('PWR', 'pow', f.pow, 10)}${bar('DEF', 'dfn', f.dfn, 10)}${bar('TEC', 'tec', f.tec, 10)}${bar('P4P', 'p4p', f.p4p, 100)}</div></div>`, t.color);
+    if (sub === 'C') {
+      const bar = (l, k, v, max) => `<div class="dbar${t.stat === k ? ' key' : ''}"><b>${l}</b><i><s style="width:${100 * v / max}%"></s></i><em>${v}</em></div>`;
+      dCard(`<div class="dpimg">${dimg(f.image, f.name)}</div><div class="dinfo">` +
+        `<div class="dsel"><img src="${bust(t.logo)}">${esc(t.name)} selects · pick ${st.n}</div>` +
+        `<div class="dnm">${esc(shortName(f.name, 440, 40))}</div>` +
+        `<div class="dmeta">${dflag(f.country)}${esc(f.cls)} · ${dRankText(f)} · ${odds}% of the wheel</div>` +
+        `<div class="dbars">${bar('PWR', 'pow', f.pow, 10)}${bar('DEF', 'dfn', f.dfn, 10)}${bar('TEC', 'tec', f.tec, 10)}${bar('P4P', 'p4p', f.p4p, 100)}</div></div>`, t.color);
+    } else dCard(dFile(f), t.color);
   } else dCard('');
 }
 
@@ -1294,7 +1402,7 @@ function draftFrame() {
     const cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur;
     sub = u < st.team_dur ? (!st.team_items || u >= st.team_dur - 0.5 ? 'TL' : 'T')
         : u < cEnd ? ((st.class_items || []).length < 2 || u >= cEnd - (st.class_hold || 0.5) ? 'WL' : 'W')
-        : u < fEnd - 0.5 ? 'F' : u < fEnd ? 'FL' : 'C';
+        : u < fEnd - 0.5 ? 'F' : u < fEnd ? 'FL' : u < fEnd + CARD_FACE ? 'C' : 'C2';
   }
   const key = i + ':' + sub;
   if (key !== draftKey) { draftKey = key; draftRender(i, st, sub); }
