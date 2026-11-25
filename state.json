@@ -280,7 +280,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jordan Dennett",
@@ -600,8 +600,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 15,
@@ -702,7 +706,13 @@
     {
       "id": 23,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Danny Jacobs",
+        "image": "portraits/danny-jacobs.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 11
+      },
       "winner": null,
       "result": null
     },
@@ -802,24 +812,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795646741.1675944
+    },
+    {
+      "bout": 14,
+      "winner_team": "claude",
+      "winner_fighter": "Danny Jacobs",
+      "loser_team": "grok",
+      "loser_fighter": "Errol Spence Jr.",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795647117.2097409
     }
   ],
   "current_match": {
-    "bout": 14,
-    "round": "Fight 14 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "game_index": 18
     },
     "right": {
-      "team": "grok",
-      "fighter": "Errol Spence Jr.",
-      "image": "portraits/errol-spence-jr.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 7
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 4
     }
   },
   "winner": null,
@@ -876,7 +897,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795646749.3878808,
+  "updated_at": 1795647117.2097685,
   "swaps": [
     {
       "bout": 15,
