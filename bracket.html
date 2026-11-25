@@ -47,12 +47,17 @@
     background: linear-gradient(90deg, transparent, rgba(245,197,66,.55) 20%, rgba(245,197,66,.55) 80%, transparent); }
 
   /* ---------------------------------------------------------------- header */
-  #title { position: absolute; left: 184px; top: 28px; }
+  #title { position: absolute; left: 184px; top: 24px; }
   #title .eye { font-size: 12px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
   #title h1 { margin: 0; font-size: 46px; line-height: 46px; font-weight: 800; font-style: italic; letter-spacing: 2px;
     text-transform: uppercase; color: #fff; text-shadow: 0 2px 14px rgba(245,197,66,.25); }
   #title h1 b { color: var(--gold); font-weight: 800; }
-  #title small { display: block; margin-top: 3px; font-size: 12.5px; letter-spacing: 2.5px; color: var(--mute); text-transform: uppercase; font-weight: 500; }
+  /* user 2026-11-25 ("see how bad this looks up here?"): with five weight classes spelled out, this
+     line ran clean under the NOW FIGHTING block's "fight n of 31" and across the round-label rule.
+     The text itself is shortened to the band's range below, and this is the hard backstop: it stops
+     at 680px, which is where the live-bout caption begins, and ellipsises rather than overlapping. */
+  #title small { display: block; margin-top: 3px; font-size: 12px; letter-spacing: 2.2px; color: var(--mute); text-transform: uppercase; font-weight: 500;
+    max-width: 680px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   #now { position: absolute; left: 690px; top: 22px; width: 540px; text-align: center; }
   #now .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 5px; color: #1a1204;
@@ -403,7 +408,7 @@
 <div id="stage">
 <div id="panel"></div>
 <div id="rule"></div>
-<div id="title"><div class="eye">Lancero FNF League</div><h1>Tournament <b>Bracket</b></h1><small id="subTitle">32 boxers &middot; 5 AI corners &middot; single elimination</small></div>
+<div id="title"><div class="eye">Lancero Boxing Association</div><h1>Tournament <b>Bracket</b></h1><small id="subTitle">32 boxers &middot; 5 AI corners &middot; single elimination</small></div>
 <div id="now"></div>
 <div id="legend"></div>
 <svg id="lines" width="1920" height="1080"></svg>
@@ -421,7 +426,7 @@
 <div id="draftLayer">
   <div class="dpanel"></div>
   <div id="dRule"></div>
-  <div id="dTitle"><div class="eye">Lancero FNF League &middot; next tournament</div><h1>Tournament <b id="dNum"></b> Draft</h1><small id="dBand"></small></div>
+  <div id="dTitle"><div class="eye">Lancero Boxing Association &middot; next tournament</div><h1>Tournament <b id="dNum"></b> Draft</h1><small id="dBand"></small></div>
   <div id="dStatus"></div>
   <div id="dWheelBox" class="off"><svg id="dWheel" viewBox="-310 -310 620 620"></svg>
     <svg id="dPointer" viewBox="0 0 64 76"><defs><linearGradient id="dpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#d9a21b"/></linearGradient></defs><path d="M6 4 H58 L58 26 L32 72 L6 26 Z" fill="url(#dpg)" stroke="#7a5a0a" stroke-width="3" stroke-linejoin="round"/></svg>
@@ -569,8 +574,15 @@ function render(state) {
   const svg = document.getElementById('lines');
   board.innerHTML = '';
   svg.innerHTML = '';
-  if (state.band && state.band.labels)               // a drafted tournament carries its weight band
-    document.getElementById('subTitle').textContent = `${state.bouts.length + 1} boxers · ${state.band.labels.join(' · ')} · single elimination`;
+  if (state.band && state.band.labels) {             // a drafted tournament carries its weight band
+    // Spelled out, a five-class band is ~900px of text and ran straight through the NOW FIGHTING
+    // caption and the round-label rule (user 2026-11-25: "see how bad this looks up here?"). A band
+    // is a contiguous run up the ladder, so its ends say everything its middle does: three or more
+    // classes print as a range, and "single elimination" is only along for the ride when it fits.
+    const L = state.band.labels, band = L.length > 2 ? `${L[0]} – ${L[L.length - 1]}` : L.join(' · ');
+    const head = `${state.bouts.length + 1} boxers · ${band}`;
+    document.getElementById('subTitle').textContent = head.length <= 40 ? head + ' · single elimination' : head;
+  }
 
   // legend: the four AI corners and how many fighters each has left, as pips
   const legend = document.getElementById('legend');
