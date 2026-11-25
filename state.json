@@ -1,126 +1,55 @@
 {
   "format": "bracket",
   "teams": {
-    "claude": {
-      "name": "Claude",
-      "tagline": "Defence first",
-      "logo": "logos/claude.png",
+    "chatgpt": {
+      "name": "ChatGPT",
+      "tagline": "Pound-for-pound greats, heavier classes first",
+      "logo": "logos/chatgpt.png",
       "fighters": [
         {
-          "name": "Erislandy Lara",
-          "image": "portraits/erislandy-lara.jpg",
-          "division": "MW",
-          "country": "cu",
-          "game_class": "MIDDLEWEIGHT",
+          "name": "Conor Benn",
+          "image": "portraits/conor-benn.jpg",
+          "division": "WW",
+          "country": "gb",
+          "game_class": "WELTERWEIGHT",
           "game_index": 12,
-          "eliminated": true
+          "eliminated": false
         },
         {
-          "name": "Brandon Romero",
-          "image": "portraits/brandon-romero.jpg",
-          "division": "LHW",
-          "country": "us",
-          "game_class": "LIGHT HEAVYWEIGHT",
-          "game_index": 6,
-          "eliminated": true
-        },
-        {
-          "name": "Parker Phillips",
-          "image": "portraits/parker-phillips.jpg",
-          "division": "HW",
-          "country": "us",
-          "game_class": "HEAVYWEIGHT",
-          "game_index": 22,
-          "eliminated": true
-        },
-        {
-          "name": "Gervonta Davis",
-          "image": "portraits/gervonta-davis.jpg",
+          "name": "Shakur Stevenson",
+          "image": "portraits/shakur-stevenson.jpg",
           "division": "LW",
           "country": "us",
           "game_class": "LIGHTWEIGHT",
-          "game_index": 2,
-          "eliminated": true
-        },
-        {
-          "name": "Marvin Hagler",
-          "image": "portraits/marvelous-marvin-hagler.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 2,
-          "eliminated": false
-        },
-        {
-          "name": "Pernell Whitaker",
-          "image": "portraits/pernell-whitaker.jpg",
-          "division": "WW",
-          "country": "us",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 15,
-          "eliminated": true
-        },
-        {
-          "name": "Devin Haney",
-          "image": "portraits/devin-haney.jpg",
-          "division": "WW",
-          "country": "us",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 9,
-          "eliminated": true
-        },
-        {
-          "name": "Roy Jones Jr.",
-          "image": "portraits/roy-jones-jr.jpg",
-          "division": "LHW",
-          "country": "us",
-          "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 0,
-          "eliminated": true
-        }
-      ],
-      "eliminated": false
-    },
-    "gemini": {
-      "name": "Gemini",
-      "tagline": "Explosive power",
-      "logo": "logos/gemini.png",
-      "fighters": [
-        {
-          "name": "Ronald Wright",
-          "image": "portraits/ronald-wright.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 9,
           "eliminated": false
         },
         {
-          "name": "Cooper Martin",
-          "image": "portraits/cooper-martin.jpg",
+          "name": "Artur Beterbiev",
+          "image": "portraits/artur-beterbiev.jpg",
           "division": "LHW",
-          "country": "us",
+          "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
-          "game_index": 7,
-          "eliminated": true
+          "game_index": 2,
+          "eliminated": false
         },
         {
-          "name": "Sugar Ray Leonard",
-          "image": "portraits/sugar-ray-leonard.jpg",
-          "division": "WW",
+          "name": "Jaron Ennis",
+          "image": "portraits/jaron-ennis.jpg",
+          "division": "MW",
           "country": "us",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 11,
-          "eliminated": true
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 21,
+          "eliminated": false
         },
         {
-          "name": "Julio C\u00e9sar Ch\u00e1vez",
-          "image": "portraits/julio-cesar-chavez.jpg",
-          "division": "WW",
-          "country": "mx",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 6,
-          "eliminated": true
+          "name": "Gennadiy Golovkin",
+          "image": "portraits/gennadiy-golovkin.jpg",
+          "division": "MW",
+          "country": "kz",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 8,
+          "eliminated": false
         },
         {
           "name": "Vasiliy Lomachenko",
@@ -129,7 +58,51 @@
           "country": "ua",
           "game_class": "LIGHTWEIGHT",
           "game_index": 3,
-          "eliminated": true
+          "eliminated": false
+        },
+        {
+          "name": "Yuriorkis Gamboa",
+          "image": "portraits/yuriorkis-gamboa.jpg",
+          "division": "FW",
+          "country": "cu",
+          "game_class": "FEATHERWEIGHT",
+          "game_index": 0,
+          "eliminated": false
+        },
+        {
+          "name": "Roberto Dur\u00e1n",
+          "image": "portraits/roberto-duran.png",
+          "division": "WW",
+          "country": "pa",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 16,
+          "eliminated": false
+        }
+      ],
+      "eliminated": false
+    },
+    "claude": {
+      "name": "Claude",
+      "tagline": "Defence first",
+      "logo": "logos/claude.png",
+      "fighters": [
+        {
+          "name": "Mike Walker",
+          "image": "portraits/mike-walker.jpg",
+          "division": "MW",
+          "country": "us",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 20,
+          "eliminated": false
+        },
+        {
+          "name": "Julio C\u00e9sar Ch\u00e1vez",
+          "image": "portraits/julio-cesar-chavez.jpg",
+          "division": "WW",
+          "country": "mx",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 6,
+          "eliminated": false
         },
         {
           "name": "Sergey Kovalev",
@@ -141,12 +114,92 @@
           "eliminated": false
         },
         {
-          "name": "Daniel Dubois",
-          "image": "portraits/daniel-dubois.jpg",
-          "division": "HW",
-          "country": "gb",
-          "game_class": "HEAVYWEIGHT",
-          "game_index": 29,
+          "name": "Sugar Ray Leonard",
+          "image": "portraits/sugar-ray-leonard.jpg",
+          "division": "WW",
+          "country": "us",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 11,
+          "eliminated": false
+        },
+        {
+          "name": "Roy Jones Jr.",
+          "image": "portraits/roy-jones-jr.jpg",
+          "division": "LHW",
+          "country": "us",
+          "game_class": "LIGHT HEAVYWEIGHT",
+          "game_index": 0,
+          "eliminated": false
+        },
+        {
+          "name": "Cooper Martin",
+          "image": "portraits/cooper-martin.jpg",
+          "division": "LHW",
+          "country": "us",
+          "game_class": "LIGHT HEAVYWEIGHT",
+          "game_index": 7,
+          "eliminated": false
+        },
+        {
+          "name": "Adonis Creed",
+          "image": "portraits/adonis-creed.jpg",
+          "division": "LHW",
+          "country": "us",
+          "game_class": "LIGHT HEAVYWEIGHT",
+          "game_index": 5,
+          "eliminated": false
+        },
+        {
+          "name": "Canelo \u00c1lvarez",
+          "image": "portraits/canelo-alvarez.jpg",
+          "division": "MW",
+          "country": "mx",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 10,
+          "eliminated": false
+        }
+      ],
+      "eliminated": false
+    },
+    "gemini": {
+      "name": "Gemini",
+      "tagline": "Explosive power",
+      "logo": "logos/gemini.png",
+      "fighters": [
+        {
+          "name": "Vergil Ortiz Jr.",
+          "image": "portraits/vergil-ortiz-jr.jpg",
+          "division": "MW",
+          "country": "us",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 13,
+          "eliminated": false
+        },
+        {
+          "name": "Gervonta Davis",
+          "image": "portraits/gervonta-davis.jpg",
+          "division": "LW",
+          "country": "us",
+          "game_class": "LIGHTWEIGHT",
+          "game_index": 2,
+          "eliminated": false
+        },
+        {
+          "name": "Sugar Ray Robinson",
+          "image": "portraits/sugar-ray-robinson.jpg",
+          "division": "MW",
+          "country": "us",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 0,
+          "eliminated": false
+        },
+        {
+          "name": "Teofimo Lopez",
+          "image": "portraits/teofimo-lopez.jpg",
+          "division": "WW",
+          "country": "us",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 4,
           "eliminated": false
         },
         {
@@ -156,87 +209,34 @@
           "country": "us",
           "game_class": "LIGHTWEIGHT",
           "game_index": 5,
-          "eliminated": true
-        }
-      ],
-      "eliminated": false
-    },
-    "codex": {
-      "name": "Codex",
-      "tagline": "Technique",
-      "logo": "logos/codex.png",
-      "fighters": [
-        {
-          "name": "Keyshawn Hayes",
-          "image": "portraits/keyshawn-hayes.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 18,
-          "eliminated": true
-        },
-        {
-          "name": "David Benavidez",
-          "image": "portraits/david-benavidez.jpg",
-          "division": "LHW",
-          "country": "us",
-          "game_class": "LIGHT HEAVYWEIGHT",
-          "game_index": 1,
-          "eliminated": true
-        },
-        {
-          "name": "Muhammad Ali",
-          "image": "portraits/muhammad-ali.jpg",
-          "division": "HW",
-          "country": "us",
-          "game_class": "HEAVYWEIGHT",
-          "game_index": 28,
-          "eliminated": true
-        },
-        {
-          "name": "Jake Paul",
-          "image": "portraits/jake-paul.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 3,
-          "eliminated": true
-        },
-        {
-          "name": "Lucius Palmer",
-          "image": "portraits/lucius-palmer.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 19,
-          "eliminated": true
-        },
-        {
-          "name": "Jermain Taylor",
-          "image": "portraits/jermain-taylor.jpg",
-          "division": "MW",
-          "country": "us",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 4,
           "eliminated": false
         },
         {
-          "name": "Shakur Stevenson",
-          "image": "portraits/shakur-stevenson.jpg",
-          "division": "LW",
+          "name": "Zab Judah",
+          "image": "portraits/zab-judah.jpg",
+          "division": "WW",
           "country": "us",
-          "game_class": "LIGHTWEIGHT",
-          "game_index": 0,
-          "eliminated": true
+          "game_class": "WELTERWEIGHT",
+          "game_index": 13,
+          "eliminated": false
         },
         {
-          "name": "Ricardo \u00c1lvarez",
-          "image": "portraits/ricardo-alvarez.jpg",
+          "name": "Pernell Whitaker",
+          "image": "portraits/pernell-whitaker.jpg",
+          "division": "WW",
+          "country": "us",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 15,
+          "eliminated": false
+        },
+        {
+          "name": "Thomas Hearns",
+          "image": "portraits/thomas-hearns.jpg",
           "division": "MW",
-          "country": "mx",
+          "country": "us",
           "game_class": "MIDDLEWEIGHT",
-          "game_index": 17,
-          "eliminated": true
+          "game_index": 16,
+          "eliminated": false
         }
       ],
       "eliminated": false
@@ -247,13 +247,49 @@
       "logo": "logos/grok.png",
       "fighters": [
         {
-          "name": "Marcial Carri\u00f3n",
-          "image": "portraits/marcial-carrion.jpg",
-          "division": "MW",
-          "country": "cl",
-          "game_class": "MIDDLEWEIGHT",
+          "name": "Brandon Romero",
+          "image": "portraits/brandon-romero.jpg",
+          "division": "LHW",
+          "country": "us",
+          "game_class": "LIGHT HEAVYWEIGHT",
+          "game_index": 6,
+          "eliminated": false
+        },
+        {
+          "name": "Balrog",
+          "image": "portraits/balrog-shaw.jpg",
+          "division": "HW",
+          "country": "us",
+          "game_class": "HEAVYWEIGHT",
           "game_index": 26,
-          "eliminated": true
+          "eliminated": false
+        },
+        {
+          "name": "Ken",
+          "image": "portraits/ken.jpg",
+          "division": "MW",
+          "country": "us",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 25,
+          "eliminated": false
+        },
+        {
+          "name": "Shane Mosley",
+          "image": "portraits/shane-mosley.jpg",
+          "division": "WW",
+          "country": "us",
+          "game_class": "WELTERWEIGHT",
+          "game_index": 3,
+          "eliminated": false
+        },
+        {
+          "name": "Danny Jacobs",
+          "image": "portraits/danny-jacobs.jpg",
+          "division": "MW",
+          "country": "us",
+          "game_class": "MIDDLEWEIGHT",
+          "game_index": 11,
+          "eliminated": false
         },
         {
           "name": "Bernard Hopkins",
@@ -265,12 +301,12 @@
           "eliminated": false
         },
         {
-          "name": "Arturo Godoy",
-          "image": "portraits/arturo-godoy.jpg",
-          "division": "HW",
-          "country": "cl",
-          "game_class": "HEAVYWEIGHT",
-          "game_index": 21,
+          "name": "Ed Braddock",
+          "image": "portraits/ed-braddock.jpg",
+          "division": "LHW",
+          "country": "fr",
+          "game_class": "LIGHT HEAVYWEIGHT",
+          "game_index": 9,
           "eliminated": false
         },
         {
@@ -281,148 +317,20 @@
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 8,
           "eliminated": false
-        },
-        {
-          "name": "Lancero Dennett",
-          "image": "portraits/lance-dennett.jpg",
-          "division": "HW",
-          "country": "cl",
-          "game_class": "HEAVYWEIGHT",
-          "game_index": 20,
-          "eliminated": false
-        },
-        {
-          "name": "Teofimo Lopez",
-          "image": "portraits/teofimo-lopez.jpg",
-          "division": "WW",
-          "country": "us",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 4,
-          "eliminated": true
-        },
-        {
-          "name": "Rupert Dennett",
-          "image": "portraits/rupert-dennett.jpg",
-          "division": "MW",
-          "country": "cl",
-          "game_class": "MIDDLEWEIGHT",
-          "game_index": 23,
-          "eliminated": false
-        },
-        {
-          "name": "Manny Pacquiao",
-          "image": "portraits/manny-pacquiao.jpg",
-          "division": "WW",
-          "country": "ph",
-          "game_class": "WELTERWEIGHT",
-          "game_index": 5,
-          "eliminated": true
         }
       ],
       "eliminated": false
     }
   },
   "team_order": [
+    "chatgpt",
     "claude",
     "gemini",
-    "codex",
     "grok"
   ],
   "bouts": [
     {
       "id": 1,
-      "left": {
-        "team": "gemini",
-        "fighter": "Cooper Martin",
-        "image": "portraits/cooper-martin.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 7
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Roy Jones Jr.",
-        "image": "portraits/roy-jones-jr.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 0
-      },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": 2,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 2,
-      "left": {
-        "team": "codex",
-        "fighter": "Jake Paul",
-        "image": "portraits/jake-paul.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 3
-      },
-      "right": {
-        "team": "grok",
-        "fighter": "Rupert Dennett",
-        "image": "portraits/rupert-dennett.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 23
-      },
-      "winner": "right",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 3,
-      "left": {
-        "team": "grok",
-        "fighter": "Teofimo Lopez",
-        "image": "portraits/teofimo-lopez.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 4
-      },
-      "right": {
-        "team": "gemini",
-        "fighter": "Sugar Ray Leonard",
-        "image": "portraits/sugar-ray-leonard.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 11
-      },
-      "winner": "left",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 4,
-      "left": {
-        "team": "codex",
-        "fighter": "Keyshawn Hayes",
-        "image": "portraits/keyshawn-hayes.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 18
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Marvin Hagler",
-        "image": "portraits/marvelous-marvin-hagler.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 2
-      },
-      "winner": "right",
-      "result": {
-        "method": null,
-        "round": 3,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 5,
       "left": {
         "team": "grok",
         "fighter": "Bernard Hopkins",
@@ -431,159 +339,131 @@
         "game_index": 15
       },
       "right": {
-        "team": "codex",
-        "fighter": "Lucius Palmer",
-        "image": "portraits/lucius-palmer.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 19
-      },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": 1,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 6,
-      "left": {
-        "team": "claude",
-        "fighter": "Erislandy Lara",
-        "image": "portraits/erislandy-lara.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 12
-      },
-      "right": {
         "team": "gemini",
-        "fighter": "Ronald Wright",
-        "image": "portraits/ronald-wright.jpg",
+        "fighter": "Sugar Ray Robinson",
+        "image": "portraits/sugar-ray-robinson.jpg",
         "game_class": "MIDDLEWEIGHT",
-        "game_index": 9
+        "game_index": 0
       },
-      "winner": "right",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
-      "id": 7,
+      "id": 2,
       "left": {
+        "team": "chatgpt",
+        "fighter": "Vasiliy Lomachenko",
+        "image": "portraits/vasiliy-lomachenko.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 3
+      },
+      "right": {
         "team": "claude",
-        "fighter": "Brandon Romero",
-        "image": "portraits/brandon-romero.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 6
+        "fighter": "Sugar Ray Leonard",
+        "image": "portraits/sugar-ray-leonard.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 11
       },
-      "right": {
-        "team": "gemini",
-        "fighter": "Sergey Kovalev",
-        "image": "portraits/sergey-kovalev.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 4
-      },
-      "winner": "right",
-      "result": {
-        "method": null,
-        "round": null,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
-      "id": 8,
-      "left": {
-        "team": "codex",
-        "fighter": "Jermain Taylor",
-        "image": "portraits/jermain-taylor.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 4
-      },
-      "right": {
-        "team": "grok",
-        "fighter": "Marcial Carri\u00f3n",
-        "image": "portraits/marcial-carrion.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 26
-      },
-      "winner": "left",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": true
-      }
-    },
-    {
-      "id": 9,
+      "id": 3,
       "left": {
         "team": "grok",
-        "fighter": "Lancero Dennett",
-        "image": "portraits/lance-dennett.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 20
+        "fighter": "Shane Mosley",
+        "image": "portraits/shane-mosley.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 3
       },
       "right": {
-        "team": "codex",
-        "fighter": "David Benavidez",
-        "image": "portraits/david-benavidez.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 1
-      },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": null,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 10,
-      "left": {
-        "team": "gemini",
+        "team": "claude",
         "fighter": "Julio C\u00e9sar Ch\u00e1vez",
         "image": "portraits/julio-cesar-chavez.jpg",
         "game_class": "WELTERWEIGHT",
         "game_index": 6
       },
-      "right": {
-        "team": "claude",
-        "fighter": "Pernell Whitaker",
-        "image": "portraits/pernell-whitaker.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 15
-      },
-      "winner": "right",
-      "result": {
-        "method": null,
-        "round": 4,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
-      "id": 11,
+      "id": 4,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Shakur Stevenson",
+        "image": "portraits/shakur-stevenson.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 0
+      },
+      "right": {
+        "team": "gemini",
+        "fighter": "Gervonta Davis",
+        "image": "portraits/gervonta-davis.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 2
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 5,
+      "left": {
+        "team": "grok",
+        "fighter": "Ken",
+        "image": "portraits/ken.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 25
+      },
+      "right": {
+        "team": "claude",
+        "fighter": "Adonis Creed",
+        "image": "portraits/adonis-creed.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 5
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 6,
       "left": {
         "team": "gemini",
-        "fighter": "Daniel Dubois",
-        "image": "portraits/daniel-dubois.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 29
+        "fighter": "Zab Judah",
+        "image": "portraits/zab-judah.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 13
       },
       "right": {
-        "team": "claude",
-        "fighter": "Parker Phillips",
-        "image": "portraits/parker-phillips.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 22
+        "team": "chatgpt",
+        "fighter": "Conor Benn",
+        "image": "portraits/conor-benn.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 12
       },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": 1,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
-      "id": 12,
+      "id": 7,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Roberto Dur\u00e1n",
+        "image": "portraits/roberto-duran.png",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 16
+      },
+      "right": {
+        "team": "gemini",
+        "fighter": "Teofimo Lopez",
+        "image": "portraits/teofimo-lopez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 4
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 8,
       "left": {
         "team": "grok",
         "fighter": "Jordan Dennett",
@@ -592,73 +472,156 @@
         "game_index": 8
       },
       "right": {
-        "team": "codex",
-        "fighter": "Ricardo \u00c1lvarez",
-        "image": "portraits/ricardo-alvarez.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 17
+        "team": "claude",
+        "fighter": "Cooper Martin",
+        "image": "portraits/cooper-martin.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 7
       },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": 4,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 9,
+      "left": {
+        "team": "claude",
+        "fighter": "Roy Jones Jr.",
+        "image": "portraits/roy-jones-jr.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 0
+      },
+      "right": {
+        "team": "grok",
+        "fighter": "Ed Braddock",
+        "image": "portraits/ed-braddock.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 9
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 10,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
+      "right": {
+        "team": "gemini",
+        "fighter": "Vergil Ortiz Jr.",
+        "image": "portraits/vergil-ortiz-jr.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 13
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 11,
+      "left": {
+        "team": "gemini",
+        "fighter": "Thomas Hearns",
+        "image": "portraits/thomas-hearns.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 16
+      },
+      "right": {
+        "team": "claude",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 10
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 12,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Artur Beterbiev",
+        "image": "portraits/artur-beterbiev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 2
+      },
+      "right": {
+        "team": "grok",
+        "fighter": "Brandon Romero",
+        "image": "portraits/brandon-romero.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 6
+      },
+      "winner": null,
+      "result": null
     },
     {
       "id": 13,
       "left": {
         "team": "gemini",
-        "fighter": "Vasiliy Lomachenko",
-        "image": "portraits/vasiliy-lomachenko.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 3
+        "fighter": "Pernell Whitaker",
+        "image": "portraits/pernell-whitaker.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 15
       },
       "right": {
-        "team": "codex",
-        "fighter": "Shakur Stevenson",
-        "image": "portraits/shakur-stevenson.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 0
+        "team": "chatgpt",
+        "fighter": "Jaron Ennis",
+        "image": "portraits/jaron-ennis.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 21
       },
-      "winner": "right",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
       "id": 14,
       "left": {
         "team": "grok",
-        "fighter": "Manny Pacquiao",
-        "image": "portraits/manny-pacquiao.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 5
+        "fighter": "Danny Jacobs",
+        "image": "portraits/danny-jacobs.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 11
       },
       "right": {
         "team": "claude",
-        "fighter": "Devin Haney",
-        "image": "portraits/devin-haney.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 9
+        "fighter": "Mike Walker",
+        "image": "portraits/mike-walker.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 20
       },
-      "winner": "right",
-      "result": {
-        "method": "KO",
-        "round": 10,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
       "id": 15,
       "left": {
         "team": "claude",
-        "fighter": "Gervonta Davis",
-        "image": "portraits/gervonta-davis.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 2
+        "fighter": "Sergey Kovalev",
+        "image": "portraits/sergey-kovalev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 4
+      },
+      "right": {
+        "team": "grok",
+        "fighter": "Balrog",
+        "image": "portraits/balrog-shaw.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 26
+      },
+      "winner": null,
+      "result": null
+    },
+    {
+      "id": 16,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Yuriorkis Gamboa",
+        "image": "portraits/yuriorkis-gamboa.jpg",
+        "game_class": "FEATHERWEIGHT",
+        "game_index": 0
       },
       "right": {
         "team": "gemini",
@@ -667,228 +630,69 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 5
       },
-      "winner": "left",
-      "result": {
-        "method": "DEC",
-        "round": null,
-        "bare_knuckle": false
-      }
-    },
-    {
-      "id": 16,
-      "left": {
-        "team": "grok",
-        "fighter": "Arturo Godoy",
-        "image": "portraits/arturo-godoy.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 21
-      },
-      "right": {
-        "team": "codex",
-        "fighter": "Muhammad Ali",
-        "image": "portraits/muhammad-ali.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 28
-      },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": null,
-        "bare_knuckle": false
-      }
+      "winner": null,
+      "result": null
     },
     {
       "id": 17,
-      "left": {
-        "team": "gemini",
-        "fighter": "Cooper Martin",
-        "image": "portraits/cooper-martin.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 7
-      },
-      "right": {
-        "team": "grok",
-        "fighter": "Rupert Dennett",
-        "image": "portraits/rupert-dennett.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 23
-      },
-      "winner": "right",
-      "result": {
-        "method": null,
-        "round": 5,
-        "bare_knuckle": true
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 18,
-      "left": {
-        "team": "grok",
-        "fighter": "Teofimo Lopez",
-        "image": "portraits/teofimo-lopez.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 4
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Marvin Hagler",
-        "image": "portraits/marvelous-marvin-hagler.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 2
-      },
-      "winner": "right",
-      "result": {
-        "method": null,
-        "round": null,
-        "bare_knuckle": false
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 19,
-      "left": {
-        "team": "grok",
-        "fighter": "Bernard Hopkins",
-        "image": "portraits/bernard-hopkins.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 15
-      },
-      "right": {
-        "team": "gemini",
-        "fighter": "Ronald Wright",
-        "image": "portraits/ronald-wright.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 9
-      },
+      "left": null,
+      "right": null,
       "winner": null,
       "result": null
     },
     {
       "id": 20,
-      "left": {
-        "team": "grok",
-        "fighter": "Jordan Dennett",
-        "image": "portraits/jordan-dennett.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 8
-      },
-      "right": {
-        "team": "codex",
-        "fighter": "Jermain Taylor",
-        "image": "portraits/jermain-taylor.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 4
-      },
+      "left": null,
+      "right": null,
       "winner": null,
       "result": null
     },
     {
       "id": 21,
-      "left": {
-        "team": "grok",
-        "fighter": "Lancero Dennett",
-        "image": "portraits/lance-dennett.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 20
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Pernell Whitaker",
-        "image": "portraits/pernell-whitaker.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 15
-      },
-      "winner": "left",
-      "result": {
-        "method": "VOID",
-        "round": null,
-        "bare_knuckle": false
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 22,
-      "left": {
-        "team": "gemini",
-        "fighter": "Daniel Dubois",
-        "image": "portraits/daniel-dubois.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 29
-      },
-      "right": {
-        "team": "codex",
-        "fighter": "Shakur Stevenson",
-        "image": "portraits/shakur-stevenson.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 0
-      },
-      "winner": "left",
-      "result": {
-        "method": "VOID",
-        "round": null,
-        "bare_knuckle": false
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 23,
-      "left": {
-        "team": "gemini",
-        "fighter": "Sergey Kovalev",
-        "image": "portraits/sergey-kovalev.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 4
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Devin Haney",
-        "image": "portraits/devin-haney.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 9
-      },
-      "winner": "left",
-      "result": {
-        "method": null,
-        "round": 3,
-        "bare_knuckle": true
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 24,
-      "left": {
-        "team": "claude",
-        "fighter": "Gervonta Davis",
-        "image": "portraits/gervonta-davis.jpg",
-        "game_class": "LIGHTWEIGHT",
-        "game_index": 2
-      },
-      "right": {
-        "team": "grok",
-        "fighter": "Arturo Godoy",
-        "image": "portraits/arturo-godoy.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 21
-      },
-      "winner": "right",
-      "result": {
-        "method": "VOID",
-        "round": null,
-        "bare_knuckle": false
-      }
+      "left": null,
+      "right": null,
+      "winner": null,
+      "result": null
     },
     {
       "id": 25,
-      "left": {
-        "team": "grok",
-        "fighter": "Rupert Dennett",
-        "image": "portraits/rupert-dennett.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 23
-      },
-      "right": {
-        "team": "claude",
-        "fighter": "Marvin Hagler",
-        "image": "portraits/marvelous-marvin-hagler.jpg",
-        "game_class": "MIDDLEWEIGHT",
-        "game_index": 2
-      },
+      "left": null,
+      "right": null,
       "winner": null,
       "result": null
     },
@@ -901,39 +705,15 @@
     },
     {
       "id": 27,
-      "left": {
-        "team": "grok",
-        "fighter": "Lancero Dennett",
-        "image": "portraits/lance-dennett.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 20
-      },
-      "right": {
-        "team": "gemini",
-        "fighter": "Daniel Dubois",
-        "image": "portraits/daniel-dubois.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 29
-      },
+      "left": null,
+      "right": null,
       "winner": null,
       "result": null
     },
     {
       "id": 28,
-      "left": {
-        "team": "gemini",
-        "fighter": "Sergey Kovalev",
-        "image": "portraits/sergey-kovalev.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 4
-      },
-      "right": {
-        "team": "grok",
-        "fighter": "Arturo Godoy",
-        "image": "portraits/arturo-godoy.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 21
-      },
+      "left": null,
+      "right": null,
       "winner": null,
       "result": null
     },
@@ -959,339 +739,78 @@
       "result": null
     }
   ],
-  "history": [
-    {
-      "bout": 9,
-      "winner_team": "grok",
-      "winner_fighter": "Lancero Dennett",
-      "loser_team": "codex",
-      "loser_fighter": "David Benavidez",
-      "method": null,
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795486576.3995712
-    },
-    {
-      "bout": 11,
-      "winner_team": "gemini",
-      "winner_fighter": "Daniel Dubois",
-      "loser_team": "claude",
-      "loser_fighter": "Parker Phillips",
-      "method": null,
-      "round": 1,
-      "bare_knuckle": false,
-      "ts": 1795488189.7068243
-    },
-    {
-      "bout": 6,
-      "winner_team": "gemini",
-      "winner_fighter": "Ronald Wright",
-      "loser_team": "claude",
-      "loser_fighter": "Erislandy Lara",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795491387.6562252
-    },
-    {
-      "bout": 7,
-      "winner_team": "gemini",
-      "winner_fighter": "Sergey Kovalev",
-      "loser_team": "claude",
-      "loser_fighter": "Brandon Romero",
-      "method": null,
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795492381.8086576
-    },
-    {
-      "bout": 3,
-      "winner_team": "grok",
-      "winner_fighter": "Teofimo Lopez",
-      "loser_team": "gemini",
-      "loser_fighter": "Sugar Ray Leonard",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795494884.11063
-    },
-    {
-      "bout": 4,
-      "winner_team": "claude",
-      "winner_fighter": "Marvin Hagler",
-      "loser_team": "codex",
-      "loser_fighter": "Keyshawn Hayes",
-      "method": null,
-      "round": 3,
-      "bare_knuckle": false,
-      "ts": 1795495982.7093887
-    },
-    {
-      "bout": 1,
-      "winner_team": "gemini",
-      "winner_fighter": "Cooper Martin",
-      "loser_team": "claude",
-      "loser_fighter": "Roy Jones Jr.",
-      "method": null,
-      "round": 2,
-      "bare_knuckle": false,
-      "ts": 1795496666.2084677
-    },
-    {
-      "bout": 13,
-      "winner_team": "codex",
-      "winner_fighter": "Shakur Stevenson",
-      "loser_team": "gemini",
-      "loser_fighter": "Vasiliy Lomachenko",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795499609.310643
-    },
-    {
-      "bout": 12,
-      "winner_team": "grok",
-      "winner_fighter": "Jordan Dennett",
-      "loser_team": "codex",
-      "loser_fighter": "Ricardo \u00c1lvarez",
-      "method": null,
-      "round": 4,
-      "bare_knuckle": false,
-      "ts": 1795500775.2230039
-    },
-    {
-      "bout": 2,
-      "winner_team": "grok",
-      "winner_fighter": "Rupert Dennett",
-      "loser_team": "codex",
-      "loser_fighter": "Jake Paul",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795503798.0403593
-    },
-    {
-      "bout": 15,
-      "winner_team": "claude",
-      "winner_fighter": "Gervonta Davis",
-      "loser_team": "gemini",
-      "loser_fighter": "Lamont Roach Jr.",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795506702.929359
-    },
-    {
-      "bout": 14,
-      "winner_team": "claude",
-      "winner_fighter": "Devin Haney",
-      "loser_team": "grok",
-      "loser_fighter": "Manny Pacquiao",
-      "method": "KO",
-      "round": 10,
-      "bare_knuckle": false,
-      "ts": 1795509172.2894504
-    },
-    {
-      "bout": 10,
-      "winner_team": "claude",
-      "winner_fighter": "Pernell Whitaker",
-      "loser_team": "gemini",
-      "loser_fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "method": null,
-      "round": 4,
-      "bare_knuckle": false,
-      "ts": 1795511139.3961744
-    },
-    {
-      "bout": 21,
-      "winner_team": "grok",
-      "winner_fighter": "Lancero Dennett",
-      "loser_team": "claude",
-      "loser_fighter": "Pernell Whitaker",
-      "method": "VOID",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795511166.8428257
-    },
-    {
-      "bout": 5,
-      "winner_team": "grok",
-      "winner_fighter": "Bernard Hopkins",
-      "loser_team": "codex",
-      "loser_fighter": "Lucius Palmer",
-      "method": null,
-      "round": 1,
-      "bare_knuckle": false,
-      "ts": 1795511667.7911265
-    },
-    {
-      "bout": 22,
-      "winner_team": "gemini",
-      "winner_fighter": "Daniel Dubois",
-      "loser_team": "codex",
-      "loser_fighter": "Shakur Stevenson",
-      "method": "VOID",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795511695.241845
-    },
-    {
-      "bout": 16,
-      "winner_team": "grok",
-      "winner_fighter": "Arturo Godoy",
-      "loser_team": "codex",
-      "loser_fighter": "Muhammad Ali",
-      "method": null,
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795514481.9509313
-    },
-    {
-      "bout": 18,
-      "winner_team": "claude",
-      "winner_fighter": "Marvin Hagler",
-      "loser_team": "grok",
-      "loser_fighter": "Teofimo Lopez",
-      "method": null,
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795515046.3592985
-    },
-    {
-      "bout": 24,
-      "winner_team": "grok",
-      "winner_fighter": "Arturo Godoy",
-      "loser_team": "claude",
-      "loser_fighter": "Gervonta Davis",
-      "method": "VOID",
-      "round": null,
-      "bare_knuckle": false,
-      "ts": 1795515488.2137544
-    },
-    {
-      "bout": 23,
-      "winner_team": "gemini",
-      "winner_fighter": "Sergey Kovalev",
-      "loser_team": "claude",
-      "loser_fighter": "Devin Haney",
-      "method": null,
-      "round": 3,
-      "bare_knuckle": true,
-      "ts": 1795560326.6580951
-    },
-    {
-      "bout": 8,
-      "winner_team": "codex",
-      "winner_fighter": "Jermain Taylor",
-      "loser_team": "grok",
-      "loser_fighter": "Marcial Carri\u00f3n",
-      "method": "DEC",
-      "round": null,
-      "bare_knuckle": true,
-      "ts": 1795564135.439619
-    },
-    {
-      "bout": 17,
-      "winner_team": "grok",
-      "winner_fighter": "Rupert Dennett",
-      "loser_team": "gemini",
-      "loser_fighter": "Cooper Martin",
-      "method": null,
-      "round": 5,
-      "bare_knuckle": true,
-      "ts": 1795630908.4288027
-    }
-  ],
+  "history": [],
   "current_match": {
-    "bout": 28,
-    "round": "Quarterfinals",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "fighter": "Zab Judah",
+      "image": "portraits/zab-judah.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 13
     },
     "right": {
-      "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "team": "chatgpt",
+      "fighter": "Conor Benn",
+      "image": "portraits/conor-benn.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 12
     }
   },
   "winner": null,
-  "tournament": 10,
+  "tournament": 11,
   "draw": [
+    "Bernard Hopkins",
+    "Sugar Ray Robinson",
+    "Vasiliy Lomachenko",
+    "Sugar Ray Leonard",
+    "Shane Mosley",
+    "Julio C\u00e9sar Ch\u00e1vez",
+    "Shakur Stevenson",
+    "Gervonta Davis",
+    "Ken",
+    "Adonis Creed",
+    "Zab Judah",
+    "Conor Benn",
+    "Roberto Dur\u00e1n",
+    "Teofimo Lopez",
+    "Jordan Dennett",
     "Cooper Martin",
     "Roy Jones Jr.",
-    "Jake Paul",
-    "Rupert Dennett",
-    "Teofimo Lopez",
-    "Sugar Ray Leonard",
-    "Keyshawn Hayes",
-    "Marvin Hagler",
-    "Bernard Hopkins",
-    "Lucius Palmer",
-    "Erislandy Lara",
-    "Ronald Wright",
+    "Ed Braddock",
+    "Gennadiy Golovkin",
+    "Vergil Ortiz Jr.",
+    "Thomas Hearns",
+    "Canelo \u00c1lvarez",
+    "Artur Beterbiev",
     "Brandon Romero",
-    "Sergey Kovalev",
-    "Jermain Taylor",
-    "Marcial Carri\u00f3n",
-    "Lancero Dennett",
-    "David Benavidez",
-    "Julio C\u00e9sar Ch\u00e1vez",
     "Pernell Whitaker",
-    "Daniel Dubois",
-    "Parker Phillips",
-    "Jordan Dennett",
-    "Ricardo \u00c1lvarez",
-    "Vasiliy Lomachenko",
-    "Shakur Stevenson",
-    "Manny Pacquiao",
-    "Devin Haney",
-    "Gervonta Davis",
-    "Lamont Roach Jr.",
-    "Arturo Godoy",
-    "Muhammad Ali"
+    "Jaron Ennis",
+    "Danny Jacobs",
+    "Mike Walker",
+    "Sergey Kovalev",
+    "Balrog",
+    "Yuriorkis Gamboa",
+    "Lamont Roach Jr."
   ],
   "band": {
-    "top": "HW",
-    "floor": "LW",
+    "top": "LHW",
+    "floor": "FW",
     "classes": [
-      "HW",
       "LHW",
       "MW",
       "WW",
-      "LW"
+      "LW",
+      "FW"
     ],
     "labels": [
-      "Heavyweight",
       "Light Heavyweight",
       "Middleweight",
       "Welterweight",
-      "Lightweight"
+      "Lightweight",
+      "Featherweight"
     ]
   },
-  "updated_at": 1795631271.280881,
-  "swaps": [
-    {
-      "bout": 22,
-      "moved": "Jordan Dennett",
-      "to_bout": 23,
-      "for": "Shakur Stevenson",
-      "why": "same-team fighters would have met",
-      "ts": 1795511166.8428648
-    },
-    {
-      "bout": 23,
-      "moved": "Jordan Dennett",
-      "to_bout": 20,
-      "for": "Sergey Kovalev",
-      "why": "same-team fighters would have met",
-      "ts": 1795515488.2137885
-    }
-  ]
+  "updated_at": 1795632268.9060357
 }
