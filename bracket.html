@@ -209,6 +209,7 @@
   #pickCard .cat { display: inline-block; margin: 5px 0 2px; padding: 3px 11px; border-radius: 999px;
     font-size: 16px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #fff;
     background: var(--cc, #2a3348); border: 1px solid rgba(255,255,255,.28); white-space: nowrap; }
+  #pickCard .cat .cflag { width: 24px; height: 16px; object-fit: cover; vertical-align: -3px; margin-right: 8px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.5); }
   #pickCard .side { display: flex; align-items: center; gap: 20px; width: 420px; position: relative; }
   #pickCard .side.r { flex-direction: row-reverse; text-align: right; }
   #pickCard .pimg { width: 138px; height: 156px; border-radius: 10px; overflow: hidden; flex-shrink: 0; border: 3px solid var(--tc, #888);
@@ -895,7 +896,8 @@ function catChip(name) {
   if (f.div) bits.push(DIV_LABEL[f.div] || f.div);
   if (f.country) bits.push(COUNTRY_NAME[f.country] || f.country.toUpperCase());
   if (!bits.length) return '';
-  return `<div class="cat" style="--cc:${fighterColor(name)}">${esc(bits.join(' · '))}</div>`;
+  const flag = f.country ? `<img class="cflag" src="flags/${esc(f.country)}.svg" onerror="this.remove()">` : '';
+  return `<div class="cat" style="--cc:${fighterColor(name)}">${flag}${esc(bits.join(' · '))}</div>`;
 }
 function wheelLegend(names) {
   const seen = new Set();
@@ -1031,8 +1033,9 @@ function spinWheel(w) {
     svg.querySelectorAll('text[data-id]').forEach(t => { t.style.opacity = +t.dataset.id === w.pick ? 1 : .3; });
     const st = window.STATE, b = w.card || (st && st.bouts[w.pick - 1]);   // w.card: a pairing aired without a bout (opening re-pair)
     if (b && b.left && b.right) {
-      const lc = TEAM_COLOR[b.left.team] || '#888', rc = TEAM_COLOR[b.right.team] || '#888';
-      const side = (r, cls, c) => `<div class="side ${cls}" style="--tc:${c}"><div class="pimg"><img src="${bust(r.image)}" onerror="this.outerHTML='<div class=ph>${esc(r.fighter[0])}</div>'"></div><div><div class="nm">${esc(r.fighter)}</div>${catChip(r.fighter)}<div class="tm"><img src="${bust(st.teams[r.team].logo)}">${esc(st.teams[r.team].name)}</div></div></div>`;
+      const cardCol = t => t === 'grok' ? '#d8dde6' : (TEAM_COLOR[t] || '#888');   // black Grok vanished on the dark card
+      const lc = cardCol(b.left.team), rc = cardCol(b.right.team);
+      const side = (r, cls, c) => `<div class="side ${cls}" style="--tc:${c}"><div class="pimg"><img src="${bust(r.image)}" onerror="this.outerHTML='<div class=ph>${esc(r.fighter[0])}</div>'"></div><div><div class="nm">${esc(r.fighter)}</div>${catChip(r.fighter)}<div class="tm"${r.team === 'grok' ? ' style="background:#000;color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.6)"' : ''}><img src="${bust(st.teams[r.team].logo)}">${esc(st.teams[r.team].name)}</div></div></div>`;
       const label = w.label || ((st.current_match && st.current_match.bout === w.pick) ? st.current_match.round : ('Fight ' + w.pick));
       card.style.setProperty('--lc', lc); card.style.setProperty('--rc', rc);
       card.style.setProperty('--pc-bg', `linear-gradient(90deg, ${rgba(lc, .38)}, #0c1019 38%, #0c1019 62%, ${rgba(rc, .38)})`);
