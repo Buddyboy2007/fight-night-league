@@ -1036,7 +1036,7 @@ function spinWheel(w) {
     document.getElementById('wheelTitle').textContent = 'NEXT FIGHT';
   }, 1100 + 10000 + 300);
   setTimeout(() => { wheelBusy = false; }, 1100 + 10000 + 3000);
-  document.getElementById('wheelTitle').textContent = 'SPINNING FOR THE NEXT FIGHT';
+  document.getElementById('wheelTitle').textContent = w.title || 'SPINNING FOR THE NEXT FIGHT';
 }
 
 // ---------------------------------------------------------------- next-tournament draft
