@@ -560,18 +560,18 @@
     {
       "id": 13,
       "left": {
-        "team": "claude",
-        "fighter": "Pernell Whitaker",
-        "image": "portraits/pernell-whitaker.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 15
+        "team": "gemini",
+        "fighter": "Sergey Kovalev",
+        "image": "portraits/sergey-kovalev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 4
       },
       "right": {
-        "team": "grok",
-        "fighter": "Errol Spence Jr.",
-        "image": "portraits/errol-spence-jr.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 7
+        "team": "chatgpt",
+        "fighter": "Zhilei Zhang",
+        "image": "portraits/zhilei-zhang.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 1
       },
       "winner": null,
       "result": null
@@ -812,5 +812,5 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795638660.0369778
+  "updated_at": 1795638678.0404503
 }
