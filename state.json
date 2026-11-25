@@ -102,7 +102,7 @@
           "country": "us",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Sugar Ray Leonard",
@@ -713,8 +713,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 23
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 18,
@@ -871,7 +875,13 @@
     },
     {
       "id": 25,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Rupert Dennett",
+        "image": "portraits/rupert-dennett.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 23
+      },
       "right": {
         "team": "claude",
         "fighter": "Marvin Hagler",
@@ -1180,24 +1190,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795564135.439619
+    },
+    {
+      "bout": 17,
+      "winner_team": "grok",
+      "winner_fighter": "Rupert Dennett",
+      "loser_team": "gemini",
+      "loser_fighter": "Cooper Martin",
+      "method": null,
+      "round": 5,
+      "bare_knuckle": true,
+      "ts": 1795630908.4288027
     }
   ],
   "current_match": {
-    "bout": 17,
-    "round": "Fight 17 of 31",
+    "bout": 19,
+    "round": "Fight 19 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Cooper Martin",
-      "image": "portraits/cooper-martin.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 7
+      "team": "grok",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
+      "team": "gemini",
+      "fighter": "Ronald Wright",
+      "image": "portraits/ronald-wright.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "game_index": 9
     }
   },
   "winner": null,
@@ -1254,7 +1275,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795629555.3838925,
+  "updated_at": 1795630908.4288266,
   "swaps": [
     {
       "bout": 22,
