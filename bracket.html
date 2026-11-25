@@ -313,7 +313,13 @@
   #dCard .rk.nr { font-size: 15px; font-style: normal; letter-spacing: 2px; color: var(--mute); }
   #dCard .rk sup { font-size: 13px; color: var(--mute); font-style: normal; vertical-align: super; }
   #dCard .tier { padding: 1px 7px; border-radius: 3px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: #0a0d14; background: var(--gold); }
-  #dCard .fhead .fn { flex: 1; min-width: 0; font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; overflow: hidden; }
+  #dCard .fhead .fn { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+  #dCard .fhead .fn b { font-size: 22px; line-height: 23px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* The career record (pro_records.json), not the league record beside it. For a debutant - every
+     custom fighter on his first draft, and 43 of the 84 on the board - the league half of this card
+     is all zeroes and empty rows, and this line is the only thing on screen that says who he is. */
+  #dCard .fhead .fn small { font-size: 11.5px; line-height: 12px; letter-spacing: 1.6px; font-weight: 700; color: var(--mute); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #dCard .fhead .fn small em { font-style: normal; color: #e7c66a; }
   #dCard .fhead .fr { font-size: 15px; font-weight: 800; letter-spacing: 2px; color: #fff; white-space: nowrap; }
   #dCard .fhead .fr i { font-style: normal; color: var(--mute); font-size: 12px; }
   #dCard .frow { display: flex; align-items: center; gap: 9px; margin-top: 7px; padding: 3px 8px; border-radius: 5px;
@@ -1152,6 +1158,12 @@ function dSide(cls, label, x, empty) {
     `<span class="on">${esc(x.name)}${rk}</span>` +
     `<span class="om">${esc(dWhen(x))}</span></div>`;
 }
+function dPro(p) {
+  // "89-17-4 · 71 KO · PRO" — a draw count only when there is one, since most careers have none.
+  if (!p || !(p.w || p.l)) return '';
+  const r = p.d ? `${p.w}-${p.l}-${p.d}` : `${p.w}-${p.l}`;
+  return `<small>${r}${p.ko ? ` · <em>${p.ko} KO</em>` : ''} · PRO CAREER</small>`;
+}
 function dFile(f) {
   const ch = f.champ || {}, calls = ch.calls || [];
   const pcs = calls.map(c => {
@@ -1164,7 +1176,7 @@ function dFile(f) {
   return `<div class="dfile">` +
     `<div class="fhead"><span class="th">${f.image ? `<img src="${bust(f.image)}">` : ''}</span>` +
     dRankChip(f) +
-    `<span class="fn">${esc(f.name)}</span>` +
+    `<span class="fn"><b>${esc(f.name)}</b>${dPro(f.pro)}</span>` +
     `<span class="fr">${(f.wins || 0)}-${(f.losses || 0)}` +
     `${f.elo ? ` <i>${f.elo} ELO</i>` : ''}${f.streak ? ` <i>${f.streak > 0 ? 'W' : 'L'}${Math.abs(f.streak)}</i>` : ''}</span></div>` +
     dSide('w', 'BEST WIN', f.best_win, 'NO WINS YET') +
