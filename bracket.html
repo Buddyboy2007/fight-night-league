@@ -791,6 +791,20 @@ function sliceAt(deg, bounds) {
   return k;
 }
 
+// user 2026-11-25: "wheel spin needs to be consistent". Every wheel on the show - the next-fight wheel and
+// every draft wheel - now moves the same way: it launches at the same speed (SPIN_V0, degrees/second),
+// bleeds it off on the same curve (SPIN_EASE), and the number of turns falls out of how long that wheel
+// has to spin. Before, the next-fight wheel whipped 6 turns on its own CSS bezier while the draft wheels
+// used hand-picked turn counts (2, 3 or 4) over different windows, so no two wheels felt alike.
+const SPIN_EASE = 2.2;   // see the 'slow down more' note at the draft wheel
+const SPIN_V0 = 330;
+function spinTravel(dur, landDeg) {               // landDeg: where the wheel must stop, mod 360
+  const off = ((landDeg % 360) + 360) % 360;
+  const k = Math.max(1, Math.round((SPIN_V0 * dur / SPIN_EASE - off) / 360));
+  return off + 360 * k;
+}
+const spinAt = (fin, x) => fin * (1 - Math.pow(1 - Math.min(1, Math.max(0, x)), SPIN_EASE));
+
 // ---------------------------------------------------------------- next-fight wheel
 // Slices used to cycle four near-black blues, so the wheel carried no information: every
 // matchup looked the same and the only thing moving was the pointer. Now every boxer on the
@@ -1005,20 +1019,19 @@ function spinWheel(w) {
   const rot = document.getElementById('rot');
   const idx = Math.max(0, w.ready.indexOf(w.pick));
   const jitter = (Math.random() - .5) * 0.6 * (360 / n);
-  const finalDeg = 360 * 6 - (idx + 0.5) * (360 / n) + jitter;
-  rot.style.transition = 'none'; rot.style.transform = 'rotate(0deg)'; void rot.getBoundingClientRect();
+  const SPIN_S = 10, finalDeg = spinTravel(SPIN_S, -(idx + 0.5) * (360 / n) + jitter);
+  rot.style.transition = 'none'; rot.style.transform = 'rotate(0deg)';
   layer.classList.add('show');
-  setTimeout(() => { rot.style.transition = 'transform 10s cubic-bezier(.12,.62,.08,1)'; rot.style.transform = `rotate(${finalDeg}deg)`; }, 1100);
-  const bounds = w.ready.map((_, i) => i * 360 / n), tickEnd = performance.now() + 1100 + 10000 + 200;
+  const bounds = w.ready.map((_, i) => i * 360 / n), t0 = performance.now() + 1100;
   let lastSlice = null;
-  (function tickLoop() {                           // the CSS transition does the turning; read its angle back each frame
-    if (performance.now() > tickEnd) return;
-    requestAnimationFrame(tickLoop);
-    const m = getComputedStyle(rot).transform;
-    if (!m || m === 'none') return;
-    const mm = new DOMMatrixReadOnly(m), k = sliceAt(Math.atan2(mm.b, mm.a) * 180 / Math.PI, bounds);
-    if (lastSlice !== null && k !== lastSlice) tick();
+  (function spinLoop() {                           // same launch speed and slow-down as every draft wheel
+    const x = (performance.now() - t0) / (SPIN_S * 1000);
+    const deg = spinAt(finalDeg, x);
+    rot.style.transform = `rotate(${deg}deg)`;
+    const k = sliceAt(deg, bounds);
+    if (x > 0 && lastSlice !== null && k !== lastSlice) tick();
     lastSlice = k;
+    if (x < 1) requestAnimationFrame(spinLoop);
   })();
   setTimeout(() => {                               // landed: gold ring + matchup card
     svg.classList.add('won'); layer.classList.add('picked');   // the card takes the legend's place
@@ -1064,7 +1077,7 @@ const CHOICE_LANDED = new Set(['TL', 'WL', 'L', 'FL']);   // sub-states where a 
 // 80% of the window - it read as stopping dead and then nudging, with no slow-down to watch. Lower
 // is closer to a real wheel losing speed to friction (2.0 is exactly constant deceleration), so it
 // keeps ticking slice by slice and visibly winds down into its landing. Raise it to stop harder.
-const SPIN_EASE = 2.2;
+// SPIN_EASE is declared with SPIN_V0 near sliceAt(), so the next-fight wheel can use it too.
 // user 2026-11-25: "slow down the wheel in general". Two levers, both pulled: the `turns` argument at
 // every dWheel call site came down (a wheel that travels fewer revolutions across the same window is
 // turning more slowly the whole way through, and the show does not get any longer for it), and the
@@ -1147,7 +1160,7 @@ function dWheel(slices, mode, pick, turns, s0, s1, seed, landed) {
   svg.innerHTML = g;
   svg.classList.toggle('won', !!landed);
   const tw = win || [0, 2 * Math.PI], th = (tw[0] + tw[1]) / 2 + (hrand(seed) - .5) * 0.6 * (tw[1] - tw[0]);
-  dSpin = { fin: slices.length === 1 ? 0 : 360 * turns - th * 180 / Math.PI, s0, s1, bounds, last: null };
+  dSpin = { fin: slices.length === 1 ? 0 : spinTravel(s1 - s0, -th * 180 / Math.PI), s0, s1, bounds, last: null };   // `turns` kept in the signature only
 }
 
 function dHub(html, tc) {
@@ -1471,7 +1484,7 @@ function draftFrame() {
   const rot = document.getElementById('drot');
   if (dSpin && rot) {
     const x = Math.min(1, Math.max(0, (u - dSpin.s0) / (dSpin.s1 - dSpin.s0)));
-    const deg = dSpin.fin * (1 - Math.pow(1 - x, SPIN_EASE)), k = sliceAt(deg, dSpin.bounds);
+    const deg = spinAt(dSpin.fin, x), k = sliceAt(deg, dSpin.bounds);
     rot.setAttribute('transform', `rotate(${deg})`);
     if (dSpin.last !== null && k !== dSpin.last) tick();
     dSpin.last = k;
