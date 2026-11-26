@@ -414,7 +414,10 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,2
 @keyframes pfSwipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .still .starRow .tr i{animation:none}
 .starRow .sv.ovr{font-size:20px;font-weight:1000;min-width:40px;text-align:right;font-variant-numeric:tabular-nums}
-.starRow .sv.excellent{color:#00e676;text-shadow:0 0 10px #00e67688}.starRow .sv.strong{color:var(--gold)}.starRow .sv.good{color:#6aa7ff}.starRow .sv.shaky{color:#ff6b6b}
+.rb-red{--rb:#ff3b3b}.rb-orange{--rb:#ff8a1f}.rb-yellow{--rb:#ffe14a}.rb-green{--rb:#39ff14}.rb-blue{--rb:#2fa8ff}
+.starRow .sv.ovr{color:var(--rb);text-shadow:0 0 10px color-mix(in srgb,var(--rb) 55%,transparent)}
+.starRow[class*=rb-] .tr i{background:var(--rb);box-shadow:0 0 12px color-mix(in srgb,var(--rb) 60%,transparent)}
+.overallScoreBubble[class*=rb-]{background:var(--rb);box-shadow:0 0 24px color-mix(in srgb,var(--rb) 60%,transparent);color:#05070b}
 
 .overallScoreBubble{position:absolute;top:14px;right:18px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;text-align:center;
   background:radial-gradient(circle at 35% 30%,#fff3,transparent 50%),var(--tierColor);color:#07090d;box-shadow:0 0 26px var(--tierColor)}
@@ -922,7 +925,8 @@ function starRows(f){
   return rows;
 }
 const ovrOf = rows => rows.length ? r99(rows.reduce((a,x)=>a+x.v,0)/rows.length) : null;
-const ovrBand = v => v>=90?'excellent': v>=75?'strong': v>=55?'good':'shaky';
+// User's colour bands: <=25 red, 26-49 orange, 50-74 yellow, 75-89 neon green, 90+ blue.
+const ovrBand = v => v>=90?'rb-blue': v>=75?'rb-green': v>=50?'rb-yellow': v>=26?'rb-orange':'rb-red';
 
 function narrative(f){
   const r=f.ratings||{}, nm=esc(f.name.split(' ').slice(-1)[0]), t=team(f.team);
@@ -991,8 +995,8 @@ function profile(name){
   </div>
   <div class="row2">
     <div class="card stars"><h2>Overall Ratings</h2>
-      <div class="overallScoreBubble"><div><b>${overall.v}</b><small>${overall.l}</small></div></div>
-      ${stars.length?stars.map(s=>`<div class="starRow"><span>${s.label}</span><div class="tr"><i style="width:${s.v}%"></i></div><span class="sv ovr ${ovrBand(s.v)}">${s.v}</span></div>`).join(''):'<div class="small mute">No ratings on file for this boxer.</div>'}
+      <div class="overallScoreBubble ${overall.l==='OVR'?ovrBand(overall.v):''}"><div><b>${overall.v}</b><small>${overall.l}</small></div></div>
+      ${stars.length?stars.map(s=>`<div class="starRow ${ovrBand(s.v)}"><span>${s.label}</span><div class="tr"><i style="width:${s.v}%"></i></div><span class="sv ovr ${ovrBand(s.v)}">${s.v}</span></div>`).join(''):'<div class="small mute">No ratings on file for this boxer.</div>'}
       <div class="small mute" style="margin-top:8px">Power, defence and technique are the game's own ratings. Offense (knockout rate), durability and form come from league results. OVR is the average of all six.</div>
     </div>
     <div class="card"><h2>Stats</h2>${facts.map(([k,v])=>`<div class="fact"><span>${k}</span><b>${v}</b></div>`).join('')}</div>
