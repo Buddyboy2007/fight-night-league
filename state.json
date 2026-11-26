@@ -200,7 +200,7 @@
           "country": "mx",
           "game_class": "WELTERWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Sergey Kovalev",
@@ -239,7 +239,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "grok": {
       "name": "Grok",
@@ -966,17 +966,21 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 29,
       "left": {
-        "team": "claude",
-        "fighter": "Tyson Fury",
-        "image": "portraits/tyson-fury.jpg",
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
         "game_class": "HEAVYWEIGHT",
-        "game_index": 19
+        "game_index": 20
       },
       "right": {
         "team": "chatgpt",
@@ -997,7 +1001,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "winner": null,
       "result": null
     },
@@ -1306,24 +1316,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795696872.4143307
+    },
+    {
+      "bout": 28,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "gemini",
+      "loser_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795696880.810989
     }
   ],
   "current_match": {
-    "bout": 28,
-    "round": "Quarterfinals",
+    "bout": 29,
+    "round": "Semifinals",
     "left": {
-      "team": "gemini",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
-    },
-    "right": {
       "team": "grok",
       "fighter": "Lancero Dennett",
       "image": "portraits/lance-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
       "game_index": 20
+    },
+    "right": {
+      "team": "chatgpt",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1380,7 +1401,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795696872.4143586,
+  "updated_at": 1795696880.811029,
   "swaps": [
     {
       "bout": 15,
@@ -1493,6 +1514,14 @@
       "for": "Julio C\u00e9sar Ch\u00e1vez",
       "why": "same-team fighters would have met",
       "ts": 1795687818.8429663
+    },
+    {
+      "bout": 30,
+      "moved": "Lancero Dennett",
+      "to_bout": 29,
+      "for": "Tyson Fury",
+      "why": "same-team fighters would have met",
+      "ts": 1795696880.811008
     }
   ]
 }
