@@ -67,7 +67,7 @@
           "country": "cn",
           "game_class": "HEAVYWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Dmitry Bivol",
@@ -79,7 +79,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "claude": {
       "name": "Claude",
@@ -989,8 +989,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 30,
@@ -1013,7 +1017,13 @@
     },
     {
       "id": 31,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1327,24 +1337,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795696880.810989
+    },
+    {
+      "bout": 29,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Zhilei Zhang",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795699906.5879195
     }
   ],
   "current_match": {
-    "bout": 29,
+    "bout": 30,
     "round": "Semifinals",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "game_index": 21
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Zhilei Zhang",
-      "image": "portraits/zhilei-zhang.jpg",
+      "team": "claude",
+      "fighter": "Tyson Fury",
+      "image": "portraits/tyson-fury.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 1
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1401,7 +1422,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795696901.0823793,
+  "updated_at": 1795699906.5879629,
   "swaps": [
     {
       "bout": 15,
