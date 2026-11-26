@@ -58,7 +58,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 30,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Zhilei Zhang",
@@ -368,8 +368,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 3,
@@ -678,7 +682,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 18
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Jack Johnson",
+        "image": "portraits/jack-johnson.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 5
+      },
       "winner": null,
       "result": null
     },
@@ -949,24 +959,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795660467.3218336
+    },
+    {
+      "bout": 2,
+      "winner_team": "grok",
+      "winner_fighter": "Jack Johnson",
+      "loser_team": "chatgpt",
+      "loser_fighter": "George Foreman",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795661433.3623767
     }
   ],
   "current_match": {
-    "bout": 2,
-    "round": "Fight 2 of 31",
+    "bout": 3,
+    "round": "Fight 3 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "George Foreman",
-      "image": "portraits/george-foreman.jpg",
+      "team": "claude",
+      "fighter": "Tyson Fury",
+      "image": "portraits/tyson-fury.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 30
+      "game_index": 19
     },
     "right": {
-      "team": "grok",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
+      "team": "chatgpt",
+      "fighter": "Oleksandr Usyk",
+      "image": "portraits/oleksandr-usyk.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "game_index": 33
     }
   },
   "winner": null,
@@ -1023,7 +1044,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795660475.5614529,
+  "updated_at": 1795661433.3624046,
   "swaps": [
     {
       "bout": 15,
