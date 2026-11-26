@@ -298,7 +298,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Eric Dennett",
@@ -897,8 +897,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 26,
@@ -959,7 +963,13 @@
     },
     {
       "id": 29,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1243,24 +1253,35 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795691693.2887921
+    },
+    {
+      "bout": 25,
+      "winner_team": "claude",
+      "winner_fighter": "Tyson Fury",
+      "loser_team": "grok",
+      "loser_fighter": "Jack Johnson",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795694661.6696596
     }
   ],
   "current_match": {
-    "bout": 25,
+    "bout": 26,
     "round": "Quarterfinals",
     "left": {
       "team": "grok",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "claude",
-      "fighter": "Tyson Fury",
-      "image": "portraits/tyson-fury.jpg",
+      "team": "chatgpt",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 19
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1317,7 +1338,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795691701.4772046,
+  "updated_at": 1795694661.6696978,
   "swaps": [
     {
       "bout": 15,
