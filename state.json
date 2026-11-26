@@ -22,7 +22,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Rocky Marciano",
@@ -497,8 +497,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "SD",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 10,
@@ -667,7 +671,13 @@
     },
     {
       "id": 21,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Bernard Hopkins",
+        "image": "portraits/bernard-hopkins.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 15
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -760,24 +770,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795715426.7280416
+    },
+    {
+      "bout": 9,
+      "winner_team": "claude",
+      "winner_fighter": "Bernard Hopkins",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Sugar Ray Robinson",
+      "method": "SD",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795719354.5676098
     }
   ],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "chatgpt",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 19
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Sugar Ray Robinson",
-      "image": "portraits/sugar-ray-robinson.jpg",
+      "team": "codex",
+      "fighter": "Peter Manfredo Jr.",
+      "image": "portraits/peter-manfredo-jr.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 0
+      "game_index": 5
     }
   },
   "winner": null,
@@ -830,5 +851,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795715434.981859
+  "updated_at": 1795719354.921825
 }
