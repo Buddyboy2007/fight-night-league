@@ -316,7 +316,7 @@
           "country": "au",
           "game_class": "HEAVYWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -943,8 +943,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 28,
@@ -986,7 +990,13 @@
     },
     {
       "id": 30,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1285,24 +1295,35 @@
       "round": 2,
       "bare_knuckle": false,
       "ts": 1795695315.4801724
+    },
+    {
+      "bout": 27,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "grok",
+      "loser_fighter": "Jai Opetaia",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795696872.4143307
     }
   ],
   "current_match": {
-    "bout": 27,
+    "bout": 28,
     "round": "Quarterfinals",
     "left": {
-      "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "image": "portraits/julio-cesar-chavez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 6
     },
     "right": {
       "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "game_index": 20
     }
   },
   "winner": null,
@@ -1359,7 +1380,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795695323.6760778,
+  "updated_at": 1795696872.4143586,
   "swaps": [
     {
       "bout": 15,
