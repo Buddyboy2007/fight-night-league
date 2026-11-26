@@ -102,7 +102,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 14,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Pernell Whitaker",
@@ -483,8 +483,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 6
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 8,
@@ -748,7 +752,13 @@
     },
     {
       "id": 20,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+        "image": "portraits/julio-cesar-chavez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 6
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1054,24 +1064,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795670113.5217519
+    },
+    {
+      "bout": 7,
+      "winner_team": "gemini",
+      "winner_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "loser_team": "claude",
+      "loser_fighter": "Ryan Garcia",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795673097.3436015
     }
   ],
   "current_match": {
-    "bout": 7,
-    "round": "Fight 7 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Ryan Garcia",
-      "image": "portraits/ryan-garcia.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 14
+      "team": "grok",
+      "fighter": "Eric Dennett",
+      "image": "portraits/eric-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 24
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "team": "chatgpt",
+      "fighter": "Vitali Klitschko",
+      "image": "portraits/vitali-klitschko.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1128,7 +1149,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795670121.7016537,
+  "updated_at": 1795673097.343632,
   "swaps": [
     {
       "bout": 15,
