@@ -868,21 +868,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 11,
+    "round": "Fight 11 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "game_index": 1
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "game_index": 8
     }
   },
   "winner": null,
@@ -935,5 +935,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795732887.098413
+  "updated_at": 1795732895.3929136
 }
