@@ -763,21 +763,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 9,
+    "round": "Fight 9 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
+      "team": "claude",
+      "fighter": "Bernard Hopkins",
+      "image": "portraits/bernard-hopkins.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "game_index": 15
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
+      "fighter": "Sugar Ray Robinson",
+      "image": "portraits/sugar-ray-robinson.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "game_index": 0
     }
   },
   "winner": null,
@@ -830,5 +830,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795715426.7280698
+  "updated_at": 1795715434.981859
 }
