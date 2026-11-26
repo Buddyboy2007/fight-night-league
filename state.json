@@ -289,7 +289,7 @@
           "country": "cl",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 8,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jack Johnson",
@@ -920,8 +920,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "KO",
+        "round": 2,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 27,
@@ -970,7 +974,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Zhilei Zhang",
+        "image": "portraits/zhilei-zhang.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 1
+      },
       "winner": null,
       "result": null
     },
@@ -1264,24 +1274,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795694661.6696596
+    },
+    {
+      "bout": 26,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Zhilei Zhang",
+      "loser_team": "grok",
+      "loser_fighter": "Jordan Dennett",
+      "method": "KO",
+      "round": 2,
+      "bare_knuckle": false,
+      "ts": 1795695315.4801724
     }
   ],
   "current_match": {
-    "bout": 26,
+    "bout": 27,
     "round": "Quarterfinals",
     "left": {
       "team": "grok",
-      "fighter": "Jordan Dennett",
-      "image": "portraits/jordan-dennett.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 8
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 15
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Zhilei Zhang",
-      "image": "portraits/zhilei-zhang.jpg",
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 1
+      "game_index": 21
     }
   },
   "winner": null,
@@ -1338,7 +1359,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795694669.863552,
+  "updated_at": 1795695315.4801984,
   "swaps": [
     {
       "bout": 15,
