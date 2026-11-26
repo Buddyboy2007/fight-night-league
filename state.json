@@ -889,21 +889,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 14,
+    "round": "Fight 14 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "team": "claude",
+      "fighter": "Anthony Joshua",
+      "image": "portraits/anthony-joshua.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 12
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 14
     }
   },
   "winner": null,
@@ -956,5 +956,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795735745.7608607
+  "updated_at": 1795735753.9583683
 }
