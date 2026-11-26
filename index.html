@@ -910,7 +910,7 @@ function starRows(f){
   if(r.dfn!=null) add('Defence',r.dfn/2,(r.dfn/2).toFixed(1));
   if(r.tec!=null) add('Technique',r.tec/2,(r.tec/2).toFixed(1));
   if(f.fights){
-    add('Finishing',(f.ko_pct||0)/20,((f.ko_pct||0)/20).toFixed(1));
+    add('Offense',(f.ko_pct||0)/20,((f.ko_pct||0)/20).toFixed(1));
     add('Durability',5*(1-(f.kod||0)/f.fights),(5*(1-(f.kod||0)/f.fights)).toFixed(1));
     if(f.form&&f.form.length){ const w=f.form.filter(x=>x==='W').length/f.form.length; add('Form',5*w,(5*w).toFixed(1)); }
   }
@@ -987,7 +987,7 @@ function profile(name){
     <div class="card stars"><h2>Star System</h2>
       <div class="overallScoreBubble"><div><b>${overall.v}</b><small>${overall.l}</small></div></div>
       ${stars.length?stars.map(s=>`<div class="starRow"><span>${s.label}</span><div class="tr"><i style="width:${Math.max(0,Math.min(100,s.score5*20))}%"></i></div><span class="sv">${starStr(s.score5)}<span>${s.shown}/5</span></span></div>`).join(''):'<div class="small mute">No ratings on file for this boxer.</div>'}
-      <div class="small mute" style="margin-top:8px">Power, defence and technique are the game's own ratings. Finishing, durability and form come from league results.</div>
+      <div class="small mute" style="margin-top:8px">Power, defence and technique are the game's own ratings. Offense (knockout rate), durability and form come from league results.</div>
     </div>
     <div class="card"><h2>Stats</h2>${facts.map(([k,v])=>`<div class="fact"><span>${k}</span><b>${v}</b></div>`).join('')}</div>
   </div>
