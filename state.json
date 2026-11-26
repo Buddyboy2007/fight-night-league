@@ -147,7 +147,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Danny Jacobs",
@@ -345,8 +345,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 4
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 2,
@@ -667,7 +671,13 @@
     },
     {
       "id": 17,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Keyshawn Hayes",
+        "image": "portraits/keyshawn-hayes.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 18
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -928,24 +938,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795657502.6866324
+    },
+    {
+      "bout": 1,
+      "winner_team": "gemini",
+      "winner_fighter": "Keyshawn Hayes",
+      "loser_team": "claude",
+      "loser_fighter": "Jermain Taylor",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795660467.3218336
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 2,
+    "round": "Fight 2 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "team": "chatgpt",
+      "fighter": "George Foreman",
+      "image": "portraits/george-foreman.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 30
     },
     "right": {
-      "team": "claude",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "grok",
+      "fighter": "Jack Johnson",
+      "image": "portraits/jack-johnson.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -1002,7 +1023,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795657510.869845,
+  "updated_at": 1795660467.3218632,
   "swaps": [
     {
       "bout": 15,
