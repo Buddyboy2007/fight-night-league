@@ -227,7 +227,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 10,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Keyshawn Hayes",
@@ -414,8 +414,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 5,
@@ -705,7 +709,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "winner": null,
       "result": null
     },
@@ -991,24 +1001,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795664330.767129
+    },
+    {
+      "bout": 4,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "gemini",
+      "loser_fighter": "Adonis Creed",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795665172.7716658
     }
   ],
   "current_match": {
-    "bout": 4,
-    "round": "Fight 4 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Adonis Creed",
-      "image": "portraits/adonis-creed.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 10
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "team": "claude",
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1065,7 +1086,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795664338.9420469,
+  "updated_at": 1795665172.7716925,
   "swaps": [
     {
       "bout": 15,
