@@ -271,7 +271,7 @@
           "country": "cl",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 23,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Errol Spence Jr.",
@@ -566,8 +566,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 23
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 13,
@@ -717,7 +721,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Dmitry Bivol",
+        "image": "portraits/dmitry-bivol.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 3
+      },
       "winner": null,
       "result": null
     },
@@ -907,24 +917,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795654568.8197017
+    },
+    {
+      "bout": 12,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Dmitry Bivol",
+      "loser_team": "grok",
+      "loser_fighter": "Rupert Dennett",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795657502.6866324
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Dmitry Bivol",
-      "image": "portraits/dmitry-bivol.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 3
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "game_index": 4
     }
   },
   "winner": null,
@@ -981,7 +1002,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795654577.0028453,
+  "updated_at": 1795657502.6866546,
   "swaps": [
     {
       "bout": 15,
