@@ -307,7 +307,7 @@
           "country": "cl",
           "game_class": "HEAVYWEIGHT",
           "game_index": 24,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jai Opetaia",
@@ -782,8 +782,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "KO",
+        "round": 7,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 21,
@@ -893,7 +897,13 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 8
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Zhilei Zhang",
+        "image": "portraits/zhilei-zhang.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 1
+      },
       "winner": null,
       "result": null
     },
@@ -1159,24 +1169,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795682999.626473
+    },
+    {
+      "bout": 20,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Zhilei Zhang",
+      "loser_team": "grok",
+      "loser_fighter": "Eric Dennett",
+      "method": "KO",
+      "round": 7,
+      "bare_knuckle": false,
+      "ts": 1795687810.5073197
     }
   ],
   "current_match": {
-    "bout": 20,
-    "round": "Fight 20 of 31",
+    "bout": 21,
+    "round": "Fight 21 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Eric Dennett",
-      "image": "portraits/eric-dennett.jpg",
+      "fighter": "Jai Opetaia",
+      "image": "portraits/jai-opetaia.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 24
+      "game_index": 15
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Zhilei Zhang",
-      "image": "portraits/zhilei-zhang.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 1
+      "team": "claude",
+      "fighter": "Pernell Whitaker",
+      "image": "portraits/pernell-whitaker.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 15
     }
   },
   "winner": null,
@@ -1233,7 +1254,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795682999.8174453,
+  "updated_at": 1795687810.5073524,
   "swaps": [
     {
       "bout": 15,
