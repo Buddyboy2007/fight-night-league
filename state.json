@@ -49,7 +49,7 @@
           "country": "ua",
           "game_class": "HEAVYWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "George Foreman",
@@ -506,8 +506,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 9,
@@ -759,7 +763,13 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 6
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Eric Dennett",
+        "image": "portraits/eric-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 24
+      },
       "winner": null,
       "result": null
     },
@@ -1075,24 +1085,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795673097.3436015
+    },
+    {
+      "bout": 8,
+      "winner_team": "grok",
+      "winner_fighter": "Eric Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Vitali Klitschko",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795676106.9423332
     }
   ],
   "current_match": {
-    "bout": 8,
-    "round": "Fight 8 of 31",
+    "bout": 17,
+    "round": "Fight 17 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Eric Dennett",
-      "image": "portraits/eric-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 24
+      "team": "gemini",
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
+      "team": "grok",
+      "fighter": "Jack Johnson",
+      "image": "portraits/jack-johnson.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 5
     }
   },
   "winner": null,
@@ -1149,7 +1170,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795673105.5373034,
+  "updated_at": 1795676106.9423573,
   "swaps": [
     {
       "bout": 15,
