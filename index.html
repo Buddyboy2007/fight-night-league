@@ -467,6 +467,20 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,2
 .tpSpark .spark{height:60px}
 @media(max-width:1250px){.tpF,.tpF.R{grid-template-columns:1fr}.tpF.R .tpP{order:0}.pf .portrait.tpP .ph{width:62%}}
 @media(max-width:760px){.tpGrid{grid-template-columns:1fr}.tpVs{justify-self:center;font-size:26px}}
+
+/* tape frames inside the arena card (user 2026-11-26: replace the two boxes) */
+.ar-cards .tpF{grid-template-columns:150px 1fr;padding:12px;gap:12px;border-radius:22px}
+.ar-cards .tpF.R{grid-template-columns:1fr 150px}
+.ar-cards .tpF.L .name{color:#ff5a68}.ar-cards .tpF.R .name{color:#6f9bff}
+.ar-cards .tpF .name{text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:.95}
+.ar-cards .tpF .starRow{grid-template-columns:78px 1fr auto}
+.ar-cards .tpFacts{grid-template-columns:repeat(3,1fr)}
+.tpLive{margin:8px 0 4px;display:flex;flex-direction:column;gap:6px}
+.tpLive .ar-od{align-self:flex-start}
+.tpF.R .tpLive .ar-od{align-self:flex-end}
+.tpF.R .tpLive .ar-mtr .lb{flex-direction:row-reverse}.tpF.R .tpLive .ar-mtr .tr{justify-content:flex-end}
+@media(max-width:1250px){.ar-cards .tpF,.ar-cards .tpF.R{grid-template-columns:1fr}.ar-cards .tpF.R .tpP{order:0}}
+@media(max-width:820px){.ar-cards{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -682,13 +696,18 @@ function arena(){
   const {b} = s;
   const fl = byName[b.left] || {name:b.left, team:b.left_team, image:b.left_image};
   const fr = byName[b.right] || {name:b.right, team:b.right_team, image:b.right_image};
+  const key = b.left+'|'+b.right, still = tapeKey===key; tapeKey = key;
+  const [lo, hi] = eloBounds();
+  const arTape = (f,side)=>tapeFrame(f, side, lo, hi, `<div class="tpLive"><span class="ar-od" id="ar-o${side}">–</span>
+    <div class="ar-mtr hp"><div class="lb"><span>Health</span><b id="ar-hpv${side}">–</b></div><div class="tr"><i id="ar-hp${side}"></i></div></div>
+    <div class="ar-mtr st"><div class="lb"><span>Stamina</span><b id="ar-stv${side}">–</b></div><div class="tr"><i id="ar-st${side}"></i></div></div></div>`);
   const duel = ([k,lab])=>`<div class="duel"><b id="ar-${k}L">–</b><div><div class="nm">${lab}</div><div class="tug sm" id="ar-${k}"><i></i><b></b></div></div><b id="ar-${k}R">–</b></div>`;
   const ai = id=>`<div class="ar-ai" id="ar-ai-${id}"><img src="${BASE}logos/${id}.png" alt=""><div style="min-width:0"><div class="t">${esc(LVAI[id])}<span class="sideline" hidden>no corner · betting only</span><span class="pk">–</span></div><div class="tug sm"><i></i><b></b></div></div><div class="cf">–</div></div>`;
   return `<div class="ar" data-key="${esc(b.left+'|'+b.right)}">
     <div class="ar-top"><span class="lv-tag" id="ar-tag">–</span><span class="tt">${esc(b.label)}${b.tournament?' · Tournament '+b.tournament:''}</span><span class="rd" id="ar-rd"></span></div>
-    <div class="ar-cards">${arFc(fl,'L')}
+    <div class="ar-cards ${still?'still':''}">${arTape(fl,'L')}
       <div class="ar-mid"><div><div class="lab">Live favor</div><div class="ar-fav" id="ar-fav">0</div></div><div><div class="lab">Leaning</div><div class="who" id="ar-lean">–</div></div></div>
-      ${arFc(fr,'R')}</div>
+      ${arTape(fr,'R')}</div>
     <div class="ar-win"><div class="row"><span id="ar-pL" style="color:#ff5a68">–<small>${esc(sur(b.left))} wins</small></span><span class="c">Who wins? · live win chance</span><span id="ar-pR" style="color:#6f9bff;text-align:right">–<small>${esc(sur(b.right))} wins</small></span></div>
       <div class="tug" id="ar-win"><i></i><b></b></div></div>
     <div class="ar-sub">
@@ -711,7 +730,7 @@ function arTug(el, l, r){            // l, r: raw amounts; empty when both are n
 function homeLive(){
   const root = document.querySelector('.ar'); if(!root) return;
   const s = arState(); if(!s) return;
-  if(root.dataset.key !== s.b.left+'|'+s.b.right){ root.outerHTML = arena(); const tp=document.getElementById('tape'); if(tp) tp.outerHTML = tape(); return homeLive(); }
+  if(root.dataset.key !== s.b.left+'|'+s.b.right){ root.outerHTML = arena(); return homeLive(); }
   const T = (id,v)=>{ const e=document.getElementById(id); if(e && e.firstChild?.nodeType===3) e.firstChild.nodeValue=v; else if(e) e.textContent=v; };
   const tag = document.getElementById('ar-tag'); tag.textContent = s.tag; tag.classList.toggle('on', s.inFight);
   const st = s.st, rnd = st && (st.round || (st.round_breaks!=null ? st.round_breaks+1 : null));
@@ -773,7 +792,7 @@ function tapePair(){
   const u = D.upcoming.find(u=>u.current) || D.upcoming[0];
   return u && u.left && u.right ? [u.left, u.right, u] : null;
 }
-function tapeFrame(f, side, eloLo, eloHi){
+function tapeFrame(f, side, eloLo, eloHi, live=''){
   const tc=tierCol(f), rows=starRows(f), ovr=ovrOf(rows);
   const pct = v => eloHi>eloLo ? Math.max(3,Math.min(100,100*(v-eloLo)/(eloHi-eloLo))) : 50;
   const facts=[['Pro',proStr(f)],['League',`${f.wins||0}-${f.losses||0}`],['KO rate',f.ko_pct==null?'–':fmt(f.ko_pct)+'%'],
@@ -788,6 +807,7 @@ function tapeFrame(f, side, eloLo, eloHi){
     <div class="tpI">
       <div class="name" ${link(f.name)}>${esc(f.name)}</div>
       <div class="subt">${esc(division(f.division||''))}${f.team?' · '+esc(team(f.team).name):''}</div>
+      ${live}
       <div class="badges"><span class="bdg tierBadge">${esc((f.subtier||f.tier||'?').replace('-','−'))} · ${esc(TIER_NAMES[f.tier]||'')}</span>${f.team?teamChip(f.team):''}${f.streak>=3?`<span class="bdg" style="color:var(--green)">🔥 W${f.streak}</span>`:''}</div>
       <div class="tpElo"><div class="lb"><span>ELO</span><b>${fmt(f.elo)}</b><small>peak ${fmt(f.peak)}</small></div>
         <div class="tr"><i style="width:${pct(f.elo)}%"></i><u style="left:${pct(f.peak||f.elo)}%"></u></div></div>
@@ -795,6 +815,10 @@ function tapeFrame(f, side, eloLo, eloHi){
       <div class="tpFacts">${facts.map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>
       ${f.elo_history&&f.elo_history.length>1?`<div class="tpSpark"><small>ELO over time</small>${spark(f.elo_history)}</div>`:''}
     </div></div>`;
+}
+function eloBounds(){
+  const elos = D.fighters.filter(x=>x.fights).map(x=>x.elo);
+  return elos.length ? [Math.min(...elos), Math.max(...D.fighters.filter(x=>x.fights).map(x=>x.peak||x.elo))] : [1400,1600];
 }
 function tape(){
   const pr = tapePair(); if(!pr) return '<div id="tape"></div>';
@@ -812,7 +836,7 @@ function home(){
   const cur = D.upcoming.find(u=>u.current) || D.upcoming[0];
   const lt = D.live_tournament;
   const champs = D.tournaments.filter(t=>t.complete);
-  return `${arena()}${tape()}<div class="grid g4 st sec">
+  return `${arena()}<div class="grid g4 st sec">
     <div class="card stat"><b>${D.totals.fights}</b><span>Fights tracked</span></div>
     <div class="card stat"><b>${D.totals.tournaments}</b><span>Tournaments</span></div>
     <div class="card stat"><b>${D.totals.fights?Math.round(100*D.totals.kos/D.totals.fights):0}%</b><span>Finish rate</span></div>
