@@ -399,10 +399,13 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,2
 .tierBox p{margin-top:4px;color:#cfd8ea;font-size:14px}
 .pf .desc{font-size:19px;line-height:1.6;color:#e3eaf7}
 .grade{display:inline-block;font-size:.72em;font-weight:1000;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;vertical-align:.12em;border:1px solid currentColor}
-.grade.excellent{color:#ffd700;background:rgba(255,215,0,.12);box-shadow:0 0 12px rgba(255,215,0,.3)}
-.grade.strong{color:#00e676;background:rgba(0,230,118,.12)}
-.grade.good{color:#54bcff;background:rgba(84,188,255,.12)}
-.grade.shaky{color:#ffb020;background:rgba(255,176,32,.12)}
+/* grade colours = tier colours (TIERCOL): S gold, B teal, C blue, D violet; then Amateur red, Novice pink */
+.grade.goat{color:#ffd24a;background:rgba(255,210,74,.12);box-shadow:0 0 12px rgba(255,210,74,.3)}
+.grade.world{color:#5eead4;background:rgba(94,234,212,.12)}
+.grade.olympic{color:#6aa7ff;background:rgba(106,167,255,.12)}
+.grade.regional{color:#a78bfa;background:rgba(167,139,250,.12)}
+.grade.amateur{color:#ff4d4d;background:rgba(255,77,77,.12)}
+.grade.novice{color:#ff7ac8;background:rgba(255,122,200,.12)}
 .pf .row2{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:18px;align-items:start}
 @media(max-width:900px){.pf .row2{grid-template-columns:1fr}}
 .stars{position:relative}.stars h2{min-height:62px}
@@ -529,7 +532,7 @@ function av(f,size=46){
 }
 const team = id => D.teams[id];
 const teamChip = id => `<span class="chip" style="color:${TEAMCOL[id]}"><img src="${BASE}${esc(team(id).logo)}">${esc(team(id).name)}</span>`;
-const TIER_NAMES = {S:'GOAT',A:'Elite',B:'World',C:'Olympic',D:'Regionalman','?':'Unranked'};
+const TIER_NAMES = {S:'G.O.A.T',A:'Elite',B:'World',C:'Olympic',D:'Regional','?':'Unranked'};
 const tierBadge = f => { const t=(f&&f.tier)||'?', s=(f&&f.subtier)||t; return `<span class="tier t-${t}" title="${TIER_NAMES[t]||''} tier">${s.replace('-','−')}</span>`; };
 const formDots = a => `<span class="form">${a.map(x=>`<i class="${x}"></i>`).join('')}</span>`;
 const streak = s => s>0?`<span class="W">W${s}</span>`:s<0?`<span class="L">L${-s}</span>`:'–';
@@ -996,11 +999,11 @@ function notable(f){
 /* ------------------------------------------------ fighter profile (full page, #fighter/<name>) */
 const TIERCOL = {S:'#ffd24a',A:'#ff8a3d',B:'#5eead4',C:'#6aa7ff',D:'#a78bfa','?':'#93a0b8'};
 const TIER_INFO = {
-  S:'The GOAT band: the top 10% of the ELO table among boxers who have fought. Everyone here has beaten the field often enough that an upset against him moves the whole board.',
+  S:'The G.O.A.T band: the top 10% of the ELO table among boxers who have fought. Everyone here has beaten the field often enough that an upset against him moves the whole board.',
   A:'Elite: the next 20% of the table. Contenders who win far more than they lose and are one good run away from the top band.',
   B:'World level: the middle 30%. Dangerous on their night, beatable on someone else\'s.',
   C:'Olympic: the next 25%. Results are mixed and every fight is a chance to climb.',
-  D:'Regionalman: the bottom 15% of the table. The draw has not been kind, or the CPU has not.',
+  D:'Regional: the bottom 15% of the table. The draw has not been kind, or the CPU has not.',
   '?':'Unranked: he has not fought in the league yet, so there is no rating to place him by.'};
 const DIVS = {HW:'Heavyweight',CW:'Cruiserweight',LHW:'Light Heavyweight',SMW:'Super Middleweight',MW:'Middleweight',LMW:'Light Middleweight',WW:'Welterweight',LWW:'Light Welterweight',LW:'Lightweight',FW:'Featherweight',BW:'Bantamweight'};
 const division = d => DIVS[d] || d || '';
@@ -1011,15 +1014,26 @@ function openFighter(name){ closeModal(); location.hash = 'fighter/' + encodeURI
 function routeName(){ const p=location.hash.slice(1).split('/'); return p[0]==='fighter' ? decodeURIComponent(p.slice(1).join('/')) : null; }
 
 // 0-10 game rating -> grade word. Thresholds are on the game's own scale, so they never need retuning.
-const grade10 = v => v==null?null: v>=9?'excellent': v>=7?'strong': v>=5?'good':'shaky';
-const gradePct = v => v==null?null: v>=75?'excellent': v>=55?'strong': v>=35?'good':'shaky';
-const gp = g => g?`<span class="grade ${g}">${g}</span>`:'';
+const grade10 = v => v==null?null: v>=9?'goat': v>=7?'world': v>=5?'olympic': v>=4?'regional': v>=3?'amateur':'novice';
+const gradePct = v => v==null?null: v>=75?'goat': v>=55?'world': v>=35?'olympic': v>=25?'regional': v>=10?'amateur':'novice';
+// Grade ladder (user 2026-11-26): the same words as the tiers, plus Amateur and Novice below Regional.
+// Colours are the tier colours (TIERCOL S/B/C/D); Amateur is red, Novice pink. Set in CSS .grade.<key>.
+const GRADE_LABEL = {goat:'G.O.A.T', world:'World', olympic:'Olympic', regional:'Regional', amateur:'Amateur', novice:'Novice'};
+const gp = g => g?`<span class="grade ${g}">${GRADE_LABEL[g]||g}</span>`:'';
 
 // Every row on one 1-99 scale, sports-game style. Game ratings are 1-10, league numbers are percentages.
 const r99 = v => Math.max(1,Math.min(99,Math.round(v)));
+// A stat that bottoms out at 1 (no KOs yet, no recent wins) shows a value in FLOOR_LO..FLOOR_HI (1-50) instead
+// (user 2026-11-26). Hashed from name+stat, so each fighter gets his own number and it never flickers
+// between refreshes; a real result above 1 always shows as-is.
+const FLOOR_AT=1, FLOOR_LO=1, FLOOR_HI=50;
+function floorFor(name,label){
+  let h=2166136261; for(const c of String(name)+'|'+label){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); }
+  return FLOOR_LO + ((h>>>0) % (FLOOR_HI-FLOOR_LO+1));
+}
 function starRows(f){
   const r=f.ratings||{}, rows=[];
-  const add=(label,v)=>rows.push({label,v:r99(v)});
+  const add=(label,v)=>{ let x=r99(v); if(x<=FLOOR_AT) x=floorFor(f.name,label); rows.push({label,v:x}); };
   if(r.pow!=null) add('Power',r.pow*10);
   if(r.dfn!=null) add('Defence',r.dfn*10);
   if(r.tec!=null) add('Technique',r.tec*10);
