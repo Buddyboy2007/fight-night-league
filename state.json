@@ -218,7 +218,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 29,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Adonis Creed",
@@ -759,24 +759,28 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 29
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 20,
       "left": {
-        "team": "gemini",
-        "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-        "image": "portraits/julio-cesar-chavez.jpg",
-        "game_class": "WELTERWEIGHT",
-        "game_index": 6
-      },
-      "right": {
         "team": "grok",
         "fighter": "Eric Dennett",
         "image": "portraits/eric-dennett.jpg",
         "game_class": "HEAVYWEIGHT",
         "game_index": 24
+      },
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Zhilei Zhang",
+        "image": "portraits/zhilei-zhang.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 1
       },
       "winner": null,
       "result": null
@@ -822,11 +826,11 @@
     {
       "id": 23,
       "left": {
-        "team": "chatgpt",
-        "fighter": "Zhilei Zhang",
-        "image": "portraits/zhilei-zhang.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 1
+        "team": "gemini",
+        "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+        "image": "portraits/julio-cesar-chavez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 6
       },
       "right": {
         "team": "claude",
@@ -882,7 +886,13 @@
     },
     {
       "id": 26,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jordan Dennett",
+        "image": "portraits/jordan-dennett.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 8
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1138,24 +1148,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795682620.7961538
+    },
+    {
+      "bout": 19,
+      "winner_team": "grok",
+      "winner_fighter": "Jordan Dennett",
+      "loser_team": "gemini",
+      "loser_fighter": "Daniel Dubois",
+      "method": "WO",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795682999.626473
     }
   ],
   "current_match": {
-    "bout": 19,
-    "round": "Fight 19 of 31",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Jordan Dennett",
-      "image": "portraits/jordan-dennett.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 8
+      "fighter": "Eric Dennett",
+      "image": "portraits/eric-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 24
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Daniel Dubois",
-      "image": "portraits/daniel-dubois.jpg",
+      "team": "chatgpt",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1212,7 +1233,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795682628.9789314,
+  "updated_at": 1795682999.8174453,
   "swaps": [
     {
       "bout": 15,
@@ -1229,6 +1250,54 @@
       "for": "Dmitry Bivol",
       "why": "same-team fighters would have met",
       "ts": 1795677264.2004914
+    },
+    {
+      "bout": 20,
+      "moved": "Eric Dennett",
+      "to_bout": 23,
+      "for": "Zhilei Zhang",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.6264951
+    },
+    {
+      "bout": 23,
+      "moved": "Eric Dennett",
+      "to_bout": 20,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.626505
+    },
+    {
+      "bout": 20,
+      "moved": "Eric Dennett",
+      "to_bout": 23,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.6265168
+    },
+    {
+      "bout": 23,
+      "moved": "Eric Dennett",
+      "to_bout": 20,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.6265225
+    },
+    {
+      "bout": 20,
+      "moved": "Eric Dennett",
+      "to_bout": 23,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.6265295
+    },
+    {
+      "bout": 23,
+      "moved": "Eric Dennett",
+      "to_bout": 20,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795682999.6265333
     }
   ]
 }
