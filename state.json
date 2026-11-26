@@ -156,7 +156,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 11,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -851,8 +851,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 11
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 24,
@@ -936,7 +940,13 @@
     },
     {
       "id": 28,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+        "image": "portraits/julio-cesar-chavez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 6
+      },
       "right": {
         "team": "grok",
         "fighter": "Lancero Dennett",
@@ -1222,24 +1232,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795690868.3537717
+    },
+    {
+      "bout": 23,
+      "winner_team": "gemini",
+      "winner_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "loser_team": "claude",
+      "loser_fighter": "Danny Jacobs",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795691693.2887921
     }
   ],
   "current_match": {
-    "bout": 23,
-    "round": "Fight 23 of 31",
+    "bout": 25,
+    "round": "Quarterfinals",
     "left": {
-      "team": "gemini",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "team": "grok",
+      "fighter": "Jack Johnson",
+      "image": "portraits/jack-johnson.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 5
     },
     "right": {
       "team": "claude",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "fighter": "Tyson Fury",
+      "image": "portraits/tyson-fury.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1296,7 +1317,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795690876.5359,
+  "updated_at": 1795691693.2888167,
   "swaps": [
     {
       "bout": 15,
