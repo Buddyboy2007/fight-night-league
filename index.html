@@ -979,7 +979,7 @@ function profile(name){
       <span class="rk">${f.fights?'#'+f.rank:'NEW'}</span>
       ${f.country?`<img class="flg" src="${BASE}flags/${esc(f.country)}.svg" onerror="this.remove()" alt="">`:''}
       <div class="ph">${photo}</div>
-      ${mate?`<div class="allyBubble" style="--tc:${TEAMCOL[mate.team]}" ${link(mate.name)}>${av(mate,40)}<div style="min-width:0"><small>STABLEMATE</small><b>${esc(mate.name)}</b></div></div>`:''}
+      ${mate?`<div class="allyBubble" style="--tc:${TEAMCOL[mate.team]}" ${link(mate.name)}>${av(mate,40)}<div style="min-width:0"><small>BOXER BUDDY</small><b>${esc(mate.name)}</b></div></div>`:''}
     </div>
     <div class="card">
       <div class="name">${esc(f.name)}</div>
