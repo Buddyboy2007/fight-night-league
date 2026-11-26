@@ -826,21 +826,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 10,
+    "round": "Fight 10 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "game_index": 10
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Danny Jacobs",
-      "image": "portraits/danny-jacobs.jpg",
+      "team": "grok",
+      "fighter": "Rupert Dennett",
+      "image": "portraits/rupert-dennett.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 11
+      "game_index": 23
     }
   },
   "winner": null,
@@ -893,5 +893,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795725829.647105
+  "updated_at": 1795725837.8470275
 }
