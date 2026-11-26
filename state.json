@@ -120,7 +120,7 @@
           "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Tyson Fury",
@@ -437,8 +437,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 6,
@@ -721,7 +725,13 @@
     },
     {
       "id": 19,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jordan Dennett",
+        "image": "portraits/jordan-dennett.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 8
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1012,23 +1022,34 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795665172.7716658
+    },
+    {
+      "bout": 5,
+      "winner_team": "grok",
+      "winner_fighter": "Jordan Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Artur Beterbiev",
+      "method": "WO",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795667081.6813228
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Jordan Dennett",
-      "image": "portraits/jordan-dennett.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 8
+      "team": "gemini",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     },
     "right": {
-      "team": "claude",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
+      "team": "chatgpt",
+      "fighter": "Evander Holyfield",
+      "image": "portraits/evander-holyfield.jpg",
+      "game_class": "HEAVYWEIGHT",
       "game_index": 2
     }
   },
@@ -1086,7 +1107,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795665180.9766676,
+  "updated_at": 1795667081.8841112,
   "swaps": [
     {
       "bout": 15,
