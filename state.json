@@ -93,7 +93,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ryan Garcia",
@@ -828,8 +828,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 23,
@@ -920,7 +924,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 15
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "winner": null,
       "result": null
     },
@@ -1201,24 +1211,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795687818.8428767
+    },
+    {
+      "bout": 22,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "claude",
+      "loser_fighter": "Terence Crawford",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795690868.3537717
     }
   ],
   "current_match": {
-    "bout": 22,
-    "round": "Fight 22 of 31",
+    "bout": 23,
+    "round": "Fight 23 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "team": "gemini",
+      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "image": "portraits/julio-cesar-chavez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 6
     },
     "right": {
-      "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "team": "claude",
+      "fighter": "Danny Jacobs",
+      "image": "portraits/danny-jacobs.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 11
     }
   },
   "winner": null,
@@ -1275,7 +1296,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795687839.0179548,
+  "updated_at": 1795690868.3538122,
   "swaps": [
     {
       "bout": 15,
