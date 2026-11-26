@@ -200,7 +200,7 @@
           "country": "mx",
           "game_class": "HEAVYWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Peter Manfredo Jr.",
@@ -562,8 +562,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 33
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 13,
@@ -703,7 +707,13 @@
     {
       "id": 22,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Lennox Lewis",
+        "image": "portraits/lennox-lewis.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 33
+      },
       "winner": null,
       "result": null
     },
@@ -844,24 +854,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795729359.2091393
+    },
+    {
+      "bout": 12,
+      "winner_team": "grok",
+      "winner_fighter": "Lennox Lewis",
+      "loser_team": "codex",
+      "loser_fighter": "Andy Ruiz Jr.",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795732887.0983846
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Andy Ruiz Jr.",
-      "image": "portraits/andy-ruiz-jr.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 4
+      "fighter": "Jaron Ennis",
+      "image": "portraits/jaron-ennis.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 21
     },
     "right": {
-      "team": "grok",
-      "fighter": "Lennox Lewis",
-      "image": "portraits/lennox-lewis.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 33
+      "team": "chatgpt",
+      "fighter": "Danny Jacobs",
+      "image": "portraits/danny-jacobs.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 11
     }
   },
   "winner": null,
@@ -914,5 +935,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795729367.4380434
+  "updated_at": 1795732887.098413
 }
