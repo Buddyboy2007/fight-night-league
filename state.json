@@ -111,7 +111,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Artur Beterbiev",
@@ -805,8 +805,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 22,
@@ -909,7 +913,13 @@
     },
     {
       "id": 27,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jai Opetaia",
+        "image": "portraits/jai-opetaia.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 15
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1180,24 +1190,35 @@
       "round": 7,
       "bare_knuckle": false,
       "ts": 1795687810.5073197
+    },
+    {
+      "bout": 21,
+      "winner_team": "grok",
+      "winner_fighter": "Jai Opetaia",
+      "loser_team": "claude",
+      "loser_fighter": "Pernell Whitaker",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795687818.8428767
     }
   ],
   "current_match": {
-    "bout": 21,
-    "round": "Fight 21 of 31",
+    "bout": 22,
+    "round": "Fight 22 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Jai Opetaia",
-      "image": "portraits/jai-opetaia.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 15
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     },
     "right": {
-      "team": "claude",
-      "fighter": "Pernell Whitaker",
-      "image": "portraits/pernell-whitaker.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 15
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 21
     }
   },
   "winner": null,
@@ -1254,7 +1275,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795687810.5073524,
+  "updated_at": 1795687818.8429766,
   "swaps": [
     {
       "bout": 15,
@@ -1319,6 +1340,54 @@
       "for": "Julio C\u00e9sar Ch\u00e1vez",
       "why": "same-team fighters would have met",
       "ts": 1795682999.6265333
+    },
+    {
+      "bout": 22,
+      "moved": "Arturo Godoy",
+      "to_bout": 23,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.8429327
+    },
+    {
+      "bout": 23,
+      "moved": "Arturo Godoy",
+      "to_bout": 22,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.842942
+    },
+    {
+      "bout": 22,
+      "moved": "Arturo Godoy",
+      "to_bout": 23,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.8429515
+    },
+    {
+      "bout": 23,
+      "moved": "Arturo Godoy",
+      "to_bout": 22,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.8429554
+    },
+    {
+      "bout": 22,
+      "moved": "Arturo Godoy",
+      "to_bout": 23,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.842963
+    },
+    {
+      "bout": 23,
+      "moved": "Arturo Godoy",
+      "to_bout": 22,
+      "for": "Julio C\u00e9sar Ch\u00e1vez",
+      "why": "same-team fighters would have met",
+      "ts": 1795687818.8429663
     }
   ]
 }
