@@ -209,7 +209,7 @@
           "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 4,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Daniel Dubois",
@@ -585,8 +585,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 14,
@@ -719,7 +723,13 @@
     },
     {
       "id": 23,
-      "left": null,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Zhilei Zhang",
+        "image": "portraits/zhilei-zhang.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 1
+      },
       "right": {
         "team": "claude",
         "fighter": "Danny Jacobs",
@@ -886,24 +896,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795651614.5010374
+    },
+    {
+      "bout": 13,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Zhilei Zhang",
+      "loser_team": "gemini",
+      "loser_fighter": "Sergey Kovalev",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795654568.8197017
     }
   ],
   "current_match": {
-    "bout": 13,
-    "round": "Fight 13 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Sergey Kovalev",
-      "image": "portraits/sergey-kovalev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 4
+      "fighter": "Keyshawn Hayes",
+      "image": "portraits/keyshawn-hayes.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 18
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Zhilei Zhang",
-      "image": "portraits/zhilei-zhang.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 1
+      "team": "claude",
+      "fighter": "Jermain Taylor",
+      "image": "portraits/jermain-taylor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 4
     }
   },
   "winner": null,
@@ -960,7 +981,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795651622.670733,
+  "updated_at": 1795654568.819726,
   "swaps": [
     {
       "bout": 15,
