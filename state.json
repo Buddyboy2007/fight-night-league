@@ -236,7 +236,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 18,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -713,8 +713,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 18,
@@ -726,11 +730,11 @@
         "game_index": 19
       },
       "right": {
-        "team": "grok",
-        "fighter": "Arturo Godoy",
-        "image": "portraits/arturo-godoy.jpg",
-        "game_class": "HEAVYWEIGHT",
-        "game_index": 21
+        "team": "chatgpt",
+        "fighter": "Dmitry Bivol",
+        "image": "portraits/dmitry-bivol.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 3
       },
       "winner": null,
       "result": null
@@ -802,11 +806,11 @@
         "game_index": 1
       },
       "right": {
-        "team": "chatgpt",
-        "fighter": "Dmitry Bivol",
-        "image": "portraits/dmitry-bivol.jpg",
-        "game_class": "LIGHT HEAVYWEIGHT",
-        "game_index": 3
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
       },
       "winner": null,
       "result": null
@@ -855,7 +859,13 @@
     },
     {
       "id": 25,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Jack Johnson",
+        "image": "portraits/jack-johnson.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 5
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1096,24 +1106,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795676106.9423332
+    },
+    {
+      "bout": 17,
+      "winner_team": "grok",
+      "winner_fighter": "Jack Johnson",
+      "loser_team": "gemini",
+      "loser_fighter": "Keyshawn Hayes",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795677264.2004657
     }
   ],
   "current_match": {
-    "bout": 17,
-    "round": "Fight 17 of 31",
+    "bout": 18,
+    "round": "Fight 18 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "team": "claude",
+      "fighter": "Tyson Fury",
+      "image": "portraits/tyson-fury.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 19
     },
     "right": {
-      "team": "grok",
-      "fighter": "Jack Johnson",
-      "image": "portraits/jack-johnson.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 5
+      "team": "chatgpt",
+      "fighter": "Dmitry Bivol",
+      "image": "portraits/dmitry-bivol.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 3
     }
   },
   "winner": null,
@@ -1170,7 +1191,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795676115.136616,
+  "updated_at": 1795677264.2005136,
   "swaps": [
     {
       "bout": 15,
@@ -1179,6 +1200,14 @@
       "for": "Vasiliy Lomachenko",
       "why": "same-team fighters would have met",
       "ts": 1795642666.8304205
+    },
+    {
+      "bout": 18,
+      "moved": "Arturo Godoy",
+      "to_bout": 22,
+      "for": "Dmitry Bivol",
+      "why": "same-team fighters would have met",
+      "ts": 1795677264.2004914
     }
   ]
 }
