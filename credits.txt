@@ -71,3 +71,5 @@ ed-braddock.jpg         EdHUD.png (Street Fighter V portrait)
 In-game renders (2026-11-23, user asked for in-game pictures of the Chileans): Fight Night Forever select-screen head models (EA Sports), captured and cropped:
   arturo-godoy (replaces the Wikimedia photo, kept as arturo-godoy.jpg.bak-wikimedia), marcial-carrion
   lance-dennett, eric-dennett, jordan-dennett, rupert-dennett (2026-11-23, same select-screen capture)
+
+naoya-inoue.jpg         Naoya_Inoue_20230302suports_03.jpg, 内閣官房内閣広報室 (Cabinet Public Relations Office, Japan), CC BY 4.0, via Wikimedia Commons (2026-11-26)

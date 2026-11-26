@@ -1117,9 +1117,13 @@ setInterval(draftFetch, 1500);
 draftFetch();
 
 // slices: [{w, fill, label, sub, img, ink}]; mode: 'radial' (names), 'tangent' (classes), 'team' (logos)
+// user 2026-11-26: "the border color of the wheel should be the color of the team selected". Set by each
+// caller before it draws: the drafting corner's colour, or the landed team's on a team wheel; null = gold.
+let DWHEEL_RIM = null;
 function dWheel(slices, mode, pick, turns, s0, s1, seed, landed) {
   const svg = document.getElementById('dWheel'), R = 288, tot = slices.reduce((a, s) => a + s.w, 0);
-  let g = '<circle r="306" fill="#0a0d15" stroke="#f5c542" stroke-width="3"/><circle r="292" fill="none" stroke="#1b2235" stroke-width="2"/>';
+  const rim = DWHEEL_RIM || '#f5c542', rw = DWHEEL_RIM ? 8 : 3;
+  let g = `<circle r="${306 - rw / 2 + 1.5}" fill="#0a0d15" stroke="${rim}" stroke-width="${rw}"/><circle r="292" fill="none" stroke="#1b2235" stroke-width="2"/>`;
   for (let k = 0; k < 28; k++) {
     const a = k * 2 * Math.PI / 28;
     g += `<circle class="bulb ${k % 2 ? 'o' : ''}" cx="${299 * Math.cos(a)}" cy="${299 * Math.sin(a)}" r="4.5"/>`;
@@ -1335,6 +1339,7 @@ function draftRender(i, st, sub) {
     const ids = st.team_items, landed = sub === 'L', t = D.teams[st.team];
     const slices = ids.map(id => ({ w: 1, fill: rgba(D.teams[id].color, .62), label: D.teams[id].name, img: D.teams[id].logo,
                                    ink: id === 'grok' ? '#0a0d14' : '#fff' }));
+    DWHEEL_RIM = landed ? t.color : null;
     dWheel(slices, 'team', st.team_pick, 3, 0.3, st.dur - 2.9, D.seq % 1000 + 19, landed);
     dHub('SITS<br>OUT');
     dStatus('Who sits out?', landed ? t.name + ' sits out' : 'Spinning', landed ? t.color : null, landed ? t.logo : null);
@@ -1348,6 +1353,7 @@ function draftRender(i, st, sub) {
     const n = st.items.length, reps = Math.max(1, Math.ceil(6 / n)), slices = [];
     for (let r = 0; r < reps; r++) st.items.forEach((it, k) => slices.push({ w: 1, fill: classColor(it.label, WCOL[(r * n + k) % WCOL.length]), label: it.label }));
     const pick = st.pick + n * Math.floor(hrand(D.seq % 1000 + 3) * reps), landed = sub === 'L';
+    DWHEEL_RIM = null;
     dWheel(slices, 'tangent', pick, 4, 0.8, 8.4, D.seq % 1000 + 1, landed);
     dHub('LOWEST<br>CLASS');
     dStatus('Weight band', 'Spinning');
@@ -1362,6 +1368,7 @@ function draftRender(i, st, sub) {
 
   // pick: corner wheel, then the weight-class wheel, then that corner's fighter wheel, then the pick card
   const t = D.teams[st.team], cEnd = st.team_dur + (st.class_dur || 0), fEnd = cEnd + st.fighter_dur, hold = st.class_hold || 0.5;
+  DWHEEL_RIM = sub === 'T' ? null : t.color;      // the corner on the clock owns the wheel's border
   dStatus(sub === 'T' ? `Corner ${st.turn}<span> of 4</span>` : `${esc(t.name)} · Pick ${st.k}<span> / ${st.per}</span>`,
     sub === 'T' ? 'Spinning for the corner' : `On the clock · pick ${st.n} of ${field}`,
     sub === 'T' ? null : t.color, sub === 'T' ? null : t.logo);
@@ -1442,7 +1449,7 @@ function draftRender(i, st, sub) {
   });
   dWheel(slices, 'radial', st.pick, 3, cEnd + 0.1, fEnd - 0.55, st.n * 17 + 3, sub !== 'F');
   dHub(`<img src="${bust(t.logo)}">`, t.color);
-  dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat ? ` · ★ ${DSTAT[t.stat]} picks singled out` : ' · every slice equal'));
+  dCaption(`${t.name}'s ${st.fighter.tag || (st.fighter.cls || '').toLowerCase()} board`, t.identity + (t.stat && (st.items || []).some(x => x.fit) ? ` · ★ ${DSTAT[t.stat]} picks singled out` : ' · every slice equal'));
   if (sub === 'C' || sub === 'C2') {
     const f = st.fighter, odds = Math.round(100 * st.items[st.pick].w / tot);
     if (sub === 'C') {
