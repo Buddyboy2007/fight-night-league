@@ -889,21 +889,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 13,
+    "round": "Fight 13 of 31",
     "left": {
       "team": "gemini",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "fighter": "Sergey Kovalev",
+      "image": "portraits/sergey-kovalev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 4
     },
     "right": {
-      "team": "claude",
-      "fighter": "Jermain Taylor",
-      "image": "portraits/jermain-taylor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 4
+      "team": "chatgpt",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -960,7 +960,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795651614.5010593,
+  "updated_at": 1795651622.670733,
   "swaps": [
     {
       "bout": 15,
