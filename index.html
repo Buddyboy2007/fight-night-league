@@ -475,6 +475,7 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,2
 .ar-cards .tpF .name{text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:.95}
 .ar-cards .tpF .starRow{grid-template-columns:78px 1fr auto}
 .ar-cards .tpFacts{grid-template-columns:repeat(3,1fr)}
+.ar-cards .portrait{animation:none!important}   /* an endless bob is a per-frame repaint for the headless Discord renderer */
 .tpLive{margin:8px 0 4px;display:flex;flex-direction:column;gap:6px}
 .tpLive .ar-od{align-self:flex-start}
 .tpF.R .tpLive .ar-od{align-self:flex-end}
