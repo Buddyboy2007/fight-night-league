@@ -253,7 +253,7 @@
           "country": "cl",
           "game_class": "HEAVYWEIGHT",
           "game_index": 21,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lancero Dennett",
@@ -1035,8 +1035,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     }
   ],
   "history": [
@@ -1369,27 +1373,25 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795702848.368912
+    },
+    {
+      "bout": 31,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "grok",
+      "loser_fighter": "Arturo Godoy",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795705745.1401618
     }
   ],
-  "current_match": {
-    "bout": 31,
-    "round": "Final",
-    "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
-    },
-    "right": {
-      "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
-    }
+  "current_match": null,
+  "winner": {
+    "team": "grok",
+    "fighter": "Lancero Dennett",
+    "image": "portraits/lance-dennett.jpg"
   },
-  "winner": null,
   "tournament": 11,
   "draw": [
     "Keyshawn Hayes",
@@ -1443,7 +1445,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795702848.3689606,
+  "updated_at": 1795705745.1401682,
   "swaps": [
     {
       "bout": 15,
