@@ -76,7 +76,7 @@
           "country": "kg",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 3,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -736,8 +736,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 3
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 19,
@@ -866,7 +870,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 5
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "winner": null,
       "result": null
     },
@@ -1117,24 +1127,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795677264.2004657
+    },
+    {
+      "bout": 18,
+      "winner_team": "claude",
+      "winner_fighter": "Tyson Fury",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Dmitry Bivol",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795682620.7961538
     }
   ],
   "current_match": {
-    "bout": 18,
-    "round": "Fight 18 of 31",
+    "bout": 19,
+    "round": "Fight 19 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Tyson Fury",
-      "image": "portraits/tyson-fury.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 19
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Dmitry Bivol",
-      "image": "portraits/dmitry-bivol.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 3
+      "team": "gemini",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     }
   },
   "winner": null,
@@ -1191,7 +1212,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795677272.4468966,
+  "updated_at": 1795682620.796186,
   "swaps": [
     {
       "bout": 15,
