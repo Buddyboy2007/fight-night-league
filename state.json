@@ -40,7 +40,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vitali Klitschko",
@@ -460,8 +460,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 7,
@@ -732,7 +736,13 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 8
       },
-      "right": null,
+      "right": {
+        "team": "gemini",
+        "fighter": "Daniel Dubois",
+        "image": "portraits/daniel-dubois.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 29
+      },
       "winner": null,
       "result": null
     },
@@ -1033,24 +1043,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795667081.6813228
+    },
+    {
+      "bout": 6,
+      "winner_team": "gemini",
+      "winner_fighter": "Daniel Dubois",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Evander Holyfield",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795670113.5217519
     }
   ],
   "current_match": {
-    "bout": 6,
-    "round": "Fight 6 of 31",
+    "bout": 7,
+    "round": "Fight 7 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Daniel Dubois",
-      "image": "portraits/daniel-dubois.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "team": "claude",
+      "fighter": "Ryan Garcia",
+      "image": "portraits/ryan-garcia.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 14
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Evander Holyfield",
-      "image": "portraits/evander-holyfield.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 2
+      "team": "gemini",
+      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "image": "portraits/julio-cesar-chavez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -1107,7 +1128,7 @@
       "Lightweight"
     ]
   },
-  "updated_at": 1795667081.8841112,
+  "updated_at": 1795670113.5217733,
   "swaps": [
     {
       "bout": 15,
