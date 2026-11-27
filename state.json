@@ -253,7 +253,7 @@
           "country": "cl",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 26,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ryan Garcia",
@@ -368,8 +368,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 10
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 3,
@@ -678,7 +682,13 @@
         "game_class": "BANTAMWEIGHT",
         "game_index": 1
       },
-      "right": null,
+      "right": {
+        "team": "codex",
+        "fighter": "Canelo \u00c1lvarez",
+        "image": "portraits/canelo-alvarez.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 10
+      },
       "winner": null,
       "result": null
     },
@@ -928,24 +938,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795800647.879899
+    },
+    {
+      "bout": 2,
+      "winner_team": "codex",
+      "winner_fighter": "Canelo \u00c1lvarez",
+      "loser_team": "grok",
+      "loser_fighter": "Marcial Carri\u00f3n",
+      "method": null,
+      "round": 5,
+      "bare_knuckle": false,
+      "ts": 1795801907.5047596
     }
   ],
   "current_match": {
-    "bout": 2,
-    "round": "Fight 2 of 31",
+    "bout": 3,
+    "round": "Fight 3 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Marcial Carri\u00f3n",
-      "image": "portraits/marcial-carrion.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 26
+      "team": "codex",
+      "fighter": "Yuriorkis Gamboa",
+      "image": "portraits/yuriorkis-gamboa.jpg",
+      "game_class": "FEATHERWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "codex",
-      "fighter": "Canelo \u00c1lvarez",
-      "image": "portraits/canelo-alvarez.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 10
+      "team": "grok",
+      "fighter": "Naoya Inoue",
+      "image": "portraits/naoya-inoue.jpg",
+      "game_class": "FEATHERWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1002,5 +1023,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795800656.1006682
+  "updated_at": 1795801907.5047827
 }
