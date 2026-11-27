@@ -13,7 +13,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 19,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Sugar Ray Robinson",
@@ -874,8 +874,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 19
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 25,
@@ -943,7 +947,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Artur Beterbiev",
+        "image": "portraits/artur-beterbiev.jpg",
+        "game_class": "LIGHT HEAVYWEIGHT",
+        "game_index": 2
+      },
       "winner": null,
       "result": null
     },
@@ -1222,24 +1232,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795772310.296652
+    },
+    {
+      "bout": 24,
+      "winner_team": "grok",
+      "winner_fighter": "Artur Beterbiev",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Lucius Palmer",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795773145.445983
     }
   ],
   "current_match": {
-    "bout": 24,
-    "round": "Fight 24 of 31",
+    "bout": 25,
+    "round": "Quarterfinals",
     "left": {
-      "team": "grok",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "team": "claude",
+      "fighter": "Vitali Klitschko",
+      "image": "portraits/vitali-klitschko.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Lucius Palmer",
-      "image": "portraits/lucius-palmer.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 19
+      "team": "grok",
+      "fighter": "Eric Dennett",
+      "image": "portraits/eric-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 24
     }
   },
   "winner": null,
@@ -1292,5 +1313,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795772318.5026414
+  "updated_at": 1795773145.4460096
 }
