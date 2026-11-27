@@ -298,7 +298,7 @@
           "country": "ie",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lancero Dennett",
@@ -615,8 +615,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 6
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 6,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 16,
@@ -694,7 +698,13 @@
     },
     {
       "id": 24,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Ricardo \u00c1lvarez",
+        "image": "portraits/ricardo-alvarez.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 17
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -760,24 +770,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795790347.6238828
+    },
+    {
+      "bout": 15,
+      "winner_team": "gemini",
+      "winner_fighter": "Ricardo \u00c1lvarez",
+      "loser_team": "grok",
+      "loser_fighter": "Conor McGregor",
+      "method": null,
+      "round": 6,
+      "bare_knuckle": false,
+      "ts": 1795791883.4940047
     }
   ],
   "current_match": {
-    "bout": 15,
-    "round": "Fight 15 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Ricardo \u00c1lvarez",
-      "image": "portraits/ricardo-alvarez.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 17
+      "team": "claude",
+      "fighter": "Jesse Rodriguez",
+      "image": "portraits/jesse-rodriguez.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "grok",
-      "fighter": "Conor McGregor",
-      "image": "portraits/conor-mcgregor.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 6
+      "team": "gemini",
+      "fighter": "Junto Nakatani",
+      "image": "portraits/junto-nakatani.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -834,5 +855,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795790355.8815615
+  "updated_at": 1795791883.494031
 }
