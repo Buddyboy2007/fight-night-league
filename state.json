@@ -111,7 +111,7 @@
           "country": "ua",
           "game_class": "HEAVYWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Tyson Fury",
@@ -159,7 +159,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "codex": {
       "name": "Codex",
@@ -1035,8 +1035,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     }
   ],
   "history": [
@@ -1369,27 +1373,25 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795785695.0855217
+    },
+    {
+      "bout": 31,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Vitali Klitschko",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795786622.2829068
     }
   ],
-  "current_match": {
-    "bout": 31,
-    "round": "Final",
-    "left": {
-      "team": "claude",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 0
-    },
-    "right": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
-    }
+  "current_match": null,
+  "winner": {
+    "team": "grok",
+    "fighter": "Lancero Dennett",
+    "image": "portraits/lance-dennett.jpg"
   },
-  "winner": null,
   "tournament": 14,
   "draw": [
     "Jaron Ennis",
@@ -1439,5 +1441,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795785695.0855484
+  "updated_at": 1795786622.2829096
 }
