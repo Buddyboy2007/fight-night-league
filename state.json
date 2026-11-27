@@ -227,7 +227,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 21,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Zhilei Zhang",
@@ -713,8 +713,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 18,
@@ -851,7 +855,13 @@
     },
     {
       "id": 25,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Vitali Klitschko",
+        "image": "portraits/vitali-klitschko.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 0
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1075,24 +1085,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795753879.1932569
+    },
+    {
+      "bout": 17,
+      "winner_team": "claude",
+      "winner_fighter": "Vitali Klitschko",
+      "loser_team": "codex",
+      "loser_fighter": "Jaron Ennis",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795757165.9389224
     }
   ],
   "current_match": {
-    "bout": 17,
-    "round": "Fight 17 of 31",
+    "bout": 18,
+    "round": "Fight 18 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 21
+      "team": "chatgpt",
+      "fighter": "Muhammad Ali",
+      "image": "portraits/muhammad-ali.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 29
     },
     "right": {
-      "team": "claude",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
+      "team": "grok",
+      "fighter": "Eric Dennett",
+      "image": "portraits/eric-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 24
     }
   },
   "winner": null,
@@ -1145,5 +1166,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795753879.4247074
+  "updated_at": 1795757165.938946
 }
