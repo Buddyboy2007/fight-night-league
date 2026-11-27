@@ -147,7 +147,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Anthony Joshua",
@@ -483,8 +483,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 24
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "KO",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 8,
@@ -748,7 +752,13 @@
     },
     {
       "id": 20,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Ryu",
+        "image": "portraits/ryu.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 24
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1033,24 +1043,35 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795750872.0710442
+    },
+    {
+      "bout": 7,
+      "winner_team": "grok",
+      "winner_fighter": "Ryu",
+      "loser_team": "claude",
+      "loser_fighter": "Janibek Alimkhanuly",
+      "method": "KO",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795752110.482332
     }
   ],
   "current_match": {
-    "bout": 7,
-    "round": "Fight 7 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "team": "codex",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 1
     },
     "right": {
-      "team": "grok",
-      "fighter": "Ryu",
-      "image": "portraits/ryu.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 24
+      "team": "chatgpt",
+      "fighter": "Rocky Marciano",
+      "image": "portraits/rocky-marciano.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -1103,5 +1124,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795750880.2941499
+  "updated_at": 1795752110.482355
 }
