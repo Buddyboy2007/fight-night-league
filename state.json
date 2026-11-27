@@ -156,7 +156,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 12,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -612,8 +612,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 14
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 10,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 15,
@@ -736,7 +740,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "James Toney",
+        "image": "portraits/james-toney.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 14
+      },
       "winner": null,
       "result": null
     },
@@ -886,24 +896,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795735745.7608387
+    },
+    {
+      "bout": 14,
+      "winner_team": "chatgpt",
+      "winner_fighter": "James Toney",
+      "loser_team": "claude",
+      "loser_fighter": "Anthony Joshua",
+      "method": null,
+      "round": 10,
+      "bare_knuckle": false,
+      "ts": 1795738131.7686212
     }
   ],
   "current_match": {
-    "bout": 14,
-    "round": "Fight 14 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Anthony Joshua",
-      "image": "portraits/anthony-joshua.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 12
+      "team": "codex",
+      "fighter": "Jaron Ennis",
+      "image": "portraits/jaron-ennis.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 21
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "James Toney",
-      "image": "portraits/james-toney.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 14
+      "fighter": "Danny Jacobs",
+      "image": "portraits/danny-jacobs.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 11
     }
   },
   "winner": null,
@@ -956,5 +977,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795735753.9583683
+  "updated_at": 1795738131.7686431
 }
