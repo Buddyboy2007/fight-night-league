@@ -102,7 +102,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 8,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vasiliy Lomachenko",
@@ -483,8 +483,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 8,
@@ -748,7 +752,13 @@
     },
     {
       "id": 20,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Devin Haney",
+        "image": "portraits/devin-haney.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 9
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1033,24 +1043,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795807437.15545
+    },
+    {
+      "bout": 7,
+      "winner_team": "claude",
+      "winner_fighter": "Devin Haney",
+      "loser_team": "gemini",
+      "loser_fighter": "Floyd Mayweather Jr.",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795810280.1890519
     }
   ],
   "current_match": {
-    "bout": 7,
-    "round": "Fight 7 of 31",
+    "bout": 8,
+    "round": "Fight 8 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Floyd Mayweather Jr.",
-      "image": "portraits/floyd-mayweather-jr.jpg",
-      "game_class": "WELTERWEIGHT",
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
       "game_index": 8
     },
     "right": {
-      "team": "claude",
-      "fighter": "Devin Haney",
-      "image": "portraits/devin-haney.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 9
+      "team": "codex",
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1107,5 +1128,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795807445.3999808
+  "updated_at": 1795810280.1890755
 }
