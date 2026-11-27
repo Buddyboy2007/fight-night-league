@@ -93,7 +93,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 36,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Bernard Hopkins",
@@ -391,8 +391,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 36
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 4,
@@ -694,7 +698,13 @@
     },
     {
       "id": 18,
-      "left": null,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Muhammad Ali",
+        "image": "portraits/muhammad-ali.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 29
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -949,24 +959,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795740536.6569026
+    },
+    {
+      "bout": 3,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Muhammad Ali",
+      "loser_team": "claude",
+      "loser_fighter": "Old George Foreman",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795744217.4373693
     }
   ],
   "current_match": {
-    "bout": 3,
-    "round": "Fight 3 of 31",
+    "bout": 4,
+    "round": "Fight 4 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Muhammad Ali",
-      "image": "portraits/muhammad-ali.jpg",
+      "team": "grok",
+      "fighter": "Eric Dennett",
+      "image": "portraits/eric-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "game_index": 24
     },
     "right": {
-      "team": "claude",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
+      "team": "codex",
+      "fighter": "Daniel Dubois",
+      "image": "portraits/daniel-dubois.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "game_index": 30
     }
   },
   "winner": null,
@@ -1019,5 +1040,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795740536.8816
+  "updated_at": 1795744217.4373949
 }
