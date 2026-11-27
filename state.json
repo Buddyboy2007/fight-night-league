@@ -271,7 +271,7 @@
           "country": "jp",
           "game_class": "FEATHERWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Arturo Godoy",
@@ -391,8 +391,12 @@
         "game_class": "FEATHERWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "WO",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 4,
@@ -694,7 +698,13 @@
     },
     {
       "id": 18,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "Yuriorkis Gamboa",
+        "image": "portraits/yuriorkis-gamboa.jpg",
+        "game_class": "FEATHERWEIGHT",
+        "game_index": 0
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -949,24 +959,35 @@
       "round": 5,
       "bare_knuckle": false,
       "ts": 1795801907.5047596
+    },
+    {
+      "bout": 3,
+      "winner_team": "codex",
+      "winner_fighter": "Yuriorkis Gamboa",
+      "loser_team": "grok",
+      "loser_fighter": "Naoya Inoue",
+      "method": "WO",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795802801.6268878
     }
   ],
   "current_match": {
-    "bout": 3,
-    "round": "Fight 3 of 31",
+    "bout": 4,
+    "round": "Fight 4 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Yuriorkis Gamboa",
-      "image": "portraits/yuriorkis-gamboa.jpg",
-      "game_class": "FEATHERWEIGHT",
-      "game_index": 0
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     },
     "right": {
-      "team": "grok",
-      "fighter": "Naoya Inoue",
-      "image": "portraits/naoya-inoue.jpg",
-      "game_class": "FEATHERWEIGHT",
-      "game_index": 1
+      "team": "gemini",
+      "fighter": "Vergil Ortiz Jr.",
+      "image": "portraits/vergil-ortiz-jr.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 13
     }
   },
   "winner": null,
@@ -1023,5 +1044,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795801915.7338934
+  "updated_at": 1795802801.8587253
 }
