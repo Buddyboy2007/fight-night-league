@@ -76,7 +76,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 14,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -851,8 +851,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 14
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 24,
@@ -932,7 +936,13 @@
     },
     {
       "id": 28,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1201,24 +1211,35 @@
       "round": 4,
       "bare_knuckle": false,
       "ts": 1795769452.6484485
+    },
+    {
+      "bout": 23,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "James Toney",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795772310.296652
     }
   ],
   "current_match": {
-    "bout": 23,
-    "round": "Fight 23 of 31",
+    "bout": 24,
+    "round": "Fight 24 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 2
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "James Toney",
-      "image": "portraits/james-toney.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 14
+      "fighter": "Lucius Palmer",
+      "image": "portraits/lucius-palmer.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 19
     }
   },
   "winner": null,
@@ -1271,5 +1292,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795769460.8698945
+  "updated_at": 1795772310.2966886
 }
