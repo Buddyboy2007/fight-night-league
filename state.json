@@ -763,21 +763,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 15,
+    "round": "Fight 15 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Jesse Rodriguez",
-      "image": "portraits/jesse-rodriguez.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 0
+      "team": "gemini",
+      "fighter": "Ricardo \u00c1lvarez",
+      "image": "portraits/ricardo-alvarez.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 17
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Junto Nakatani",
-      "image": "portraits/junto-nakatani.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 1
+      "team": "grok",
+      "fighter": "Conor McGregor",
+      "image": "portraits/conor-mcgregor.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -834,5 +834,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795790347.623906
+  "updated_at": 1795790355.8815615
 }
