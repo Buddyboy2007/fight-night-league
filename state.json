@@ -22,7 +22,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Keyshawn Hayes",
@@ -497,8 +497,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 15
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 10,
@@ -663,7 +667,13 @@
     },
     {
       "id": 21,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -739,23 +749,35 @@
       "result": null
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "bout": 9,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Bernard Hopkins",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795790347.6238828
+    }
+  ],
   "current_match": {
-    "bout": 9,
-    "round": "Fight 9 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "team": "claude",
+      "fighter": "Jesse Rodriguez",
+      "image": "portraits/jesse-rodriguez.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "team": "gemini",
+      "fighter": "Junto Nakatani",
+      "image": "portraits/junto-nakatani.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -812,5 +834,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795788178.839792
+  "updated_at": 1795790347.623906
 }
