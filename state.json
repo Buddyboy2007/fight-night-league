@@ -67,7 +67,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 32,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "James Toney",
@@ -437,8 +437,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 19
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 6,
@@ -721,7 +725,13 @@
     },
     {
       "id": 19,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Tyson Fury",
+        "image": "portraits/tyson-fury.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 19
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -991,24 +1001,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795747029.7790217
+    },
+    {
+      "bout": 5,
+      "winner_team": "claude",
+      "winner_fighter": "Tyson Fury",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Joe Frazier",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795749875.7863874
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "team": "grok",
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     },
     "right": {
-      "team": "claude",
-      "fighter": "Tyson Fury",
-      "image": "portraits/tyson-fury.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 19
+      "team": "codex",
+      "fighter": "Brandon Romero",
+      "image": "portraits/brandon-romero.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 6
     }
   },
   "winner": null,
@@ -1061,5 +1082,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795747037.9910722
+  "updated_at": 1795749875.7864144
 }
