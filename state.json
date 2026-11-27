@@ -67,7 +67,7 @@
           "country": "us",
           "game_class": "BANTAMWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Erislandy Lara",
@@ -345,8 +345,12 @@
         "game_class": "BANTAMWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 2,
@@ -667,7 +671,13 @@
     },
     {
       "id": 17,
-      "left": null,
+      "left": {
+        "team": "gemini",
+        "fighter": "Junto Nakatani",
+        "image": "portraits/junto-nakatani.jpg",
+        "game_class": "BANTAMWEIGHT",
+        "game_index": 1
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -907,24 +917,35 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795799159.211949
+    },
+    {
+      "bout": 1,
+      "winner_team": "gemini",
+      "winner_fighter": "Junto Nakatani",
+      "loser_team": "claude",
+      "loser_fighter": "Jesse Rodriguez",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795800647.879899
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 2,
+    "round": "Fight 2 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Jesse Rodriguez",
-      "image": "portraits/jesse-rodriguez.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 0
+      "team": "grok",
+      "fighter": "Marcial Carri\u00f3n",
+      "image": "portraits/marcial-carrion.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 26
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Junto Nakatani",
-      "image": "portraits/junto-nakatani.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 1
+      "team": "codex",
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 10
     }
   },
   "winner": null,
@@ -981,5 +1002,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795799167.4417088
+  "updated_at": 1795800647.8799205
 }
