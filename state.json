@@ -262,7 +262,7 @@
           "country": "gb",
           "game_class": "HEAVYWEIGHT",
           "game_index": 33,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lancero Dennett",
@@ -828,8 +828,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 33
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 4,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 23,
@@ -916,7 +920,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 23
       },
-      "right": null,
+      "right": {
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "winner": null,
       "result": null
     },
@@ -1180,24 +1190,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795768376.1776016
+    },
+    {
+      "bout": 22,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "grok",
+      "loser_fighter": "Lennox Lewis",
+      "method": null,
+      "round": 4,
+      "bare_knuckle": false,
+      "ts": 1795769452.6484485
     }
   ],
   "current_match": {
-    "bout": 22,
-    "round": "Fight 22 of 31",
+    "bout": 23,
+    "round": "Fight 23 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "grok",
-      "fighter": "Lennox Lewis",
-      "image": "portraits/lennox-lewis.jpg",
+      "team": "chatgpt",
+      "fighter": "James Toney",
+      "image": "portraits/james-toney.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 33
+      "game_index": 14
     }
   },
   "winner": null,
@@ -1250,5 +1271,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795768384.3805733
+  "updated_at": 1795769452.6484752
 }
