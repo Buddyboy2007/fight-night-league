@@ -289,7 +289,7 @@
           "country": "cl",
           "game_class": "HEAVYWEIGHT",
           "game_index": 24,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Reggie Stewart",
@@ -897,8 +897,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 24
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 2,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 26,
@@ -959,7 +963,13 @@
     },
     {
       "id": 29,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Vitali Klitschko",
+        "image": "portraits/vitali-klitschko.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 0
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1243,24 +1253,35 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795773145.445983
+    },
+    {
+      "bout": 25,
+      "winner_team": "claude",
+      "winner_fighter": "Vitali Klitschko",
+      "loser_team": "grok",
+      "loser_fighter": "Eric Dennett",
+      "method": null,
+      "round": 2,
+      "bare_knuckle": false,
+      "ts": 1795776303.279621
     }
   ],
   "current_match": {
-    "bout": 25,
+    "bout": 26,
     "round": "Quarterfinals",
     "left": {
       "team": "claude",
-      "fighter": "Vitali Klitschko",
-      "image": "portraits/vitali-klitschko.jpg",
+      "fighter": "Tyson Fury",
+      "image": "portraits/tyson-fury.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 0
+      "game_index": 19
     },
     "right": {
-      "team": "grok",
-      "fighter": "Eric Dennett",
-      "image": "portraits/eric-dennett.jpg",
+      "team": "codex",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 24
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1313,5 +1334,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795773153.6460018
+  "updated_at": 1795776303.279651
 }
