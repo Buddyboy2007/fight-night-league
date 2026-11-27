@@ -49,7 +49,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 8,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Danny Jacobs",
@@ -79,7 +79,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "claude": {
       "name": "Claude",
@@ -1012,8 +1012,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 31,
@@ -1024,7 +1028,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 0
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "winner": null,
       "result": null
     }
@@ -1348,17 +1358,28 @@
       "round": 2,
       "bare_knuckle": false,
       "ts": 1795782853.7597616
+    },
+    {
+      "bout": 30,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Gennadiy Golovkin",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795785695.0855217
     }
   ],
   "current_match": {
-    "bout": 30,
-    "round": "Semifinals",
+    "bout": 31,
+    "round": "Final",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "claude",
+      "fighter": "Vitali Klitschko",
+      "image": "portraits/vitali-klitschko.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 0
     },
     "right": {
       "team": "grok",
@@ -1418,5 +1439,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795782853.7597926
+  "updated_at": 1795785695.0855484
 }
