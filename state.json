@@ -156,7 +156,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 13,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -414,8 +414,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 13
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 5,
@@ -705,7 +709,13 @@
         "game_class": "FEATHERWEIGHT",
         "game_index": 0
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "winner": null,
       "result": null
     },
@@ -970,24 +980,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795802801.6268878
+    },
+    {
+      "bout": 4,
+      "winner_team": "claude",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "gemini",
+      "loser_fighter": "Vergil Ortiz Jr.",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795803611.4384947
     }
   ],
   "current_match": {
-    "bout": 4,
-    "round": "Fight 4 of 31",
+    "bout": 5,
+    "round": "Fight 5 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "team": "gemini",
+      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "image": "portraits/julio-cesar-chavez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 6
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Vergil Ortiz Jr.",
-      "image": "portraits/vergil-ortiz-jr.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 13
+      "team": "claude",
+      "fighter": "Shakur Stevenson",
+      "image": "portraits/shakur-stevenson.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1044,5 +1065,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795802801.8587253
+  "updated_at": 1795803611.4385197
 }
