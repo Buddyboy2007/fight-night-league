@@ -262,7 +262,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 14,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Naoya Inoue",
@@ -759,8 +759,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 14
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 20,
@@ -878,7 +882,13 @@
     },
     {
       "id": 26,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Shakur Stevenson",
+        "image": "portraits/shakur-stevenson.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 0
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1117,24 +1127,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795818551.0335193
+    },
+    {
+      "bout": 19,
+      "winner_team": "claude",
+      "winner_fighter": "Shakur Stevenson",
+      "loser_team": "grok",
+      "loser_fighter": "Ryan Garcia",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795821425.428966
     }
   ],
   "current_match": {
-    "bout": 19,
-    "round": "Fight 19 of 31",
+    "bout": 20,
+    "round": "Fight 20 of 31",
     "left": {
       "team": "claude",
-      "fighter": "Shakur Stevenson",
-      "image": "portraits/shakur-stevenson.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 0
+      "fighter": "Devin Haney",
+      "image": "portraits/devin-haney.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 9
     },
     "right": {
       "team": "grok",
-      "fighter": "Ryan Garcia",
-      "image": "portraits/ryan-garcia.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 14
+      "fighter": "Jordan Dennett",
+      "image": "portraits/jordan-dennett.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 8
     }
   },
   "winner": null,
@@ -1191,5 +1212,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795818571.2621326
+  "updated_at": 1795821425.428999
 }
