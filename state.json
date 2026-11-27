@@ -307,7 +307,7 @@
           "country": "ru",
           "game_class": "LIGHT HEAVYWEIGHT",
           "game_index": 2,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jordan Dennett",
@@ -966,8 +966,12 @@
         "game_class": "LIGHT HEAVYWEIGHT",
         "game_index": 2
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 6,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 29,
@@ -997,7 +1001,13 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 8
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "winner": null,
       "result": null
     },
@@ -1306,24 +1316,35 @@
       "round": 7,
       "bare_knuckle": false,
       "ts": 1795780837.723503
+    },
+    {
+      "bout": 28,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "grok",
+      "loser_fighter": "Artur Beterbiev",
+      "method": null,
+      "round": 6,
+      "bare_knuckle": false,
+      "ts": 1795782254.5268283
     }
   ],
   "current_match": {
-    "bout": 28,
-    "round": "Quarterfinals",
+    "bout": 29,
+    "round": "Semifinals",
     "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
+      "team": "claude",
+      "fighter": "Vitali Klitschko",
+      "image": "portraits/vitali-klitschko.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "game_index": 0
     },
     "right": {
-      "team": "grok",
-      "fighter": "Artur Beterbiev",
-      "image": "portraits/artur-beterbiev.jpg",
-      "game_class": "LIGHT HEAVYWEIGHT",
-      "game_index": 2
+      "team": "codex",
+      "fighter": "Zhilei Zhang",
+      "image": "portraits/zhilei-zhang.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1376,5 +1397,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795780845.9273293
+  "updated_at": 1795782254.5268624
 }
