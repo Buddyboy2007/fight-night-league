@@ -253,7 +253,7 @@
           "country": "cl",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 23,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lennox Lewis",
@@ -943,8 +943,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 8
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 7,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 28,
@@ -986,7 +990,13 @@
     },
     {
       "id": 30,
-      "left": null,
+      "left": {
+        "team": "chatgpt",
+        "fighter": "Gennadiy Golovkin",
+        "image": "portraits/gennadiy-golovkin.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 8
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1285,24 +1295,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795779164.876896
+    },
+    {
+      "bout": 27,
+      "winner_team": "chatgpt",
+      "winner_fighter": "Gennadiy Golovkin",
+      "loser_team": "grok",
+      "loser_fighter": "Rupert Dennett",
+      "method": null,
+      "round": 7,
+      "bare_knuckle": false,
+      "ts": 1795780837.723503
     }
   ],
   "current_match": {
-    "bout": 27,
+    "bout": 28,
     "round": "Quarterfinals",
     "left": {
       "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Gennadiy Golovkin",
-      "image": "portraits/gennadiy-golovkin.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 8
+      "team": "grok",
+      "fighter": "Artur Beterbiev",
+      "image": "portraits/artur-beterbiev.jpg",
+      "game_class": "LIGHT HEAVYWEIGHT",
+      "game_index": 2
     }
   },
   "winner": null,
@@ -1355,5 +1376,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795779173.0878994
+  "updated_at": 1795780837.7235281
 }
