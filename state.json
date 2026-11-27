@@ -147,7 +147,7 @@
           "country": "mx",
           "game_class": "WELTERWEIGHT",
           "game_index": 6,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vergil Ortiz Jr.",
@@ -437,8 +437,12 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 6,
@@ -721,7 +725,13 @@
     },
     {
       "id": 19,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Shakur Stevenson",
+        "image": "portraits/shakur-stevenson.jpg",
+        "game_class": "LIGHTWEIGHT",
+        "game_index": 0
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -991,24 +1001,35 @@
       "round": 3,
       "bare_knuckle": false,
       "ts": 1795803611.4384947
+    },
+    {
+      "bout": 5,
+      "winner_team": "claude",
+      "winner_fighter": "Shakur Stevenson",
+      "loser_team": "gemini",
+      "loser_fighter": "Julio C\u00e9sar Ch\u00e1vez",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795806460.2725463
     }
   ],
   "current_match": {
-    "bout": 5,
-    "round": "Fight 5 of 31",
+    "bout": 6,
+    "round": "Fight 6 of 31",
     "left": {
-      "team": "gemini",
-      "fighter": "Julio C\u00e9sar Ch\u00e1vez",
-      "image": "portraits/julio-cesar-chavez.jpg",
+      "team": "codex",
+      "fighter": "Errol Spence Jr.",
+      "image": "portraits/errol-spence-jr.jpg",
       "game_class": "WELTERWEIGHT",
-      "game_index": 6
+      "game_index": 7
     },
     "right": {
-      "team": "claude",
-      "fighter": "Shakur Stevenson",
-      "image": "portraits/shakur-stevenson.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 0
+      "team": "grok",
+      "fighter": "Ryan Garcia",
+      "image": "portraits/ryan-garcia.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 14
     }
   },
   "winner": null,
@@ -1065,5 +1086,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795803619.6639068
+  "updated_at": 1795806460.2725692
 }
