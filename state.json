@@ -847,21 +847,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 13,
+    "round": "Fight 13 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Jesse Rodriguez",
-      "image": "portraits/jesse-rodriguez.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 0
+      "team": "codex",
+      "fighter": "Peter Manfredo Jr.",
+      "image": "portraits/peter-manfredo-jr.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 5
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Junto Nakatani",
-      "image": "portraits/junto-nakatani.jpg",
-      "game_class": "BANTAMWEIGHT",
-      "game_index": 1
+      "team": "claude",
+      "fighter": "Erislandy Lara",
+      "image": "portraits/erislandy-lara.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 12
     }
   },
   "winner": null,
@@ -918,5 +918,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795795017.9643738
+  "updated_at": 1795795026.1860547
 }
