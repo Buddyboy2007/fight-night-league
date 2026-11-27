@@ -31,7 +31,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 18,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Terence Crawford",
@@ -543,8 +543,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 3,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 12,
@@ -710,7 +714,13 @@
     },
     {
       "id": 22,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
+      },
       "right": {
         "team": "codex",
         "fighter": "Jaron Ennis",
@@ -886,24 +896,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795798312.2472596
+    },
+    {
+      "bout": 11,
+      "winner_team": "grok",
+      "winner_fighter": "Janibek Alimkhanuly",
+      "loser_team": "claude",
+      "loser_fighter": "Keyshawn Hayes",
+      "method": null,
+      "round": 3,
+      "bare_knuckle": false,
+      "ts": 1795799159.211949
     }
   ],
   "current_match": {
-    "bout": 11,
-    "round": "Fight 11 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "claude",
-      "fighter": "Keyshawn Hayes",
-      "image": "portraits/keyshawn-hayes.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 18
+      "fighter": "Jesse Rodriguez",
+      "image": "portraits/jesse-rodriguez.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 0
     },
     "right": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "team": "gemini",
+      "fighter": "Junto Nakatani",
+      "image": "portraits/junto-nakatani.jpg",
+      "game_class": "BANTAMWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -960,5 +981,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795798320.4637113
+  "updated_at": 1795799159.2119763
 }
