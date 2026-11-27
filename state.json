@@ -102,7 +102,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 15,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Vitali Klitschko",
@@ -805,8 +805,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 23
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 22,
@@ -905,7 +909,13 @@
     },
     {
       "id": 27,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Rupert Dennett",
+        "image": "portraits/rupert-dennett.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 23
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1159,24 +1169,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795765516.3749132
+    },
+    {
+      "bout": 21,
+      "winner_team": "grok",
+      "winner_fighter": "Rupert Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Bernard Hopkins",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795768376.1776016
     }
   ],
   "current_match": {
-    "bout": 21,
-    "round": "Fight 21 of 31",
+    "bout": 22,
+    "round": "Fight 22 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Bernard Hopkins",
-      "image": "portraits/bernard-hopkins.jpg",
+      "team": "chatgpt",
+      "fighter": "Gennadiy Golovkin",
+      "image": "portraits/gennadiy-golovkin.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 15
+      "game_index": 8
     },
     "right": {
       "team": "grok",
-      "fighter": "Rupert Dennett",
-      "image": "portraits/rupert-dennett.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 23
+      "fighter": "Lennox Lewis",
+      "image": "portraits/lennox-lewis.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 33
     }
   },
   "winner": null,
@@ -1229,5 +1250,5 @@
       "Middleweight"
     ]
   },
-  "updated_at": 1795765524.576441
+  "updated_at": 1795768376.1776297
 }
