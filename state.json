@@ -120,7 +120,7 @@
           "country": "mx",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 17,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Junto Nakatani",
@@ -159,7 +159,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "codex": {
       "name": "Codex",
@@ -874,8 +874,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 25,
@@ -943,7 +947,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 21
       },
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Ricky Hatton",
+        "image": "portraits/ricky-hatton.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 0
+      },
       "winner": null,
       "result": null
     },
@@ -1222,24 +1232,35 @@
       "round": 1,
       "bare_knuckle": false,
       "ts": 1795826705.860171
+    },
+    {
+      "bout": 24,
+      "winner_team": "claude",
+      "winner_fighter": "Ricky Hatton",
+      "loser_team": "gemini",
+      "loser_fighter": "Ricardo \u00c1lvarez",
+      "method": null,
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795831423.1151693
     }
   ],
   "current_match": {
-    "bout": 24,
-    "round": "Fight 24 of 31",
+    "bout": 25,
+    "round": "Quarterfinals",
     "left": {
-      "team": "gemini",
-      "fighter": "Ricardo \u00c1lvarez",
-      "image": "portraits/ricardo-alvarez.jpg",
+      "team": "codex",
+      "fighter": "Canelo \u00c1lvarez",
+      "image": "portraits/canelo-alvarez.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 17
+      "game_index": 10
     },
     "right": {
       "team": "claude",
-      "fighter": "Ricky Hatton",
-      "image": "portraits/ricky-hatton.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 0
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     }
   },
   "winner": null,
@@ -1296,5 +1317,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795826714.0732055
+  "updated_at": 1795831423.1152022
 }
