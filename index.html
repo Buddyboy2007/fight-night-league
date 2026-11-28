@@ -485,6 +485,29 @@ input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,2
 .tpF.R .tpLive .ar-mtr .lb{flex-direction:row-reverse}.tpF.R .tpLive .ar-mtr .tr{justify-content:flex-end}
 @media(max-width:1250px){.ar-cards .tpF,.ar-cards .tpF.R{grid-template-columns:1fr}.ar-cards .tpF.R .tpP{order:0}}
 @media(max-width:820px){.ar-cards{grid-template-columns:1fr!important}}
+
+/* 2026-11-28 (user): card borders follow the corner (red/blue), ELO takes the colour of the tier its rating sits in,
+   ELO graph green going up / red going down, Records mini leaderboards on home */
+.tpF.L{--corner:#ff4d5e}.tpF.R{--corner:#4a7bff}
+.tpF.L,.tpF.R{border-color:var(--corner);box-shadow:0 0 34px color-mix(in srgb,var(--corner) 32%,transparent)}
+.tpF.L .portrait.tpP,.tpF.R .portrait.tpP{border-color:var(--corner);box-shadow:0 0 0 4px color-mix(in srgb,var(--corner) 18%,transparent),0 0 30px color-mix(in srgb,var(--corner) 40%,transparent);
+  background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--corner) 26%,transparent),transparent 62%),linear-gradient(180deg,#151a25,#090c12)}
+.tpF.L .portrait.tpP .ph,.tpF.R .portrait.tpP .ph{border-color:color-mix(in srgb,var(--corner) 70%,#fff);box-shadow:0 0 26px color-mix(in srgb,var(--corner) 55%,transparent)}
+.tpF.L .portrait .rk,.tpF.R .portrait .rk{background:var(--corner);box-shadow:0 0 18px var(--corner);color:#fff}
+.tpElo .lb b{color:var(--eloCol,var(--gold))}
+.tpElo .lb em{font-style:normal;font-size:10px;font-weight:1000;letter-spacing:.1em;color:var(--eloCol,var(--gold))}
+.tpElo .tr{background:var(--eloBands,#05070b)}
+.tpElo .tr i{background:linear-gradient(90deg,color-mix(in srgb,var(--eloCol,var(--gold)) 35%,#05070b),var(--eloCol,var(--gold)));box-shadow:0 0 14px color-mix(in srgb,var(--eloCol,var(--gold)) 60%,transparent)}
+.recGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.recB{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px}
+.recB h3{margin:0 0 8px;font-size:11px;font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.recR{display:grid;grid-template-columns:22px 30px 1fr auto;gap:8px;align-items:center;padding:4px 0;cursor:pointer}
+.recR .n{font-weight:1000;font-size:12px;color:var(--mute);text-align:center}
+.recR:first-of-type .n{color:#1a1200;background:var(--gold);border-radius:6px}
+.recR .nm{font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.recR .nm small{display:block;font-weight:600;font-size:10px;color:var(--mute)}
+.recR .v{font-weight:1000;font-variant-numeric:tabular-nums;font-size:15px}
+.recR .v.act{color:var(--green)}
 </style>
 </head>
 <body>
@@ -813,12 +836,24 @@ function tapeFrame(f, side, eloLo, eloHi, live=''){
       <div class="subt">${esc(division(f.division||''))}${f.team?' · '+esc(team(f.team).name):''}</div>
       ${live}
       <div class="badges"><span class="bdg tierBadge">${esc((f.subtier||f.tier||'?').replace('-','−'))} · ${esc(TIER_NAMES[f.tier]||'')}</span>${f.team?teamChip(f.team):''}${f.streak>=3?`<span class="bdg" style="color:var(--green)">🔥 W${f.streak}</span>`:''}</div>
-      <div class="tpElo"><div class="lb"><span>ELO</span><b>${fmt(f.elo)}</b><small>peak ${fmt(f.peak)}</small></div>
+      <div class="tpElo" style="--eloCol:${f.fights?(TIERCOL[eloTier(f.elo)]||tc):'var(--mute)'};--eloBands:${eloBandsBg(eloLo,eloHi)}"><div class="lb"><span>ELO</span><b>${fmt(f.elo)}</b>${f.fights?`<em>${esc(TIER_NAMES[eloTier(f.elo)]||'')}</em>`:''}<small>peak ${fmt(f.peak)}</small></div>
         <div class="tr"><i style="width:${pct(f.elo)}%"></i><u style="left:${pct(f.peak||f.elo)}%"></u></div></div>
       ${rows.map(r=>`<div class="starRow ${ovrBand(r.v)}"><span>${r.label}</span><div class="tr"><i style="width:${r.v}%"></i></div><span class="sv ovr ${ovrBand(r.v)}"><em class="lt">${ovrTier(r.v)}</em>${r.v}</span></div>`).join('')||'<div class="small mute">No ratings on file.</div>'}
       <div class="tpFacts">${facts.map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>
       ${f.elo_history&&f.elo_history.length>1?`<div class="tpSpark"><small>ELO over time</small>${spark(f.elo_history)}</div>`:''}
     </div></div>`;
+}
+function eloTierMins(){
+  // lowest rating anyone in each tier holds -> the ELO bands; data-driven, so the bands move with the league
+  const m={}; for(const f of D.fighters){ if(!f.fights||!f.tier||f.tier==='?') continue; m[f.tier]=Math.min(m[f.tier]??1e9, f.elo); }
+  return Object.entries(m).sort((a,b)=>b[1]-a[1]);          // [[tier,minElo]] highest first
+}
+function eloTier(v){ const ms=eloTierMins(); for(const [t,mn] of ms) if(v>=mn) return t; return ms.length?ms.at(-1)[0]:'?'; }
+function eloBandsBg(lo,hi){
+  const ms=eloTierMins().slice().reverse(); if(!ms.length||hi<=lo) return '#05070b';
+  const pc=v=>Math.max(0,Math.min(100,100*(v-lo)/(hi-lo))).toFixed(1);
+  const st=[]; ms.forEach(([t,mn],i)=>{ const a=i?pc(mn):0, b=i<ms.length-1?pc(ms[i+1][1]):100, c=`color-mix(in srgb,${TIERCOL[t]||'#93a0b8'} 16%,#05070b)`; st.push(`${c} ${a}%`,`${c} ${b}%`); });
+  return `linear-gradient(90deg,${st.join(',')})`;
 }
 function eloBounds(){
   const elos = D.fighters.filter(x=>x.fights).map(x=>x.elo);
@@ -860,7 +895,14 @@ function home(){
     <div class="card"><h2>Top of the table</h2>${miniBoard((D.fighters.filter(f=>f.fights).length<6?D.fighters:D.fighters.filter(f=>f.fights)).slice(0,6))||'<div class="empty">Rankings appear after the first fight.</div>'}</div>
     <div class="card"><h2>Faction war</h2>${D.team_order.map(id=>team(id)).sort((a,b)=>b.wins-a.wins||b.avg_elo-a.avg_elo).map(t=>`<div style="display:flex;align-items:center;gap:12px;margin:10px 0;--tc:${TEAMCOL[t.id]}"><img src="${BASE}${esc(t.logo)}" style="width:30px;height:30px;border-radius:8px"><div style="flex:1"><div style="display:flex;justify-content:space-between;font-weight:800"><span>${esc(t.name)}</span><span>${t.wins}–${t.losses}</span></div><div class="pbar"><i style="width:${t.win_pct??0}%"></i></div></div></div>`).join('')}</div>
   </div>
+  ${recordsCard()}
   <div class="card sec"><h2>Latest results</h2>${fightRows(D.fights,8)}</div>`;
+}
+function recordsCard(){
+  const bs = D.records||[]; if(!bs.length) return '';
+  const row = (r,i,b)=>{ const f=byName[r.name]||{name:r.name};
+    return `<div class="recR" ${link(r.name)}><span class="n">${i+1}</span>${av(f,30)}<span class="nm">${esc(r.name)}${r.note&&r.note!=='active'?`<small>${esc(r.note)}</small>`:''}</span><span class="v ${r.note==='active'?'act':''}" ${r.note==='active'?'title="still running"':''}>${b.unit==='W'?'W':''}${Number(r.value).toLocaleString()}${r.note==='active'?' 🔥':''}</span></div>`; };
+  return `<div class="card sec"><h2>Records</h2><div class="recGrid">${bs.map(b=>`<div class="recB"><h3>${esc(b.title)}</h3>${b.rows.map((r,i)=>row(r,i,b)).join('')}</div>`).join('')}</div></div>`;
 }
 function upNext(){
   const list = D.upcoming.filter(u=>!u.current && u.left && u.right).slice(0,5);
@@ -971,7 +1013,11 @@ function spark(h){
   const pts=h.map((p,i)=>[P+i*(W-2*P)/(h.length-1), H-P-(p[1]-mn)/(mx-mn)*(H-2*P)]);
   const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
   const base=H-P-(1500-mn)/(mx-mn)*(H-2*P);
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#3a4a85" stroke-dasharray="4 4"/><path d="${d} L${pts.at(-1)[0]} ${H} L${pts[0][0]} ${H}Z" fill="#f5c45122"/><path d="${d}" fill="none" stroke="#f5c451" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;
+  // each step drawn on its own: green where the rating went up, red where it went down (user 2026-11-28)
+  let up='', dn='';
+  for(let i=1;i<pts.length;i++){ const seg=`M${pts[i-1][0].toFixed(1)} ${pts[i-1][1].toFixed(1)} L${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)} `; if(ys[i]<ys[i-1]) dn+=seg; else up+=seg; }
+  const net = ys.at(-1)>=ys[0] ? '#22c55e' : '#ef4444';
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#3a4a85" stroke-dasharray="4 4"/><path d="${d} L${pts.at(-1)[0]} ${H} L${pts[0][0]} ${H}Z" fill="${net}1a"/>${up?`<path d="${up}" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`:''}${dn?`<path d="${dn}" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`:''}</svg>`;
 }
 function notable(f){
   // The night he had no business winning, and the one he had no business losing.

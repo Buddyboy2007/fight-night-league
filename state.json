@@ -49,7 +49,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 9,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ricky Hatton",
@@ -79,7 +79,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "gemini": {
       "name": "Gemini",
@@ -1035,8 +1035,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     }
   ],
   "history": [
@@ -1369,27 +1373,25 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795854783.0753312
+    },
+    {
+      "bout": 31,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "claude",
+      "loser_fighter": "Devin Haney",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795854831.3501403
     }
   ],
-  "current_match": {
-    "bout": 31,
-    "round": "Final",
-    "left": {
-      "team": "claude",
-      "fighter": "Devin Haney",
-      "image": "portraits/devin-haney.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 9
-    },
-    "right": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
-    }
+  "current_match": null,
+  "winner": {
+    "team": "grok",
+    "fighter": "Lancero Dennett",
+    "image": "portraits/lance-dennett.jpg"
   },
-  "winner": null,
   "tournament": 15,
   "draw": [
     "Jesse Rodriguez",
@@ -1443,5 +1445,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795854783.0753577
+  "updated_at": 1795854831.3501427
 }
