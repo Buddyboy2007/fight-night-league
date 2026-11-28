@@ -1123,7 +1123,7 @@ function profile(name){
   const f=byName[name];
   if(!f) return `<a class="backlink" onclick="go('tiers')">← Tier list</a><div class="card empty">No boxer called ${esc(name)} is on the current roster.</div>`;
   const still = profFor===name; profFor=name;
-  const tc=tierCol(f), fs=D.fights.filter(x=>x.winner===name||x.loser===name);
+  const tc=tierCol(f), fs=D.fights.filter(x=>x.winner===name||(x.loser===name&&!x.one_sided));
   const mate=stablemate(f);
   const stars=starRows(f);
   const ovr=ovrOf(stars); const overall = ovr!=null ? {v:ovr,l:'OVR'} : f.p4p!=null ? {v:f.p4p,l:'P4P'} : {v:Math.round(f.elo),l:'ELO'};
