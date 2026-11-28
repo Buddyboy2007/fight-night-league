@@ -182,7 +182,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Old George Foreman",
@@ -642,8 +642,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 17,
@@ -715,7 +719,13 @@
     {
       "id": 24,
       "left": null,
-      "right": null,
+      "right": {
+        "team": "claude",
+        "fighter": "Thomas Hearns",
+        "image": "portraits/thomas-hearns.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 16
+      },
       "winner": null,
       "result": null
     },
@@ -802,24 +812,35 @@
       "round": 3,
       "bare_knuckle": true,
       "ts": 1795865902.57041
+    },
+    {
+      "bout": 16,
+      "winner_team": "claude",
+      "winner_fighter": "Thomas Hearns",
+      "loser_team": "codex",
+      "loser_fighter": "Janibek Alimkhanuly",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795869443.1729918
     }
   ],
   "current_match": {
-    "bout": 16,
-    "round": "Fight 16 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "claude",
-      "fighter": "Thomas Hearns",
-      "image": "portraits/thomas-hearns.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 16
+      "team": "codex",
+      "fighter": "Old George Foreman",
+      "image": "portraits/george-foreman.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 36
     },
     "right": {
-      "team": "codex",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "team": "chatgpt",
+      "fighter": "Joe Frazier",
+      "image": "portraits/joe-frazier.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 32
     }
   },
   "winner": null,
@@ -874,5 +895,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795865911.0539637
+  "updated_at": 1795869443.1730134
 }
