@@ -111,7 +111,7 @@
           "country": "ua",
           "game_class": "LIGHTWEIGHT",
           "game_index": 3,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Ricardo \u00c1lvarez",
@@ -805,8 +805,12 @@
         "game_class": "LIGHTWEIGHT",
         "game_index": 3
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 22,
@@ -905,7 +909,13 @@
     },
     {
       "id": 27,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1159,24 +1169,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795825061.7353146
+    },
+    {
+      "bout": 21,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "gemini",
+      "loser_fighter": "Vasiliy Lomachenko",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795825070.1467874
     }
   ],
   "current_match": {
-    "bout": 21,
-    "round": "Fight 21 of 31",
+    "bout": 22,
+    "round": "Fight 22 of 31",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "fighter": "Janibek Alimkhanuly",
+      "image": "portraits/janibek-alimkhanuly.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 7
     },
     "right": {
-      "team": "gemini",
-      "fighter": "Vasiliy Lomachenko",
-      "image": "portraits/vasiliy-lomachenko.jpg",
-      "game_class": "LIGHTWEIGHT",
-      "game_index": 3
+      "team": "codex",
+      "fighter": "Jaron Ennis",
+      "image": "portraits/jaron-ennis.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 21
     }
   },
   "winner": null,
@@ -1233,5 +1254,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795825061.7353392
+  "updated_at": 1795825070.146813
 }
