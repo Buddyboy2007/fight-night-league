@@ -805,21 +805,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 16,
+    "round": "Fight 16 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "team": "claude",
+      "fighter": "Thomas Hearns",
+      "image": "portraits/thomas-hearns.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 16
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "team": "codex",
+      "fighter": "Janibek Alimkhanuly",
+      "image": "portraits/janibek-alimkhanuly.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 7
     }
   },
   "winner": null,
@@ -874,5 +874,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795865902.5704324
+  "updated_at": 1795865911.0539637
 }
