@@ -58,7 +58,7 @@
           "country": "us",
           "game_class": "HEAVYWEIGHT",
           "game_index": 29,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Joe Frazier",
@@ -627,8 +627,12 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 29
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 16,
@@ -728,7 +732,13 @@
     },
     {
       "id": 24,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": {
         "team": "claude",
         "fighter": "Thomas Hearns",
@@ -844,24 +854,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795872966.0392282
+    },
+    {
+      "bout": 15,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Muhammad Ali",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795876469.8746827
     }
   ],
   "current_match": {
-    "bout": 15,
-    "round": "Fight 15 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
+      "team": "codex",
+      "fighter": "Old George Foreman",
+      "image": "portraits/george-foreman.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "game_index": 36
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Muhammad Ali",
-      "image": "portraits/muhammad-ali.jpg",
+      "fighter": "Joe Frazier",
+      "image": "portraits/joe-frazier.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 29
+      "game_index": 32
     }
   },
   "winner": null,
@@ -916,5 +937,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795872974.4408078
+  "updated_at": 1795876469.874717
 }
