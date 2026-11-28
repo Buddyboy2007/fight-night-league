@@ -826,21 +826,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 12,
+    "round": "Fight 12 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "team": "grok",
+      "fighter": "Sebastian Fundora",
+      "image": "portraits/sebastian-fundora.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 22
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "fighter": "Zab Judah",
+      "image": "portraits/zab-judah.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 13
     }
   },
   "winner": null,
@@ -895,5 +895,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795869443.1730134
+  "updated_at": 1795869451.569497
 }
