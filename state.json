@@ -200,7 +200,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 21,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Lucius Palmer",
@@ -828,8 +828,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 21
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": null,
+        "round": 5,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 23,
@@ -916,7 +920,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Janibek Alimkhanuly",
+        "image": "portraits/janibek-alimkhanuly.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 7
+      },
       "winner": null,
       "result": null
     },
@@ -1180,23 +1190,34 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795825070.1467874
+    },
+    {
+      "bout": 22,
+      "winner_team": "grok",
+      "winner_fighter": "Janibek Alimkhanuly",
+      "loser_team": "codex",
+      "loser_fighter": "Jaron Ennis",
+      "method": null,
+      "round": 5,
+      "bare_knuckle": false,
+      "ts": 1795826310.9952264
     }
   ],
   "current_match": {
-    "bout": 22,
-    "round": "Fight 22 of 31",
+    "bout": 23,
+    "round": "Fight 23 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
+      "team": "claude",
+      "fighter": "Erislandy Lara",
+      "image": "portraits/erislandy-lara.jpg",
       "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "game_index": 12
     },
     "right": {
-      "team": "codex",
-      "fighter": "Jaron Ennis",
-      "image": "portraits/jaron-ennis.jpg",
-      "game_class": "MIDDLEWEIGHT",
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
+      "game_class": "HEAVYWEIGHT",
       "game_index": 21
     }
   },
@@ -1254,5 +1275,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795825090.370918
+  "updated_at": 1795826310.9952652
 }
