@@ -218,7 +218,7 @@
           "country": "mx",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 10,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Errol Spence Jr.",
@@ -239,7 +239,7 @@
           "eliminated": true
         }
       ],
-      "eliminated": false
+      "eliminated": true
     },
     "grok": {
       "name": "Grok",
@@ -897,8 +897,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 1
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": null,
+        "round": 5,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 26,
@@ -959,7 +963,13 @@
     },
     {
       "id": 29,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Terence Crawford",
+        "image": "portraits/terence-crawford.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 1
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1243,24 +1253,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795831423.1151693
+    },
+    {
+      "bout": 25,
+      "winner_team": "claude",
+      "winner_fighter": "Terence Crawford",
+      "loser_team": "codex",
+      "loser_fighter": "Canelo \u00c1lvarez",
+      "method": null,
+      "round": 5,
+      "bare_knuckle": false,
+      "ts": 1795832728.1013167
     }
   ],
   "current_match": {
-    "bout": 25,
+    "bout": 26,
     "round": "Quarterfinals",
     "left": {
-      "team": "codex",
-      "fighter": "Canelo \u00c1lvarez",
-      "image": "portraits/canelo-alvarez.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 10
+      "team": "claude",
+      "fighter": "Shakur Stevenson",
+      "image": "portraits/shakur-stevenson.jpg",
+      "game_class": "LIGHTWEIGHT",
+      "game_index": 0
     },
     "right": {
       "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "fighter": "Devin Haney",
+      "image": "portraits/devin-haney.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 9
     }
   },
   "winner": null,
@@ -1317,5 +1338,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795831431.4717665
+  "updated_at": 1795832728.1013496
 }
