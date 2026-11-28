@@ -93,7 +93,7 @@
           "country": "ph",
           "game_class": "WELTERWEIGHT",
           "game_index": 5,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Pernell Whitaker",
@@ -535,8 +535,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 5
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 12,
@@ -670,7 +674,13 @@
     },
     {
       "id": 22,
-      "left": null,
+      "left": {
+        "team": "codex",
+        "fighter": "Roberto Dur\u00e1n",
+        "image": "portraits/roberto-duran.png",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 16
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -739,23 +749,35 @@
       "result": null
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "bout": 11,
+      "winner_team": "codex",
+      "winner_fighter": "Roberto Dur\u00e1n",
+      "loser_team": "claude",
+      "loser_fighter": "Manny Pacquiao",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795861499.5219066
+    }
+  ],
   "current_match": {
-    "bout": 11,
-    "round": "Fight 11 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Roberto Dur\u00e1n",
-      "image": "portraits/roberto-duran.png",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 16
+      "fighter": "Old George Foreman",
+      "image": "portraits/george-foreman.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 36
     },
     "right": {
-      "team": "claude",
-      "fighter": "Manny Pacquiao",
-      "image": "portraits/manny-pacquiao.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 5
+      "team": "chatgpt",
+      "fighter": "Joe Frazier",
+      "image": "portraits/joe-frazier.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 32
     }
   },
   "winner": null,
@@ -810,5 +832,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795856457.4521997
+  "updated_at": 1795861499.521952
 }
