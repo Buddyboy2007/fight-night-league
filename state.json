@@ -763,21 +763,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 13,
+    "round": "Fight 13 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "team": "chatgpt",
+      "fighter": "Oscar De La Hoya",
+      "image": "portraits/oscar-de-la-hoya.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 10
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "team": "grok",
+      "fighter": "Teofimo Lopez",
+      "image": "portraits/teofimo-lopez.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 4
     }
   },
   "winner": null,
@@ -832,5 +832,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795861499.521952
+  "updated_at": 1795861507.9986672
 }
