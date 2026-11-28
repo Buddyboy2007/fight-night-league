@@ -76,7 +76,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 10,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -577,8 +577,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 4
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 14,
@@ -687,7 +691,13 @@
     },
     {
       "id": 23,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Teofimo Lopez",
+        "image": "portraits/teofimo-lopez.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 4
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -760,24 +770,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795861499.5219066
+    },
+    {
+      "bout": 13,
+      "winner_team": "grok",
+      "winner_fighter": "Teofimo Lopez",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Oscar De La Hoya",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795865039.1091456
     }
   ],
   "current_match": {
-    "bout": 13,
-    "round": "Fight 13 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "chatgpt",
-      "fighter": "Oscar De La Hoya",
-      "image": "portraits/oscar-de-la-hoya.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 10
+      "team": "codex",
+      "fighter": "Old George Foreman",
+      "image": "portraits/george-foreman.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 36
     },
     "right": {
-      "team": "grok",
-      "fighter": "Teofimo Lopez",
-      "image": "portraits/teofimo-lopez.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 4
+      "team": "chatgpt",
+      "fighter": "Joe Frazier",
+      "image": "portraits/joe-frazier.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 32
     }
   },
   "winner": null,
@@ -832,5 +853,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795861507.9986672
+  "updated_at": 1795865039.109181
 }
