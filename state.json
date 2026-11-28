@@ -316,7 +316,7 @@
           "country": "kz",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 7,
-          "eliminated": false
+          "eliminated": true
         }
       ],
       "eliminated": false
@@ -943,8 +943,12 @@
         "game_class": "MIDDLEWEIGHT",
         "game_index": 7
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 28,
@@ -986,7 +990,13 @@
     },
     {
       "id": 30,
-      "left": null,
+      "left": {
+        "team": "grok",
+        "fighter": "Lancero Dennett",
+        "image": "portraits/lance-dennett.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 20
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1285,24 +1295,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795835716.1206229
+    },
+    {
+      "bout": 27,
+      "winner_team": "grok",
+      "winner_fighter": "Lancero Dennett",
+      "loser_team": "grok",
+      "loser_fighter": "Janibek Alimkhanuly",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795844977.5687761
     }
   ],
   "current_match": {
-    "bout": 27,
+    "bout": 28,
     "round": "Quarterfinals",
     "left": {
       "team": "grok",
-      "fighter": "Lancero Dennett",
-      "image": "portraits/lance-dennett.jpg",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 20
+      "game_index": 21
     },
     "right": {
-      "team": "grok",
-      "fighter": "Janibek Alimkhanuly",
-      "image": "portraits/janibek-alimkhanuly.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 7
+      "team": "claude",
+      "fighter": "Ricky Hatton",
+      "image": "portraits/ricky-hatton.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 0
     }
   },
   "winner": null,
@@ -1359,5 +1380,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795841885.975596
+  "updated_at": 1795844977.5688128
 }
