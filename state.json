@@ -58,7 +58,7 @@
           "country": "gb",
           "game_class": "WELTERWEIGHT",
           "game_index": 0,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Jesse Rodriguez",
@@ -966,8 +966,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 0
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "VOID",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 29,
@@ -997,7 +1001,13 @@
         "game_class": "HEAVYWEIGHT",
         "game_index": 20
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Arturo Godoy",
+        "image": "portraits/arturo-godoy.jpg",
+        "game_class": "HEAVYWEIGHT",
+        "game_index": 21
+      },
       "winner": null,
       "result": null
     },
@@ -1306,24 +1316,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795844977.5687761
+    },
+    {
+      "bout": 28,
+      "winner_team": "grok",
+      "winner_fighter": "Arturo Godoy",
+      "loser_team": "claude",
+      "loser_fighter": "Ricky Hatton",
+      "method": "VOID",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795844986.0819435
     }
   ],
   "current_match": {
-    "bout": 28,
-    "round": "Quarterfinals",
+    "bout": 29,
+    "round": "Semifinals",
     "left": {
-      "team": "grok",
-      "fighter": "Arturo Godoy",
-      "image": "portraits/arturo-godoy.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 21
+      "team": "claude",
+      "fighter": "Terence Crawford",
+      "image": "portraits/terence-crawford.jpg",
+      "game_class": "MIDDLEWEIGHT",
+      "game_index": 1
     },
     "right": {
       "team": "claude",
-      "fighter": "Ricky Hatton",
-      "image": "portraits/ricky-hatton.jpg",
+      "fighter": "Devin Haney",
+      "image": "portraits/devin-haney.jpg",
       "game_class": "WELTERWEIGHT",
-      "game_index": 0
+      "game_index": 9
     }
   },
   "winner": null,
@@ -1380,5 +1401,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795844977.5688128
+  "updated_at": 1795844986.0819714
 }
