@@ -741,21 +741,21 @@
   ],
   "history": [],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 11,
+    "round": "Fight 11 of 31",
     "left": {
       "team": "codex",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "fighter": "Roberto Dur\u00e1n",
+      "image": "portraits/roberto-duran.png",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 16
     },
     "right": {
-      "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
-      "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "team": "claude",
+      "fighter": "Manny Pacquiao",
+      "image": "portraits/manny-pacquiao.jpg",
+      "game_class": "WELTERWEIGHT",
+      "game_index": 5
     }
   },
   "winner": null,
@@ -810,5 +810,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795856454.082825
+  "updated_at": 1795856457.4521997
 }
