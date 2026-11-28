@@ -847,21 +847,21 @@
     }
   ],
   "current_match": {
-    "bout": 1,
-    "round": "Fight 1 of 31",
+    "bout": 15,
+    "round": "Fight 15 of 31",
     "left": {
-      "team": "codex",
-      "fighter": "Old George Foreman",
-      "image": "portraits/george-foreman.jpg",
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 36
+      "game_index": 20
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Joe Frazier",
-      "image": "portraits/joe-frazier.jpg",
+      "fighter": "Muhammad Ali",
+      "image": "portraits/muhammad-ali.jpg",
       "game_class": "HEAVYWEIGHT",
-      "game_index": 32
+      "game_index": 29
     }
   },
   "winner": null,
@@ -916,5 +916,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795872966.0392632
+  "updated_at": 1795872974.4408078
 }
