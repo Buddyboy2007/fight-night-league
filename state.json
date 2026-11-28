@@ -40,7 +40,7 @@
           "country": "us",
           "game_class": "MIDDLEWEIGHT",
           "game_index": 1,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Devin Haney",
@@ -989,8 +989,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 9
       },
-      "winner": null,
-      "result": null
+      "winner": "right",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": false
+      }
     },
     {
       "id": 30,
@@ -1013,7 +1017,13 @@
     },
     {
       "id": 31,
-      "left": null,
+      "left": {
+        "team": "claude",
+        "fighter": "Devin Haney",
+        "image": "portraits/devin-haney.jpg",
+        "game_class": "WELTERWEIGHT",
+        "game_index": 9
+      },
       "right": null,
       "winner": null,
       "result": null
@@ -1327,24 +1337,35 @@
       "round": null,
       "bare_knuckle": false,
       "ts": 1795844986.0819435
+    },
+    {
+      "bout": 29,
+      "winner_team": "claude",
+      "winner_fighter": "Devin Haney",
+      "loser_team": "claude",
+      "loser_fighter": "Terence Crawford",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": false,
+      "ts": 1795848209.0458949
     }
   ],
   "current_match": {
-    "bout": 29,
+    "bout": 30,
     "round": "Semifinals",
     "left": {
-      "team": "claude",
-      "fighter": "Terence Crawford",
-      "image": "portraits/terence-crawford.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 1
+      "team": "grok",
+      "fighter": "Lancero Dennett",
+      "image": "portraits/lance-dennett.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 20
     },
     "right": {
-      "team": "claude",
-      "fighter": "Devin Haney",
-      "image": "portraits/devin-haney.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 9
+      "team": "grok",
+      "fighter": "Arturo Godoy",
+      "image": "portraits/arturo-godoy.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 21
     }
   },
   "winner": null,
@@ -1401,5 +1422,5 @@
       "Bantamweight"
     ]
   },
-  "updated_at": 1795845006.3768883
+  "updated_at": 1795848209.04593
 }
