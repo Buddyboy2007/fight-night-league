@@ -31,7 +31,7 @@
           "country": "us",
           "game_class": "WELTERWEIGHT",
           "game_index": 13,
-          "eliminated": false
+          "eliminated": true
         },
         {
           "name": "Mike Tyson",
@@ -562,8 +562,12 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 13
       },
-      "winner": null,
-      "result": null
+      "winner": "left",
+      "result": {
+        "method": "DEC",
+        "round": null,
+        "bare_knuckle": true
+      }
     },
     {
       "id": 13,
@@ -699,7 +703,13 @@
         "game_class": "WELTERWEIGHT",
         "game_index": 16
       },
-      "right": null,
+      "right": {
+        "team": "grok",
+        "fighter": "Sebastian Fundora",
+        "image": "portraits/sebastian-fundora.jpg",
+        "game_class": "MIDDLEWEIGHT",
+        "game_index": 22
+      },
       "winner": null,
       "result": null
     },
@@ -823,24 +833,35 @@
       "round": null,
       "bare_knuckle": true,
       "ts": 1795869443.1729918
+    },
+    {
+      "bout": 12,
+      "winner_team": "grok",
+      "winner_fighter": "Sebastian Fundora",
+      "loser_team": "chatgpt",
+      "loser_fighter": "Zab Judah",
+      "method": "DEC",
+      "round": null,
+      "bare_knuckle": true,
+      "ts": 1795872966.0392282
     }
   ],
   "current_match": {
-    "bout": 12,
-    "round": "Fight 12 of 31",
+    "bout": 1,
+    "round": "Fight 1 of 31",
     "left": {
-      "team": "grok",
-      "fighter": "Sebastian Fundora",
-      "image": "portraits/sebastian-fundora.jpg",
-      "game_class": "MIDDLEWEIGHT",
-      "game_index": 22
+      "team": "codex",
+      "fighter": "Old George Foreman",
+      "image": "portraits/george-foreman.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 36
     },
     "right": {
       "team": "chatgpt",
-      "fighter": "Zab Judah",
-      "image": "portraits/zab-judah.jpg",
-      "game_class": "WELTERWEIGHT",
-      "game_index": 13
+      "fighter": "Joe Frazier",
+      "image": "portraits/joe-frazier.jpg",
+      "game_class": "HEAVYWEIGHT",
+      "game_index": 32
     }
   },
   "winner": null,
@@ -895,5 +916,5 @@
       "Welterweight"
     ]
   },
-  "updated_at": 1795869451.569497
+  "updated_at": 1795872966.0392632
 }
